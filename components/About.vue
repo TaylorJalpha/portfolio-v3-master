@@ -16,14 +16,14 @@
                 <li>Data Analysis </li>
                 <li>Ruby on Rails </li>
                 <li>HTML | CSS | JavaScript </li>
-                <li>Vue | NUXT (new) </li>
+                <li>Vue (new) </li>
                 <li>Tailwind CSS | Bootstrap </li>
             </ul>
             <p class="text-sm font-light">
                 Product Management is my focus, with web development primarily being through consulting, side projects, or to support the teams I previously managed.
             </p>
             <p class="text-sm font-light">
-                Put starkly, I truly enjoy the process of building and shipping digital services. 
+                Put starkly, I truly enjoy the process of building and shipping digital services.
             </p>
         </div>
     </Card>

@@ -8,9 +8,11 @@
             </header>
             <div class="flex flex-col mt-4">
                 <h2 class="text-gray-500">Contact</h2>
-                <p>🐌 info@andreapuglisi.io</p>
-                <p>📲 +39 331 149 58 34</p>
-                <p>📍 Ragusa, Italy</p>
+                <p>taylorjacobferguson@gmail
+                    .com
+                </p>
+                <p>📲 (631)-678-3552</p>
+                <p>📍 Los Angeles,CA</p>
             </div>
             <div class="flex flex-col mt-4 w-fit">
                 <h2 class="text-gray-500">Social Network</h2>

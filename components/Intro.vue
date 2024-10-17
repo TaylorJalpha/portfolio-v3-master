@@ -5,8 +5,7 @@
                 <div class="flex flex-col h-full">
                     <h6 class="text-sm font-light m-0 text-gray-500">Welcome <span id="wave">👋</span></h6>
                     <p class="m-0 font-light text-xl">
-                        Hi, I'm Andrea Puglisi, a software developer specializing in both frontend and backend technologies.
-                        I have a strong focus on writing clean and reusable code, utilizing modern technology approaches. 😎
+                        Hello, I'm Taylor J. Ferguson, certified Product Manager (PMC) with a solid foundation in web development, with experience across multiple industries and business models: Fintech, blockchain, health-tech, and outsourced software development, most recently. 
                     </p>
                 </div>
                 <div class="flex gap-4">
@@ -96,8 +95,9 @@
                 </div>
             </div>
             <img width="300" height="300" :src="'./me/' + photoSrc"
+                :key="photoSrc"
                 class="w-auto max-h-[300px] select-none absolute right-[-110px] bottom-[-20px] z-[-1] opacity-50 md:opacity-100 md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none"
-                alt="memoji of andrea" />
+                alt="memoji of Taylor Ferguson" />
 
         </div>
     </Card>
@@ -105,11 +105,11 @@
 <script setup>
 import { ref } from 'vue';
 
-const photoSrc = ref('me10.webp');
+const photoSrc = ref('me1.webp');
 
 
 const randomizeMyPhoto = () => {
-    const totalImages = 17;
+    const totalImages = 8;
     const randomIndex = Math.floor(Math.random() * totalImages) + 1;
     photoSrc.value = `me${randomIndex}.webp`;
 }
