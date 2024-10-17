@@ -3,10 +3,10 @@ import moment from 'moment'
 import { ref } from 'vue';
 import Card from './Card.vue';
 
-const currentDateTime = ref(moment().format('h:mm:ss A [CET]'));
+const currentDateTime = ref(moment().format('h:mm:ss A [PST]'));
 
 onNuxtReady(() => {
-    currentDateTime.value = moment().format('h:mm:ss A [CET]');
+    currentDateTime.value = moment().format('h:mm:ss A [PST]');
 }, 1000);
 
 </script>

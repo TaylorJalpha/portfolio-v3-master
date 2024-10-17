@@ -3,7 +3,7 @@
         <div class="h-full">
             <header class="flex items-center">
                 <h1 class="text-white text-xl font-bold">
-                    Let's chat together!
+                    Let's sync up!
                 </h1>
             </header>
             <div class="flex flex-col mt-4">

@@ -14,9 +14,12 @@
                 <li>Product Management </li>
                 <li>Product Discovery</li>
                 <li>Data Analysis </li>
+                <li>Business modeling </li>
+                <li>Agile/ Scrum </li>
                 <li>Ruby on Rails </li>
-                <li>HTML | CSS | JavaScript </li>
+                <li>HTML | CSS | JS </li>
                 <li>Vue (new) </li>
+                <li>UI/UX</li>
                 <li>Tailwind CSS | Bootstrap </li>
             </ul>
             <p class="text-sm font-light">

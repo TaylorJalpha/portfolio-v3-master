@@ -27,10 +27,10 @@ const current_weather = reactive({
 })
 
 const getCurrentWeather = () => {
-    axios.get('https://api.openweathermap.org/data/3.0/onecall?lat=36.92727&lon=14.71445&appid=' + api_key)
+    axios.get('https://api.openweathermap.org/data/3.0/onecall?lat=36.92727&lon=14.71445&appid=' + api_key + '&units=imperial')
         .then((weather) => {
-            const celsius = (weather.data.current.temp - 273.15).toFixed(1);
-            current_weather.now.data = `${celsius} °C | Ragusa`;
+            const fahrenheit = weather.data.current.temp.toFixed(1);
+            current_weather.now.data = `${fahrenheit} \xB0F | Los Angeles`;
             current_weather.now.icon = `https://openweathermap.org/img/wn/${weather.data.current.weather[0].icon}@2x.png`;
             current_weather.loaded = true
         })
