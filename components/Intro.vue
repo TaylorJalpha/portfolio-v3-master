@@ -5,11 +5,11 @@
                 <div class="flex flex-col h-full">
                     <h6 class="text-sm font-light m-0 text-gray-500">Good day <span id="wave">👋</span></h6>
                     <p class="m-0 font-light text-xl">
-                        Hello, I'm Taylor J. Ferguson, certified Product Manager (PMC) with a solid foundation in web development, with experience across multiple industries and business models: Fintech, blockchain, health-tech, and outsourced software development, most recently. 
+                        Hello, I'm Taylor J. Ferguson, certified Product Manager (PMC) with a solid foundation in web development and experience across multiple industries and business models: Fintech, blockchain, health-tech, and outsourced software development, most recently. 
                     </p>
                 </div>
                 <div class="flex gap-4">
-                    <router-link to="https://github.com/TaylorJalpha" aria-label="github profile" target="_blank">
+                    <a href="https://github.com/TaylorJalpha" aria-label="github profile" target="_blank">
                         <Button aria-label="github profile">
                             <svg class="h-6" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
@@ -33,8 +33,8 @@
                             </svg>
                             <span class="sr-only">GitHub Profile</span>
                         </Button>
-                    </router-link>
-                    <router-link to="https://www.linkedin.com/in/taylor-jacob-ferguson/" aria-label="linkedin profile" target="_blank">
+                    </a>
+                    <a href="https://www.linkedin.com/in/taylor-jacob-ferguson/" aria-label="linkedin profile" target="_blank">
                         <Button aria-label="linkedin profile">
                             <svg class="h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -47,7 +47,7 @@
                             </svg>
                             <span class="sr-only">Linkedin Profile</span>
                         </Button>
-                    </router-link>
+                    </a>
 
                     <Button aria-label="easter-egg" @click="randomizeMyPhoto">
                         <svg class="h-6 vibrate" fill="#fff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"

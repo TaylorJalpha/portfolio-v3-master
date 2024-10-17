@@ -9,6 +9,6 @@
                 <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
             </span>
         </div>
-        <p class="text-xs">Currently seeking full-time employment <a href="https://formability.eu" target="_blank"></a></p>
+        <p class="text-xs"><b>Currently seeking full-time employment</b> and working on a few projects: product / web dev <a href="https://formability.eu" target="_blank"></a></p>
     </Card>
 </template>

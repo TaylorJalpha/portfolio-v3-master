@@ -8,8 +8,8 @@
             </header>
             <div class="flex flex-col mt-4">
                 <h2 class="text-gray-500">Contact</h2>
-                <p>taylorjacobferguson@gmail
-                    .com
+                <p> 📧 taylorjacobferguson
+                    @gmail.com
                 </p>
                 <p>📲 (631)-678-3552</p>
                 <p>📍 Los Angeles,CA</p>
@@ -18,16 +18,13 @@
                 <h2 class="text-gray-500">Social Network</h2>
                 <ul>
                     <li>
-                        <a href="https://www.instagram.com/andreapuglisi" target="_blank">Instagram</a>
+                        <a href="https://instagram.com/tayloralphaa" target="_blank">Instagram</a>
                     </li>
                     <li>
-                        <a href="https://www.facebook.com/andrea.puglisi.95/" target="_blank">Facebook</a>
+                        <a href="https://www.linkedin.com/in/taylor-jacob-ferguson/" target="_blank">LinkedIn</a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/in/andrea-puglisi-9046a255/" target="_blank">LinkedIn</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/apdev95" target="_blank">GitHub</a>
+                        <a href="https://github.com/TaylorJalpha" target="_blank">GitHub</a>
                     </li>
                 </ul>
             </div>

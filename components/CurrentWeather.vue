@@ -8,7 +8,7 @@
             </p>
         </div>
         <div class="h-full w-full absolute inset-0 -z-10">
-            <img class="world-img" src="../assets/mdrg.jpg">
+            <img class="world-img" src="../assets/css/mdrg.jpg">
         </div>
     </Card>
 </template>

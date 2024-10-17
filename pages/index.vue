@@ -24,10 +24,10 @@ const animateCards = () => {
 onMounted(animateCards);
 
 useSeoMeta({
-    title: 'Andrea Puglisi - Software Developer in Italy',
-    ogTitle: 'Andrea Puglisi - Software Developer in Italy',
-    description: 'Hello! I am Andrea and this is my website 🙂.',
-    ogDescription: 'Hello! I am Andrea and this is my website 🙂.',
+    title: 'Taylor Ferguson - Product Manager and Web  Developer',
+    ogTitle: 'Taylor Ferguson - Software Developer in Italy',
+    description: 'Taylor Ferguson - New Bento Grid portfolio website',
+    ogDescription: 'Taylor Ferguson - New Bento Grid portfolio website',
     ogImage: './me/me1.png',
     twitterCard: './me/me1.png',
 })
