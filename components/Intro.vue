@@ -3,13 +3,13 @@
         <div class="flex w-full h-full">
             <div class="flex flex-col justify-between md:max-h-[300px] gap-4">
                 <div class="flex flex-col h-full">
-                    <h6 class="text-sm font-light m-0 text-gray-500">Welcome <span id="wave">👋</span></h6>
+                    <h6 class="text-sm font-light m-0 text-gray-500">Good day <span id="wave">👋</span></h6>
                     <p class="m-0 font-light text-xl">
                         Hello, I'm Taylor J. Ferguson, certified Product Manager (PMC) with a solid foundation in web development, with experience across multiple industries and business models: Fintech, blockchain, health-tech, and outsourced software development, most recently. 
                     </p>
                 </div>
                 <div class="flex gap-4">
-                    <router-link to="" aria-label="github profile" target="_blank">
+                    <router-link to="https://github.com/TaylorJalpha" aria-label="github profile" target="_blank">
                         <Button aria-label="github profile">
                             <svg class="h-6" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
@@ -34,7 +34,7 @@
                             <span class="sr-only">GitHub Profile</span>
                         </Button>
                     </router-link>
-                    <router-link to="" aria-label="linkeding profile" target="_blank">
+                    <router-link to="https://www.linkedin.com/in/taylor-jacob-ferguson/" aria-label="linkedin profile" target="_blank">
                         <Button aria-label="linkedin profile">
                             <svg class="h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
