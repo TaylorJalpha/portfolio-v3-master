@@ -2,6 +2,9 @@
   "name": "nuxt-app",
   "private": true,
   "type": "module",
+  "exports": {
+    "#internal/nuxt/paths": "./.nuxt/dist/server/server.mjs"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -23,3 +26,4 @@
     "motion": "^10.16.4"
   }
 }
+

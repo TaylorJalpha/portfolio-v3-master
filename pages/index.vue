@@ -24,10 +24,10 @@ const animateCards = () => {
 onMounted(animateCards);
 
 useSeoMeta({
-    title: 'Taylor Ferguson - Product Manager and Web  Developer',
-    ogTitle: 'Taylor Ferguson - Software Developer in Italy',
-    description: 'Taylor Ferguson - New Bento Grid portfolio website',
-    ogDescription: 'Taylor Ferguson - New Bento Grid portfolio website',
+    title: 'Taylor J. Ferguson - Product Manager and Web  Developer',
+    ogTitle: 'Taylor J. Ferguson - Product Manager and Web  Developer ',
+    description: 'Taylor J. Ferguson - Los Angeles-based certified Product Manager (PMC) and Web  Developer, with Biz Dev knowledge',
+    ogDescription: 'Taylor J. Ferguson - Los Angeles-based Product Manager and Web  Developer, with Biz Dev knowledge',
     ogImage: './me/me1.png',
     twitterCard: './me/me1.png',
 })
