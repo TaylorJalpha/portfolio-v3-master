@@ -2,13 +2,13 @@
     <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
         <div class="mt-2">
             <p v-if="current_weather.loaded" class="m-0 font-light text-xl text-center flex items-center justify-center">
-                <img :src="current_weather.now.icon" width="50" /> {{ current_weather.now.data }}
+                <img :src="current_weather.now.icon" width="50" alt="Weather Icon"/> {{ current_weather.now.data }}
             </p>
             <p class="m-0 font-light text-sm text-center flex items-center justify-center" v-else>Loading weather data...
             </p>
         </div>
         <div class="h-full w-full absolute inset-0 -z-10">
-            <img class="world-img" src="../assets/css/mdrg.jpg">
+            <img class="world-img" src="../assets/css/mdrg.jpg" alt="Picture of mountains in Los Angeles">
         </div>
     </Card>
 </template>

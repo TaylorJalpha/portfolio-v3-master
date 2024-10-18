@@ -23,10 +23,11 @@
                 <li>Tailwind CSS | Bootstrap </li>
             </ul>
             <p class="text-sm font-light">
-                Product Management is my focus, with web development primarily being through consulting, side projects, or to support the teams I previously managed.
+                
+ I bring a well-rounded perspective to any project or role – Driving strategy, build scalable web solutions, or unlock growth opportunities through biz dev / customer acquisition
             </p>
             <p class="text-sm font-light">
-                Put starkly, I truly enjoy the process of building and shipping digital services.
+                
             </p>
         </div>
     </Card>
