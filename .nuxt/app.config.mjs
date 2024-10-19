@@ -3,15 +3,7 @@ import { updateAppConfig } from '#app/config'
 import { defuFn } from 'defu'
 
 const inlineConfig = {
-  "nuxt": {},
-  "head": {
-    "script": [
-      {
-        "src": "https://www.clarity.ms/tag/[YOUR_TAG_ID]",
-        "async": true
-      }
-    ]
-  }
+  "nuxt": {}
 }
 
 // Vite - webpack is handled directly in #app/config
