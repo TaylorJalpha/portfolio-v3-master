@@ -14,7 +14,7 @@
                 <li>Product Management </li>
                 <li>Product Discovery</li>
                 <li>Data Analysis </li>
-                <li>Business modeling </li>
+                <li>Business Modeling </li>
                 <li>Agile/ Scrum </li>
                 <li>Ruby on Rails </li>
                 <li>HTML | CSS | JS </li>
