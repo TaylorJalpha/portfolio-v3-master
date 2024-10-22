@@ -11,7 +11,6 @@
                 <p> 📧 taylorjacobferguson
                     @gmail.com
                 </p>
-                <p>📲 (631)-678-3552</p>
                 <p>📍 Los Angeles,CA</p>
             </div>
             <div class="flex flex-col mt-4 w-fit">
