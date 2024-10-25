@@ -8,8 +8,7 @@
             </header>
             <div class="flex flex-col mt-4">
                 <h2 class="text-gray-500">Contact</h2>
-                <p> 📧 taylorjacobferguson
-                    @gmail.com
+                <p> 📧 taylorjacobferguson @gmail.com
                 </p>
                 <p>📍Los Angeles,CA</p>
             </div>

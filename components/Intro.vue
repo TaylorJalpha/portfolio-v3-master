@@ -109,9 +109,10 @@ const photoSrc = ref('me1.webp');
 
 
 const randomizeMyPhoto = () => {
-    const totalImages = 8;
+    const totalImages = 7;
     const randomIndex = Math.floor(Math.random() * totalImages) + 1;
     photoSrc.value = `me${randomIndex}.webp`;
 }
 
 </script>
+
