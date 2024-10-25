@@ -11,7 +11,7 @@
                 <p> 📧 taylorjacobferguson
                     @gmail.com
                 </p>
-                <p>📍 Los Angeles,CA</p>
+                <p>📍Los Angeles,CA</p>
             </div>
             <div class="flex flex-col mt-4 w-fit">
                 <h2 class="text-gray-500">Social Network</h2>
