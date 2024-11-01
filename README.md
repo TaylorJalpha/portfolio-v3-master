@@ -34,6 +34,4 @@ $ npm install
 # Start the project in development
 $ npm run dev
 ```
-## Authors ❤️
 
-- Ported to Nuxt by Me, but Thank you for your hard work [@Ladvace](https://www.github.com/Ladvace) aka Gianmarco - https://github.com/Ladvace | https://gianmarco.xyz/ 
