@@ -10,5 +10,6 @@ useHead({
 <template>
     <NuxtLayout>
         <NuxtPage />
+        <portal-target name="modals"></portal-target>
     </NuxtLayout>
 </template>

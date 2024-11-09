@@ -5,7 +5,9 @@
                 <div class="flex flex-col h-full">
                     <h6 class="text-sm font-light m-0 text-gray-500">Good day <span id="wave">👋</span></h6>
                     <p class="m-0 font-light text-xl">
-                        Hello, I'm Taylor J. Ferguson, a certified Product Manager (PMC) with a solid foundation in web development, and biz dev, and experience across multiple industries and business models: Fintech, blockchain, health-tech, and outsourced software development, most recently
+                        Hello, I'm Taylor J. Ferguson, a certified Product Manager (PMC) with a solid foundation in web
+                        development, and biz dev, and experience across multiple industries and business models:
+                        Fintech, blockchain, health-tech, and outsourced software development, most recently
                     </p>
                 </div>
                 <div class="flex gap-4">
@@ -34,7 +36,8 @@
                             <span class="sr-only">GitHub Profile</span>
                         </Button>
                     </a>
-                    <a href="https://www.linkedin.com/in/taylor-jacob-ferguson/" aria-label="linkedin profile" target="_blank">
+                    <a href="https://www.linkedin.com/in/taylor-jacob-ferguson/" aria-label="linkedin profile"
+                        target="_blank">
                         <Button aria-label="linkedin profile">
                             <svg class="h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -50,9 +53,9 @@
                     </a>
 
                     <Button aria-label="easter-egg" @click="randomizeMyPhoto">
-                        <svg class="h-6 vibrate" fill="#fff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
-                            stroke="#fff">
+                        <svg class="h-6 vibrate" fill="#fff" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 512 512" xml:space="preserve" stroke="#fff">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                             <g id="SVGRepo_iconCarrier">
@@ -71,8 +74,8 @@
                                 <g>
                                     <g>
                                         <rect x="24.183" y="40.811"
-                                            transform="matrix(0.3333 -0.9428 0.9428 0.3333 -37.458 84.2994)" width="33.391"
-                                            height="55.65"></rect>
+                                            transform="matrix(0.3333 -0.9428 0.9428 0.3333 -37.458 84.2994)"
+                                            width="33.391" height="55.65"></rect>
                                     </g>
                                 </g>
                                 <g>
@@ -83,8 +86,8 @@
                                 <g>
                                     <g>
                                         <rect x="443.282" y="51.937"
-                                            transform="matrix(0.9428 -0.3333 0.3333 0.9428 4.0631 160.9478)" width="55.65"
-                                            height="33.391"></rect>
+                                            transform="matrix(0.9428 -0.3333 0.3333 0.9428 4.0631 160.9478)"
+                                            width="55.65" height="33.391"></rect>
                                     </g>
                                 </g>
                             </g>
@@ -92,21 +95,55 @@
                         <span class="sr-only">Easter Egg</span>
                     </Button>
 
+                    <Button aria-label="expand-contact-form" @click="openContactForm">
+                        <svg class="h-6" fill="#fff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
+                            stroke="#fff">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g>
+                                    <g>
+                                        <path
+                                            d="M256,0C114.836,0,0,114.836,0,256s114.836,256,256,256s256-114.836,256-256S397.164,0,256,0z M256,482.286
+                                            C126.286,482.286,29.714,385.714,29.714,256S126.286,29.714,256,29.714S482.286,126.286,482.286,256S385.714,482.286,256,482.286z
+                                            M256,85.714c-9.142,0-16.571,7.429-16.571,16.571v137.143H102.857c-9.142,0-16.571,7.429-16.571,16.571
+                                            s7.429,16.571,16.571,16.571h137.143v137.143c0,9.142,7.429,16.571,16.571,16.571s16.571-7.429,16.571-16.571V272.571h137.143
+                                            c9.142,0,16.571-7.429,16.571-16.571s-7.429-16.571-16.571-16.571H272.571V102.857C272.571,93.143,265.142,85.714,256,85.714z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <span class="sr-only">Expand Contact Form</span>
+                        
+                    </Button>
+                    <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-yellow-300 border border-yellow-300"> &larr; Rails backend (WIP)</span>
                 </div>
             </div>
-            <img width="300" height="300" :src="'./me/' + photoSrc"
-                :key="photoSrc"
+            <ContactForm v-model:isOpen="isContactFormOpen" @close="isContactFormOpen = false" />
+
+            <img width="300" height="300" :src="'./me/' + photoSrc" :key="photoSrc"
                 class="w-auto max-h-[300px] select-none absolute right-[-110px] bottom-[-20px] z-[-1] opacity-50 md:opacity-100 md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none"
                 alt="memoji of Taylor Ferguson" />
 
         </div>
+
     </Card>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
+import ContactForm from './ContactForm.vue';
 
 const photoSrc = ref('me1.webp');
 
+const isOpen = ref < boolean > (false);
+  const isContactFormOpen = ref < boolean > (false);
+  // const router = useRouter();
+  const openContactForm = (event: Event) => {
+    event.preventDefault();
+    isContactFormOpen.value = true;
+  };
 
 const randomizeMyPhoto = () => {
     const totalImages = 7;
@@ -115,4 +152,3 @@ const randomizeMyPhoto = () => {
 }
 
 </script>
-

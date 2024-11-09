@@ -1,57 +1,46 @@
 <template>
-<div class="learn-more-container">
-    <button class="learn-more-button" @click="openModal()">
-        <span class="button-text">Shoot me a message!</span>
-    </button>
-    <div v-if="isModalOpen" class="modal-overlay" @click="closeModal()">
-        <div class="modal-content" @click.stop>
-            <h3><b>Reach out with any questions or inquiries! 🏌🏼‍♂️</b></h3>
-            <form @submit.prevent="submitForm()">
-                <div class="form-group">
-                    <label for="firstName">Your Name</label>
-                    <input type="text" id="firstName" v-model="formData.firstName" required />
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" v-model="formData.email" required />
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number:</label>
-                    <input type="text" id="phone" v-model="formData.phone" required />
-                </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" v-model="formData.message" required></textarea>
-                </div>
-                <button type="submit" class="submit-button">Submit</button>
-                <button type="button" class="close-button" @click="closeModal()">Close</button>
-            </form>
-        </div>
+  <portal to="modals">
+    <div v-if="isOpen" class="modal-overlay" @click="closeModal()">
+      <div class="modal-content" @click.stop>
+        <h3><b>Reach out with any questions or inquiries! 🏌🏼‍♂️</b></h3>
+        <form @submit.prevent="submitForm()">
+          <div class="form-group">
+            <label for="Name">Your Name</label>
+            <input type="text" id="Name" v-model="formData.Name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" v-model="formData.email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" v-model="formData.phone" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" v-model="formData.message" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Submit</button>
+          <button type="button" class="close-button" @click="closeModal()">Close</button>
+        </form>
+      </div>
     </div>
-</div>
+  </portal>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from 'vue';
+import { defineComponent, ref, onMounted, watch } from 'vue';
 import axios from 'axios';
+import type { AxiosError, AxiosResponse } from 'axios';
+import { Portal } from 'portal-vue';
 
 interface FormData {
   [key: string]: string;
-  firstName: string;
-  lastName: string;
+  Name: string;
   email: string;
   phone: string;
   message: string;
 }
-
-const formData = ref<FormData>({
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  message: '',
-});
-
 
 const api = axios.create({
   baseURL: 'http://localhost:3000',
@@ -68,7 +57,7 @@ api.interceptors.request.use((config) => {
     .split('; ')
     .find(row => row.startsWith('CSRF-TOKEN='))
     ?.split('=')[1];
-    
+
   if (token) {
     config.headers['X-CSRF-Token'] = decodeURIComponent(token);
   }
@@ -76,12 +65,21 @@ api.interceptors.request.use((config) => {
 });
 
 export default defineComponent({
-  setup() {
-    const isModalOpen = ref<boolean>(false);
+  components: {
+    Portal
+  },
+  props: {
+    isOpen: {
+      type: Boolean,
+      required: true
+    }
+  },
+  emits: ['close'],
+  setup(props, { emit }) {
+    const isModalOpen = ref<boolean>(props.isOpen);
     const isLoading = ref<boolean>(false);
-    const formData = ref({
-      firstName: '',
-      lastName: '',
+    const formData = ref<FormData>({
+      Name: '',
       email: '',
       phone: '',
       message: '',
@@ -89,10 +87,10 @@ export default defineComponent({
 
     const fetchCSRFToken = async () => {
       try {
-        const response = await api.get('/csrf-token');
+        const response: AxiosResponse = await api.get('/csrf-token');
         const csrfToken = response.data.csrfToken;
         document.cookie = `CSRF-TOKEN=${encodeURIComponent(csrfToken)}; path=/`;
-      } catch (error) {
+      } catch (error: AxiosError) {
         console.error('Failed to fetch CSRF token:', error);
       }
     };
@@ -100,10 +98,9 @@ export default defineComponent({
     const submitForm = async () => {
       isLoading.value = true;
       try {
-        const response = await api.post('/admin/contact_form', {
+        const response: AxiosResponse = await api.post('/admin/contact_form', {
           contact_form: {
-            first_name: formData.value.firstName,
-            last_name: formData.value.lastName,
+            Name: formData.value.Name,
             email: formData.value.email,
             phone: formData.value.phone,
             message: formData.value.message,
@@ -114,14 +111,12 @@ export default defineComponent({
           alert('Form submitted successfully!');
           closeModal();
           resetForm();
+        } else {
+          console.error('Error submitting form:', response);
+          alert('Failed to submit form. Please try again.');
         }
-      } catch (error: any) {
+      } catch (error: AxiosError) {
         console.error('Error submitting form:', error);
-        if (error.response) {
-          console.error('Response data:', error.response.data);
-          console.error('Response status:', error.response.status);
-          console.error('Response headers:', error.response.headers);
-        }
         alert('Failed to submit form. Please try again.');
       } finally {
         isLoading.value = false;
@@ -129,15 +124,13 @@ export default defineComponent({
     };
 
     const resetForm = () => {
-  const keys = ['firstName', 'lastName', 'email', 'phone', 'message'] as (keyof typeof formData.value)[];
-  keys.forEach(key => formData.value[key] = '');
-};
-    const openModal = () => {
-      isModalOpen.value = true;
+      const keys = ['Name', 'email', 'phone', 'message'] as (keyof FormData)[];
+      keys.forEach(key => formData.value[key] = '');
     };
 
     const closeModal = () => {
       isModalOpen.value = false;
+      emit('close');
       resetForm();
     };
 
@@ -149,7 +142,6 @@ export default defineComponent({
       isModalOpen,
       isLoading,
       formData,
-      openModal,
       closeModal,
       submitForm,
     };
@@ -158,53 +150,17 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.learn-more-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10vh;
-
-}
-
-.learn-more-button {
-  position: relative;
-  margin-bottom: 0.4rem;
-  margin-inline-end: 0.4rem;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  cursor: pointer;
-
-
-}
-
-.button-text {
-  position: relative;
-  padding: 10px 25px;
-  background: #F64E4D;
-  border-radius: 0.5rem;
-  transition: box-shadow .3s ease-in-out;
-  Color: #fff;
-  box-shadow: 0 8px 15px 0 rgba(54, 193, 255, .2), 0 8px 15px 0 rgba(54, 193, 255, .2);
-  text-decoration: none !important;
-}
-
-.learn-more-button:hover .button-text {
-  background: #F64E4D;
-  border: 2px solid rgb(133, 169, 169);
-}
-
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(77, 69, 83, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-
 }
 
 .modal-content {
@@ -249,14 +205,12 @@ label {
   margin-bottom: 15px;
   color: rgb(255, 255, 255);
   padding-top: -1rem;
-
 }
 
 .form-group label {
   display: block;
   margin-bottom: 5px;
   color: rgb(255, 255, 255);
-
 }
 
 .form-group input,
@@ -265,7 +219,6 @@ label {
   padding: 8px;
   box-sizing: border-box;
   color: rgb(9, 9, 9);
-
   border-radius: 5px;
 }
 
@@ -309,5 +262,4 @@ label {
   background-color: #1d4ed8;
   /* Tailwind's bg-blue-700 */
 }
-
 </style>

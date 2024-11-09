@@ -23,6 +23,7 @@
     "@aws-amplify/cli": "^12.13.0",
     "axios": "^1.7.7",
     "moment": "^2.29.4",
-    "motion": "^10.16.4"
+    "motion": "^10.16.4",
+    "portal-vue": "^3.0.0"
   }
 }
