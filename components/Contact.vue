@@ -12,6 +12,7 @@
                 </p>
                 <p>📍Los Angeles,CA</p>
             </div>
+            
             <div class="flex flex-col mt-4 w-fit">
                 <h2 class="text-gray-500">Social Network</h2>
                 <ul>
@@ -25,7 +26,19 @@
                         <a href="https://github.com/TaylorJalpha" target="_blank">GitHub</a>
                     </li>
                 </ul>
+                
             </div>
+           
         </div>
+       
     </Card>
+   
+    <ContactForm />
 </template>
+
+<script setup lang="ts">
+import ContactForm from './ContactForm.vue';
+
+</script>
+
+
