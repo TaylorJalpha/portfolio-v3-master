@@ -33,11 +33,11 @@
        
     </Card>
    
-    <ContactForm />
+   <!-- <ContactForm />-->
 </template>
 
 <script setup lang="ts">
-import ContactForm from './ContactForm.vue';
+//import ContactForm from './ContactForm.vue';
 
 </script>
 
