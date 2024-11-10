@@ -118,7 +118,7 @@
                         <span class="sr-only">Expand Contact Form</span>
                         
                     </Button>
-                    <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-yellow-300 border border-yellow-300"> &larr; Rails backend (WIP)</span>
+                    <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-yellow-300 border border-yellow-300"> &larr;(WIP)</span>
                 </div>
             </div>
             <ContactForm v-model:isOpen="isContactFormOpen" @close="isContactFormOpen = false" />
