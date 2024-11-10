@@ -42,7 +42,7 @@ import { Portal } from "portal-vue";
 
 interface FormData {
   [key: string]: string;
-  Name: string;
+  name: string;
   email: string;
   phone: string;
   message: string;
@@ -85,7 +85,7 @@ export default defineComponent({
     const isModalOpen = ref<boolean>(props.isOpen);
     const isLoading = ref<boolean>(false);
     const formData = ref<FormData>({
-      Name: "",
+      name: "",
       email: "",
       phone: "",
       message: "",
@@ -106,7 +106,7 @@ export default defineComponent({
       try {
         const response: AxiosResponse = await api.post("/admin/contact_form", {
           contact_form: {
-            Name: formData.value.Name,
+            name: formData.value.name,
             email: formData.value.email,
             phone: formData.value.phone,
             message: formData.value.message,
@@ -130,7 +130,7 @@ export default defineComponent({
     };
 
     const resetForm = () => {
-      const keys = ["Name", "email", "phone", "message"] as (keyof FormData)[];
+      const keys = ["name", "email", "phone", "message"] as (keyof FormData)[];
       keys.forEach((key) => (formData.value[key] = ""));
     };
 
@@ -144,6 +144,10 @@ export default defineComponent({
       await fetchCSRFToken();
     });
 
+    watch(() => props.isOpen, (newVal) => {
+      isModalOpen.value = newVal;
+    });
+
     return {
       isModalOpen,
       isLoading,
@@ -153,7 +157,7 @@ export default defineComponent({
     };
   },
 });
-</script>
+</script>v
 
 <style scoped>
 .modal-overlay {
