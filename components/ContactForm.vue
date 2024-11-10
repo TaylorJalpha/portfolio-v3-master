@@ -18,10 +18,16 @@
           </div>
           <div class="form-group">
             <label for="message">Message:</label>
-            <textarea id="message" v-model="formData.message" required></textarea>
+            <textarea
+              id="message"
+              v-model="formData.message"
+              required
+            ></textarea>
           </div>
           <button type="submit" class="submit-button">Submit</button>
-          <button type="button" class="close-button" @click="closeModal()">Close</button>
+          <button type="button" class="close-button" @click="closeModal()">
+            Close
+          </button>
         </form>
       </div>
     </div>
@@ -29,10 +35,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, watch } from 'vue';
-import axios from 'axios';
-import type { AxiosError, AxiosResponse } from 'axios';
-import { Portal } from 'portal-vue';
+import { defineComponent, ref, onMounted, watch } from "vue";
+import axios from "axios";
+import type { AxiosError, AxiosResponse } from "axios";
+import { Portal } from "portal-vue";
 
 interface FormData {
   [key: string]: string;
@@ -43,94 +49,94 @@ interface FormData {
 }
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: "http://localhost:3000",
   withCredentials: true,
   headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  }
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
 });
 
 // request interceptor
 api.interceptors.request.use((config) => {
   const token = document.cookie
-    .split('; ')
-    .find(row => row.startsWith('CSRF-TOKEN='))
-    ?.split('=')[1];
+    .split("; ")
+    .find((row) => row.startsWith("CSRF-TOKEN="))
+    ?.split("=")[1];
 
   if (token) {
-    config.headers['X-CSRF-Token'] = decodeURIComponent(token);
+    config.headers["X-CSRF-Token"] = decodeURIComponent(token);
   }
   return config;
 });
 
 export default defineComponent({
   components: {
-    Portal
+    Portal,
   },
   props: {
     isOpen: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
-  emits: ['close'],
+  emits: ["close"],
   setup(props, { emit }) {
     const isModalOpen = ref<boolean>(props.isOpen);
     const isLoading = ref<boolean>(false);
     const formData = ref<FormData>({
-      Name: '',
-      email: '',
-      phone: '',
-      message: '',
+      Name: "",
+      email: "",
+      phone: "",
+      message: "",
     });
 
     const fetchCSRFToken = async () => {
       try {
-        const response: AxiosResponse = await api.get('/csrf-token');
+        const response: AxiosResponse = await api.get("/csrf-token");
         const csrfToken = response.data.csrfToken;
         document.cookie = `CSRF-TOKEN=${encodeURIComponent(csrfToken)}; path=/`;
       } catch (error: AxiosError) {
-        console.error('Failed to fetch CSRF token:', error);
+        console.error("Failed to fetch CSRF token:", error);
       }
     };
 
     const submitForm = async () => {
       isLoading.value = true;
       try {
-        const response: AxiosResponse = await api.post('/admin/contact_form', {
+        const response: AxiosResponse = await api.post("/admin/contact_form", {
           contact_form: {
             Name: formData.value.Name,
             email: formData.value.email,
             phone: formData.value.phone,
             message: formData.value.message,
-          }
+          },
         });
 
         if (response.status === 200) {
-          alert('Form submitted successfully!');
+          alert("Form submitted successfully!");
           closeModal();
           resetForm();
         } else {
-          console.error('Error submitting form:', response);
-          alert('Failed to submit form. Please try again.');
+          console.error("Error submitting form:", response);
+          alert("Failed to submit form. Please try again.");
         }
       } catch (error: AxiosError) {
-        console.error('Error submitting form:', error);
-        alert('Failed to submit form. Please try again.');
+        console.error("Error submitting form:", error);
+        alert("Failed to submit form. Please try again.");
       } finally {
         isLoading.value = false;
       }
     };
 
     const resetForm = () => {
-      const keys = ['Name', 'email', 'phone', 'message'] as (keyof FormData)[];
-      keys.forEach(key => formData.value[key] = '');
+      const keys = ["Name", "email", "phone", "message"] as (keyof FormData)[];
+      keys.forEach((key) => (formData.value[key] = ""));
     };
 
     const closeModal = () => {
       isModalOpen.value = false;
-      emit('close');
+      emit("close");
       resetForm();
     };
 
@@ -189,14 +195,14 @@ export default defineComponent({
 }
 
 h3 {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
 label {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   color: #333;
 }
@@ -222,44 +228,32 @@ label {
   border-radius: 5px;
 }
 
-/* Updated Submit Button */
 .submit-button {
   background-color: #3b82f6;
-  /* Tailwind's bg-blue-500 */
   color: #fff;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  /* Tailwind's py-2 px-4 */
   border: 1px solid #1d4ed8;
-  /* Tailwind's border-blue-700 */
   border-radius: 0.25rem;
-  /* Tailwind's rounded */
   transition: background-color 0.2s ease;
 }
 
 .submit-button:hover {
   background-color: #1d4ed8;
-  /* Tailwind's bg-blue-700 */
 }
 
-/* Updated Close Button */
 .close-button {
   background-color: #3b82f6;
-  /* Tailwind's bg-blue-500 */
   color: #fff;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  /* Tailwind's py-2 px-4 */
   border: 1px solid #1d4ed8;
-  /* Tailwind's border-blue-700 */
   border-radius: 0.25rem;
-  /* Tailwind's rounded */
   margin-left: 10px;
   transition: background-color 0.2s ease;
 }
 
 .close-button:hover {
   background-color: #1d4ed8;
-  /* Tailwind's bg-blue-700 */
 }
 </style>
