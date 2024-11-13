@@ -9,6 +9,6 @@
                 <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
             </span>
         </div>
-        <p class="text-xs">Currently working on a few projects... Product, web dev, and studying for the AWS Solutions Architect ––Associate Cert<a href="https://formability.eu" target="_blank"></a></p>
+        <p class="text-xs">Currently working on a few projects..<a href="https://formability.eu" target="_blank"></a></p>
     </Card>
 </template>
