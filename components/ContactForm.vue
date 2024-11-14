@@ -57,7 +57,6 @@ const api = axios.create({
   },
 });
 
-// request interceptor
 api.interceptors.request.use((config) => {
   const token = document.cookie
     .split("; ")
@@ -96,7 +95,7 @@ export default defineComponent({
         const response: AxiosResponse = await api.get("/csrf-token");
         const csrfToken = response.data.csrfToken;
         document.cookie = `CSRF-TOKEN=${encodeURIComponent(csrfToken)}; path=/`;
-      } catch (error: AxiosError) {
+      } catch (error) {
         console.error("Failed to fetch CSRF token:", error);
       }
     };
@@ -121,7 +120,7 @@ export default defineComponent({
           console.error("Error submitting form:", response);
           alert("Failed to submit form. Please try again.");
         }
-      } catch (error: AxiosError) {
+      } catch (error) {
         console.error("Error submitting form:", error);
         alert("Failed to submit form. Please try again.");
       } finally {
@@ -157,7 +156,7 @@ export default defineComponent({
     };
   },
 });
-</script>v
+</script>
 
 <style scoped>
 .modal-overlay {
