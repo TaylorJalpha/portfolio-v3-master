@@ -35,7 +35,7 @@ const getCurrentWeather = () => {
             current_weather.loaded = true
         })
         .catch(error => {
-            console.log('Errore durante la chiamata', error);
+            console.log('Error during the weather API call', error);
         });
 }
 

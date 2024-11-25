@@ -5,8 +5,8 @@
         <h3><b>Reach out with any questions or inquiries! 🏌🏼‍♂️</b></h3>
         <form @submit.prevent="submitForm()">
           <div class="form-group">
-            <label for="Name">Your Name</label>
-            <input type="text" id="Name" v-model="formData.Name" required />
+            <label for="name">Your Name</label>
+            <input type="text" id="name" v-model="formData.name" required />
           </div>
           <div class="form-group">
             <label for="email">Email:</label>
@@ -103,7 +103,7 @@ export default defineComponent({
     const submitForm = async () => {
       isLoading.value = true;
       try {
-        const response: AxiosResponse = await api.post("/admin/contact_form", {
+        const response: AxiosResponse = await api.post("contact_form", {
           contact_form: {
             name: formData.value.name,
             email: formData.value.email,
@@ -112,7 +112,7 @@ export default defineComponent({
           },
         });
 
-        if (response.status === 200) {
+        if (response.status === 201) {
           alert("Form submitted successfully!");
           closeModal();
           resetForm();
@@ -121,16 +121,25 @@ export default defineComponent({
           alert("Failed to submit form. Please try again.");
         }
       } catch (error) {
-        console.error("Error submitting form:", error);
-        alert("Failed to submit form. Please try again.");
+        if (error.response) {
+          console.error("Error submitting form:", error.response.data);
+          alert(`Failed to submit form: ${error.response.data.errors.join(", ")}`);
+        } else {
+          console.error("Error submitting form:", error);
+          alert("Failed to submit form. Please try again.");
+        }
       } finally {
         isLoading.value = false;
       }
     };
 
     const resetForm = () => {
-      const keys = ["name", "email", "phone", "message"] as (keyof FormData)[];
-      keys.forEach((key) => (formData.value[key] = ""));
+      formData.value = {
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      };
     };
 
     const closeModal = () => {
