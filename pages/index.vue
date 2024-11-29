@@ -20,14 +20,12 @@ const animateCards = () => {
     ];
     timeline(sequence);
 };
-
 onMounted(animateCards);
-
 useSeoMeta({
-    title: 'Taylor J. Ferguson - Product Manager and Web  Developer',
-    ogTitle: 'Taylor J. Ferguson - Product Manager and Web  Developer ',
-    description: 'Taylor J. Ferguson - Los Angeles-based certified Product Manager (PMC) and Web  Developer, with Biz Dev knowledge',
-    ogDescription: 'Taylor J. Ferguson - Los Angeles-based Product Manager and Web  Developer, with Biz Dev knowledge',
+    title: 'Taylor J. Ferguson - Dynamic Product Manager with Technical Expertise',
+    ogTitle: 'Taylor J. Ferguson - Product Management Specialist',
+    description: 'Taylor J. Ferguson - Skilled Product Manager with extensive experience in Fintech, Blockchain, and HealthTech.',
+    ogDescription: 'Taylor J. Ferguson - Los Angeles-based Product Manager with a robust technical background in Fintech, Blockchain, and HealthTech. Formerly in Business Development.',
     ogImage: './me/me1.png',
     twitterCard: './me/me1.png',
 })
