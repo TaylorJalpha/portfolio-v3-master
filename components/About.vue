@@ -3,7 +3,7 @@
         <div class="flex flex-col gap-2">
             <h2 class="text-xl font-bold m-0 z-20">About me</h2>
             <p class="text-sm font-light">
-                Product Manager (PMC/ PLC) and web developer with over 8 years of total experience.
+                Product Manager (PMC/ PLC) with over 8 years of total experience.
                 <br />
 
             </p>
