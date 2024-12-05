@@ -1,22 +1,22 @@
 <template>
   <portal to="modals">
-    <div v-if="isOpen" class="modal-overlay" @click="closeModal()">
-      <div class="modal-content" @click.stop>
+    <div v-if="isOpen" class="modal-overlay-pv3" @click="closeModal()">
+      <div class="modal-content-pv3" @click.stop>
         <h3><b>Reach out with any questions or inquiries! 🏌🏼‍♂️</b></h3>
         <form @submit.prevent="submitForm()">
-          <div class="form-group">
+          <div class="form-group-pv3">
             <label for="name">Your Name</label>
             <input type="text" id="name" v-model="formData.name" required />
           </div>
-          <div class="form-group">
+          <div class="form-group-pv3">
             <label for="email">Email:</label>
             <input type="email" id="email" v-model="formData.email" required />
           </div>
-          <div class="form-group">
+          <div class="form-group-pv3">
             <label for="phone">Phone Number:</label>
             <input type="text" id="phone" v-model="formData.phone" required />
           </div>
-          <div class="form-group">
+          <div class="form-group-pv3">
             <label for="message">Message:</label>
             <textarea
               id="message"
@@ -24,8 +24,8 @@
               required
             ></textarea>
           </div>
-          <button type="submit" class="submit-button">Submit</button>
-          <button type="button" class="close-button" @click="closeModal()">
+          <button type="submit" class="submit-button-pv3">Submit</button>
+          <button type="button" class="close-button-pv3" @click="closeModal()">
             Close
           </button>
         </form>
@@ -170,7 +170,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.modal-overlay {
+.modal-overlay-pv3 {
   position: fixed;
   top: 0;
   left: 0;
@@ -183,7 +183,7 @@ export default defineComponent({
   z-index: 1000;
 }
 
-.modal-content {
+.modal-content-pv3 {
   background: #333333;
   padding: 20px;
   border-radius: 15px;
@@ -192,7 +192,7 @@ export default defineComponent({
   z-index: 1000;
 }
 
-.modal-content {
+.modal-content-pv3 {
   animation: fadeIn 0.3s ease-out;
 }
 
@@ -221,20 +221,20 @@ label {
   color: #333;
 }
 
-.form-group {
+.form-group-pv3 {
   margin-bottom: 15px;
   color: rgb(255, 255, 255);
   padding-top: -1rem;
 }
 
-.form-group label {
+.form-group-pv3 label {
   display: block;
   margin-bottom: 5px;
   color: rgb(255, 255, 255);
 }
 
-.form-group input,
-.form-group textarea {
+.form-group-pv3 input,
+.form-group-pv3 textarea {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
@@ -242,7 +242,7 @@ label {
   border-radius: 5px;
 }
 
-.submit-button {
+.submit-button-pv3 {
   background-color: #3b82f6;
   color: #fff;
   font-weight: bold;
@@ -252,11 +252,11 @@ label {
   transition: background-color 0.2s ease;
 }
 
-.submit-button:hover {
+.submit-button-pv3:hover {
   background-color: #1d4ed8;
 }
 
-.close-button {
+.close-button-pv3 {
   background-color: #3b82f6;
   color: #fff;
   font-weight: bold;
@@ -267,7 +267,7 @@ label {
   transition: background-color 0.2s ease;
 }
 
-.close-button:hover {
+.close-button-pv3:hover {
   background-color: #1d4ed8;
 }
 </style>
