@@ -115,7 +115,7 @@ export default defineComponent({
         });
 
         if (response.status === 201) {
-          alert("Form submitted successfully 🙏!");
+          alert("Form submitted successfully 🙏");
           closeModal();
           resetForm();
         } else {
