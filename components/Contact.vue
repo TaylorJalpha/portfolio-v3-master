@@ -25,6 +25,11 @@
                     <li>
                         <a href="https://github.com/TaylorJalpha" target="_blank">GitHub</a>
                     </li>
+<li>
+
+<a href="https://strava.app.link/ybrC1F1QnPb" target="_blank">Strave</a>
+</li>
+
                 </ul>
                 
             </div>
