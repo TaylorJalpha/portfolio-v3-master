@@ -27,7 +27,7 @@
                     </li>
 <li>
 
-<a href="https://strava.app.link/ybrC1F1QnPb" target="_blank">Strave</a>
+<a href=" "target="_blank">Strave</a>
 </li>
 
                 </ul>
