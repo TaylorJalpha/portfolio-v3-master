@@ -27,7 +27,7 @@
                     </li>
 <li>
 
-<a href=" "target="_blank">Strave</a>
+<a href=" " target="_blank">Strava</a>
 </li>
 
                 </ul>
