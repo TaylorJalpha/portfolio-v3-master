@@ -13,33 +13,35 @@
     </Card>
 </template>
 <script setup>
-import { reactive } from 'vue';
 import axios from 'axios';
+import { onMounted, ref } from 'vue';
 
-const api_key = 'd1e5357880543038d80b7e2f285f5796';
+const current_weather = ref({
+  now: {
+    data: '',
+    icon: ''
+  },
+  loaded: false
+});
 
-const current_weather = reactive({
-    loaded: false,
-    now: {
-        data: '',
-        icon: ''
-    }
-})
+const api_key = '7b19ea84dfa6a542b7c4ae1f3d13ac1b'; 
 
 const getCurrentWeather = () => {
-    axios.get('https://api.openweathermap.org/data/3.0/onecall?lat=36.92727&lon=14.71445&appid=' + api_key + '&units=imperial')
-        .then((weather) => {
-            const fahrenheit = weather.data.current.temp.toFixed(1);
-            current_weather.now.data = `${fahrenheit} \xB0F | Los Angeles`;
-            current_weather.now.icon = `https://openweathermap.org/img/wn/${weather.data.current.weather[0].icon}@2x.png`;
-            current_weather.loaded = true
-        })
-        .catch(error => {
-            console.log('Error during the weather API call', error);
-        });
-}
+  axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Los+Angeles&appid=${api_key}&units=imperial`)
+    .then((response) => {
+      const weather = response.data;
+      const fahrenheit = weather.main.temp.toFixed(1);
+      current_weather.value.now.data = `${fahrenheit} \xB0F | Los Angeles`;
+      current_weather.value.now.icon = `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`;
+      current_weather.value.loaded = true;
+    })
+    .catch(error => {
+      console.log('Error during the weather API call', error);
+    });
+};
 
-onMounted(getCurrentWeather)
-
+onMounted(() => {
+  getCurrentWeather();
+});
 
 </script>
