@@ -125,14 +125,6 @@ export default defineComponent({
           console.error("Error submitting form:", response);
           alert("Failed to submit form. Please try again.");
         }
-      } catch (error) {
-        if (error.response) {
-          console.error("Error submitting form:", error.response.data);
-          alert(`Failed to submit form: ${error.response.data.errors.join(", ")}`);
-        } else {
-          console.error("Error submitting form:", error);
-          alert("Failed to submit form. Please try again.");
-        }
       } finally {
         isLoading.value = false;
       }
