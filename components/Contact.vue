@@ -1,4 +1,5 @@
 <script setup>
+import { Separator } from "@/components/ui/separator"
 import AnimatedShinyText from "./AnimatedShinyText.vue";
 </script>
 
