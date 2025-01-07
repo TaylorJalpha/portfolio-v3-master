@@ -53,6 +53,7 @@ import AnimatedShinyText from "./AnimatedShinyText.vue";
         </ul>
       </div>
       <br />
+<Separator />
       <AnimatedShinyText
         class="transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400"
       >
