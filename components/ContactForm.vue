@@ -9,15 +9,15 @@
             <input type="text" id="name" v-model="formData.name" required />
           </div>
           <div class="form-group-pv3">
-            <label for="email">Email:</label>
+            <label for="email">Email</label>
             <input type="email" id="email" v-model="formData.email" required />
           </div>
           <div class="form-group-pv3">
-            <label for="phone">Phone Number:</label>
+            <label for="phone">Phone Number</label>
             <input type="text" id="phone" v-model="formData.phone" required />
           </div>
           <div class="form-group-pv3">
-            <label for="message">Message:</label>
+            <label for="message">Message</label>
             <textarea
               id="message"
               v-model="formData.message"
@@ -125,6 +125,16 @@ export default defineComponent({
           console.error("Error submitting form:", response);
           alert("Failed to submit form. Please try again.");
         }
+      } catch (error) {
+        const axiosError = error as AxiosError;
+        if (axiosError.response) {
+          console.error("Error submitting contact form:", axiosError.response?.data);
+          const errorData = axiosError.response?.data as { errors: string[] };
+          alert(`Failed to submit contact form: ${errorData.errors.join(", ")}`);
+        } else {
+          console.error("Error submitting form:", error);
+          alert("Failed to submit form. Please try again.");
+        }
       } finally {
         isLoading.value = false;
       }
@@ -171,7 +181,7 @@ export default defineComponent({
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, rgba(96, 91, 121, 0.5), rgba(0, 0, 0, 0.5)); /*apply linear gradient to background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -185,6 +195,8 @@ export default defineComponent({
   width: 80%;
   max-width: 500px;
   z-index: 1000;
+  border-width: 1px;
+  border-color: #2e2c2c;
 }
 
 .modal-content-pv3 {
@@ -220,6 +232,7 @@ label {
   margin-bottom: 15px;
   color: rgb(255, 255, 255);
   padding-top: -1rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .form-group-pv3 label {
@@ -238,31 +251,31 @@ label {
 }
 
 .submit-button-pv3 {
-  background-color: #3b82f6;
+  background-color: #25272a;
   color: #fff;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  border: 1px solid #1d4ed8;
+  border: 1px solid #7c8086;
   border-radius: 0.25rem;
   transition: background-color 0.2s ease;
 }
 
 .submit-button-pv3:hover {
-  background-color: #1d4ed8;
+  background-color: #ef4444;
 }
 
 .close-button-pv3 {
-  background-color: #3b82f6;
+  background-color: #25272a;
   color: #fff;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  border: 1px solid #1d4ed8;
+  border: 1px solid #7c8086;
   border-radius: 0.25rem;
   margin-left: 10px;
   transition: background-color 0.2s ease;
 }
 
 .close-button-pv3:hover {
-  background-color: #1d4ed8;
+  background-color: #ef4444;
 }
 </style>
