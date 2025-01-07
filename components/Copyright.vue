@@ -1,5 +1,7 @@
 <script setup>
 import moment from "moment";
+
+import AnimatedShinyText from './AnimatedShinyText.vue'
 </script>
 <template>
   <Card colSpan="md:col-span-1" rowSpan="md:row-span-2">
@@ -38,9 +40,10 @@ import moment from "moment";
     </p>
   </Card>
   <footer>
-    <div class="text-md text-muted-foreground">
-      Backend powered by Ruby on Rails and PostgreSQL
-    </div>
+    <AnimatedShinyText class="inline-flex items-center justify-center px-4 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+        <span>⚡ Backend powered by Ruby on Rails and PostgreSQL</span>
+    </AnimatedShinyText>
+
   </footer>
 </template>
 

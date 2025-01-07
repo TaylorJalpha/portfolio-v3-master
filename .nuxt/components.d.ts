@@ -3,6 +3,7 @@ import type { DefineComponent, SlotsType } from 'vue'
 type IslandComponent<T extends DefineComponent> = T & DefineComponent<{}, {refresh: () => Promise<void>}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>>
 interface _GlobalComponents {
       'About': typeof import("../components/About.vue")['default']
+    'AnimatedShinyText': typeof import("../components/AnimatedShinyText.vue")['default']
     'Blog': typeof import("../components/Blog.vue")['default']
     'Button': typeof import("../components/Button.vue")['default']
     'Card': typeof import("../components/Card.vue")['default']
@@ -37,6 +38,7 @@ interface _GlobalComponents {
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
       'LazyAbout': typeof import("../components/About.vue")['default']
+    'LazyAnimatedShinyText': typeof import("../components/AnimatedShinyText.vue")['default']
     'LazyBlog': typeof import("../components/Blog.vue")['default']
     'LazyButton': typeof import("../components/Button.vue")['default']
     'LazyCard': typeof import("../components/Card.vue")['default']
@@ -77,6 +79,7 @@ declare module 'vue' {
 }
 
 export const About: typeof import("../components/About.vue")['default']
+export const AnimatedShinyText: typeof import("../components/AnimatedShinyText.vue")['default']
 export const Blog: typeof import("../components/Blog.vue")['default']
 export const Button: typeof import("../components/Button.vue")['default']
 export const Card: typeof import("../components/Card.vue")['default']
@@ -111,6 +114,7 @@ export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
 export const LazyAbout: typeof import("../components/About.vue")['default']
+export const LazyAnimatedShinyText: typeof import("../components/AnimatedShinyText.vue")['default']
 export const LazyBlog: typeof import("../components/Blog.vue")['default']
 export const LazyButton: typeof import("../components/Button.vue")['default']
 export const LazyCard: typeof import("../components/Card.vue")['default']
