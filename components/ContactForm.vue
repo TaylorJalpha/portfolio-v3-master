@@ -2,14 +2,15 @@
   <portal to="modals">
     <div v-if="isOpen" class="modal-overlay-pv3" @click="closeModal()">
       <div class="modal-content-pv3" @click.stop>
-        <h3><b>Reach out with any questions or inquiries! 🏌🏼‍♂️</b></h3>
+        <h3><b>Reach out with any questions or inquiries </b></h3>
+        <p class="contact-form-paragraph">Open to new opportunities and collaborations –I will get back to you within 24 hours of form submission</p>
         <form @submit.prevent="submitForm()">
           <div class="form-group-pv3">
             <label for="name">Your Name</label>
             <input type="text" id="name" v-model="formData.name" required />
           </div>
           <div class="form-group-pv3">
-            <label for="email">Email</label>
+            <label for="email">Email Address</label>
             <input type="email" id="email" v-model="formData.email" required />
           </div>
           <div class="form-group-pv3">
@@ -17,7 +18,7 @@
             <input type="text" id="phone" v-model="formData.phone" required />
           </div>
           <div class="form-group-pv3">
-            <label for="message">Message</label>
+            <label for="message">Message or Feedback</label>
             <textarea
               id="message"
               v-model="formData.message"
@@ -189,17 +190,13 @@ export default defineComponent({
 }
 
 .modal-content-pv3 {
-  background: #333333;
+  background: #0a0a0a;
   padding: 20px;
   border-radius: 15px;
   width: 80%;
   max-width: 500px;
   z-index: 1000;
-  border-width: 1px;
-  border-color: #2e2c2c;
-}
-
-.modal-content-pv3 {
+  border: 1px solid #4f4b4b;
   animation: fadeIn 0.3s ease-out;
 }
 
@@ -208,7 +205,6 @@ export default defineComponent({
     opacity: 0;
     transform: translateY(-20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -220,25 +216,25 @@ h3 {
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  color: #fff;
 }
 
-label {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  color: #333;
+.contact-form-paragraph {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .form-group-pv3 {
   margin-bottom: 15px;
-  color: rgb(255, 255, 255);
-  padding-top: -1rem;
+  color: #fff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .form-group-pv3 label {
   display: block;
   margin-bottom: 5px;
-  color: rgb(255, 255, 255);
+  color: #fff;
 }
 
 .form-group-pv3 input,
@@ -246,24 +242,14 @@ label {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
-  color: rgb(9, 9, 9);
+  background: #525050;
+  color: #d5d1d1;
+  border: 1px solid #686666;
   border-radius: 5px;
+  margin-bottom: 1rem;
 }
 
-.submit-button-pv3 {
-  background-color: #25272a;
-  color: #fff;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border: 1px solid #7c8086;
-  border-radius: 0.25rem;
-  transition: background-color 0.2s ease;
-}
-
-.submit-button-pv3:hover {
-  background-color: #ef4444;
-}
-
+.submit-button-pv3,
 .close-button-pv3 {
   background-color: #25272a;
   color: #fff;
@@ -271,11 +257,15 @@ label {
   padding: 0.5rem 1rem;
   border: 1px solid #7c8086;
   border-radius: 0.25rem;
-  margin-left: 10px;
   transition: background-color 0.2s ease;
 }
 
+.submit-button-pv3:hover,
 .close-button-pv3:hover {
   background-color: #ef4444;
+}
+
+.close-button-pv3 {
+  margin-left: 10px;
 }
 </style>
