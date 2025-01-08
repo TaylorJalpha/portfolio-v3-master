@@ -181,7 +181,7 @@ export default defineComponent({
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(96, 91, 121, 0.5), rgba(0, 0, 0, 0.5)); /*apply linear gradient to background */
+  background: linear-gradient(135deg, rgba(96, 91, 121, 0.5), rgba(0, 0, 0, 0.5)); 
   display: flex;
   justify-content: center;
   align-items: center;

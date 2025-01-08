@@ -1,7 +1,5 @@
 <script setup>
 import moment from "moment";
-
-import AnimatedShinyText from './AnimatedShinyText.vue'
 </script>
 <template>
   <Card colSpan="md:col-span-1" rowSpan="md:row-span-2">
@@ -38,15 +36,5 @@ import AnimatedShinyText from './AnimatedShinyText.vue'
       </a>
       {{ moment().format("Y") }}
     </p>
-    
   </Card>
-  
-  <footer>
-    
-
-  </footer>
 </template>
-
-<style scoped>
-
-</style>

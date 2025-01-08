@@ -1,5 +1,5 @@
 <script setup>
-import { Separator } from "@/components/separator"
+
 import AnimatedShinyText from "./AnimatedShinyText.vue";
 </script>
 
@@ -53,7 +53,7 @@ import AnimatedShinyText from "./AnimatedShinyText.vue";
         </ul>
       </div>
       <br />
-<Separator />
+      <div class="line-separator"></div>
       <AnimatedShinyText
         class="transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400"
       >
@@ -62,3 +62,15 @@ import AnimatedShinyText from "./AnimatedShinyText.vue";
     </div>
   </Card>
 </template>
+
+<style scoped>
+.line-separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 1px;
+  background: #333;
+  margin: 1rem 0;
+}
+</style>

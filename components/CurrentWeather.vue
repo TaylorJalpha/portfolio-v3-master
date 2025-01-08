@@ -24,7 +24,7 @@ const current_weather = ref({
   loaded: false
 });
 
-const api_key = '7b19ea84dfa6a542b7c4ae1f3d13ac1b'; 
+const api_key = '7b19ea84dfa6a542b7c4ae1f3d13ac1b'; //public API key for OpenWeatherMap 
 
 const getCurrentWeather = () => {
   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Los+Angeles&appid=${api_key}&units=imperial`)
