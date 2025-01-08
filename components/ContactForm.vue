@@ -225,6 +225,14 @@ h3 {
   margin-bottom: 1rem;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+input[data-autocompleted] {
+    background-color: transparent !important;
+}
+
 .form-group-pv3 {
   margin-bottom: 15px;
   color: #fff;
