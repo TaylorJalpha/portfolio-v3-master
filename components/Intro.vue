@@ -164,40 +164,19 @@
             <span class="sr-only">Easter Egg</span>
           </Button>
 
-          <Button aria-label="expand-contact-form" @click="openContactForm">
+            <Button aria-label="expand-contact-form" @click="openContactForm">
             <svg
               class="h-6"
               fill="#fff"
-              version="1.1"
-              id="Layer_1"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              viewBox="0 0 512 512"
-              xml:space="preserve"
-              stroke="#fff"
             >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                <g>
-                  <g>
-                    <path
-                      d="M256,0C114.836,0,0,114.836,0,256s114.836,256,256,256s256-114.836,256-256S397.164,0,256,0z M256,482.286
-                                            C126.286,482.286,29.714,385.714,29.714,256S126.286,29.714,256,29.714S482.286,126.286,482.286,256S385.714,482.286,256,482.286z
-                                            M256,85.714c-9.142,0-16.571,7.429-16.571,16.571v137.143H102.857c-9.142,0-16.571,7.429-16.571,16.571
-                                            s7.429,16.571,16.571,16.571h137.143v137.143c0,9.142,7.429,16.571,16.571,16.571s16.571-7.429,16.571-16.571V272.571h137.143
-                                            c9.142,0,16.571-7.429,16.571-16.571s-7.429-16.571-16.571-16.571H272.571V102.857C272.571,93.143,265.142,85.714,256,85.714z"
-                    ></path>
-                  </g>
-                </g>
-              </g>
+              <path
+              d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1 0.9 2 2 2h16c1.1 0 2-0.9 2-2V6c0-1.1-0.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+              />
             </svg>
             <span class="sr-only">Expand Contact Form</span>
-          </Button>
+            </Button>
         </div>
       </div>
       <ContactForm
