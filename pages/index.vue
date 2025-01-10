@@ -35,9 +35,9 @@ useSeoMeta({
     <Intro />
     <About />
     <Contact />
-    <TimeZone />
+    <Status />
     <Blog />
     <CurrentWeather />
-    <Currently />
+    <PoweredByRubyOnRails />
     <Copyright />
 </template>
