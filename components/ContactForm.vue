@@ -2,8 +2,10 @@
   <portal to="modals">
     <div v-if="isOpen" class="modal-overlay-pv3" @click="closeModal()">
       <div class="modal-content-pv3" @click.stop>
-        <h3><b>Reach out with any questions or inquiries </b></h3>
-        <p class="contact-form-paragraph">Open to new opportunities and collaborations –I will get back to you within 24 hours of form submission</p>
+        <h3><b>Contact Me 🚵</b></h3>
+        <p class="contact-form-paragraph">Have a question or want to collab? I'm always open to new opportunities. I'll respond within 24 hours.
+          
+        </p>
         <form @submit.prevent="submitForm()">
           <div class="form-group-pv3">
             <label for="name">Your Name</label>
