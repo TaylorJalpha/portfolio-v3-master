@@ -20,3 +20,7 @@
   margin: 1rem 0;
 }
 </style>
+<<<<<<< HEAD
+=======
+/
+>>>>>>> 6e8ec1e3102f642078bf0e8d3595bdb2b6d6cc4f
