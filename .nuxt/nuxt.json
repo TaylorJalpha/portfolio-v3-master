@@ -1,18 +1,9 @@
 {
-<<<<<<< HEAD
-  "_hash": "hsjgehTD9dsSoDuObqfztQ2X-9yFLksYPQ4mIw9THZ0",
+  "_hash": "pH9amvnCtdBcr0_rhadSmRT1RUVrnHKvFXCEr8mP1Do",
   "project": {
-    "rootDir": "/Users/tayloralphaaa/portfolio-v3-master-main"
+    "rootDir": "/Users/tayloralphaaa/portfolio-v3-master"
   },
   "versions": {
     "nuxt": "3.18.1"
-=======
-  "_hash": "9WdagWHiAt",
-  "project": {
-    "rootDir": "/Users/taylorbuildzz/portfolio-v3-master"
-  },
-  "versions": {
-    "nuxt": "3.14.159"
->>>>>>> 6e8ec1e3102f642078bf0e8d3595bdb2b6d6cc4f
   }
 }

@@ -1,8 +1,5 @@
 
-<<<<<<< HEAD
 /// <reference path="nitro-middleware.d.ts" />
-=======
->>>>>>> 6e8ec1e3102f642078bf0e8d3595bdb2b6d6cc4f
 /// <reference path="./schema.d.ts" />
 
 import type { RuntimeConfig } from 'nuxt/schema'
@@ -18,20 +15,14 @@ declare module 'nitropack' {
   interface NitroRuntimeConfig extends RuntimeConfig {}
   interface NitroRouteConfig {
     ssr?: boolean
-<<<<<<< HEAD
     noScripts?: boolean
     /** @deprecated Use `noScripts` instead */
-=======
->>>>>>> 6e8ec1e3102f642078bf0e8d3595bdb2b6d6cc4f
     experimentalNoScripts?: boolean
   }
   interface NitroRouteRules {
     ssr?: boolean
-<<<<<<< HEAD
     noScripts?: boolean
     /** @deprecated Use `noScripts` instead */
-=======
->>>>>>> 6e8ec1e3102f642078bf0e8d3595bdb2b6d6cc4f
     experimentalNoScripts?: boolean
     appMiddleware?: Record<string, boolean>
   }

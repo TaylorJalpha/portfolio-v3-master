@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col hover:scale-105 transition-transform duration-200">
-    <img :src="item.image_url" alt="Project image" class="h-40 w-full object-cover" />
-    <div class="p-4 flex-1 flex flex-col">
-      <h3 class="text-lg font-bold mb-2">{{ item.title }}</h3>
-      <p class="text-gray-600 text-sm mb-2 truncate">{{ item.body }}</p>
-      <div class="flex flex-wrap gap-2 mb-4">
-        <span v-for="tool in item.tools" :key="tool.name" class="flex items-center px-2 py-1 bg-gray-100 rounded-full text-xs font-medium">
-          <img :src="tool.icon_url" alt="" class="w-4 h-4 mr-1" /> {{ tool.name }}
+  <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:scale-[1.03] hover:shadow-2xl transition-transform duration-200 group h-full flex flex-col">
+    <img :src="item.image || item.image_url" alt="Project image" class="h-44 w-full object-cover group-hover:brightness-95 transition-all duration-200" />
+    <div class="p-5 flex-1 flex flex-col">
+      <h3 class="text-xl font-bold mb-2 text-gray-900">{{ item.title }}</h3>
+      <p class="text-gray-600 text-sm mb-3 line-clamp-3">{{ item.description || item.body }}</p>
+      <div v-if="item.tags || item.tools" class="flex flex-wrap gap-2 mb-4">
+        <span v-for="tag in item.tags || item.tools" :key="tag.name || tag" class="flex items-center px-2 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium border border-blue-100">
+          <template v-if="tag.icon_url"><img :src="tag.icon_url" alt="" class="w-4 h-4 mr-1" /></template>{{ tag.name || tag }}
         </span>
       </div>
       <button
