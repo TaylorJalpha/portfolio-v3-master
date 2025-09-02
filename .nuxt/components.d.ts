@@ -22,6 +22,7 @@ interface _GlobalComponents {
     'Copyright': typeof import("../components/Copyright.vue")['default']
     'CurrentWeather': typeof import("../components/CurrentWeather.vue")['default']
     'DotPattern': typeof import("../components/DotPattern.vue")['default']
+    'Globe': typeof import("../components/Globe.vue")['default']
     'Intro': typeof import("../components/Intro.vue")['default']
     'PortfolioCard': typeof import("../components/PortfolioCard.vue")['default']
     'PortfolioModal': typeof import("../components/PortfolioModal.vue")['default']
@@ -61,6 +62,7 @@ interface _GlobalComponents {
     'LazyCopyright': LazyComponent<typeof import("../components/Copyright.vue")['default']>
     'LazyCurrentWeather': LazyComponent<typeof import("../components/CurrentWeather.vue")['default']>
     'LazyDotPattern': LazyComponent<typeof import("../components/DotPattern.vue")['default']>
+    'LazyGlobe': LazyComponent<typeof import("../components/Globe.vue")['default']>
     'LazyIntro': LazyComponent<typeof import("../components/Intro.vue")['default']>
     'LazyPortfolioCard': LazyComponent<typeof import("../components/PortfolioCard.vue")['default']>
     'LazyPortfolioModal': LazyComponent<typeof import("../components/PortfolioModal.vue")['default']>
@@ -106,6 +108,7 @@ export const ContactForm: typeof import("../components/ContactForm.vue")['defaul
 export const Copyright: typeof import("../components/Copyright.vue")['default']
 export const CurrentWeather: typeof import("../components/CurrentWeather.vue")['default']
 export const DotPattern: typeof import("../components/DotPattern.vue")['default']
+export const Globe: typeof import("../components/Globe.vue")['default']
 export const Intro: typeof import("../components/Intro.vue")['default']
 export const PortfolioCard: typeof import("../components/PortfolioCard.vue")['default']
 export const PortfolioModal: typeof import("../components/PortfolioModal.vue")['default']
@@ -145,6 +148,7 @@ export const LazyContactForm: LazyComponent<typeof import("../components/Contact
 export const LazyCopyright: LazyComponent<typeof import("../components/Copyright.vue")['default']>
 export const LazyCurrentWeather: LazyComponent<typeof import("../components/CurrentWeather.vue")['default']>
 export const LazyDotPattern: LazyComponent<typeof import("../components/DotPattern.vue")['default']>
+export const LazyGlobe: LazyComponent<typeof import("../components/Globe.vue")['default']>
 export const LazyIntro: LazyComponent<typeof import("../components/Intro.vue")['default']>
 export const LazyPortfolioCard: LazyComponent<typeof import("../components/PortfolioCard.vue")['default']>
 export const LazyPortfolioModal: LazyComponent<typeof import("../components/PortfolioModal.vue")['default']>

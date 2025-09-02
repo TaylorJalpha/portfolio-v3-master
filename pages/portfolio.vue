@@ -10,11 +10,16 @@
       Home
     </button>
   </nav>
-  
   <div id="projects" class="w-full">
-      <div class="flex flex-col items-center">
-  <h1 class="text-4xl font-extrabold mb-4 text-center pt-3 mt-20 via-white drop-shadow">Portfolio</h1>
-        <p class="text-lg text-white mb-8 text-center max-w-2xl">A collection of my work, case studies, projects, and blog posts from over the years - showcasing my skills and expertise as a Technical Product Manager and Business Leader</p>
+      <div class="flex flex-col items-center pb-4">
+  <div class="flex flex-col items-center">
+  <div class="relative flex h-[400px] w-[500px] max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border px-40 pb-40 pt-8 md:pb-48 mt-32">
+      <h1 class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">Portfolio</h1>
+      <Globe />
+      <div class="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
+    </div>
+    <p class="text-xl mb-8 text-center max-w-2xl bg-gradient-to-b pt-5 from-black to-gray-300/80 bg-clip-text text-transparent dark:from-white dark:to-slate-900/10">A collection of my work, case studies, projects, and blog posts from over the years - showcasing my skills and expertise as a Technical Product Manager and Business Leader</p>
+  </div>
       </div>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full py-16">
         <PortfolioCard

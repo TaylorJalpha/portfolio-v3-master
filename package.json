@@ -23,9 +23,11 @@
     "@aws-amplify/cli": "^12.13.0",
     "@nuxtjs/axios": "^5.13.6",
     "axios": "^1.7.9",
+    "cobe": "^0.6.4",
     "moment": "^2.29.4",
     "motion": "^10.16.4",
     "portal-vue": "^3.0.0",
-    "radix-vue": "^1.9.12"
+    "radix-vue": "^1.9.12",
+    "vue-use-spring": "^0.3.3"
   }
 }
