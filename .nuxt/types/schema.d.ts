@@ -77,12 +77,14 @@ declare module 'nuxt/schema' {
       cdnURL: string,
    },
 
+   apiSecret: string,
+
    nitro: {
       envPrefix: string,
    },
   }
   interface PublicRuntimeConfig {
-
+   apiBaseUrl: string,
   }
 }
 declare module 'vue' {

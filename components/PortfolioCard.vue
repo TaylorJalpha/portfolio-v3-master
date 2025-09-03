@@ -1,12 +1,16 @@
 <template>
   <div class="bg-[#171717] rounded-2xl shadow-xl border border-gray-600 overflow-hidden hover:scale-[1.03] hover:shadow-2xl transition-transform duration-200 group h-full flex flex-col">
-    <img :src="item.image || item.image_url" alt="Project image" class="h-44 w-full object-cover group-hover:brightness-95 transition-all duration-200" />
+    <img :src="item.featured_image_url || item.image" alt="Project image" class="h-44 w-full object-cover group-hover:brightness-95 transition-all duration-200" />
     <div class="p-5 flex-1 flex flex-col">
       <h3 class="text-xl font-bold mb-2 text-white-900">{{ item.title }}</h3>
-      <p class="text-gray-600 text-sm mb-3 line-clamp-3">{{ item.description || item.body }}</p>
-      <div v-if="item.tags || item.tools" class="flex flex-wrap gap-2 mb-4">
-        <span v-for="tag in item.tags || item.tools" :key="tag.name || tag" class="flex items-center px-2 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium border border-blue-100">
-          <template v-if="tag.icon_url"><img :src="tag.icon_url" alt="" class="w-4 h-4 mr-1" /></template>{{ tag.name || tag }}
+      <p class="text-gray-600 text-sm mb-3 line-clamp-3">{{ item.description }}</p>
+      <div v-if="item.tags && item.tags.length" class="flex flex-wrap gap-2 mb-4">
+        <span 
+          v-for="tag in item.tags" 
+          :key="tag.name || tag" 
+          class="flex items-center px-2 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium border border-blue-100"
+        >
+          {{ tag.name || tag }}
         </span>
       </div>
       <button

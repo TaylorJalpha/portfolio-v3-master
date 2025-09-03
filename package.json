@@ -24,6 +24,8 @@
     "@nuxtjs/axios": "^5.13.6",
     "axios": "^1.7.9",
     "cobe": "^0.6.4",
+    "dompurify": "^3.2.6",
+    "marked": "^9.1.6",
     "moment": "^2.29.4",
     "motion": "^10.16.4",
     "portal-vue": "^3.0.0",

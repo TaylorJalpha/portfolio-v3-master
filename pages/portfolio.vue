@@ -48,53 +48,110 @@
 
 <script setup lang="ts">
 
+import { usePortfolioApi } from '@/composables/usePortfolioApi'
 
 definePageMeta({ layout: 'portfolio' })
 
+// API Integration
+const { fetchPortfolioItems, fetchPortfolioItem } = usePortfolioApi()
 
-const items = ref([
-  {
-    id: 1,
-    title: 'Project Alpha',
-    description: 'A web app for managing tasks and productivity.',
-    image: '/assets/css/mdrg.jpg',
-    tags: ['Vue', 'Nuxt', 'Productivity']
-  },
-  {
-    id: 2,
-    title: 'Case Study: Rails Migration',
-    description: 'Migrated legacy systems to Ruby on Rails.',
-    image: '/assets/css/rails-svgrepo-com.svg',
-    tags: ['Ruby on Rails', 'Migration']
-  },
-  {
-    id: 3,
-    title: 'Blog: Product Leadership',
-    description: 'Insights on leading technical product teams.',
-    image: '/assets/css/main.css',
-    tags: ['Blog', 'Leadership']
-  },
-  {
-    id: 4,
-    title: 'Project Beta',
-    description: 'A mobile app for tracking fitness goals.',
-    image: '/assets/css/fitness-svgrepo-com.svg',
-    tags: ['Flutter', 'Mobile', 'Fitness']
-  }
-])
-
+// Reactive state
+const items = ref<any[]>([])
 const loading = ref(false)
 const hasMore = ref(false)
 const modalOpen = ref(false)
 const selectedItem = ref<any>(null)
+const currentPage = ref(1)
+const perPage = 12
+const selectedFilter = ref<string>('')
+const selectedTag = ref<string>('')
 
-function loadMore() {
-  // No-op for mock data
+// Load initial data
+onMounted(async () => {
+  await loadPortfolioItems()
+})
+
+async function loadPortfolioItems(reset = false) {
+  if (loading.value) return
+  
+  loading.value = true
+  
+  try {
+    if (reset) {
+      currentPage.value = 1
+      items.value = []
+    }
+
+    const params = {
+      page: currentPage.value,
+      per_page: perPage,
+      ...(selectedFilter.value && { content_type: selectedFilter.value }),
+      ...(selectedTag.value && { tag: selectedTag.value })
+    }
+
+    const response = await fetchPortfolioItems(params)
+    
+    if (reset) {
+      items.value = response.data
+    } else {
+      items.value.push(...response.data)
+    }
+    
+    hasMore.value = response.meta.has_more
+    currentPage.value++
+  } catch (error) {
+    console.error('Failed to load portfolio items:', error)
+    // Fallback to mock data if API fails
+    if (items.value.length === 0) {
+      items.value = [
+        {
+          id: 1,
+          title: 'Project Alpha',
+          description: 'A web app for managing tasks and productivity.',
+          featured_image_url: '/assets/css/mdrg.jpg',
+          tags: [{ name: 'Vue' }, { name: 'Nuxt' }, { name: 'Productivity' }]
+        },
+        {
+          id: 2,
+          title: 'Case Study: Rails Migration',
+          description: 'Migrated legacy systems to Ruby on Rails.',
+          featured_image_url: '/assets/css/rails-svgrepo-com.svg',
+          tags: [{ name: 'Ruby on Rails' }, { name: 'Migration' }]
+        }
+      ]
+    }
+  } finally {
+    loading.value = false
+  }
 }
 
-function openModal(item: any) {
-  selectedItem.value = item
-  modalOpen.value = true
+function loadMore() {
+  loadPortfolioItems()
+}
+
+async function openModal(item: any) {
+  try {
+    // Fetch detailed item data for modal
+    const response = await fetchPortfolioItem(item.id)
+    selectedItem.value = response.data
+    modalOpen.value = true
+  } catch (error) {
+    console.error('Failed to fetch item details:', error)
+    // Fallback to basic item data
+    selectedItem.value = item
+    modalOpen.value = true
+  }
+}
+
+// Filter functions
+function filterByType(type: string) {
+  selectedFilter.value = selectedFilter.value === type ? '' : type
+  loadPortfolioItems(true)
+}
+
+function filterByTag(tag: string) {
+  selectedTag.value = selectedTag.value === tag ? '' : tag
+  loadPortfolioItems(true)
 }
 
 </script>

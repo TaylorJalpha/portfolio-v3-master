@@ -17,20 +17,32 @@
           <h2 class="text-2xl font-bold mb-2">{{ item.title }}</h2>
 
           <!-- Description (Markdown or HTML) -->
-          <div v-if="item.descriptionMarkdown" class="mb-4 prose">
-            <VueMarkdown :source="item.descriptionMarkdown" />
+          <div v-if="item.content && item.content_type === 'blog_post'" class="mb-4 prose max-w-none">
+            <div v-html="renderMarkdown(item.content)"></div>
           </div>
-          <div v-else-if="item.description" v-html="item.description" class="mb-4 prose"></div>
-
-          <!-- Image -->
-          <div v-if="item.image" class="mb-4 flex justify-center">
-            <img :src="item.image" alt="Project image" class="rounded-lg max-h-48 object-contain" />
+          <div v-else-if="item.description" class="mb-4">
+            <p class="text-gray-700">{{ item.description }}</p>
           </div>
 
-          <!-- PDF Support -->
-          <div v-if="item.pdf_url" class="mb-4">
-            <a :href="item.pdf_url" target="_blank" class="text-blue-600 underline">Download PDF</a>
-            <iframe :src="item.pdf_url" class="w-full h-64 mt-2" v-if="embedPDF"></iframe>
+          <!-- PDF Support for Case Studies -->
+          <div v-if="item.pdf_url && item.content_type === 'case_study'" class="mb-4">
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h3 class="text-lg font-semibold mb-2">Case Study Document</h3>
+              <p class="text-sm text-gray-600 mb-3">View the complete case study in PDF format</p>
+              <iframe 
+                :src="`${item.pdf_url}#toolbar=0&navpanes=0&scrollbar=0`" 
+                class="w-full h-96 border border-gray-300 rounded"
+                title="Case Study PDF"
+              ></iframe>
+              <p class="text-xs text-gray-500 mt-2">
+                Note: PDF viewing and downloading is disabled for security purposes
+              </p>
+            </div>
+          </div>
+
+          <!-- Featured Image -->
+          <div v-if="featuredImageUrl" class="mb-4 flex justify-center">
+            <img :src="featuredImageUrl" alt="Project image" class="rounded-lg max-h-48 object-contain" />
           </div>
 
           <!-- Project Details Paragraph -->
@@ -70,15 +82,46 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-//import VueMarkdownIt from 'vue3-markdown-it';
-defineProps<{ item: any; open: boolean }>();
+import { ref, computed } from 'vue';
+// Import a simple markdown renderer or use a lightweight library
+// For now, we'll use a simple function to handle basic markdown
+
+const props = defineProps<{ item: any; open: boolean }>();
 const emit = defineEmits(['close']);
-const embedPDF = ref(true);
 
 function close() {
   emit('close');
 }
+
+// Simple markdown renderer for basic formatting
+function renderMarkdown(content: string): string {
+  if (!content) return ''
+  
+  return content
+    // Headers
+    .replace(/^### (.*$)/gim, '<h3 class="text-lg font-semibold mt-4 mb-2">$1</h3>')
+    .replace(/^## (.*$)/gim, '<h2 class="text-xl font-bold mt-6 mb-3">$1</h2>')
+    .replace(/^# (.*$)/gim, '<h1 class="text-2xl font-bold mt-8 mb-4">$1</h1>')
+    // Bold and italic
+    .replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>')
+    .replace(/\*(.*)\*/gim, '<em>$1</em>')
+    // Links
+    .replace(/\[([^\]]+)\]\(([^\)]+)\)/gim, '<a href="$2" class="text-blue-600 underline" target="_blank">$1</a>')
+    // Line breaks
+    .replace(/\n/gim, '<br>')
+    // Code blocks (simple)
+    .replace(/`([^`]+)`/gim, '<code class="bg-gray-100 px-1 py-0.5 rounded text-sm">$1</code>')
+}
+
+// Computed property for featured image
+const featuredImageUrl = computed(() => {
+  return props.item?.featured_image_url || props.item?.image
+})
+
+// Computed property for gallery images
+const galleryImages = computed(() => {
+  return props.item?.gallery_images || props.item?.screenshots || []
+})
 </script>
 
 <style scoped>

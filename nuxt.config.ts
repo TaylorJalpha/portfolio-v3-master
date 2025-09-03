@@ -4,6 +4,20 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   compatibilityDate: '2024-10-16',
   plugins: ['~/plugins/portal-vue.js'], // Add this line to register the plugin
+  
+  // Runtime configuration for API
+  runtimeConfig: {
+    // The private keys which are only available within server-side
+    apiSecret: process.env.API_SECRET,
+    // Keys within public, will be also exposed to the client-side
+    public: {
+      apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:3000'
+    }
+  },
+  
+  // SSR configuration
+  ssr: true,
+  
   app: {
     head: {
       meta: [
