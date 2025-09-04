@@ -16,13 +16,17 @@
           <div class="absolute inset-0">
             <Meteors :number="30" />
           </div>
-          <h1 class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">Portfolio</h1>
+          <BlurFade in-view :delay="250">
+            <h1 class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">Portfolio</h1>
+          </BlurFade>
           <Globe />
           <div class="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
         </div>
-        <p class="text-lg mb-8 mt-2 pt-2text-center max-w-2xl">
-          A collection of my work, case studies, projects, and blog posts from over the years - showcasing my skills and expertise as a Technical Product Manager and Business Leader
-        </p>
+        <BlurFade in-view :delay="250">
+          <p class="text-lg mb-8 mt-2 pt-2text-center max-w-2xl">
+            A collection of my work, case studies, projects, and blog posts from over the years - showcasing my skills and expertise as a Technical Product Manager and Business Leader
+          </p>
+        </BlurFade>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full py-16">
       <PortfolioCard
@@ -53,6 +57,7 @@
 
 import { usePortfolioApi } from '@/composables/usePortfolioApi'
 import Meteors from '~/components/Meteors.vue'
+import BlurFade from '~/components/BlurFade.vue'
 
 definePageMeta({ layout: 'portfolio' })
 

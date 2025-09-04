@@ -16,7 +16,6 @@ import { createStorage, prefixStorage } from 'file:///Users/tayloralphaaa/portfo
 import unstorage_47drivers_47fs from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/unstorage/drivers/fs.mjs';
 import { digest } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/nitropack/node_modules/ohash/dist/index.mjs';
 import { klona } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/defu/dist/defu.mjs';
 import { snakeCase } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/scule/dist/index.mjs';
 import { getContext } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/unctx/dist/index.mjs';
 import { toRouteMatcher, createRouter } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/radix3/dist/index.mjs';
@@ -576,6 +575,68 @@ function cloneWithProxy(obj, overrides) {
 }
 const cachedEventHandler = defineCachedEventHandler;
 
+function isPlainObject(value) {
+  if (value === null || typeof value !== "object") {
+    return false;
+  }
+  const prototype = Object.getPrototypeOf(value);
+  if (prototype !== null && prototype !== Object.prototype && Object.getPrototypeOf(prototype) !== null) {
+    return false;
+  }
+  if (Symbol.iterator in value) {
+    return false;
+  }
+  if (Symbol.toStringTag in value) {
+    return Object.prototype.toString.call(value) === "[object Module]";
+  }
+  return true;
+}
+
+function _defu(baseObject, defaults, namespace = ".", merger) {
+  if (!isPlainObject(defaults)) {
+    return _defu(baseObject, {}, namespace, merger);
+  }
+  const object = Object.assign({}, defaults);
+  for (const key in baseObject) {
+    if (key === "__proto__" || key === "constructor") {
+      continue;
+    }
+    const value = baseObject[key];
+    if (value === null || value === void 0) {
+      continue;
+    }
+    if (merger && merger(object, key, value, namespace)) {
+      continue;
+    }
+    if (Array.isArray(value) && Array.isArray(object[key])) {
+      object[key] = [...value, ...object[key]];
+    } else if (isPlainObject(value) && isPlainObject(object[key])) {
+      object[key] = _defu(
+        value,
+        object[key],
+        (namespace ? `${namespace}.` : "") + key.toString(),
+        merger
+      );
+    } else {
+      object[key] = value;
+    }
+  }
+  return object;
+}
+function createDefu(merger) {
+  return (...arguments_) => (
+    // eslint-disable-next-line unicorn/no-array-reduce
+    arguments_.reduce((p, c) => _defu(p, c, "", merger), {})
+  );
+}
+const defu = createDefu();
+const defuFn = createDefu((object, key, currentValue) => {
+  if (object[key] !== void 0 && typeof currentValue === "function") {
+    object[key] = currentValue(object[key]);
+    return true;
+  }
+});
+
 const inlineAppConfig = {
   "nuxt": {}
 };
@@ -648,7 +709,8 @@ const _inlineRuntimeConfig = {
     }
   },
   "public": {
-    "apiBaseUrl": "http://localhost:3000"
+    "apiBaseUrl": "http://localhost:3000",
+    "motion": {}
   },
   "apiSecret": ""
 };

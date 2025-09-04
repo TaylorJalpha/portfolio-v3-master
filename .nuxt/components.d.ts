@@ -15,6 +15,7 @@ interface _GlobalComponents {
       'About': typeof import("../components/About.vue")['default']
     'AnimatedShinyText': typeof import("../components/AnimatedShinyText.vue")['default']
     'Blog': typeof import("../components/Blog.vue")['default']
+    'BlurFade': typeof import("../components/BlurFade.vue")['default']
     'Button': typeof import("../components/Button.vue")['default']
     'Card': typeof import("../components/Card.vue")['default']
     'Contact': typeof import("../components/Contact.vue")['default']
@@ -41,6 +42,8 @@ interface _GlobalComponents {
     'NuxtRouteAnnouncer': typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']
     'NuxtImg': typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']
     'NuxtPicture': typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
+    'Motion': typeof import("@vueuse/motion")['MotionComponent']
+    'MotionGroup': typeof import("@vueuse/motion")['MotionGroupComponent']
     'NuxtPage': typeof import("../node_modules/nuxt/dist/pages/runtime/page")['default']
     'NoScript': typeof import("../node_modules/nuxt/dist/head/runtime/components")['NoScript']
     'Link': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Link']
@@ -56,6 +59,7 @@ interface _GlobalComponents {
       'LazyAbout': LazyComponent<typeof import("../components/About.vue")['default']>
     'LazyAnimatedShinyText': LazyComponent<typeof import("../components/AnimatedShinyText.vue")['default']>
     'LazyBlog': LazyComponent<typeof import("../components/Blog.vue")['default']>
+    'LazyBlurFade': LazyComponent<typeof import("../components/BlurFade.vue")['default']>
     'LazyButton': LazyComponent<typeof import("../components/Button.vue")['default']>
     'LazyCard': LazyComponent<typeof import("../components/Card.vue")['default']>
     'LazyContact': LazyComponent<typeof import("../components/Contact.vue")['default']>
@@ -82,6 +86,8 @@ interface _GlobalComponents {
     'LazyNuxtRouteAnnouncer': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']>
     'LazyNuxtImg': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']>
     'LazyNuxtPicture': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']>
+    'LazyMotion': LazyComponent<typeof import("@vueuse/motion")['MotionComponent']>
+    'LazyMotionGroup': LazyComponent<typeof import("@vueuse/motion")['MotionGroupComponent']>
     'LazyNuxtPage': LazyComponent<typeof import("../node_modules/nuxt/dist/pages/runtime/page")['default']>
     'LazyNoScript': LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['NoScript']>
     'LazyLink': LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Link']>
@@ -103,6 +109,7 @@ declare module 'vue' {
 export const About: typeof import("../components/About.vue")['default']
 export const AnimatedShinyText: typeof import("../components/AnimatedShinyText.vue")['default']
 export const Blog: typeof import("../components/Blog.vue")['default']
+export const BlurFade: typeof import("../components/BlurFade.vue")['default']
 export const Button: typeof import("../components/Button.vue")['default']
 export const Card: typeof import("../components/Card.vue")['default']
 export const Contact: typeof import("../components/Contact.vue")['default']
@@ -129,6 +136,8 @@ export const NuxtTime: typeof import("../node_modules/nuxt/dist/app/components/n
 export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']
 export const NuxtImg: typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']
 export const NuxtPicture: typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
+export const Motion: typeof import("@vueuse/motion")['MotionComponent']
+export const MotionGroup: typeof import("@vueuse/motion")['MotionGroupComponent']
 export const NuxtPage: typeof import("../node_modules/nuxt/dist/pages/runtime/page")['default']
 export const NoScript: typeof import("../node_modules/nuxt/dist/head/runtime/components")['NoScript']
 export const Link: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Link']
@@ -144,6 +153,7 @@ export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/co
 export const LazyAbout: LazyComponent<typeof import("../components/About.vue")['default']>
 export const LazyAnimatedShinyText: LazyComponent<typeof import("../components/AnimatedShinyText.vue")['default']>
 export const LazyBlog: LazyComponent<typeof import("../components/Blog.vue")['default']>
+export const LazyBlurFade: LazyComponent<typeof import("../components/BlurFade.vue")['default']>
 export const LazyButton: LazyComponent<typeof import("../components/Button.vue")['default']>
 export const LazyCard: LazyComponent<typeof import("../components/Card.vue")['default']>
 export const LazyContact: LazyComponent<typeof import("../components/Contact.vue")['default']>
@@ -170,6 +180,8 @@ export const LazyNuxtTime: LazyComponent<typeof import("../node_modules/nuxt/dis
 export const LazyNuxtRouteAnnouncer: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']>
 export const LazyNuxtImg: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']>
 export const LazyNuxtPicture: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']>
+export const LazyMotion: LazyComponent<typeof import("@vueuse/motion")['MotionComponent']>
+export const LazyMotionGroup: LazyComponent<typeof import("@vueuse/motion")['MotionGroupComponent']>
 export const LazyNuxtPage: LazyComponent<typeof import("../node_modules/nuxt/dist/pages/runtime/page")['default']>
 export const LazyNoScript: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['NoScript']>
 export const LazyLink: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Link']>
