@@ -24,6 +24,7 @@ interface _GlobalComponents {
     'DotPattern': typeof import("../components/DotPattern.vue")['default']
     'Globe': typeof import("../components/Globe.vue")['default']
     'Intro': typeof import("../components/Intro.vue")['default']
+    'Meteors': typeof import("../components/Meteors.vue")['default']
     'PortfolioCard': typeof import("../components/PortfolioCard.vue")['default']
     'PortfolioModal': typeof import("../components/PortfolioModal.vue")['default']
     'PoweredByRubyOnRails': typeof import("../components/PoweredByRubyOnRails.vue")['default']
@@ -64,6 +65,7 @@ interface _GlobalComponents {
     'LazyDotPattern': LazyComponent<typeof import("../components/DotPattern.vue")['default']>
     'LazyGlobe': LazyComponent<typeof import("../components/Globe.vue")['default']>
     'LazyIntro': LazyComponent<typeof import("../components/Intro.vue")['default']>
+    'LazyMeteors': LazyComponent<typeof import("../components/Meteors.vue")['default']>
     'LazyPortfolioCard': LazyComponent<typeof import("../components/PortfolioCard.vue")['default']>
     'LazyPortfolioModal': LazyComponent<typeof import("../components/PortfolioModal.vue")['default']>
     'LazyPoweredByRubyOnRails': LazyComponent<typeof import("../components/PoweredByRubyOnRails.vue")['default']>
@@ -110,6 +112,7 @@ export const CurrentWeather: typeof import("../components/CurrentWeather.vue")['
 export const DotPattern: typeof import("../components/DotPattern.vue")['default']
 export const Globe: typeof import("../components/Globe.vue")['default']
 export const Intro: typeof import("../components/Intro.vue")['default']
+export const Meteors: typeof import("../components/Meteors.vue")['default']
 export const PortfolioCard: typeof import("../components/PortfolioCard.vue")['default']
 export const PortfolioModal: typeof import("../components/PortfolioModal.vue")['default']
 export const PoweredByRubyOnRails: typeof import("../components/PoweredByRubyOnRails.vue")['default']
@@ -150,6 +153,7 @@ export const LazyCurrentWeather: LazyComponent<typeof import("../components/Curr
 export const LazyDotPattern: LazyComponent<typeof import("../components/DotPattern.vue")['default']>
 export const LazyGlobe: LazyComponent<typeof import("../components/Globe.vue")['default']>
 export const LazyIntro: LazyComponent<typeof import("../components/Intro.vue")['default']>
+export const LazyMeteors: LazyComponent<typeof import("../components/Meteors.vue")['default']>
 export const LazyPortfolioCard: LazyComponent<typeof import("../components/PortfolioCard.vue")['default']>
 export const LazyPortfolioModal: LazyComponent<typeof import("../components/PortfolioModal.vue")['default']>
 export const LazyPoweredByRubyOnRails: LazyComponent<typeof import("../components/PoweredByRubyOnRails.vue")['default']>

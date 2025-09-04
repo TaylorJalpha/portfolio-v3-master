@@ -1,4 +1,10 @@
+<script setup lang="ts">
+import Meteors from '~/components/Meteors.vue'
+</script>
+
 <template>
+    <!-- Meteors background for the entire screen -->
+    <Meteors :number="30" />
     <main
         class="text-white m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]">
         <slot />

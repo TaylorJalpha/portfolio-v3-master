@@ -13,11 +13,14 @@
   <div id="projects" class="w-full">
     <div class="flex flex-col items-center pt-4 pb-4">
         <div class="relative flex h-[400px] w-[500px] max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border px-40 pb-40 pt-8 md:pb-48 mt-32">
+          <div class="absolute inset-0">
+            <Meteors :number="30" />
+          </div>
           <h1 class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">Portfolio</h1>
           <Globe />
           <div class="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
         </div>
-        <p class="text-lg mb-8 text-center max-w-2xl bg-gradient-to-b mt-5 from-black to-gray-300/80 bg-clip-text text-transparent dark:from-white dark:to-slate-900/10">
+        <p class="text-lg mb-8 mt-2 pt-2text-center max-w-2xl">
           A collection of my work, case studies, projects, and blog posts from over the years - showcasing my skills and expertise as a Technical Product Manager and Business Leader
         </p>
     </div>
@@ -49,6 +52,7 @@
 <script setup lang="ts">
 
 import { usePortfolioApi } from '@/composables/usePortfolioApi'
+import Meteors from '~/components/Meteors.vue'
 
 definePageMeta({ layout: 'portfolio' })
 
