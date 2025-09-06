@@ -89,7 +89,7 @@ const socialLinks = [
               <span class="ml-2 text-[#E63946] text-2xl">●</span>
             </div>
             <p class="text-neutral-400 text-sm max-w-sm leading-relaxed ml-11">
-              Product Manager & Full-Stack Developer crafting amazing digital experiences with Vue, Ruby on Rails, and modern web technologies.
+              Product Manager with strong technical knowledge– Shipping solutions that drive revenue, user engagement and high customer satisfaction.
             </p>
           </div>
 
