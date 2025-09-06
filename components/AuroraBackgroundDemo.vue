@@ -13,9 +13,6 @@
       <div class="font-extralight text-base md:text-4xl text-neutral-200 py-4 text-center">
        
       </div>
-      <button class="bg-black hover:bg-gray-800 transition-colors rounded-full w-fit text-white px-6 py-3 mt-4">
-        Debug now
-      </button>
     </div>
   </AuroraBackground>
 </template>

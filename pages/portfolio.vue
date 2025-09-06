@@ -1,15 +1,5 @@
 <template>
-  <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 mb-4 backdrop-blur-lg shadow-lg rounded-full px-6 py-2 flex items-center gap-4 border border-gray-600">
-    <button
-      @click="$router.push('/')"
-      class="text-[#E63946] hover:text-[#F1FAEE] font-semibold flex items-center gap-2 focus:outline-none"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M4.5 10.5V19a1.5 1.5 0 001.5 1.5h3A1.5 1.5 0 0010.5 19v-4.5h3V19a1.5 1.5 0 001.5 1.5h3A1.5 1.5 0 0019.5 19v-8.5" />
-      </svg>
-      Home
-    </button>
-  </nav>
+  <PortfolioNav />
   <div id="projects" class="w-full min-h-screen">
     <!-- Header Section -->
     <div class="flex flex-col items-center pt-4 pb-12">
@@ -168,6 +158,7 @@ import { usePortfolioApi } from '@/composables/usePortfolioApi'
 import Meteors from '~/components/Meteors.vue'
 import BlurFade from '~/components/BlurFade.vue'
 import PortfolioCardSkeleton from '~/components/PortfolioCardSkeleton.vue'
+import PortfolioNav from '~/components/PortfolioNav.vue'
 
 definePageMeta({ layout: 'portfolio' })
 

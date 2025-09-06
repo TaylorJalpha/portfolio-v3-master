@@ -25,12 +25,16 @@ interface _GlobalComponents {
     'Copyright': typeof import("../components/Copyright.vue")['default']
     'CurrentWeather': typeof import("../components/CurrentWeather.vue")['default']
     'DotPattern': typeof import("../components/DotPattern.vue")['default']
+    'ExperienceTimeline': typeof import("../components/ExperienceTimeline.vue")['default']
+    'FloatingNav': typeof import("../components/FloatingNav.vue")['default']
+    'Footer': typeof import("../components/Footer.vue")['default']
     'Globe': typeof import("../components/Globe.vue")['default']
     'Intro': typeof import("../components/Intro.vue")['default']
     'Meteors': typeof import("../components/Meteors.vue")['default']
     'PortfolioCard': typeof import("../components/PortfolioCard.vue")['default']
     'PortfolioCardSkeleton': typeof import("../components/PortfolioCardSkeleton.vue")['default']
     'PortfolioModal': typeof import("../components/PortfolioModal.vue")['default']
+    'PortfolioNav': typeof import("../components/PortfolioNav.vue")['default']
     'PoweredByRubyOnRails': typeof import("../components/PoweredByRubyOnRails.vue")['default']
     'Status': typeof import("../components/Status.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
@@ -72,12 +76,16 @@ interface _GlobalComponents {
     'LazyCopyright': LazyComponent<typeof import("../components/Copyright.vue")['default']>
     'LazyCurrentWeather': LazyComponent<typeof import("../components/CurrentWeather.vue")['default']>
     'LazyDotPattern': LazyComponent<typeof import("../components/DotPattern.vue")['default']>
+    'LazyExperienceTimeline': LazyComponent<typeof import("../components/ExperienceTimeline.vue")['default']>
+    'LazyFloatingNav': LazyComponent<typeof import("../components/FloatingNav.vue")['default']>
+    'LazyFooter': LazyComponent<typeof import("../components/Footer.vue")['default']>
     'LazyGlobe': LazyComponent<typeof import("../components/Globe.vue")['default']>
     'LazyIntro': LazyComponent<typeof import("../components/Intro.vue")['default']>
     'LazyMeteors': LazyComponent<typeof import("../components/Meteors.vue")['default']>
     'LazyPortfolioCard': LazyComponent<typeof import("../components/PortfolioCard.vue")['default']>
     'LazyPortfolioCardSkeleton': LazyComponent<typeof import("../components/PortfolioCardSkeleton.vue")['default']>
     'LazyPortfolioModal': LazyComponent<typeof import("../components/PortfolioModal.vue")['default']>
+    'LazyPortfolioNav': LazyComponent<typeof import("../components/PortfolioNav.vue")['default']>
     'LazyPoweredByRubyOnRails': LazyComponent<typeof import("../components/PoweredByRubyOnRails.vue")['default']>
     'LazyStatus': LazyComponent<typeof import("../components/Status.vue")['default']>
     'LazyNuxtWelcome': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
@@ -125,12 +133,16 @@ export const ContactForm: typeof import("../components/ContactForm.vue")['defaul
 export const Copyright: typeof import("../components/Copyright.vue")['default']
 export const CurrentWeather: typeof import("../components/CurrentWeather.vue")['default']
 export const DotPattern: typeof import("../components/DotPattern.vue")['default']
+export const ExperienceTimeline: typeof import("../components/ExperienceTimeline.vue")['default']
+export const FloatingNav: typeof import("../components/FloatingNav.vue")['default']
+export const Footer: typeof import("../components/Footer.vue")['default']
 export const Globe: typeof import("../components/Globe.vue")['default']
 export const Intro: typeof import("../components/Intro.vue")['default']
 export const Meteors: typeof import("../components/Meteors.vue")['default']
 export const PortfolioCard: typeof import("../components/PortfolioCard.vue")['default']
 export const PortfolioCardSkeleton: typeof import("../components/PortfolioCardSkeleton.vue")['default']
 export const PortfolioModal: typeof import("../components/PortfolioModal.vue")['default']
+export const PortfolioNav: typeof import("../components/PortfolioNav.vue")['default']
 export const PoweredByRubyOnRails: typeof import("../components/PoweredByRubyOnRails.vue")['default']
 export const Status: typeof import("../components/Status.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
@@ -172,12 +184,16 @@ export const LazyContactForm: LazyComponent<typeof import("../components/Contact
 export const LazyCopyright: LazyComponent<typeof import("../components/Copyright.vue")['default']>
 export const LazyCurrentWeather: LazyComponent<typeof import("../components/CurrentWeather.vue")['default']>
 export const LazyDotPattern: LazyComponent<typeof import("../components/DotPattern.vue")['default']>
+export const LazyExperienceTimeline: LazyComponent<typeof import("../components/ExperienceTimeline.vue")['default']>
+export const LazyFloatingNav: LazyComponent<typeof import("../components/FloatingNav.vue")['default']>
+export const LazyFooter: LazyComponent<typeof import("../components/Footer.vue")['default']>
 export const LazyGlobe: LazyComponent<typeof import("../components/Globe.vue")['default']>
 export const LazyIntro: LazyComponent<typeof import("../components/Intro.vue")['default']>
 export const LazyMeteors: LazyComponent<typeof import("../components/Meteors.vue")['default']>
 export const LazyPortfolioCard: LazyComponent<typeof import("../components/PortfolioCard.vue")['default']>
 export const LazyPortfolioCardSkeleton: LazyComponent<typeof import("../components/PortfolioCardSkeleton.vue")['default']>
 export const LazyPortfolioModal: LazyComponent<typeof import("../components/PortfolioModal.vue")['default']>
+export const LazyPortfolioNav: LazyComponent<typeof import("../components/PortfolioNav.vue")['default']>
 export const LazyPoweredByRubyOnRails: LazyComponent<typeof import("../components/PoweredByRubyOnRails.vue")['default']>
 export const LazyStatus: LazyComponent<typeof import("../components/Status.vue")['default']>
 export const LazyNuxtWelcome: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>

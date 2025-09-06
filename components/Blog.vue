@@ -2,7 +2,7 @@
     <Card colSpan="md:col-span-1" rowSpan="md:row-span-3" href="/">
         <h2 class="text-xl font-bold m-0 z-20">Portfolio</h2>
         
-        <!-- Enhanced Animated Button -->
+      
         <NuxtLink to="/portfolio" class="inline-block mt-4">
             <button class="animated-gradient-button group">
                 <span class="button-content">
@@ -20,10 +20,8 @@
                     </svg>
                 </span>
                 
-                <!-- Shine effect overlay -->
                 <div class="shine-overlay"></div>
-                
-                <!-- Floating particles effect -->
+
                 <div class="particle particle-1"></div>
                 <div class="particle particle-2"></div>
                 <div class="particle particle-3"></div>

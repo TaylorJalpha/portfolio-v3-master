@@ -161,7 +161,7 @@ const galleryImages = computed(() => {
   opacity: 0;
 }
 
-/* Custom scrollbar for dark theme */
+/* scrollbar dark theme */
 .prose::-webkit-scrollbar {
   width: 8px;
 }
@@ -191,3 +191,5 @@ const galleryImages = computed(() => {
   margin-bottom: 0;
 }
 </style>
+
+  
