@@ -29,6 +29,7 @@ interface _GlobalComponents {
     'Intro': typeof import("../components/Intro.vue")['default']
     'Meteors': typeof import("../components/Meteors.vue")['default']
     'PortfolioCard': typeof import("../components/PortfolioCard.vue")['default']
+    'PortfolioCardSkeleton': typeof import("../components/PortfolioCardSkeleton.vue")['default']
     'PortfolioModal': typeof import("../components/PortfolioModal.vue")['default']
     'PoweredByRubyOnRails': typeof import("../components/PoweredByRubyOnRails.vue")['default']
     'Status': typeof import("../components/Status.vue")['default']
@@ -75,6 +76,7 @@ interface _GlobalComponents {
     'LazyIntro': LazyComponent<typeof import("../components/Intro.vue")['default']>
     'LazyMeteors': LazyComponent<typeof import("../components/Meteors.vue")['default']>
     'LazyPortfolioCard': LazyComponent<typeof import("../components/PortfolioCard.vue")['default']>
+    'LazyPortfolioCardSkeleton': LazyComponent<typeof import("../components/PortfolioCardSkeleton.vue")['default']>
     'LazyPortfolioModal': LazyComponent<typeof import("../components/PortfolioModal.vue")['default']>
     'LazyPoweredByRubyOnRails': LazyComponent<typeof import("../components/PoweredByRubyOnRails.vue")['default']>
     'LazyStatus': LazyComponent<typeof import("../components/Status.vue")['default']>
@@ -127,6 +129,7 @@ export const Globe: typeof import("../components/Globe.vue")['default']
 export const Intro: typeof import("../components/Intro.vue")['default']
 export const Meteors: typeof import("../components/Meteors.vue")['default']
 export const PortfolioCard: typeof import("../components/PortfolioCard.vue")['default']
+export const PortfolioCardSkeleton: typeof import("../components/PortfolioCardSkeleton.vue")['default']
 export const PortfolioModal: typeof import("../components/PortfolioModal.vue")['default']
 export const PoweredByRubyOnRails: typeof import("../components/PoweredByRubyOnRails.vue")['default']
 export const Status: typeof import("../components/Status.vue")['default']
@@ -173,6 +176,7 @@ export const LazyGlobe: LazyComponent<typeof import("../components/Globe.vue")['
 export const LazyIntro: LazyComponent<typeof import("../components/Intro.vue")['default']>
 export const LazyMeteors: LazyComponent<typeof import("../components/Meteors.vue")['default']>
 export const LazyPortfolioCard: LazyComponent<typeof import("../components/PortfolioCard.vue")['default']>
+export const LazyPortfolioCardSkeleton: LazyComponent<typeof import("../components/PortfolioCardSkeleton.vue")['default']>
 export const LazyPortfolioModal: LazyComponent<typeof import("../components/PortfolioModal.vue")['default']>
 export const LazyPoweredByRubyOnRails: LazyComponent<typeof import("../components/PoweredByRubyOnRails.vue")['default']>
 export const LazyStatus: LazyComponent<typeof import("../components/Status.vue")['default']>

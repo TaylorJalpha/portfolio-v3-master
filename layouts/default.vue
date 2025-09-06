@@ -12,6 +12,20 @@ import AuroraBackgroundDemo from '~/components/AuroraBackgroundDemo.vue'
         <slot />
     </main>
 
+    <!-- animated arrow pointing down that leads to the next section -->
+    <div class="flex justify-center">
+        <svg
+            class="animate-bounce w-8 h-8 text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+        >
+            <path d="M12 5v14m7-7l-7 7-7-7" />
+        </svg>
+    </div>
+
     <!-- New Section - Completely separate -->
     <div class="text-white relative w-full z-10">
         <!-- Aurora background positioned absolutely behind content -->

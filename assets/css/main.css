@@ -100,6 +100,71 @@ body {
 }
 
 @keyframes waveAnimation {
+    0%, 100% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+}
+
+/* Portfolio Grid Responsive Utilities */
+.portfolio-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+@media (min-width: 640px) {
+  .portfolio-grid {
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-grid {
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .portfolio-grid {
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+/* Card consistency utilities */
+.portfolio-card {
+  min-height: 420px;
+}
+
+@media (min-width: 640px) {
+  .portfolio-card {
+    min-height: 450px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-card {
+    min-height: 440px;
+  }
+}
+
+/* Enhanced hover and focus states */
+.portfolio-card:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.portfolio-card:focus-within {
+  outline: 2px solid #E63946;
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for page navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes waveAnimation {
 0% {
     transform: rotate(-15deg);
 }
