@@ -136,3 +136,27 @@ body {
 .animate-meteor {
   animation: meteor linear infinite;
 }
+
+/* Aurora animation */
+@keyframes aurora {
+  0% {
+    background-position: 50% 50%, 50% 50%;
+  }
+  25% {
+    background-position: 100% 100%, 100% 50%;
+  }
+  50% {
+    background-position: 200% 50%, 200% 100%;
+  }
+  75% {
+    background-position: 300% 100%, 300% 50%;
+  }
+  100% {
+    background-position: 400% 50%, 400% 50%;
+  }
+}
+
+.animate-aurora {
+  animation: aurora 20s ease-in-out infinite;
+}
+

@@ -29,8 +29,8 @@ useSeoMeta({
     ogImage: './me/me1.png',
     twitterCard: './me/me1.png',
 })
-
 </script>
+
 <template>
     <Intro />
     <About />

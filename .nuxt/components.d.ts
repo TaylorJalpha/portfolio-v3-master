@@ -14,6 +14,8 @@ type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}
 interface _GlobalComponents {
       'About': typeof import("../components/About.vue")['default']
     'AnimatedShinyText': typeof import("../components/AnimatedShinyText.vue")['default']
+    'AuroraBackground': typeof import("../components/AuroraBackground.vue")['default']
+    'AuroraBackgroundDemo': typeof import("../components/AuroraBackgroundDemo.vue")['default']
     'Blog': typeof import("../components/Blog.vue")['default']
     'BlurFade': typeof import("../components/BlurFade.vue")['default']
     'Button': typeof import("../components/Button.vue")['default']
@@ -58,6 +60,8 @@ interface _GlobalComponents {
     'NuxtRouteAnnouncer': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
       'LazyAbout': LazyComponent<typeof import("../components/About.vue")['default']>
     'LazyAnimatedShinyText': LazyComponent<typeof import("../components/AnimatedShinyText.vue")['default']>
+    'LazyAuroraBackground': LazyComponent<typeof import("../components/AuroraBackground.vue")['default']>
+    'LazyAuroraBackgroundDemo': LazyComponent<typeof import("../components/AuroraBackgroundDemo.vue")['default']>
     'LazyBlog': LazyComponent<typeof import("../components/Blog.vue")['default']>
     'LazyBlurFade': LazyComponent<typeof import("../components/BlurFade.vue")['default']>
     'LazyButton': LazyComponent<typeof import("../components/Button.vue")['default']>
@@ -108,6 +112,8 @@ declare module 'vue' {
 
 export const About: typeof import("../components/About.vue")['default']
 export const AnimatedShinyText: typeof import("../components/AnimatedShinyText.vue")['default']
+export const AuroraBackground: typeof import("../components/AuroraBackground.vue")['default']
+export const AuroraBackgroundDemo: typeof import("../components/AuroraBackgroundDemo.vue")['default']
 export const Blog: typeof import("../components/Blog.vue")['default']
 export const BlurFade: typeof import("../components/BlurFade.vue")['default']
 export const Button: typeof import("../components/Button.vue")['default']
@@ -152,6 +158,8 @@ export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components
 export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const LazyAbout: LazyComponent<typeof import("../components/About.vue")['default']>
 export const LazyAnimatedShinyText: LazyComponent<typeof import("../components/AnimatedShinyText.vue")['default']>
+export const LazyAuroraBackground: LazyComponent<typeof import("../components/AuroraBackground.vue")['default']>
+export const LazyAuroraBackgroundDemo: LazyComponent<typeof import("../components/AuroraBackgroundDemo.vue")['default']>
 export const LazyBlog: LazyComponent<typeof import("../components/Blog.vue")['default']>
 export const LazyBlurFade: LazyComponent<typeof import("../components/BlurFade.vue")['default']>
 export const LazyButton: LazyComponent<typeof import("../components/Button.vue")['default']>
