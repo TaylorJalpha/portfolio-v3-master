@@ -11,6 +11,8 @@ const isContactFormOpen = ref<boolean>(false)
 
 const openContactForm = (event: Event) => {
   event.preventDefault()
+  event.stopPropagation()
+  console.log('Footer contact form opening...')
   isContactFormOpen.value = true
 }
 
@@ -96,6 +98,39 @@ const socialLinks = [
           <!-- Links grid -->
           <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             
+            <!-- Connect -->
+            <div>
+              <h3 class="mb-6 text-sm font-semibold text-white uppercase tracking-wider">
+                Let's Connect!
+              </h3>
+              <div class="flex flex-col space-y-4">
+                <button
+                  @click="openContactForm"
+                  class="group inline-flex items-center text-left text-neutral-400 hover:text-[#E63946] transition-all duration-300 bg-transparent border border-neutral-600/50 hover:border-[#E63946]/50 rounded-md px-3 py-1.5 cursor-pointer text-sm font-medium hover:bg-[#E63946]/10"
+                >
+                  <svg class="w-3 h-3 mr-1.5 opacity-70 group-hover:opacity-100" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                    <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                  </svg>
+                  Contact Me
+                </button>
+                <a 
+                  href="https://www.linkedin.com/in/taylor-jacob-ferguson/" 
+                  target="_blank"
+                  class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium"
+                >
+                  LinkedIn
+                </a>
+                <a 
+                  href="https://github.com/TaylorJalpha" 
+                  target="_blank"
+                  class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium mb-2"
+                >
+                  GitHub
+                </a>
+              </div>
+            </div>
+
             <!-- Navigation Links -->
             <div>
               <h3 class="mb-6 text-sm font-semibold text-white uppercase tracking-wider">
@@ -126,49 +161,23 @@ const socialLinks = [
             <!-- Technologies -->
             <div>
               <h3 class="mb-6 text-sm font-semibold text-white uppercase tracking-wider">
-                Technologies
+                Core skills
               </h3>
               <div class="flex flex-col space-y-4">
                 <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium">
-                  Vue.js
+                  Product Management
                 </a>
                 <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium">
-                  Ruby on Rails
+                  Web & Mobile Development
                 </a>
                 <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium">
-                  Tailwind CSS
+                  User Experience Design
                 </a>
                 <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium">
-                  TypeScript
+                  Data Analytics
                 </a>
-              </div>
-            </div>
-
-            <!-- Connect -->
-            <div>
-              <h3 class="mb-6 text-sm font-semibold text-white uppercase tracking-wider">
-                Connect
-              </h3>
-              <div class="flex flex-col space-y-4">
-                <button
-                  @click="openContactForm"
-                  class="group text-left text-neutral-400 hover:text-[#E63946] transition-colors duration-300 bg-transparent border-none cursor-pointer p-0 text-sm font-medium"
-                >
-                  Get In Touch
-                </button>
-                <a 
-                  href="https://www.linkedin.com/in/taylor-jacob-ferguson/" 
-                  target="_blank"
-                  class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium"
-                >
-                  LinkedIn
-                </a>
-                <a 
-                  href="https://github.com/TaylorJalpha" 
-                  target="_blank"
-                  class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium mb-2"
-                >
-                  GitHub
+                <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium">
+                  Business Modeling
                 </a>
               </div>
             </div>
@@ -240,6 +249,19 @@ const socialLinks = [
     <!-- Contact Form Modal -->
     <ContactForm
       v-model:isOpen="isContactFormOpen"
+      class="footer-contact-modal"
     />
   </footer>
 </template>
+
+<style scoped>
+/* Ensure Footer's contact modal has higher z-index */
+:deep(.footer-contact-modal .modal-overlay-pv3) {
+  z-index: 2000 !important;
+  position: fixed !important;
+}
+
+:deep(.footer-contact-modal .modal-content-pv3) {
+  z-index: 2001 !important;
+}
+</style>

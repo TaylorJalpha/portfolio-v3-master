@@ -8,7 +8,7 @@ import BlurFade from '~/components/BlurFade.vue'
 // Experience timeline data
 const experiences = ref([
   {
-    year: '2024',
+    year: '2024-Current',
     title: 'Product Management Sabbatical',
     company: 'Consultant - Los Angeles, CA',
     description: 'Took intentional time off to reassess priorities and deepen skills across product strategy, software development, AI/ML, cloud engineering, business strategy, and customer acquisition.',
@@ -233,7 +233,7 @@ onBeforeUnmount(() => {
        
         <div class="flex justify-center relative z-10">
             <svg
-                class="animate-bounce w-8 h-8 text-white"
+                class="animate-bounce w-8 h-8 text-gray-600"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
@@ -245,7 +245,6 @@ onBeforeUnmount(() => {
         </div>
     </div>
 
-    <!-- New Section - Completely separate -->
     <div class="text-white relative w-full z-10" data-section="experience">
         <!-- Aurora background positioned absolutely behind content -->
         <div class="absolute inset-0 -z-10">
@@ -267,29 +266,25 @@ onBeforeUnmount(() => {
                     </BlurFade>
                 </div>
 
-                <!-- Custom Animated Timeline - Left-aligned Design -->
+                <!-- Animated Timeline -->
                 <div ref="timelineContainer" class="relative max-w-6xl mx-auto">
-                    <!-- Progress Line Container - Positioned to the left -->
                     <div class="absolute left-8 sm:left-10 lg:left-14 top-0 bottom-0 w-0.5 z-[1]">
-                        <!-- Base static line (subtle background) -->
                         <div class="w-full h-full bg-gray-700/20 relative rounded-full">
                         </div>
-                        
-                        <!-- Animated progress line that follows scroll -->
                         <div 
                             ref="progressLine" 
                             class="absolute inset-0 w-full origin-top transition-all duration-300 ease-out overflow-hidden rounded-full"
                             style="transform: scaleY(0)"
                         >
-                            <!-- Solid animated line with scroll gradient -->
+                            
                             <div class="w-full h-full bg-gradient-to-b from-purple-400 via-blue-500 to-cyan-400 relative rounded-full">
-                                <!-- Enhanced glow effect -->
+                             
                                 <div class="absolute inset-0 bg-gradient-to-b from-purple-400/70 via-blue-500/70 to-cyan-400/70 blur-sm rounded-full"></div>
                                 
-                                <!-- Moving progress indicator -->
+                               
                                 <div class="absolute w-3 h-3 bg-white rounded-full left-1/2 -translate-x-1/2 shadow-xl border-2 border-purple-300 transition-all duration-300"
                                      style="top: 100%; transform: translateX(-50%) translateY(-50%);">
-                                    <!-- Inner glow -->
+                                   
                                     <div class="absolute inset-0.5 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full"></div>
                                 </div>
                             </div>
@@ -348,9 +343,9 @@ onBeforeUnmount(() => {
                             <div class="ml-24 sm:ml-28 lg:ml-36 transition-all duration-700 z-[1] relative">
                                 <div class="bg-white/5 border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border hover:bg-gradient-to-br hover:from-white/10 hover:to-white/5 transition-all duration-500 hover:shadow-2xl hover:shadow-[#E63946]/10 hover:border-[#E63946]/30 hover:scale-[1.02] relative timeline-card-background max-w-3xl lg:max-w-4xl group"
                                      style="background: rgba(255, 255, 255, 0.08);">
-                                    <!-- Modern glow effect overlay -->
+                                  
                                     <div class="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-[#E63946]/5 via-transparent to-[#E63946]/5"></div>
-                                    <!-- Add subtle background pattern instead of backdrop-blur -->
+                                   
                                     <div class="absolute inset-0 rounded-xl sm:rounded-2xl opacity-30 pointer-events-none"
                                          style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;">
                                     </div>
@@ -399,23 +394,21 @@ onBeforeUnmount(() => {
                     
                         <!-- Timeline End -->
                         <div class="relative mt-12 sm:mt-16 lg:mt-20">
-                            <!-- Timeline End Dot and Text Container -->
+                           
                             <div class="absolute left-8 sm:left-10 lg:left-14 top-6 flex items-center z-[5]">
-                                <!-- Timeline End Dot Container positioned on the line -->
+                              
                                 <div class="h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 rounded-full bg-white dark:bg-black flex items-center justify-center border border-neutral-300 dark:border-neutral-700 shadow-lg flex-shrink-0 -translate-x-1/2">
                                     <div class="h-3 w-3 sm:h-4 sm:w-4 lg:h-4 lg:w-4 rounded-full bg-neutral-300 dark:bg-neutral-600 border border-neutral-400 dark:border-neutral-600"></div>
                                 </div>
                                 
-                                <!-- End text positioned to the left with absolute positioning -->
-                                <div class="absolute right-12 sm:right-14 lg:right-16 text-gray-400">
-                                    <p class="text-sm sm:text-base lg:text-lg font-medium whitespace-nowrap">The journey continues...</p>
-                                </div>
+                                
+                                
                             </div>
                             
                             <!-- Optional end card for mobile readability -->
                             <div class="ml-24 sm:ml-28 lg:ml-36">
                                 <div class="text-gray-400 text-left">
-                                    <p class="text-xs sm:text-sm mt-1">Always learning, always growing</p>
+                                    <p class="text-xs sm:text-sm mt-1">Always learning, always growing- Keep building, fam. (Note to Self)</p>
                                 </div>
                             </div>
                         </div>
