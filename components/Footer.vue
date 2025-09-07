@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import ContactForm from './ContactForm.vue'
+
 import moment from 'moment'
 
 const router = useRouter()
@@ -240,7 +240,6 @@ const socialLinks = [
     <!-- Contact Form Modal -->
     <ContactForm
       v-model:isOpen="isContactFormOpen"
-      @close="isContactFormOpen = false"
     />
   </footer>
 </template>

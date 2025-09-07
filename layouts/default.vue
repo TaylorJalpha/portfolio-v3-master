@@ -3,6 +3,7 @@ import Meteors from '~/components/Meteors.vue'
 import AuroraBackgroundDemo from '~/components/AuroraBackgroundDemo.vue'
 import FloatingNav from '~/components/FloatingNav.vue'
 import Footer from '~/components/Footer.vue'
+import BlurFade from '~/components/BlurFade.vue'
 
 // Experience timeline data
 const experiences = ref([
@@ -254,12 +255,16 @@ onBeforeUnmount(() => {
         <div class="m-auto max-w-6xl">
             <section class="py-20 px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-20">
+                  <BlurFade in-view :delay="250">
                     <h2 class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-4xl md:text-5xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10 mb-6">
                         My Professional Journey
                     </h2>
-                    <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                        Below is an timeline view of some of my experience as a product manager with core technical experience– Test your assumptions, world...
-                    </p>
+                    </BlurFade>
+                    <BlurFade in-view :delay="250">
+                      <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                          Below is an timeline view of some of my experience as a product manager with core technical experience– Test your assumptions, world...
+                      </p>
+                    </BlurFade>
                 </div>
 
                 <!-- Custom Animated Timeline - Left-aligned Design -->

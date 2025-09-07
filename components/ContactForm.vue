@@ -1,6 +1,6 @@
 <template>
-  <portal to="modals">
-    <div v-if="isOpen" class="modal-overlay-pv3" @click="closeModal()">
+  <teleport to="body">
+    <div v-if="isModalOpen" class="modal-overlay-pv3" @click="closeModal()">
       <div class="modal-content-pv3" @click.stop>
         <h3><b>Contact Me 🚵</b></h3>
         <p class="contact-form-paragraph">Have a question or want to collab? I'm always open to new opportunities. I'll respond within 24 hours.
@@ -34,14 +34,13 @@
         </form>
       </div>
     </div>
-  </portal>
+  </teleport>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, onMounted, watch } from "vue";
 import axios from "axios";
 import type { AxiosError, AxiosResponse } from "axios";
-import { Portal } from "portal-vue";
 
 interface FormData {
   [key: string]: string;
@@ -77,16 +76,13 @@ api.interceptors.request.use((config) => {
 });
 
 export default defineComponent({
-  components: {
-    Portal,
-  },
   props: {
     isOpen: {
       type: Boolean,
       required: true,
     },
   },
-  emits: ["close"],
+  emits: ["close", "update:isOpen"],
   setup(props, { emit }) {
     const isModalOpen = ref<boolean>(props.isOpen);
     const isLoading = ref<boolean>(false);
@@ -154,6 +150,7 @@ export default defineComponent({
 
     const closeModal = () => {
       isModalOpen.value = false;
+      emit("update:isOpen", false);
       emit("close");
       resetForm();
     };

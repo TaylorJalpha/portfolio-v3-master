@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { stagger, spring, timeline } from "motion";
+import TerminalCard from '~/components/TerminalCard.vue';
 
 const cards = ref([]);
 
@@ -39,5 +40,5 @@ useSeoMeta({
     <Blog />
     <CurrentWeather />
     <PoweredByRubyOnRails />
-    <Copyright />
+    <TerminalCard />
 </template>

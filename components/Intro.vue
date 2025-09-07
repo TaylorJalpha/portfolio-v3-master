@@ -181,7 +181,6 @@
       </div>
       <ContactForm
         v-model:isOpen="isContactFormOpen"
-        @close="isContactFormOpen = false"
       />
 
       <img
