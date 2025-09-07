@@ -135,6 +135,15 @@ const socialLinks = [
                 >
                   GitHub
                 </a>
+                <!-- Message me on Discord -->
+                <a 
+                  href="https://discord.com/users/884522616105349240"
+                  target="_blank"
+                  class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium"
+                  title="Message me on Discord: @blockedwu"
+                >
+                  Discord (@blockedwu)
+                </a>
               </div>
             </div>
 
@@ -184,7 +193,7 @@ const socialLinks = [
                   Data Analytics
                 </a>
                 <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium">
-                  Business Modeling
+                  Business Development
                 </a>
               </div>
             </div>
@@ -197,7 +206,7 @@ const socialLinks = [
 
         <!-- Bottom section -->
         <div class="sm:flex sm:items-start sm:justify-between gap-8">
-          <!-- Copyright and Attribution -->
+          <!-- Copyright and Attribution from the Bento grid (Hero section) -->
           <div class="mb-4 sm:mb-0 max-w-md">
             <div class="text-xs text-neutral-400 leading-relaxed">
               Fork of
@@ -253,7 +262,7 @@ const socialLinks = [
       </div>
     </div>
 
-    <!-- Contact Form Modal -->
+   
     <ContactForm
       v-model:isOpen="isContactFormOpen"
       class="footer-contact-modal"
@@ -262,7 +271,7 @@ const socialLinks = [
 </template>
 
 <style scoped>
-/* Ensure Footer's contact modal has higher z-index */
+
 :deep(.footer-contact-modal .modal-overlay-pv3) {
   z-index: 2000 !important;
   position: fixed !important;
