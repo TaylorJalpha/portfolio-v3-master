@@ -13,7 +13,6 @@ type HydrationStrategies = {
 type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }>)
 interface _GlobalComponents {
       'About': typeof import("../components/About.vue")['default']
-    'AnimatedGradientText': typeof import("../components/AnimatedGradientText.vue")['default']
     'AnimatedShinyText': typeof import("../components/AnimatedShinyText.vue")['default']
     'AuroraBackground': typeof import("../components/AuroraBackground.vue")['default']
     'AuroraBackgroundDemo': typeof import("../components/AuroraBackgroundDemo.vue")['default']
@@ -23,7 +22,7 @@ interface _GlobalComponents {
     'Card': typeof import("../components/Card.vue")['default']
     'Contact': typeof import("../components/Contact.vue")['default']
     'ContactForm': typeof import("../components/ContactForm.vue")['default']
-    'CurrentWeather': typeof import("../components/CurrentWeather.vue")['default']
+    'CurrentWeather': typeof imp../components/TerminalCard.vueeather.vue")['default']
     'DotPattern': typeof import("../components/DotPattern.vue")['default']
     'ExperienceTimeline': typeof import("../components/ExperienceTimeline.vue")['default']
     'FloatingNav': typeof import("../components/FloatingNav.vue")['default']
@@ -65,7 +64,6 @@ interface _GlobalComponents {
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
       'LazyAbout': LazyComponent<typeof import("../components/About.vue")['default']>
-    'LazyAnimatedGradientText': LazyComponent<typeof import("../components/AnimatedGradientText.vue")['default']>
     'LazyAnimatedShinyText': LazyComponent<typeof import("../components/AnimatedShinyText.vue")['default']>
     'LazyAuroraBackground': LazyComponent<typeof import("../components/AuroraBackground.vue")['default']>
     'LazyAuroraBackgroundDemo': LazyComponent<typeof import("../components/AuroraBackgroundDemo.vue")['default']>
@@ -75,7 +73,7 @@ interface _GlobalComponents {
     'LazyCard': LazyComponent<typeof import("../components/Card.vue")['default']>
     'LazyContact': LazyComponent<typeof import("../components/Contact.vue")['default']>
     'LazyContactForm': LazyComponent<typeof import("../components/ContactForm.vue")['default']>
-    'LazyCurrentWeather': LazyComponent<typeof import("../components/CurrentWeather.vue")['default']>
+    'LazyCurrentWeather': LazyComponent<typeof imp../components/TerminalCard.vueeather.vue")['default']>
     'LazyDotPattern': LazyComponent<typeof import("../components/DotPattern.vue")['default']>
     'LazyExperienceTimeline': LazyComponent<typeof import("../components/ExperienceTimeline.vue")['default']>
     'LazyFloatingNav': LazyComponent<typeof import("../components/FloatingNav.vue")['default']>
@@ -123,7 +121,6 @@ declare module 'vue' {
 }
 
 export const About: typeof import("../components/About.vue")['default']
-export const AnimatedGradientText: typeof import("../components/AnimatedGradientText.vue")['default']
 export const AnimatedShinyText: typeof import("../components/AnimatedShinyText.vue")['default']
 export const AuroraBackground: typeof import("../components/AuroraBackground.vue")['default']
 export const AuroraBackgroundDemo: typeof import("../components/AuroraBackgroundDemo.vue")['default']
@@ -133,7 +130,7 @@ export const Button: typeof import("../components/Button.vue")['default']
 export const Card: typeof import("../components/Card.vue")['default']
 export const Contact: typeof import("../components/Contact.vue")['default']
 export const ContactForm: typeof import("../components/ContactForm.vue")['default']
-export const CurrentWeather: typeof import("../components/CurrentWeather.vue")['default']
+export const CurrentWeather: typeof imp../components/TerminalCard.vueeather.vue")['default']
 export const DotPattern: typeof import("../components/DotPattern.vue")['default']
 export const ExperienceTimeline: typeof import("../components/ExperienceTimeline.vue")['default']
 export const FloatingNav: typeof import("../components/FloatingNav.vue")['default']
@@ -175,7 +172,6 @@ export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const LazyAbout: LazyComponent<typeof import("../components/About.vue")['default']>
-export const LazyAnimatedGradientText: LazyComponent<typeof import("../components/AnimatedGradientText.vue")['default']>
 export const LazyAnimatedShinyText: LazyComponent<typeof import("../components/AnimatedShinyText.vue")['default']>
 export const LazyAuroraBackground: LazyComponent<typeof import("../components/AuroraBackground.vue")['default']>
 export const LazyAuroraBackgroundDemo: LazyComponent<typeof import("../components/AuroraBackgroundDemo.vue")['default']>
@@ -185,7 +181,7 @@ export const LazyButton: LazyComponent<typeof import("../components/Button.vue")
 export const LazyCard: LazyComponent<typeof import("../components/Card.vue")['default']>
 export const LazyContact: LazyComponent<typeof import("../components/Contact.vue")['default']>
 export const LazyContactForm: LazyComponent<typeof import("../components/ContactForm.vue")['default']>
-export const LazyCurrentWeather: LazyComponent<typeof import("../components/CurrentWeather.vue")['default']>
+export const LazyCurrentWeather: LazyComponent<typeof imp../components/TerminalCard.vueeather.vue")['default']>
 export const LazyDotPattern: LazyComponent<typeof import("../components/DotPattern.vue")['default']>
 export const LazyExperienceTimeline: LazyComponent<typeof import("../components/ExperienceTimeline.vue")['default']>
 export const LazyFloatingNav: LazyComponent<typeof import("../components/FloatingNav.vue")['default']>
