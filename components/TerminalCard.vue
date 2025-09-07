@@ -10,9 +10,9 @@ const isTyping = ref(false);
 
 const commands = [
   { type: 'command', text: '$ whoami', delay: 1000 },
-  { type: 'output', text: 'Taylor Alpha', delay: 800 },
-  { type: 'command', text: '$ echo "Your Role"', delay: 1000 },
-  { type: 'output', text: 'product manager', delay: 1000 },
+  { type: 'output', text: 'TaylorJAlpha', delay: 800 },
+  { type: 'command', text: '$ echo your role', delay: 1000 },
+  { type: 'output', text: 'Technical Product Manager', delay: 1000 },
 ];
 
 const typeText = async () => {
