@@ -30,10 +30,10 @@
         <div class="flex flex-wrap gap-1.5 sm:gap-2">
           <span 
             v-for="(tag, index) in item.tags.slice(0, 4)" 
-            :key="tag.name || tag" 
+            :key="tag._id" 
             class="inline-flex items-center px-2 py-1 bg-gray-800/50 border border-gray-600 text-gray-300 rounded-md text-xs font-medium hover:bg-gray-700/50 hover:border-gray-500 transition-colors duration-200"
           >
-            {{ tag.name || tag }}
+            {{ tag.title }}
           </span>
           <span 
             v-if="item.tags.length > 4"
@@ -45,17 +45,15 @@
       </div>
 
       <!-- Action Button -->
-      <button
-        class="w-full px-4 py-2.5 bg-[#E63946] text-white rounded-lg font-semibold shadow-lg hover:bg-[#d62839] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:ring-offset-2 focus:ring-offset-[#171717] transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
-        @click="$emit('learnMore', item)"
+      <NuxtLink
+  :to="`/${mapType(item.content_type)}/${item.slug?.current || item.slug}`"
+        class="w-full px-4 py-2.5 bg-[#E63946] text-white rounded-lg font-semibold shadow-lg hover:bg-[#d62839] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:ring-offset-2 focus:ring-offset-[#171717] transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
       >
-        <span class="flex items-center justify-center gap-2">
-          Learn More
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </span>
-      </button>
+        Learn More
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </NuxtLink>
     </div>
 
     <!-- Hover overlay effect -->
@@ -65,7 +63,12 @@
 
 <script lang="ts" setup>
 defineProps<{ item: any }>();
-defineEmits(['learnMore']);
+
+function mapType(type: string) {
+  if (type === 'caseStudy') return 'case-study'
+  if (type === 'blogPost') return 'blog'
+  return 'project'
+}
 </script>
 
 <style scoped>

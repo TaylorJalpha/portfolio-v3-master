@@ -45,10 +45,10 @@
               Projects
             </button>
             <button
-              @click="filterByType('case_study')"
+              @click="filterByType('caseStudy')"
               :class="[
                 'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
-                selectedFilter === 'case_study' 
+                selectedFilter === 'caseStudy' 
                   ? 'bg-[#E63946] text-white shadow-lg' 
                   : 'bg-gray-800 text-gray-300 border border-gray-600 hover:bg-gray-700 hover:border-gray-500'
               ]"
@@ -56,10 +56,10 @@
               Case Studies
             </button>
             <button
-              @click="filterByType('blog_post')"
+              @click="filterByType('blogPost')"
               :class="[
                 'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
-                selectedFilter === 'blog_post' 
+                selectedFilter === 'blogPost' 
                   ? 'bg-[#E63946] text-white shadow-lg' 
                   : 'bg-gray-800 text-gray-300 border border-gray-600 hover:bg-gray-700 hover:border-gray-500'
               ]"
@@ -75,8 +75,9 @@
       <!-- Results Counter -->
       <div v-if="!loading || items.length > 0" class="flex justify-between items-center mb-6">
         <p class="text-gray-400 text-sm">
-          {{ items.length }} {{ items.length === 1 ? 'project' : 'projects' }}
-          {{ selectedFilter ? `in ${selectedFilter.replace('_', ' ')}` : 'total' }}
+          {{ items.length }}
+          {{ items.length === 1 ? mappedTypeLabel(selectedFilter) : mappedTypeLabel(selectedFilter, true) }}
+          {{ selectedFilter ? `in ${mappedTypeLabel(selectedFilter, true)}` : 'total' }}
         </p>
         <div v-if="hasMore" class="text-gray-500 text-sm">
           More available...
@@ -87,9 +88,8 @@
         <!-- Actual portfolio cards -->
         <PortfolioCard
           v-for="item in items"
-          :key="item.id"
-          :item="item"
-          @learnMore="openModal"
+          :key="item._id || item.id"
+          :item="{ ...item, content_type: item._type }"
           class="portfolio-card"
         />
         
@@ -175,6 +175,13 @@ const currentPage = ref(1)
 const perPage = 12
 const selectedFilter = ref<string>('')
 const selectedTag = ref<string>('')
+
+function mappedTypeLabel(type: string, plural = false) {
+  if (type === 'caseStudy') return plural ? 'Case Studies' : 'Case Study'
+  if (type === 'blogPost') return plural ? 'Blog Posts' : 'Blog Post'
+  if (type === 'project') return plural ? 'Projects' : 'Project'
+  return plural ? 'Projects' : 'Project'
+}
 
 // Load initial data
 onMounted(async () => {
