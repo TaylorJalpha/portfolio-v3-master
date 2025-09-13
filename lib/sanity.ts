@@ -46,7 +46,26 @@ export async function fetchSanityPortfolioItems({ page = 1, per_page = 12, conte
 }
 
 export async function fetchSanityPortfolioItem(idOrSlug: string) {
-  const query = `*[_type in ["project", "caseStudy", "blogPost"] && (slug.current == "${idOrSlug}" || _id == "${idOrSlug}")][0]`
+  const query = `*[_type in ["project", "caseStudy", "blogPost"] && (slug.current == "${idOrSlug}" || _id == "${idOrSlug}")][0]{
+    _id,
+    title,
+    description,
+    slug,
+    _type,
+    featuredImage,
+    tags[]->{
+      _id,
+      title
+    },
+    published_at,
+    external_url,
+    content,
+    markdown,
+    galleryImages,
+    pdfFile{
+      asset->{url,_ref}
+    }
+  }`
   const item = await sanityClient.fetch(query)
   return { data: item }
 }

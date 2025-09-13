@@ -7,16 +7,6 @@ export default {
   of: [
     {
       type: 'block',
-    // Markdown block
-    {
-      type: 'markdown',
-      title: 'Markdown',
-    },
-    // HTML block
-    {
-      type: 'html',
-      title: 'HTML',
-    }
       styles: [
         {title: 'Normal', value: 'normal'},
         {title: 'Heading 1', value: 'h1'},
@@ -48,6 +38,12 @@ export default {
         ]
       }
     },
+    // Markdown block
+    {
+      type: 'markdown',
+      title: 'Markdown',
+    },
+  // ...existing code...
     {
       type: 'image',
       options: {hotspot: true}
