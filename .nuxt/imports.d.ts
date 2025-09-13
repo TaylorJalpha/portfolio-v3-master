@@ -29,7 +29,8 @@ export { withCtx, withDirectives, withKeys, withMemo, withModifiers, withScopeId
 export { requestIdleCallback, cancelIdleCallback } from '#app/compat/idle-callback';
 export { setInterval } from '#app/compat/interval';
 export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
-export { usePortfolioApi } from '../composables/usePortfolioApi';
+export { usePortfolioApi, PortfolioDetailResponse } from '../composables/usePortfolioApi';
+export { useSanityImageUrl } from '../composables/useSanityImageUrl';
 export { reactiveStyle, reactiveTransform, useElementStyle, useElementTransform, useMotion, useMotionControls, useMotionProperties, useMotions, useMotionTransitions, useMotionVariants, useSpring, useReducedMotion } from '../node_modules/@vueuse/motion/dist/nuxt/runtime/composables/index';
 export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';

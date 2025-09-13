@@ -22,6 +22,9 @@
   "dependencies": {
     "@aws-amplify/cli": "^12.13.0",
     "@nuxtjs/axios": "^5.13.6",
+    "@portabletext/vue": "^1.0.14",
+    "@sanity/client": "^7.11.1",
+    "@sanity/image-url": "^1.2.0",
     "@vueuse/motion": "^3.0.3",
     "axios": "^1.7.9",
     "cobe": "^0.6.4",

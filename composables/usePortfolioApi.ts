@@ -1,5 +1,4 @@
-// Portfolio API service for Nuxt 3
-// ~/composables/usePortfolioApi.ts
+import { fetchSanityPortfolioItems, fetchSanityPortfolioItem } from '@/lib/sanity'
 
 interface PortfolioItem {
   id: number
@@ -31,89 +30,47 @@ interface PortfolioResponse {
   }
 }
 
-interface PortfolioDetailResponse {
+
+export interface PortfolioDetailResponse {
   data: PortfolioItemDetail
 }
 
 export const usePortfolioApi = () => {
   const config = useRuntimeConfig()
-  const baseURL: string = (config.public?.apiBaseUrl as string) || 'http://localhost:3000'
+    // Sanity does not need baseURL
 
   // Fetch portfolio items with pagination and filters
-  const fetchPortfolioItems = async (params: {
-    page?: number
-    per_page?: number
-    content_type?: string
-    tag?: string
-  } = {}): Promise<PortfolioResponse> => {
-    try {
-      const query = new URLSearchParams()
-      
-      if (params.page) query.append('page', params.page.toString())
-      if (params.per_page) query.append('per_page', params.per_page.toString())
-      if (params.content_type) query.append('content_type', params.content_type)
-      if (params.tag) query.append('tag', params.tag)
-
-      const response = await $fetch<PortfolioResponse>(
-        `/api/v1/portfolio_items?${query.toString()}`,
-        {
-          baseURL,
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          }
-        }
-      )
-
+  // Fetch single portfolio item by slug
+    // Fetch portfolio items from Sanity
+    const fetchPortfolioItems = async (params: {
+      page?: number
+      per_page?: number
+      content_type?: string
+      tag?: string
+    } = {}): Promise<PortfolioResponse> => {
+      const response = await fetchSanityPortfolioItems(params)
+      // Normalize type and slug for routing
+      response.data = response.data.map((item: any) => ({
+        ...item,
+        type: item.content_type || item._type,
+        slug: item.slug?.current || item.slug
+      }))
       return response
-    } catch (error) {
-      console.error('Error fetching portfolio items:', error)
-      throw error
     }
-  }
 
-  // Fetch single portfolio item by ID
-  const fetchPortfolioItem = async (id: number): Promise<PortfolioDetailResponse> => {
-    try {
-      const response = await $fetch<PortfolioDetailResponse>(
-        `/api/v1/portfolio_items/${id}`,
-        {
-          baseURL,
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          }
-        }
-      )
-
-      return response
-    } catch (error) {
-      console.error('Error fetching portfolio item:', error)
-      throw error
+    // Fetch single portfolio item by ID or slug from Sanity
+    const fetchPortfolioItem = async (idOrSlug: string): Promise<PortfolioDetailResponse> => {
+      return await fetchSanityPortfolioItem(idOrSlug)
     }
-  }
 
-  // Fetch all tags
-  const fetchTags = async () => {
-    try {
-      const response = await $fetch('/api/v1/tags', {
-        baseURL,
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }
-      })
-
-      return response
-    } catch (error) {
-      console.error('Error fetching tags:', error)
-      throw error
+    // Fetch all tags (stub, implement if needed)
+    const fetchTags = async () => {
+      return []
     }
-  }
 
-  return {
-    fetchPortfolioItems,
-    fetchPortfolioItem,
-    fetchTags
-  }
+    return {
+      fetchPortfolioItems,
+      fetchPortfolioItem,
+      fetchTags
+    }
 }

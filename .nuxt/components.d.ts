@@ -22,7 +22,7 @@ interface _GlobalComponents {
     'Card': typeof import("../components/Card.vue")['default']
     'Contact': typeof import("../components/Contact.vue")['default']
     'ContactForm': typeof import("../components/ContactForm.vue")['default']
-    'CurrentWeather': typeof imp../components/TerminalCard.vueeather.vue")['default']
+    'CurrentWeather': typeof import("../components/CurrentWeather.vue")['default']
     'DotPattern': typeof import("../components/DotPattern.vue")['default']
     'ExperienceTimeline': typeof import("../components/ExperienceTimeline.vue")['default']
     'FloatingNav': typeof import("../components/FloatingNav.vue")['default']
@@ -73,7 +73,7 @@ interface _GlobalComponents {
     'LazyCard': LazyComponent<typeof import("../components/Card.vue")['default']>
     'LazyContact': LazyComponent<typeof import("../components/Contact.vue")['default']>
     'LazyContactForm': LazyComponent<typeof import("../components/ContactForm.vue")['default']>
-    'LazyCurrentWeather': LazyComponent<typeof imp../components/TerminalCard.vueeather.vue")['default']>
+    'LazyCurrentWeather': LazyComponent<typeof import("../components/CurrentWeather.vue")['default']>
     'LazyDotPattern': LazyComponent<typeof import("../components/DotPattern.vue")['default']>
     'LazyExperienceTimeline': LazyComponent<typeof import("../components/ExperienceTimeline.vue")['default']>
     'LazyFloatingNav': LazyComponent<typeof import("../components/FloatingNav.vue")['default']>
@@ -130,7 +130,7 @@ export const Button: typeof import("../components/Button.vue")['default']
 export const Card: typeof import("../components/Card.vue")['default']
 export const Contact: typeof import("../components/Contact.vue")['default']
 export const ContactForm: typeof import("../components/ContactForm.vue")['default']
-export const CurrentWeather: typeof imp../components/TerminalCard.vueeather.vue")['default']
+export const CurrentWeather: typeof import("../components/CurrentWeather.vue")['default']
 export const DotPattern: typeof import("../components/DotPattern.vue")['default']
 export const ExperienceTimeline: typeof import("../components/ExperienceTimeline.vue")['default']
 export const FloatingNav: typeof import("../components/FloatingNav.vue")['default']
@@ -181,7 +181,7 @@ export const LazyButton: LazyComponent<typeof import("../components/Button.vue")
 export const LazyCard: LazyComponent<typeof import("../components/Card.vue")['default']>
 export const LazyContact: LazyComponent<typeof import("../components/Contact.vue")['default']>
 export const LazyContactForm: LazyComponent<typeof import("../components/ContactForm.vue")['default']>
-export const LazyCurrentWeather: LazyComponent<typeof imp../components/TerminalCard.vueeather.vue")['default']>
+export const LazyCurrentWeather: LazyComponent<typeof import("../components/CurrentWeather.vue")['default']>
 export const LazyDotPattern: LazyComponent<typeof import("../components/DotPattern.vue")['default']>
 export const LazyExperienceTimeline: LazyComponent<typeof import("../components/ExperienceTimeline.vue")['default']>
 export const LazyFloatingNav: LazyComponent<typeof import("../components/FloatingNav.vue")['default']>
