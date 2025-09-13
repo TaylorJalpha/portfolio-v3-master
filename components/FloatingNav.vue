@@ -81,7 +81,25 @@ const router = useRouter()
 const isVisible = ref(true) // Always visible now
 const activeSection = ref('home')
 
+// Detect if on detail page (no experience section)
+const isDetailPage = computed(() => {
+  // crude check: no experience section and not home/portfolio route
+  if (typeof window !== 'undefined') {
+    return !document.querySelector('[data-section="experience"]')
+  }
+  return false
+})
+
+const goHome = () => router.push('/')
+const goExperience = () => router.push('/#experience')
+const goPortfolio = () => router.push('/portfolio')
+
 const scrollToSection = (section) => {
+  if (isDetailPage.value) {
+    if (section === 'home') goHome()
+    else if (section === 'experience') goExperience()
+    return
+  }
   if (section === 'home') {
     window.scrollTo({
       top: 0,
@@ -100,7 +118,7 @@ const scrollToSection = (section) => {
 }
 
 const navigateToPortfolio = () => {
-  router.push('/portfolio')
+  goPortfolio()
 }
 
 const handleScroll = () => {

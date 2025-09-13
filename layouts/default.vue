@@ -5,7 +5,7 @@ import FloatingNav from '~/components/FloatingNav.vue'
 import Footer from '~/components/Footer.vue'
 import BlurFade from '~/components/BlurFade.vue'
 
-// Experience timeline data
+
 const experiences = ref([
   {
     year: '2024-Current',
@@ -341,14 +341,12 @@ onBeforeUnmount(() => {
 
                             <!-- Content Card Container - Properly offset from timeline with no overlap -->
                             <div class="ml-24 sm:ml-28 lg:ml-36 transition-all duration-700 z-[1] relative">
-                                <div class="bg-white/5 border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border hover:bg-gradient-to-br hover:from-white/10 hover:to-white/5 transition-all duration-500 hover:shadow-2xl hover:shadow-[#E63946]/10 hover:border-[#E63946]/30 hover:scale-[1.02] relative timeline-card-background max-w-3xl lg:max-w-4xl group"
-                                     style="background: rgba(255, 255, 255, 0.08);">
-                                  
-                                    <div class="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-[#E63946]/5 via-transparent to-[#E63946]/5"></div>
-                                   
-                                    <div class="absolute inset-0 rounded-xl sm:rounded-2xl opacity-30 pointer-events-none"
-                                         style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;">
-                                    </div>
+            <div class="bg-white/5 border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border transition-all duration-500 relative timeline-card-background max-w-3xl lg:max-w-4xl group"
+            style="background: rgba(255, 255, 255, 0.08);">
+              <!-- Dotted background for texture -->
+              <div class="absolute inset-0 rounded-xl sm:rounded-2xl opacity-30 pointer-events-none"
+                style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;">
+              </div>
                                     <!-- Job Title & Company -->
                                     <div class="mb-3 sm:mb-4 lg:mb-6 text-left">
                                         <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-1 sm:mb-2 leading-tight">{{ experience.title }}</h3>
@@ -418,23 +416,7 @@ onBeforeUnmount(() => {
         </div>
     </div>
 
-    <!-- Bottom Section with Dotted Background -->
-    <div class="relative w-full min-h-[200px] bg-black">
-        <!-- Background gradient overlay -->
-        <div class="absolute inset-0 bg-gradient-to-br from-[#111111] via-[#171717] to-[#111111] opacity-50"></div>
-        
-        <!-- Subtle dot pattern background -->
-        <div class="absolute inset-0 opacity-30">
-            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
-        </div>
-        
-        <!-- Content container for any future bottom content -->
-        <div class="relative z-10 text-white">
-            <!-- Footer included within the dotted background container -->
-            <Footer />
-        </div>
-        
-    </div>
+  <Footer />
 </template>
 
 <style scoped>
