@@ -18,6 +18,12 @@ interface PortfolioItemDetail extends PortfolioItem {
   pdf_url?: string
   gallery_images: string[]
   metadata?: Record<string, any>
+  pdfFile?: {
+    asset?: {
+      url?: string
+      _ref?: string
+    }
+  }
 }
 
 interface PortfolioResponse {

@@ -10,6 +10,7 @@ export default defineType({
     defineField({name: 'metaDescription', type: 'string', validation: Rule => Rule.max(160)}),
     defineField({name: 'slug', type: 'slug', options: {source: 'title'}, validation: Rule => Rule.required()}),
     defineField({name: 'externalUrl', type: 'url'}),
+  defineField({name: 'markdown', type: 'markdown', title: 'Markdown Content'}),
     defineField({name: 'featuredImage', type: 'image'}),
     defineField({name: 'galleryImages', type: 'array', of: [{type: 'image'}]}),
     defineField({name: 'status', type: 'string', options: {list: [

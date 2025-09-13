@@ -31,6 +31,7 @@ interface _GlobalComponents {
     'Globe': typeof import("../components/Globe.vue")['default']
     'Intro': typeof import("../components/Intro.vue")['default']
     'Meteors': typeof import("../components/Meteors.vue")['default']
+    'PdfViewer': typeof import("../components/PdfViewer.vue")['default']
     'PortfolioCard': typeof import("../components/PortfolioCard.vue")['default']
     'PortfolioCardSkeleton': typeof import("../components/PortfolioCardSkeleton.vue")['default']
     'PortfolioDetailLayout': typeof import("../components/PortfolioDetailLayout.vue")['default']
@@ -84,6 +85,7 @@ interface _GlobalComponents {
     'LazyGlobe': LazyComponent<typeof import("../components/Globe.vue")['default']>
     'LazyIntro': LazyComponent<typeof import("../components/Intro.vue")['default']>
     'LazyMeteors': LazyComponent<typeof import("../components/Meteors.vue")['default']>
+    'LazyPdfViewer': LazyComponent<typeof import("../components/PdfViewer.vue")['default']>
     'LazyPortfolioCard': LazyComponent<typeof import("../components/PortfolioCard.vue")['default']>
     'LazyPortfolioCardSkeleton': LazyComponent<typeof import("../components/PortfolioCardSkeleton.vue")['default']>
     'LazyPortfolioDetailLayout': LazyComponent<typeof import("../components/PortfolioDetailLayout.vue")['default']>
@@ -143,6 +145,7 @@ export const Footer: typeof import("../components/Footer.vue")['default']
 export const Globe: typeof import("../components/Globe.vue")['default']
 export const Intro: typeof import("../components/Intro.vue")['default']
 export const Meteors: typeof import("../components/Meteors.vue")['default']
+export const PdfViewer: typeof import("../components/PdfViewer.vue")['default']
 export const PortfolioCard: typeof import("../components/PortfolioCard.vue")['default']
 export const PortfolioCardSkeleton: typeof import("../components/PortfolioCardSkeleton.vue")['default']
 export const PortfolioDetailLayout: typeof import("../components/PortfolioDetailLayout.vue")['default']
@@ -196,6 +199,7 @@ export const LazyFooter: LazyComponent<typeof import("../components/Footer.vue")
 export const LazyGlobe: LazyComponent<typeof import("../components/Globe.vue")['default']>
 export const LazyIntro: LazyComponent<typeof import("../components/Intro.vue")['default']>
 export const LazyMeteors: LazyComponent<typeof import("../components/Meteors.vue")['default']>
+export const LazyPdfViewer: LazyComponent<typeof import("../components/PdfViewer.vue")['default']>
 export const LazyPortfolioCard: LazyComponent<typeof import("../components/PortfolioCard.vue")['default']>
 export const LazyPortfolioCardSkeleton: LazyComponent<typeof import("../components/PortfolioCardSkeleton.vue")['default']>
 export const LazyPortfolioDetailLayout: LazyComponent<typeof import("../components/PortfolioDetailLayout.vue")['default']>

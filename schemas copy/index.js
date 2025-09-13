@@ -5,6 +5,7 @@ import project from './project'
 import blockContent from './blockContent'
 import tag from './tag'
 import markdown from './markdown'
+import htmlBlock from './htmlBlock'
 
 export default [
 	blockContent,
@@ -12,5 +13,6 @@ export default [
 	caseStudy,
 	project,
 	tag,
-	markdown
+	markdown,
+	htmlBlock
 ]
