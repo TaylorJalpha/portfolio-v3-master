@@ -3,7 +3,7 @@
     <!-- Image Container with consistent aspect ratio -->
     <div class="relative overflow-hidden bg-gray-800">
       <img 
-        :src="item.featured_image_url || item.image" 
+        :src="imageUrl(item.featuredImage)" 
         :alt="`${item.title} preview image`" 
         class="w-full h-48 sm:h-52 lg:h-48 xl:h-44 object-cover group-hover:scale-105 transition-transform duration-500" 
         loading="lazy"
@@ -49,10 +49,7 @@
   :to="`/${mapType(item.content_type)}/${item.slug?.current || item.slug}`"
         class="w-full px-4 py-2.5 bg-[#E63946] text-white rounded-lg font-semibold shadow-lg hover:bg-[#d62839] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:ring-offset-2 focus:ring-offset-[#171717] transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
       >
-        Learn More
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
+  Learn More
       </NuxtLink>
     </div>
 
@@ -62,7 +59,12 @@
 </template>
 
 <script lang="ts" setup>
+import { useSanityImageUrl } from '@/composables/useSanityImageUrl'
 defineProps<{ item: any }>();
+
+function imageUrl(image: any) {
+  return image && image.asset ? useSanityImageUrl(image) : ''
+}
 
 function mapType(type: string) {
   if (type === 'caseStudy') return 'case-study'

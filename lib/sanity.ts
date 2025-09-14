@@ -22,13 +22,14 @@ export async function fetchSanityPortfolioItems({ page = 1, per_page = 12, conte
     title,
     description,
     slug,
-  _type,
     _type,
-    featured_image_url,
-      tags[]->{
-        _id,
-        title
-      },
+    featuredImage{
+      asset->{_id, url}
+    },
+    tags[]->{
+      _id,
+      title
+    },
     published_at,
     external_url
   }`
