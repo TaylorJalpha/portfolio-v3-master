@@ -17,7 +17,7 @@ interface _GlobalComponents {
     'AnimatedShinyText': typeof import("../components/AnimatedShinyText.vue")['default']
     'AuroraBackground': typeof import("../components/AuroraBackground.vue")['default']
     'AuroraBackgroundDemo': typeof import("../components/AuroraBackgroundDemo.vue")['default']
-    'Blog': typeof import("../components/Blog.vue")['default']
+    'BentoViewPortfolio': typeof import("../components/BentoViewPortfolio.vue")['default']
     'BlurFade': typeof import("../components/BlurFade.vue")['default']
     'Button': typeof import("../components/Button.vue")['default']
     'Card': typeof import("../components/Card.vue")['default']
@@ -40,6 +40,7 @@ interface _GlobalComponents {
     'PoweredByRubyOnRails': typeof import("../components/PoweredByRubyOnRails.vue")['default']
     'Status': typeof import("../components/Status.vue")['default']
     'TerminalCard': typeof import("../components/TerminalCard.vue")['default']
+    'UiBackgroundGradient': typeof import("../components/ui/BackgroundGradient.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
     'NuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -71,7 +72,7 @@ interface _GlobalComponents {
     'LazyAnimatedShinyText': LazyComponent<typeof import("../components/AnimatedShinyText.vue")['default']>
     'LazyAuroraBackground': LazyComponent<typeof import("../components/AuroraBackground.vue")['default']>
     'LazyAuroraBackgroundDemo': LazyComponent<typeof import("../components/AuroraBackgroundDemo.vue")['default']>
-    'LazyBlog': LazyComponent<typeof import("../components/Blog.vue")['default']>
+    'LazyBentoViewPortfolio': LazyComponent<typeof import("../components/BentoViewPortfolio.vue")['default']>
     'LazyBlurFade': LazyComponent<typeof import("../components/BlurFade.vue")['default']>
     'LazyButton': LazyComponent<typeof import("../components/Button.vue")['default']>
     'LazyCard': LazyComponent<typeof import("../components/Card.vue")['default']>
@@ -94,6 +95,7 @@ interface _GlobalComponents {
     'LazyPoweredByRubyOnRails': LazyComponent<typeof import("../components/PoweredByRubyOnRails.vue")['default']>
     'LazyStatus': LazyComponent<typeof import("../components/Status.vue")['default']>
     'LazyTerminalCard': LazyComponent<typeof import("../components/TerminalCard.vue")['default']>
+    'LazyUiBackgroundGradient': LazyComponent<typeof import("../components/ui/BackgroundGradient.vue")['default']>
     'LazyNuxtWelcome': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
     'LazyNuxtLayout': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
     'LazyNuxtErrorBoundary': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>
@@ -131,7 +133,7 @@ export const AnimatedGradientText: typeof import("../components/AnimatedGradient
 export const AnimatedShinyText: typeof import("../components/AnimatedShinyText.vue")['default']
 export const AuroraBackground: typeof import("../components/AuroraBackground.vue")['default']
 export const AuroraBackgroundDemo: typeof import("../components/AuroraBackgroundDemo.vue")['default']
-export const Blog: typeof import("../components/Blog.vue")['default']
+export const BentoViewPortfolio: typeof import("../components/BentoViewPortfolio.vue")['default']
 export const BlurFade: typeof import("../components/BlurFade.vue")['default']
 export const Button: typeof import("../components/Button.vue")['default']
 export const Card: typeof import("../components/Card.vue")['default']
@@ -154,6 +156,7 @@ export const PortfolioNav: typeof import("../components/PortfolioNav.vue")['defa
 export const PoweredByRubyOnRails: typeof import("../components/PoweredByRubyOnRails.vue")['default']
 export const Status: typeof import("../components/Status.vue")['default']
 export const TerminalCard: typeof import("../components/TerminalCard.vue")['default']
+export const UiBackgroundGradient: typeof import("../components/ui/BackgroundGradient.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -185,7 +188,7 @@ export const LazyAnimatedGradientText: LazyComponent<typeof import("../component
 export const LazyAnimatedShinyText: LazyComponent<typeof import("../components/AnimatedShinyText.vue")['default']>
 export const LazyAuroraBackground: LazyComponent<typeof import("../components/AuroraBackground.vue")['default']>
 export const LazyAuroraBackgroundDemo: LazyComponent<typeof import("../components/AuroraBackgroundDemo.vue")['default']>
-export const LazyBlog: LazyComponent<typeof import("../components/Blog.vue")['default']>
+export const LazyBentoViewPortfolio: LazyComponent<typeof import("../components/BentoViewPortfolio.vue")['default']>
 export const LazyBlurFade: LazyComponent<typeof import("../components/BlurFade.vue")['default']>
 export const LazyButton: LazyComponent<typeof import("../components/Button.vue")['default']>
 export const LazyCard: LazyComponent<typeof import("../components/Card.vue")['default']>
@@ -208,6 +211,7 @@ export const LazyPortfolioNav: LazyComponent<typeof import("../components/Portfo
 export const LazyPoweredByRubyOnRails: LazyComponent<typeof import("../components/PoweredByRubyOnRails.vue")['default']>
 export const LazyStatus: LazyComponent<typeof import("../components/Status.vue")['default']>
 export const LazyTerminalCard: LazyComponent<typeof import("../components/TerminalCard.vue")['default']>
+export const LazyUiBackgroundGradient: LazyComponent<typeof import("../components/ui/BackgroundGradient.vue")['default']>
 export const LazyNuxtWelcome: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
 export const LazyNuxtLayout: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
 export const LazyNuxtErrorBoundary: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>

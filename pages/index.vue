@@ -37,7 +37,7 @@ useSeoMeta({
     <About />
     <Contact />
     <Status />
-    <Blog />
+    <BentoViewPortfolio />
     <CurrentWeather />
     <PoweredByRubyOnRails />
     <TerminalCard />
