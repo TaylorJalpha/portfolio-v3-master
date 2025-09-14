@@ -1,5 +1,9 @@
 /// <reference types="@nuxtjs/tailwindcss" />
 /// <reference types="@nuxt/devtools" />
+<<<<<<< HEAD
+=======
+/// <reference types="@nuxtjs/tailwindcss" />
+>>>>>>> master
 /// <reference types="@nuxt/telemetry" />
 /// <reference types="@vueuse/motion" />
 /// <reference path="types/builder-env.d.ts" />

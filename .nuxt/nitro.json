@@ -1,12 +1,16 @@
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "date": "2025-09-07T16:25:18.004Z",
 =======
   "date": "2025-09-12T14:18:51.941Z",
 >>>>>>> master
 =======
   "date": "2025-09-13T14:20:44.612Z",
+>>>>>>> master
+=======
+  "date": "2025-09-14T15:28:33.114Z",
 >>>>>>> master
   "preset": "nitro-dev",
   "framework": {
@@ -17,6 +21,7 @@
     "nitro": "2.12.4"
   },
   "dev": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     "pid": 72226,
@@ -31,6 +36,11 @@
     "pid": 51312,
     "workerAddress": {
       "socketPath": "/var/folders/g6/3166z97d0mz0vnrrlqq7d3lr0000gn/T/nitro-worker-51312-1-1-6776.sock"
+>>>>>>> master
+=======
+    "pid": 55178,
+    "workerAddress": {
+      "socketPath": "/var/folders/g6/3166z97d0mz0vnrrlqq7d3lr0000gn/T/nitro-worker-55178-1-1-6823.sock"
 >>>>>>> master
     }
   }

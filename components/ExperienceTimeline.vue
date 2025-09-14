@@ -27,7 +27,7 @@
           </h3>
         </div>
 
-        <div class="relative pl-20 pr-4 md:pl-4 w-full">
+  <div class="relative pl-20 pr-4 md:pl-4 w-full liquid-glass-card">
           <h3 class="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
             {{ item.title }}
           </h3>
