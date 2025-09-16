@@ -85,8 +85,44 @@ Feel free to fork, star, and make it your own! If you add cool features or integ
 
 ## 👋 About
 
-Built by [Taylor Jalpha](https://github.com/TaylorJalpha). If you use this template, I’d enjoy a follow on GitHub!
-
+section) -->
+          <div class="mb-4 sm:mb-0 max-w-md">
+            <div class="text-xs text-neutral-400 leading-relaxed">
+              Fork of
+              <a
+                href="https://github.com/Ladvace/astro-bento-portfolio"
+                target="_blank"
+                class="text-[#E63946] hover:text-[#d62839] transition-colors duration-300"
+                >Ladvace</a>
+              Astro theme by
+              <a
+                href="https://github.com/apdev95/bento-portfolio-nuxt"
+                target="_blank"
+                class="text-[#E63946] hover:text-[#d62839] transition-colors duration-300"
+                >apdev95</a>– 
+              Created with
+              <a href="https://nuxt.com/" target="_blank" class="text-[#E63946] hover:text-[#d62839] transition-colors duration-300">Nuxt.</a>
+            </div>
+            <div class="mt-2">
+              <a
+                href="https://www.linkedin.com/in/taylor-jacob-ferguson/"
+                target="_blank"
+                class="text-sm font-medium"
+                style="
+                  background: -webkit-linear-gradient(
+                    rgb(133, 9, 241),
+                    rgb(209, 6, 205)
+                  );
+                  background-clip: text;
+                  -webkit-background-clip: text;
+                  color: transparent;
+                "
+              >
+                Taylor J. Ferguson.©
+              </a>
+              <span class="text-sm text-neutral-400">{{ moment().format("Y") }}</span>
+        </div>
+      </div>
 ---
 
 
