@@ -85,7 +85,7 @@ Feel free to fork, star, and make it your own! If you add cool features or integ
 
 ## 👋 About
 
-Built by [Taylor Jalpha](https://github.com/TaylorJalpha) and contributors. If you use this template, I’d enjoy a follow on GitHub!
+Built by [Taylor Jalpha](https://github.com/TaylorJalpha). If you use this template, I’d enjoy a follow on GitHub!
 
 ---
 
