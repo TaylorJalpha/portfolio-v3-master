@@ -1,0 +1,4 @@
+const PortfolioModal_vue_vue_type_style_index_0_scoped_78c69a00_lang = ".fade-enter-active[data-v-78c69a00],.fade-leave-active[data-v-78c69a00]{transition:opacity .3s}.fade-enter-from[data-v-78c69a00],.fade-leave-to[data-v-78c69a00]{opacity:0}.prose[data-v-78c69a00]::-webkit-scrollbar{width:8px}.prose[data-v-78c69a00]::-webkit-scrollbar-track{background:#374151;border-radius:4px}.prose[data-v-78c69a00]::-webkit-scrollbar-thumb{background:#6b7280;border-radius:4px}.prose[data-v-78c69a00]::-webkit-scrollbar-thumb:hover{background:#9ca3af}.prose h1[data-v-78c69a00]:first-child,.prose h2[data-v-78c69a00]:first-child,.prose h3[data-v-78c69a00]:first-child{margin-top:0}.prose p[data-v-78c69a00]:last-child{margin-bottom:0}";
+
+export { PortfolioModal_vue_vue_type_style_index_0_scoped_78c69a00_lang as P };
+//# sourceMappingURL=PortfolioModal-styles-1.mjs-BUeMd6DU.mjs.map

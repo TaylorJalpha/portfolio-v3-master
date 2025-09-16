@@ -86,16 +86,18 @@ const socialLinks = [
                 </svg>
               </div>
               <h2 class="text-2xl font-bold text-white tracking-tight">
-                Taylor J. Ferguson
+                <span class="inline-flex items-center">
+                  Taylor J. Ferguson
+                  <span class="relative flex h-3 w-3 ml-2">
+                    <span
+                      class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+                    ></span>
+                    <span
+                      class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
+                    ></span>
+                  </span>
+                </span>
               </h2>
-              <span class="relative flex h-3 w-3 ml-1 mt-1">
-                <span
-                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
-                ></span>
-                <span
-                  class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
-                ></span>
-              </span>
             </div>
             <p class="text-neutral-400 text-sm max-w-sm leading-relaxed ml-11">
               Product Manager with strong technical knowledge– Shipping solutions that drive revenue, user engagement and high customer satisfaction.
