@@ -8,8 +8,9 @@ This is a modern, quasi-minimal, and highly customizable portfolio template buil
 ## Features
 
 - Bento-grid hero section to display dense content and animations for a quick overview of experience, skills, etc
+- Experience timeline modeled off the Acternity.ui timeline component - converted from React to Vue Syntax.
 - Fully responsive and mobile-friendly
-- Easy integration with your own Sanity headless CMS
+- Portfolio view with easy integration with your own Sanity headless CMS, or CMS of your choosing.
 - Contact form with backend support (Rails example included)
 - Built for quick deployment and customization
 
@@ -89,37 +90,4 @@ Built by [Taylor Jalpha](https://github.com/TaylorJalpha) and contributors. If y
 ---
 
 
-## Features
-
-- Modern and Minimal bento-like, sleek UI Design
-- All in one page (almost)
-- Fully Responsive
-
-## Tech Stack
-
-- [Nuxt/Vue 3](https://nuxt.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [motion](https://motion.dev/)
-
-# Steps ▶️
-
-```bash
-# Clone this repository
-$ git clone https://github.com/apdev95/bento-portfolio-nuxt.git
-```
-
-```bash
-# Go into the repository
-$ cd bento-portfolio-nuxt
-```
-
-```bash
-# Install dependencies
-$ npm install
-```
-
-```bash
-# Start the project in development
-$ npm run dev
-```
 
