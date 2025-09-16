@@ -19,12 +19,11 @@ This is a modern, quasi-minimal, and highly customizable portfolio template buil
 ## 🚀 Getting Started
 
 ```bash
-# Clone this repository
+# Clone repo
 $ git clone https://github.com/TaylorJalpha/portfolio-v3-master.git
 ```
 
 ```bash
-# Go into the repository
 $ cd portfolio-v3-master
 ```
 
