@@ -1,0 +1,4 @@
+const TerminalCard_vue_vue_type_style_index_0_scoped_1a5c22c8_lang = ".terminal-text[data-v-1a5c22c8]{font-family:Terminal,monospace;font-size:.775rem;word-break:break-words}.cursor[data-v-1a5c22c8]{animation:blink-1a5c22c8 1s infinite;color:#10b981;display:inline-block;transition:opacity .1s}.cursor.opacity-0[data-v-1a5c22c8]{opacity:0}@keyframes blink-1a5c22c8{0%,50%{opacity:1}51%,to{opacity:0}}.terminal-line[data-v-1a5c22c8]{animation:fadeInUp-1a5c22c8 .3s ease-out;animation-fill-mode:forwards;opacity:0}@keyframes fadeInUp-1a5c22c8{0%{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.text-green-400[data-v-1a5c22c8]{color:#10b981}.text-gray-300[data-v-1a5c22c8]{color:#d1d5db}";
+
+export { TerminalCard_vue_vue_type_style_index_0_scoped_1a5c22c8_lang as T };
+//# sourceMappingURL=TerminalCard-styles-1.mjs-DFkuapS9.mjs.map

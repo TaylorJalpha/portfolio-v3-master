@@ -1,7 +1,7 @@
 
 # ⚡️Nuxt Bento Portfolio
 
-This is a modern, quasi-minimal, and highly customizable portfolio template built with Nuxt 3, Vue, and Tailwind CSS, as a fork of the Ladvace Astro theme by apdev95. It’s designed for developers, technical product managers, designers, or really whomever – Showcase your work with style using a modern bento grid hero section, experience timeline, portfolio view that supports blog posts, case studies with pdf-viewer, and projects, and tags. You can easily connect your own [Sanity.io](https://www.sanity.io/) headless CMS to manage portfolio items, and use a backend of your choice (Rails, Node, etc.) to handle contact form submissions and API logic.
+This is a modern, quasi-minimal, and highly customizable portfolio template built with Nuxt 3, Vue, and Tailwind CSS— Fork of the Ladvace Astro theme by apdev95. Crafted for developers, technical product managers, designers, or anyone who wants to showcase their work in a design-focused way, it features a sleek bento grid hero section, an experience timeline, and a versatile portfolio view supporting blog posts, case studies with an embedded PDF viewer, projects, and tags. Effortlessly connect your own [Sanity.io](https://www.sanity.io/) headless CMS to manage portfolio items, and use any backend you prefer (Rails, Node, etc.) to handle contact form submissions and API logic.
 
 ---
 
