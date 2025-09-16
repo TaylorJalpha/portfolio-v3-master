@@ -13,11 +13,12 @@ type HydrationStrategies = {
 type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }>)
 interface _GlobalComponents {
       'About': typeof import("../components/About.vue")['default']
+    'AboutNav': typeof import("../components/AboutNav.vue")['default']
     'AnimatedGradientText': typeof import("../components/AnimatedGradientText.vue")['default']
     'AnimatedShinyText': typeof import("../components/AnimatedShinyText.vue")['default']
     'AuroraBackground': typeof import("../components/AuroraBackground.vue")['default']
     'AuroraBackgroundDemo': typeof import("../components/AuroraBackgroundDemo.vue")['default']
-    'BentoViewPortfolio': t../components/BentoViewPortfolio.vuenents/BentoViewPortfolio.vue")['default']
+    'BentoViewPortfolio': typeof import("../components/BentoViewPortfolio.vue")['default']
     'BlurFade': typeof import("../components/BlurFade.vue")['default']
     'Button': typeof import("../components/Button.vue")['default']
     'Card': typeof import("../components/Card.vue")['default']
@@ -68,11 +69,12 @@ interface _GlobalComponents {
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
       'LazyAbout': LazyComponent<typeof import("../components/About.vue")['default']>
+    'LazyAboutNav': LazyComponent<typeof import("../components/AboutNav.vue")['default']>
     'LazyAnimatedGradientText': LazyComponent<typeof import("../components/AnimatedGradientText.vue")['default']>
     'LazyAnimatedShinyText': LazyComponent<typeof import("../components/AnimatedShinyText.vue")['default']>
     'LazyAuroraBackground': LazyComponent<typeof import("../components/AuroraBackground.vue")['default']>
     'LazyAuroraBackgroundDemo': LazyComponent<typeof import("../components/AuroraBackgroundDemo.vue")['default']>
-    'LazyBentoViewPortfolio': LazyComponent<t../components/BentoViewPortfolio.vuenents/BentoViewPortfolio.vue")['default']>
+    'LazyBentoViewPortfolio': LazyComponent<typeof import("../components/BentoViewPortfolio.vue")['default']>
     'LazyBlurFade': LazyComponent<typeof import("../components/BlurFade.vue")['default']>
     'LazyButton': LazyComponent<typeof import("../components/Button.vue")['default']>
     'LazyCard': LazyComponent<typeof import("../components/Card.vue")['default']>
@@ -129,11 +131,12 @@ declare module 'vue' {
 }
 
 export const About: typeof import("../components/About.vue")['default']
+export const AboutNav: typeof import("../components/AboutNav.vue")['default']
 export const AnimatedGradientText: typeof import("../components/AnimatedGradientText.vue")['default']
 export const AnimatedShinyText: typeof import("../components/AnimatedShinyText.vue")['default']
 export const AuroraBackground: typeof import("../components/AuroraBackground.vue")['default']
 export const AuroraBackgroundDemo: typeof import("../components/AuroraBackgroundDemo.vue")['default']
-export const BentoViewPortfolio: t../components/BentoViewPortfolio.vuenents/BentoViewPortfolio.vue")['default']
+export const BentoViewPortfolio: typeof import("../components/BentoViewPortfolio.vue")['default']
 export const BlurFade: typeof import("../components/BlurFade.vue")['default']
 export const Button: typeof import("../components/Button.vue")['default']
 export const Card: typeof import("../components/Card.vue")['default']
@@ -184,11 +187,12 @@ export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const LazyAbout: LazyComponent<typeof import("../components/About.vue")['default']>
+export const LazyAboutNav: LazyComponent<typeof import("../components/AboutNav.vue")['default']>
 export const LazyAnimatedGradientText: LazyComponent<typeof import("../components/AnimatedGradientText.vue")['default']>
 export const LazyAnimatedShinyText: LazyComponent<typeof import("../components/AnimatedShinyText.vue")['default']>
 export const LazyAuroraBackground: LazyComponent<typeof import("../components/AuroraBackground.vue")['default']>
 export const LazyAuroraBackgroundDemo: LazyComponent<typeof import("../components/AuroraBackgroundDemo.vue")['default']>
-export const LazyBentoViewPortfolio: LazyComponent<t../components/BentoViewPortfolio.vuenents/BentoViewPortfolio.vue")['default']>
+export const LazyBentoViewPortfolio: LazyComponent<typeof import("../components/BentoViewPortfolio.vue")['default']>
 export const LazyBlurFade: LazyComponent<typeof import("../components/BlurFade.vue")['default']>
 export const LazyButton: LazyComponent<typeof import("../components/Button.vue")['default']>
 export const LazyCard: LazyComponent<typeof import("../components/Card.vue")['default']>

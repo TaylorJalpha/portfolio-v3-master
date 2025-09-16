@@ -30,7 +30,7 @@ const props = defineProps<{ pdfUrl: string | null }>()
   box-shadow: 0 2px 16px rgba(0,0,0,0.12);
   border-radius: 16px;
   overflow: hidden;
-  background: #fff;
+  background: #111111;
   margin: 2rem 0;
 }
 .pdf-iframe-wrapper {
@@ -39,7 +39,7 @@ const props = defineProps<{ pdfUrl: string | null }>()
 iframe {
   border-radius: 16px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.12);
-  background: #fff;
+  background: #111111;
 }
 .pdf-toolbar-overlay {
   position: absolute;
