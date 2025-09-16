@@ -86,7 +86,7 @@ Feel free to fork, star, and make it your own! If you add cool features or integ
 ## 👋 About
 
 section) -->
-          <div class="mb-4 sm:mb-0 max-w-md">
+       
             <div class="text-xs text-neutral-400 leading-relaxed">
               Fork of
               <a
@@ -120,9 +120,8 @@ section) -->
               >
                 Taylor J. Ferguson.©
               </a>
-              <span class="text-sm text-neutral-400">{{ moment().format("Y") }}</span>
         </div>
-      </div>
+
 ---
 
 
