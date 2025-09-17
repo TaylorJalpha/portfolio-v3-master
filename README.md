@@ -1,7 +1,23 @@
+### This project is a (WIP) work-in-progress and should be going live within the next few days - Currently have a few node_module conflicts that need to be resolved
+
 
 # ⚡️Nuxt Bento Portfolio
 
-This is a modern, quasi-minimal, and highly customizable portfolio template built with Nuxt 3, Vue, and Tailwind CSS— Fork of the Ladvace Astro theme by apdev95. Crafted for developers, technical product managers, designers, or anyone who wants to showcase their work in a design-focused way with dense content sections for a hasty overview on page load, it features a bento grid hero section, an experience timeline, and a versatile portfolio view supporting blog posts, case studies with an embedded PDF viewer, projects, and tags. Effortlessly connect your own [Sanity.io](https://www.sanity.io/) headless CMS to manage portfolio items, and use any backend you prefer (Rails, Node, etc.) to handle contact form submissions and API logic.
+
+
+This is a modern, quasi-minimal, and highly customizable portfolio template built with Nuxt 3, Vue, and Tailwind CSS—a fork of the Ladvace Astro theme by apdev95. Crafted for developers, technical product managers, designers, or anyone who wants to showcase their work in a design-focused way with dense content sections for a hasty overview on page load, it features a bento grid hero section, an experience timeline, and a versatile portfolio view supporting blog posts, case studies with an embedded PDF viewer, projects, and tags. Effortlessly connect your own [Sanity.io](https://www.sanity.io/) headless CMS to manage portfolio items, and use any backend you prefer (Rails, Node, etc.) to handle contact form submissions and API logic.
+
+<div style="margin-bottom:1rem;max-width:28rem;">
+  <div style="font-size:0.75rem;color:#a3a3a3;line-height:1.5;">
+    <a href="https://github.com/Ladvace/astro-bento-portfolio" target="_blank" style="color:#E63946;text-decoration:none;transition:color 0.3s;">Ladvace</a>
+    Astro theme by
+    <a href="https://github.com/apdev95/bento-portfolio-nuxt" target="_blank" style="color:#E63946;text-decoration:none;transition:color 0.3s;">apdev95</a> –
+    Created with
+    <a href="https://nuxt.com/" target="_blank" style="color:#E63946;text-decoration:none;transition:color 0.3s;">Nuxt.</a>
+  </div>
+  <div style="margin-top:0.5rem;">
+  </div>
+</div>
 
 ---
 
