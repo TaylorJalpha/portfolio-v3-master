@@ -1,15 +1,16 @@
 
 # ⚡️Nuxt Bento Portfolio
 
-This is a modern, quasi-minimal, and highly customizable portfolio template built with Nuxt 3, Vue, and Tailwind CSS— Fork of the Ladvace Astro theme by apdev95. Crafted for developers, technical product managers, designers, or anyone who wants to showcase their work in a design-focused way, it features a sleek bento grid hero section, an experience timeline, and a versatile portfolio view supporting blog posts, case studies with an embedded PDF viewer, projects, and tags. Effortlessly connect your own [Sanity.io](https://www.sanity.io/) headless CMS to manage portfolio items, and use any backend you prefer (Rails, Node, etc.) to handle contact form submissions and API logic.
+This is a modern, quasi-minimal, and highly customizable portfolio template built with Nuxt 3, Vue, and Tailwind CSS— Fork of the Ladvace Astro theme by apdev95. Crafted for developers, technical product managers, designers, or anyone who wants to showcase their work in a design-focused way with dense content sections for a hasty overview on page load, it features a bento grid hero section, an experience timeline, and a versatile portfolio view supporting blog posts, case studies with an embedded PDF viewer, projects, and tags. Effortlessly connect your own [Sanity.io](https://www.sanity.io/) headless CMS to manage portfolio items, and use any backend you prefer (Rails, Node, etc.) to handle contact form submissions and API logic.
 
 ---
 
 ## Features
 
 - Bento-grid hero section to display dense content and animations for a quick overview of experience, skills, etc
+- Experience timeline modeled off the Acternity.ui timeline component - converted from React to Vue Syntax.
 - Fully responsive and mobile-friendly
-- Easy integration with your own Sanity headless CMS
+- Portfolio view with easy integration with your own Sanity headless CMS, or CMS of your choosing.
 - Contact form with backend support (Rails example included)
 - Built for quick deployment and customization
 
@@ -18,12 +19,11 @@ This is a modern, quasi-minimal, and highly customizable portfolio template buil
 ## 🚀 Getting Started
 
 ```bash
-# Clone this repository
+# Clone repo
 $ git clone https://github.com/TaylorJalpha/portfolio-v3-master.git
 ```
 
 ```bash
-# Go into the repository
 $ cd portfolio-v3-master
 ```
 
@@ -82,44 +82,7 @@ Feel free to fork, star, and make it your own! If you add cool features or integ
 
 ---
 
-## 👋 About
-
-Built by [Taylor Jalpha](https://github.com/TaylorJalpha) and contributors. If you use this template, I’d enjoy a follow on GitHub!
-
----
 
 
-## Features
 
-- Modern and Minimal bento-like, sleek UI Design
-- All in one page (almost)
-- Fully Responsive
-
-## Tech Stack
-
-- [Nuxt/Vue 3](https://nuxt.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [motion](https://motion.dev/)
-
-# Steps ▶️
-
-```bash
-# Clone this repository
-$ git clone https://github.com/apdev95/bento-portfolio-nuxt.git
-```
-
-```bash
-# Go into the repository
-$ cd bento-portfolio-nuxt
-```
-
-```bash
-# Install dependencies
-$ npm install
-```
-
-```bash
-# Start the project in development
-$ npm run dev
-```
 
