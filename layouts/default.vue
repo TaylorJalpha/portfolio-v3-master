@@ -296,7 +296,7 @@ onBeforeUnmount(() => {
                         <div
                             v-for="(experience, index) in experiences"
                             :key="index"
-                            :ref="el => setTimelineItemRef(el, index)"
+                            :ref="(el: HTMLElement | null) => setTimelineItemRef(el, index)"
                             class="relative transition-all duration-700 ease-out timeline-item-scale"
                             :class="[
                                 activeIndex >= index ? 'opacity-100' : 'opacity-40'
