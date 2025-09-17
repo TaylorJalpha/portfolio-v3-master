@@ -1,4 +1,4 @@
-#### This project is a WIP (work-in-progress) and should be going live within the next few days - Currently have a few node_module conflicts that need to be resolved.
+#### This project is a WIP (work-in-progress) and should be going live within the next few days, as of 09-17-2025 - Currently have a few node_module conflicts that need to be resolved.
 
 
 # ⚡️Nuxt Bento Portfolio
