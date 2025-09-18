@@ -1,17 +1,23 @@
 <template>
-  <div class="portfolio-detail-layout bg-[#171717] min-h-screen text-white">
-    <header class="w-full py-8 px-4 border-b border-gray-700 flex items-center justify-between">
-      <NuxtLink to="/portfolio" class="text-[#E63946] font-bold text-lg hover:underline">← Back to Portfolio</NuxtLink>
-      <h1 class="text-3xl font-bold">Hmmm</h1>
-    </header>
-    <main class="max-w-3xl mx-auto py-12 px-4">
+  <div class="portfolio-detail-layout bg-[#171717] min-h-screen text-white flex flex-col relative">
+    <!-- Background gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#171717] via-[#232323] to-[#171717] opacity-50 pointer-events-none"></div>
+    <!-- Subtle dot pattern background -->
+    <div class="absolute inset-0 opacity-30 pointer-events-none">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
+    </div>
+    <FloatingNav />
+    <div class="h-8 sm:h-12" /> <!-- Spacer for nav -->
+    <main class="max-w-3xl mx-auto py-12 px-4 flex-1 relative z-10">
       <slot />
     </main>
+    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
-// No script needed for layout
+import Footer from '@/components/Footer.vue'
+import FloatingNav from '@/components/FloatingNav.vue'
 </script>
 
 <style scoped>

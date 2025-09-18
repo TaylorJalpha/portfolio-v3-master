@@ -30,11 +30,7 @@
                 
             </p>
             <!-- There should be a Learn More text that will link to the new About Me page -->
-            <p class="mt-1">
-                <NuxtLink to="/about" class="text-sm text-blue-500 hover:underline font-medium">
-                    Learn More &rarr;
-                </NuxtLink>
-            </p>
+            
         </div>
     </Card>
 </template>

@@ -1,0 +1,1 @@
+import{_ as t}from"./DlAUqK2U.js";import{c as a,a as o,o as n}from"./DtokoLop.js";const s={},r={class:"about-placeholder"};function c(d,e){return n(),a("div",r,[...e[0]||(e[0]=[o("h1",null,"About Page Coming Soon",-1),o("p",null,"We're redesigning this page. Stay tuned!",-1)])])}const i=t(s,[["render",c],["__scopeId","data-v-11a41383"]]);export{i as default};

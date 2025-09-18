@@ -1,9 +1,8 @@
 <template>
-  <PortfolioNav />
   <div id="projects" class="w-full min-h-screen">
     <!-- Header Section -->
     <div class="flex flex-col items-center pt-4 pb-12">
-        <div class="relative flex h-[400px] w-[500px] max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border px-40 pb-40 pt-8 md:pb-48 mt-32">
+      <div class="relative flex h-[400px] w-[500px] max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border px-40 pb-40 pt-8 md:pb-48 mt-12">
           <div class="absolute inset-0">
             <Meteors :number="30" />
           </div>
@@ -13,6 +12,7 @@
           <Globe />
           <div class="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
         </div>
+      <PortfolioNav />
         <BlurFade in-view :delay="250">
           <p class="text-lg mb-8 mt-2 pt-2 text-center max-w-2xl px-4">
             A collection of my work, case studies, projects, and blog posts from over the years - showcasing my skills and expertise as a Technical Product Manager and Business Leader
@@ -154,7 +154,7 @@
 
 <script setup lang="ts">
 
-import { usePortfolioApi } from '@/composables/usePortfolioApi'
+import { fetchSanityContent } from '@/services/sanityApi'
 import Meteors from '~/components/Meteors.vue'
 import BlurFade from '~/components/BlurFade.vue'
 import PortfolioCardSkeleton from '~/components/PortfolioCardSkeleton.vue'
@@ -162,8 +162,21 @@ import PortfolioNav from '~/components/PortfolioNav.vue'
 
 definePageMeta({ layout: 'portfolio' })
 
-// API Integration
-const { fetchPortfolioItems, fetchPortfolioItem } = usePortfolioApi()
+
+// Helper to build GROQ query for items
+function buildPortfolioItemsQuery(params: { page?: number; per_page?: number; content_type?: string; tag?: string }) {
+  let filter = ''
+  if (params.content_type) filter += ` && _type == "${params.content_type}"`
+  if (params.tag) filter += ` && "${params.tag}" in tags[].name`
+  const start = ((params.page || 1) - 1) * (params.per_page || 12)
+  const end = start + (params.per_page || 12)
+  return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"]${filter}] | order(published_at desc) [${start}...${end}] { _id, title, description, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, published_at, external_url }`
+}
+
+// Helper to build GROQ query for a single item
+function buildPortfolioItemQuery(idOrSlug: string) {
+  return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"] && (slug.current == \"${idOrSlug}\" || _id == \"${idOrSlug}\")][0]{ _id, title, description, slug, _type, featuredImage, tags[]->{ _id, title }, published_at, external_url, content, markdown, galleryImages, pdfFile{ asset->{url,_ref} } }`
+}
 
 // Reactive state
 const items = ref<any[]>([])
@@ -206,15 +219,16 @@ async function loadPortfolioItems(reset = false) {
       ...(selectedTag.value && { tag: selectedTag.value })
     }
 
-    const response = await fetchPortfolioItems(params)
-    
+    const query = buildPortfolioItemsQuery(params)
+    const response = await fetchSanityContent(query)
+    console.log('Portfolio fetchSanityContent response:', response)
     if (reset) {
-      items.value = response.data
+      items.value = response
     } else {
-      items.value.push(...response.data)
+      items.value.push(...response)
     }
-    
-    hasMore.value = response.meta.has_more
+    // hasMore logic is not applicable since response is just an array
+    hasMore.value = response.length === perPage
     currentPage.value++
   } catch (error) {
     console.error('Failed to load portfolio items:', error)
@@ -249,9 +263,10 @@ function loadMore() {
 async function openModal(item: any) {
   try {
     // Fetch detailed item data for modal
-    const response = await fetchPortfolioItem(item.id)
-    selectedItem.value = response.data
-    modalOpen.value = true
+  const query = buildPortfolioItemQuery(item.id)
+  const response = await fetchSanityContent(query)
+  selectedItem.value = response.data
+  modalOpen.value = true
   } catch (error) {
     console.error('Failed to fetch item details:', error)
     // Fallback to basic item data
