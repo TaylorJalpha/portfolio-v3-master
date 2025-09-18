@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import Meteors from '~/components/Meteors.vue'
 import AuroraBackgroundDemo from '~/components/AuroraBackgroundDemo.vue'
 import FloatingNav from '~/components/FloatingNav.vue'
