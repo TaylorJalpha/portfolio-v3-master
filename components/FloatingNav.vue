@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 backdrop-blur-lg bg-black/30 shadow-xl rounded-full transition-all duration-300 opacity-95 border border-white/10"
+  class="fixed top-2 left-1/2 transform -translate-x-1/2 z-50 backdrop-blur-lg bg-black/30 shadow-xl rounded-full transition-all duration-300 opacity-95 border border-white/10"
     :class="[
       'px-3 py-2 sm:px-6 sm:py-2',
       'flex items-center justify-center',

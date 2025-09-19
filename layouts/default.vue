@@ -215,7 +215,7 @@ onBeforeUnmount(() => {
     
   <!-- Hero Section with Dotted Background -->
   <!-- Added top padding to account for fixed floating nav so it doesn't overlap the bento grid -->
-  <div class="relative w-full min-h-screen bg-black pt-20 md:pt-24">
+  <div class="relative w-full min-h-screen bg-black pt-8 md:pt-12">
         <!-- Background gradient overlay -->
         <div class="absolute inset-0 bg-gradient-to-br from-[#111111] via-[#171717] to-[#111111] opacity-50"></div>
         
