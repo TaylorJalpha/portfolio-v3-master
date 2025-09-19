@@ -1,6 +1,6 @@
 <template>
   <nav 
-    class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 backdrop-blur-lg bg-black/30 shadow-xl rounded-full transition-all duration-300 opacity-95 border border-white/10"
+    class="relative left-1/2 transform -translate-x-1/2 z-50 backdrop-blur-lg bg-black/30 shadow-xl rounded-full transition-all duration-300 opacity-95 border border-white/10"
     :class="[
       'px-3 py-2 sm:px-6 sm:py-2',
       'flex items-center justify-center',
@@ -73,6 +73,14 @@
       </svg>
       <span class="hidden sm:inline">Portfolio</span>
     </button>
+    <!-- About Me Nav Item -->
+    <button
+      @click="navigateToAbout"
+      :aria-label="'Navigate to about me page'"
+      class="nav-item"
+    >
+      <span class="hidden sm:inline">About Me</span>
+    </button>
   </nav>
 </template>
 
@@ -93,6 +101,7 @@ const isDetailPage = computed(() => {
 const goHome = () => router.push('/')
 const goExperience = () => router.push('/#experience')
 const goPortfolio = () => router.push('/portfolio')
+const goAbout = () => router.push('/about')
 
 const scrollToSection = (section) => {
   if (isDetailPage.value) {
@@ -119,6 +128,9 @@ const scrollToSection = (section) => {
 
 const navigateToPortfolio = () => {
   goPortfolio()
+}
+const navigateToAbout = () => {
+  goAbout()
 }
 
 const handleScroll = () => {
