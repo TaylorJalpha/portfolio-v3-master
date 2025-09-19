@@ -1,11 +1,12 @@
 <template>
-  <nav 
-    class="relative left-1/2 transform -translate-x-1/2 z-50 backdrop-blur-lg bg-black/30 shadow-xl rounded-full transition-all duration-300 opacity-95 border border-white/10"
+  <nav
+    class="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 backdrop-blur-lg bg-black/30 shadow-xl rounded-full transition-all duration-300 opacity-95 border border-white/10"
     :class="[
       'px-3 py-2 sm:px-6 sm:py-2',
       'flex items-center justify-center',
       'gap-2 sm:gap-4',
-      'w-auto max-w-[90vw] sm:max-w-none'
+      // Constrain width on larger screens to keep the pill compact
+      'w-auto max-w-[90vw] sm:max-w-[640px]'
     ]"
   >
     <button
@@ -74,13 +75,7 @@
       <span class="hidden sm:inline">Portfolio</span>
     </button>
     <!-- About Me Nav Item -->
-    <button
-      @click="navigateToAbout"
-      :aria-label="'Navigate to about me page'"
-      class="nav-item"
-    >
-      <span class="hidden sm:inline">About Me</span>
-    </button>
+  <!-- About button intentionally removed from floating nav per design -->
   </nav>
 </template>
 

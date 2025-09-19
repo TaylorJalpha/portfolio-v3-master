@@ -1,4 +1,6 @@
+
 <template>
+  <!-- FloatingNav removed to prevent duplicate nav bars -->
   <div class="bg-[#111111] text-white min-h-screen w-full flex flex-col">
     <div class="relative flex-1">
       <!-- Background gradient overlay -->
