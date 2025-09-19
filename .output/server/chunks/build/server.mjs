@@ -1,5 +1,5 @@
-import { hasInjectionContext, inject, getCurrentInstance, defineComponent, useSlots, h, Fragment, createElementBlock, shallowRef, provide, cloneVNode, defineAsyncComponent, computed, unref, shallowReactive, ref, Suspense, createApp, reactive, toRaw, toRef, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, effectScope, isReadonly, isRef, isShallow, isReactive, watch, mergeProps, withCtx, getCurrentScope, nextTick, toValue, onScopeDispose, useSSRContext } from 'vue';
-import { h as hasProtocol, i as isScriptProtocol, k as joinURL, w as withQuery, s as sanitizeStatusCode, l as getContext, $ as $fetch, m as defu, n as createHooks, o as executeAsync, c as createError$1, t as toRouteMatcher, p as createRouter$1 } from '../nitro/nitro.mjs';
+import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { hasInjectionContext, inject, getCurrentInstance, defineComponent, useSlots, h, Fragment, createElementBlock, shallowRef, provide, cloneVNode, defineAsyncComponent, computed, unref, shallowReactive, ref, Suspense, createApp, reactive, toRaw, toRef, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, effectScope, isReadonly, isRef, isShallow, isReactive, watch, mergeProps, withCtx, getCurrentScope, nextTick, toValue, onScopeDispose, useSSRContext } from 'vue';
+import { h as hasProtocol, k as isScriptProtocol, f as joinURL, w as withQuery, s as sanitizeStatusCode, l as getContext, $ as $fetch, m as defu, n as createHooks, o as executeAsync, c as createError$1, t as toRouteMatcher, p as createRouter$1 } from '../nitro/nitro.mjs';
 import { u as useSeoMeta$1, a as useHead$1, h as headSymbol, b as baseURL } from '../routes/renderer.mjs';
 import { useRoute as useRoute$1, RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import sync, { getFrameData } from 'framesync';
@@ -47,7 +47,7 @@ function createNuxtApp(options) {
     globalName: "nuxt",
     versions: {
       get nuxt() {
-        return "3.18.1";
+        return "3.19.2";
       },
       get vue() {
         return nuxtApp.vueApp.version;
@@ -245,6 +245,7 @@ function defineGetter(obj, key, val) {
 }
 const LayoutMetaSymbol = Symbol("layout-meta");
 const PageRouteSymbol = Symbol("route");
+globalThis._importMeta_.url.replace(/\/app\/.*$/, "/");
 const useRouter = () => {
   return useNuxtApp()?.$router;
 };
@@ -590,7 +591,7 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
     };
     nuxtApp.hook("page:finish", syncCurrentRoute);
     router.afterEach((to, from) => {
-      if (to.matched[0]?.components?.default === from.matched[0]?.components?.default) {
+      if (to.matched[to.matched.length - 1]?.components?.default === from.matched[from.matched.length - 1]?.components?.default) {
         syncCurrentRoute();
       }
     });
@@ -675,6 +676,7 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
             throw new Error(`Unknown route middleware: '${entry2}'.`);
           }
           try {
+            if (false) ;
             const result = await nuxtApp.runWithContext(() => middleware(to, from));
             if (true) {
               if (result === false || result instanceof Error) {
@@ -712,9 +714,9 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
       delete nuxtApp._processingMiddleware;
       await nuxtApp.callHook("page:loading:end");
     });
-    router.afterEach(async (to, _from) => {
+    router.afterEach((to) => {
       if (to.matched.length === 0) {
-        await nuxtApp.runWithContext(() => showError(createError({
+        return nuxtApp.runWithContext(() => showError(createError({
           statusCode: 404,
           fatal: false,
           statusMessage: `Page not found: ${to.fullPath}`,
@@ -2645,8 +2647,8 @@ const plugins = [
 ];
 const layouts = {
   about: defineAsyncComponent(() => import('./about-DYvvCG4y.mjs').then((m) => m.default || m)),
-  default: defineAsyncComponent(() => import('./default-1JDvkYrI.mjs').then((m) => m.default || m)),
-  "portfolio-detail": defineAsyncComponent(() => import('./portfolio-detail-BsPx9NeO.mjs').then((m) => m.default || m)),
+  default: defineAsyncComponent(() => import('./default-Dzg1iI9p.mjs').then((m) => m.default || m)),
+  "portfolio-detail": defineAsyncComponent(() => import('./portfolio-detail-B2pUDqkD.mjs').then((m) => m.default || m)),
   portfolio: defineAsyncComponent(() => import('./portfolio-Bckb-axs.mjs').then((m) => m.default || m))
 };
 const LayoutLoader = defineComponent({

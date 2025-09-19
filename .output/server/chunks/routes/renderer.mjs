@@ -1,5 +1,5 @@
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'vue-bundle-renderer/runtime';
-import { j as joinRelativeURL, u as useRuntimeConfig, g as getResponseStatusText, a as getResponseStatus, d as defineRenderHandler, b as getQuery, c as createError, e as getRouteRules, f as useNitroApp } from '../nitro/nitro.mjs';
+import { j as joinRelativeURL, u as useRuntimeConfig, g as getResponseStatusText, a as getResponseStatus, d as defineRenderHandler, b as getQuery, c as createError, e as getRouteRules, h as hasProtocol, r as relative, f as joinURL, i as useNitroApp } from '../nitro/nitro.mjs';
 import { renderToString } from 'vue/server-renderer';
 import { createHead as createHead$1, propsToString, renderSSRHead } from 'unhead/server';
 import { stringify, uneval } from 'devalue';
@@ -180,12 +180,15 @@ function getRenderer(ssrContext) {
   return ssrContext.noSSR ? getSPARenderer() : getSSRRenderer();
 }
 const getSSRStyles = lazyCachedFunction(() => import('../build/styles.mjs').then((r) => r.default || r));
-const getEntryIds = () => getClientManifest().then((r) => Object.values(r).filter(
-  (r2) => (
-    // @ts-expect-error internal key set by CSS inlining configuration
-    r2._globalCSS
-  )
-).map((r2) => r2.src));
+const getEntryIds = () => getClientManifest().then((r) => {
+  const entryIds = [];
+  for (const entry of Object.values(r)) {
+    if (entry._globalCSS) {
+      entryIds.push(entry.src);
+    }
+  }
+  return entryIds;
+});
 
 function renderPayloadResponse(ssrContext) {
   return {
@@ -271,12 +274,15 @@ async function renderInlineStyles(usedModules) {
 
 const renderSSRHeadOptions = {"omitLineBreaks":false};
 
+const entryFileName = "B1AfSF20.js";
+
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
 const HAS_APP_TELEPORTS = !!(appTeleportAttrs.id);
 const APP_TELEPORT_OPEN_TAG = HAS_APP_TELEPORTS ? `<${appTeleportTag}${propsToString(appTeleportAttrs)}>` : "";
 const APP_TELEPORT_CLOSE_TAG = HAS_APP_TELEPORTS ? `</${appTeleportTag}>` : "";
 const PAYLOAD_URL_RE = /^[^?]*\/_payload.json(?:\?.*)?$/ ;
+let entryPath;
 const renderer = defineRenderHandler(async (event) => {
   const nitroApp = useNitroApp();
   const ssrError = event.path.startsWith("/__nuxt_error") ? getQuery(event) : null;
@@ -331,6 +337,28 @@ const renderer = defineRenderHandler(async (event) => {
   }
   const NO_SCRIPTS = routeOptions.noScripts;
   const { styles, scripts } = getRequestDependencies(ssrContext, renderer.rendererContext);
+  if (!NO_SCRIPTS) {
+    let path = entryPath;
+    if (!path) {
+      path = buildAssetsURL(entryFileName);
+      if (/^(?:\/|\.+\/)/.test(path) || hasProtocol(path, { acceptRelative: true })) {
+        entryPath = path;
+      } else {
+        path = relative(event.path.replace(/\/[^/]+$/, "/"), joinURL("/", path));
+        if (!/^(?:\/|\.+\/)/.test(path)) {
+          path = `./${path}`;
+        }
+      }
+    }
+    ssrContext.head.push({
+      script: [{
+        tagPosition: "head",
+        tagPriority: -2,
+        type: "importmap",
+        innerHTML: JSON.stringify({ imports: { "#entry": path } })
+      }]
+    }, headEntryOptions);
+  }
   if (ssrContext._preloadManifest && !NO_SCRIPTS) {
     ssrContext.head.push({
       link: [
@@ -402,7 +430,14 @@ const renderer = defineRenderHandler(async (event) => {
   };
 });
 function normalizeChunks(chunks) {
-  return chunks.filter(Boolean).map((i) => i.trim());
+  const result = [];
+  for (const _chunk of chunks) {
+    const chunk = _chunk?.trim();
+    if (chunk) {
+      result.push(chunk);
+    }
+  }
+  return result;
 }
 function joinTags(tags) {
   return tags.join("");

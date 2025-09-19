@@ -5,6 +5,9 @@
   "exports": {
     "#internal/nuxt/paths": "./.nuxt/dist/server/server.mjs"
   },
+  "imports": {
+    "#internal/nuxt/paths": "./.nuxt/dist/server/server.mjs"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
