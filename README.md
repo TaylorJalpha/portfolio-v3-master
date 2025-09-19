@@ -5,6 +5,9 @@ This is a modern, quasi-minimal, and highly customizable portfolio template buil
 
 The live version of the portfolio can be [found here](https://www.taylorferguson.xyz/)
 
+
+**Mobile optimizations needed for the animated experience timeline and portfolio view.**
+
 ---
 
 ## Features
