@@ -112,7 +112,6 @@
     "./types/nitro-nuxt.d.ts",
     "../node_modules/runtime/server",
     "../node_modules/dist/runtime/server",
-    "../shared/**/*.d.ts",
     "./types/nitro.d.ts",
     "../**/*",
     "../server/**/*"

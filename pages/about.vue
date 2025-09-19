@@ -2,7 +2,7 @@
 
   <div class="about-placeholder">
     <h1>About Page Coming Soon</h1>
-    <p>We're redesigning this page. Stay tuned!</p>
+    <p>I'm redesigning this page as part of v3.2 of my portfolio. Stay tuned, fam, and keep building!</p>
   </div>
 </template>
 

@@ -14,7 +14,7 @@ import { createFetch, Headers as Headers$1 } from 'file:///Users/tayloralphaaa/p
 import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/node-mock-http/dist/index.mjs';
 import { createStorage, prefixStorage } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/unstorage/dist/index.mjs';
 import unstorage_47drivers_47fs from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/unstorage/drivers/fs.mjs';
-import { digest } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/ohash/dist/index.mjs';
+import { digest } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/nitropack/node_modules/ohash/dist/index.mjs';
 import { klona } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/klona/dist/index.mjs';
 import { snakeCase } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/scule/dist/index.mjs';
 import { getContext } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/unctx/dist/index.mjs';
@@ -22,7 +22,7 @@ import { toRouteMatcher, createRouter } from 'file:///Users/tayloralphaaa/portfo
 import { readFile } from 'node:fs/promises';
 import consola, { consola as consola$1 } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/consola/dist/index.mjs';
 import { ErrorParser } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/youch-core/build/index.js';
-import { Youch } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/youch/build/index.js';
+import { Youch } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/nitropack/node_modules/youch/build/index.js';
 import { SourceMapConsumer } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
 import { stringify, uneval } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/devalue/index.js';
@@ -1509,7 +1509,7 @@ function replaceIslandTeleports(ssrContext, html) {
   return html;
 }
 
-const ISLAND_SUFFIX_RE = /\.json(?:\?.*)?$/;
+const ISLAND_SUFFIX_RE = /\.json(\?.*)?$/;
 const _SxA8c9 = defineEventHandler(async (event) => {
   const nitroApp = useNitroApp();
   setResponseHeaders(event, {
@@ -1669,10 +1669,7 @@ function createNitroApp() {
     preemptive: true
   });
   const nodeHandler = toNodeListener(h3App);
-  const localCall = (aRequest) => callNodeRequestHandler(
-    nodeHandler,
-    aRequest
-  );
+  const localCall = (aRequest) => callNodeRequestHandler(nodeHandler, aRequest);
   const localFetch = (input, init) => {
     if (!input.toString().startsWith("/")) {
       return globalThis.fetch(input, init);
@@ -2097,14 +2094,7 @@ const renderer = defineRenderHandler(async (event) => {
   };
 });
 function normalizeChunks(chunks) {
-  const result = [];
-  for (const _chunk of chunks) {
-    const chunk = _chunk?.trim();
-    if (chunk) {
-      result.push(chunk);
-    }
-  }
-  return result;
+  return chunks.filter(Boolean).map((i) => i.trim());
 }
 function joinTags(tags) {
   return tags.join("");
