@@ -43,7 +43,7 @@ const ptComponents = {
 </script>
 
 <template>
-  <div class="portfolio-detail">
+  <div class="portfolio-detail overflow-x-hidden">
     <h1 class="text-3xl font-bold mb-2">{{ item.title }}</h1>
     <p class="text-lg text-gray-500 mb-4">{{ item.description }}</p>
     <!-- Tags below description, styled like PortfolioCard -->
@@ -67,7 +67,8 @@ const ptComponents = {
     <img
       v-if="item.featuredImage && item.featuredImage.asset"
       :src="imageUrl(item.featuredImage)"
-      class="mb-6 rounded-xl w-full max-h-96 object-cover"
+      class="mb-6 rounded-xl w-full max-w-full max-h-96 object-cover"
+      style="display: block;"
     />
     <!-- Render Portable Text if available, else fallback to markdown -->
     <div v-if="item.portableText || item.markdown?.content || item.content">
@@ -94,7 +95,8 @@ const ptComponents = {
           v-for="(img, i) in item.galleryImages"
           :key="i"
           :src="imageUrl(img)"
-          class="rounded-lg w-full object-cover"
+          class="rounded-lg w-full max-w-full object-cover"
+          style="display: block;"
         />
       </div>
     </div>
@@ -102,6 +104,9 @@ const ptComponents = {
 </template>
 
 <style scoped>
+.portfolio-detail {
+  overflow-x: hidden;
+}
 .prose {
   max-width: 100%;
 }
