@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { PortableText } from '@portabletext/vue'
 import { useSanityImageUrl } from '@/composables/useSanityImageUrl'
 import { renderMarkdown } from '@/lib/markdown'
+import { PortableText } from '@portabletext/vue'
 import PdfViewer from './PdfViewer.vue'
 
 const props = defineProps<{ item: any }>()
@@ -69,12 +69,19 @@ const ptComponents = {
       :src="imageUrl(item.featuredImage)"
       class="mb-6 rounded-xl w-full max-h-96 object-cover"
     />
-    <!-- Unified Markdown Rendering for all item types -->
-    <div v-if="(item.markdown && item.markdown.content) || item.content">
-      <div
-        class="prose max-w-none"
-        v-html="renderMarkdown(item.markdown?.content || item.content)"
-      />
+    <!-- Render Portable Text if available, else fallback to markdown -->
+    <div v-if="item.portableText || item.markdown?.content || item.content">
+      <div class="prose max-w-none">
+        <PortableText
+          v-if="item.portableText"
+          :value="item.portableText"
+          :components="ptComponents"
+        />
+        <div
+          v-else
+          v-html="renderMarkdown(item.markdown?.content || item.content)"
+        />
+      </div>
     </div>
     <!-- PDF Viewer for case studies -->
     <PdfViewer v-if="item.pdfFile && item.pdfFile.asset && (item.pdfFile.asset.url || item.pdfFile.asset._ref)"
