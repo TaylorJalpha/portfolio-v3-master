@@ -85,8 +85,9 @@ const ptComponents = {
       </div>
     </div>
     <!-- PDF Viewer for case studies -->
-    <PdfViewer v-if="item.pdfFile && item.pdfFile.asset && (item.pdfFile.asset.url || item.pdfFile.asset._ref)"
-      :pdfUrl="item.pdfFile.asset.url || item.pdfFile.asset._ref"
+    <PdfViewer
+      v-if="item.pdfFile && item.pdfFile.asset && item.pdfFile.asset.url"
+      :pdfUrl="item.pdfFile.asset.url"
     />
     <div v-if="item.galleryImages && item.galleryImages.length">
       <h2 class="text-xl font-semibold mt-8 mb-2">Gallery</h2>

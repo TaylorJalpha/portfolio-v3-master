@@ -36,6 +36,7 @@
     "marked": "^9.1.6",
     "moment": "^2.29.4",
     "motion": "^10.16.4",
+    "pdfjs-dist": "^5.4.149",
     "portal-vue": "^3.0.0",
     "radix-vue": "^1.9.12",
     "sanity-plugin-markdown": "^6.0.0",

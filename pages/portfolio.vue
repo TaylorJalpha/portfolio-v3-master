@@ -91,6 +91,7 @@
           :key="item._id || item.id"
           :item="{ ...item, content_type: item._type }"
           class="portfolio-card"
+          @learn-more="goToDetail"
         />
         
         <!-- Loading skeleton cards -->
@@ -153,6 +154,18 @@
 </template>
 
 <script setup lang="ts">
+
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+function goToDetail(item: any) {
+  const type = item._type || item.content_type
+  let base = 'project'
+  if (type === 'caseStudy' || type === 'case_study') base = 'case-study'
+  else if (type === 'blogPost' || type === 'blog_post') base = 'blog'
+  const slug = item.slug?.current || item.slug
+  router.push({ path: `/${base}/${slug}` })
+}
 
 import { fetchSanityContent } from '@/services/sanityApi'
 import Meteors from '~/components/Meteors.vue'

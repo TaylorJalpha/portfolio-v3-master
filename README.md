@@ -1,23 +1,24 @@
+**🛠️ This project is still a WIP (Work-in-progress) – Mobile optimizations needed for the animated experience timeline and portfolio view, PDF viewing experience on mobile, primarily, and a few additional features need to be improved to be considered finished as part of v3.1 - Testing in production to get these optimizations live ASAP**
+
+---
+
 # ⚡️Nuxt Bento Portfolio
 
-This is a modern, quasi-minimal, and highly customizable portfolio template built with Nuxt 3, Vue, and Tailwind CSS— A fork of the Ladvace Astro theme by apdev95. Crafted for developers, technical product managers, designers, or anyone who wants to showcase their work in a design-focused way with dense content sections for a hasty overview on page load, it features a bento grid hero section, an experience timeline, and a versatile portfolio view supporting blog posts, case studies with an embedded PDF viewer, projects, and tags. Effortlessly connect your own [Sanity.io](https://www.sanity.io/) headless CMS to manage portfolio items, and use any backend you prefer (Rails, Node, etc.) to handle contact form submissions and API logic.
-
-
-The live version of the portfolio can be [found here](https://www.taylorferguson.xyz/)
-
-
-**Mobile optimizations needed for the animated experience timeline and portfolio view.**
+This is a modern, quasi-minimal, and highly customizable portfolio template built with Nuxt 3, Vue, and Tailwind CSS—[Fork of the Ladvace Astro theme]( https://github.com/Ladvace/astro-bento-portfolio) by [Appdev95](https://github.com/apdev95/bento-portfolio-nuxt ). Crafted for developers, technical product managers, designers, or anyone who wants to showcase their work in a design-focused way with dense content sections for a hasty overview on page load, it features a bento grid hero section, an experience timeline, and a versatile portfolio view supporting blog posts, case studies with an embedded PDF viewer, projects, and tags. Effortlessly connect your own [Sanity.io](https://www.sanity.io/) headless CMS to manage portfolio items, and use any backend you prefer (Rails, Node, etc.) to handle contact form submissions and API logic.
 
 ---
 
 ## Features
 
 - Bento-grid hero section to display dense content and animations for a quick overview of experience, skills, etc
-- Experience timeline modeled off the Acternity.ui timeline component - converted from React to Vue Syntax.
+- The experience timeline was modeled after Acternity.ui. The UI timeline component was converted from React to Vue Syntax.
 - Fully responsive and mobile-friendly
 - Portfolio view with easy integration with your own Sanity headless CMS, or CMS of your choosing.
 - Contact form with backend support (Rails example included)
+- Rails API proxy is used to fetch Sanity data via the POST HTTP method from the Nuxt front end. It sets CORS, .env variables, and other necessary configurations. If you’d like a copy of the Rails backend, please let me know, and I’d be more than happy to share the codebase with you.
 - Built for quick deployment and customization
+- The footer or secondary navigation section should include a title and paragraph section with an icon and a ping animation. It should also include social links + icons and a list of core skills that can link to desired locations within the viewport or site - Contact Me from the Footer currently triggers the contact form modal to open in the Hero section, this will be resolved no later than 09-28-2025.
+- 
 
 ---
 
@@ -83,11 +84,56 @@ end
 
 ## Contributing & Customization
 
-Feel free to fork, star, and make it your own! If you add cool features or integrations, open a PR or let me know. I’m always happy to connect with fellow builders.
+Feel free to fork, star, and make this project your own! If you add cool features or integrations, open a pull request or reach out—I'm always happy to connect with fellow builders.
+
+---
+
+## Next Steps
+
+- **Mobile Optimizations:** Improving the experience for portfolio items, case studies, and posts, with a special focus on better PDF viewing and device-specific enhancements.
+- **About Me Page:** Adding a dedicated `/about-me` page to share a more story-driven overview of my professional journey.
+- **Gen-AI Feature:** Exploring the addition of a generative AI feature (acceptance criteria still to be determined).
+
+---
+
+## Feedback & Feature Requests
+
+Have feature requests or suggestions? Use the contact form button in the Bento-grid hero section on the home screen (right next to the interactive easter egg button). I welcome all recommendations and feature requests!
+
+**Check out the live project:** [![Visit www.taylorferguson.xyz](https://img.shields.io/badge/Visit-www.taylorferguson.xyz-1e90ff?style=for-the-badge&logo=google-chrome)](https://www.taylorferguson.xyz)
+
+<br>
 
 ---
 
 
+### Tech Stack - For the full-stack experience
 
+<a href="https://nuxt.com/" style="display:inline-block;">
+	<img src="https://img.shields.io/badge/Nuxt.js-00C58E?style=for-the-badge&logo=nuxt.js&logoColor=white" alt="Nuxt.js"/>
+</a>
+<a href="https://vuejs.org/" style="display:inline-block;">
+	<img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D" alt="Vue.js"/>
+</a>
+<a href="https://rubyonrails.org/" style="display:inline-block;">
+	<img src="https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white" alt="Ruby on Rails"/>
+</a>
+<br>
+<a href="https://tailwindcss.com/" style="display:inline-block;">
+	<img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"/>
+</a>
+<br>
+<a href="https://www.sanity.io/" style="display:inline-block;">
+	<img src="https://img.shields.io/badge/Sanity-EF3A37?style=for-the-badge&logo=sanity&logoColor=white" alt="Sanity"/>
+</a>
+<br>
+<a href='https://www.heroku.com/' style="display:inline-block;"> 
+	<img src='https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white' alt='Heroku'/>
+</a>
 
+<a href="https://aws.amazon.com/" style="display:inline-block;"> 
+	<img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=FF9900" alt="AWS"/>
+</a>
+
+---
 
