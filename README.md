@@ -1,4 +1,4 @@
-**🛠️ This project is still a WIP (Work-in-progress) – Mobile optimizations needed for the animated experience timeline and portfolio view, PDF viewing experience on mobile, primarily, and a few additional features need to be improved to be considered finished as part of v3.1 - Testing in production to get these optimizations live ASAP**
+**🛠️ This project is still a WIP (Work-in-progress) – Mobile / iPad optimizations needed for the animated experience timeline and portfolio view, PDF viewing experience on mobile, primarily, and a few additional features need to be improved to be considered finished as part of v3.1 - Testing in production to get these optimizations live ASAP**
 
 ---
 
