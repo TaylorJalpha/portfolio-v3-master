@@ -26,7 +26,12 @@
         </div>
 
         <div ref="scrollContainer" class="pdfjs-pages" @scroll.passive="onScroll">
-          <div v-if="error" class="error">
+          <!-- If pdf.js fails on mobile, automatically fallback to native PDF iframe -->
+          <div v-if="error && mobileFallbackIframe" class="pdf-iframe-wrapper">
+            <iframe :src="computedIframeSrc" width="100%" height="600" style="border:none;" allowfullscreen></iframe>
+          </div>
+
+          <div v-else-if="error" class="error">
             <p>We couldn’t render the PDF on this device.</p>
             <p>
               <a :href="pdfUrl" target="_blank" rel="noopener" class="link">Open in new tab</a>
@@ -81,6 +86,8 @@ const maxScale = 3
 const baseWidth = ref<number | null>(null)
 const scrollContainer = ref<HTMLElement | null>(null)
 const error = ref<string | null>(null)
+// If pdf.js fails on mobile, should we fallback to native iframe?
+const mobileFallbackIframe = ref(true)
 
 let io: IntersectionObserver | null = null
 const pageContainers = new Map<number, HTMLElement>()
@@ -134,17 +141,17 @@ function requestRerenderVisible() {
 async function ensurePdfJsLoaded() {
   // Load pdf.js only on client and only if needed
   const pdfjs = await import('pdfjs-dist')
-  // In Vite/Nuxt, import worker as URL and set workerSrc to avoid bundling complexity
-  const workerSrc = (await import('pdfjs-dist/build/pdf.worker.min.mjs?url')).default
-  ;(pdfjs as any).GlobalWorkerOptions.workerSrc = workerSrc
+  // On mobile we avoid using a Worker to maximize compatibility (iOS Safari, CSP)
+  // so no workerSrc configuration is required.
   return pdfjs
 }
 
 async function openPdf() {
   if (!props.pdfUrl) return
   try {
-    const pdfjs: any = await ensurePdfJsLoaded()
-    const loadingTask = pdfjs.getDocument({ url: props.pdfUrl, withCredentials: false })
+  const pdfjs: any = await ensurePdfJsLoaded()
+  // Disable worker for maximum compatibility on mobile (avoids module worker/CSP issues)
+  const loadingTask = pdfjs.getDocument({ url: props.pdfUrl, withCredentials: false, disableWorker: true })
     const doc = await loadingTask.promise
     pdfDoc.value = doc
 
