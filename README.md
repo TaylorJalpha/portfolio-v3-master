@@ -1,6 +1,6 @@
-**🛠️ This project is still a WIP (Work-in-progress) – Mobile optimizations needed for the animated experience timeline and portfolio view PDF viewing experience on mobile, primarily, and a few additional features need to be improved to be considered finished as part of v3.1 - Testing in production to get these optimizations live ASAP**
+**🛠️ This project is still a WIP (Work-in-progress) – Mobile optimizations needed for the animated experience timeline and portfolio view, PDF viewing experience on mobile, primarily, and a few additional features need to be improved to be considered finished as part of v3.1 - Testing in production to get these optimizations live ASAP**
 
-
+---
 
 # ⚡️Nuxt Bento Portfolio
 
@@ -102,31 +102,38 @@ Have feature requests or suggestions? Use the contact form button in the Bento-g
 
 **Check out the live project:** [![Visit www.taylorferguson.xyz](https://img.shields.io/badge/Visit-www.taylorferguson.xyz-1e90ff?style=for-the-badge&logo=google-chrome)](https://www.taylorferguson.xyz)
 
+<br>
 
 ---
- <br>
+
 
 ### Tech Stack - For the full-stack experience
 
-<a href="https://vuejs.org/" style="display:inline-block;">
-  <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D" alt="Vue.js"/>
-</a>
 <a href="https://nuxt.com/" style="display:inline-block;">
-  <img src="https://img.shields.io/badge/Nuxt.js-00C58E?style=for-the-badge&logo=nuxt.js&logoColor=white" alt="Nuxt.js"/>
+	<img src="https://img.shields.io/badge/Nuxt.js-00C58E?style=for-the-badge&logo=nuxt.js&logoColor=white" alt="Nuxt.js"/>
+</a>
+<a href="https://vuejs.org/" style="display:inline-block;">
+	<img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D" alt="Vue.js"/>
 </a>
 <a href="https://rubyonrails.org/" style="display:inline-block;">
-  <img src="https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white" alt="Ruby on Rails"/>
+	<img src="https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white" alt="Ruby on Rails"/>
 </a>
+<br>
 <a href="https://tailwindcss.com/" style="display:inline-block;">
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"/>
+	<img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"/>
 </a>
-<a href="https://aws.amazon.com/" style="display:inline-block;">
-  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=FF9900" alt="AWS"/>
-</a>
+<br>
 <a href="https://www.sanity.io/" style="display:inline-block;">
-  <img src="https://img.shields.io/badge/Sanity-EF3A37?style=for-the-badge&logo=sanity&logoColor=white" alt="Sanity"/>
+	<img src="https://img.shields.io/badge/Sanity-EF3A37?style=for-the-badge&logo=sanity&logoColor=white" alt="Sanity"/>
+</a>
+<br>
+<a href='https://www.heroku.com/' style="display:inline-block;"> 
+	<img src='https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white' alt='Heroku'/>
 </a>
 
+<a href="https://aws.amazon.com/" style="display:inline-block;"> 
+	<img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=FF9900" alt="AWS"/>
+</a>
 
 ---
 
