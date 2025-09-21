@@ -5,9 +5,10 @@
       <iframe
         :src="pdfUrl + '#toolbar=0'"
         width="100%"
-        height="100%"
-        style="border:none; min-height: 400px; max-height: 80vh;"
+        height="600px"
+        style="border:none;"
         allowfullscreen
+        scrolling="yes"
       ></iframe>
       <!-- Overlay to block default toolbar (download/print) -->
       <div class="pdf-toolbar-overlay"></div>
@@ -38,21 +39,14 @@ const props = defineProps<{ pdfUrl: string | null }>()
   .pdf-iframe-wrapper {
     position: relative;
     width: 100%;
-    height: 80vh;
-    min-height: 400px;
-    max-height: 80vh;
-    overflow-x: auto;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    /* Remove fixed height and overflow, let iframe control scroll */
   }
   iframe {
     border-radius: 16px;
     box-shadow: 0 2px 16px rgba(0,0,0,0.12);
     background: #111111;
     width: 100%;
-    height: 100%;
-    min-height: 400px;
-    max-height: 80vh;
+    height: 600px;
     display: block;
   }
   .pdf-toolbar-overlay {
@@ -71,15 +65,11 @@ const props = defineProps<{ pdfUrl: string | null }>()
       border-radius: 8px;
       margin: 1rem 0;
     }
-    .pdf-iframe-wrapper {
-      height: 60vh;
-      min-height: 220px;
-      max-height: 65vh;
-    }
     iframe {
       border-radius: 8px;
+      height: 70vh;
       min-height: 220px;
-      max-height: 65vh;
+      max-height: 80vh;
     }
   }
 </style>
