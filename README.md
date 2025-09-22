@@ -10,15 +10,22 @@ This is a modern, quasi-minimal, and highly customizable portfolio template buil
 
 ## Features
 
-- Bento-grid hero section to display dense content and animations for a quick overview of experience, skills, etc
-- The experience timeline was modeled after Acternity.ui [Aurora Background component](https://ui.aceternity.com/components/aurora-background),converted from React to Vue Syntax
-- Fully responsive and mobile-friendly
-- Portfolio view with easy integration with your own Sanity headless CMS, or CMS of your choosing
-- Contact form with backend support (Rails example included)
-- Rails API proxy is used to fetch Sanity data via the POST HTTP method from the Nuxt front end. It sets CORS, .env variables, and other necessary configurations. Ping me if you’d like a copy of the Rails backend, more than happy to duplicate and share
-- Built for quick deployment and customization
-- The footer or secondary navigation section includes a title and paragraph section with an icon and ping animation. It also includes social links + icons and a list of core skills that can link/route to desired locations within the viewport or site - Contact Me from the Footer currently triggers the contact form modal to open in the Hero section, this will be resolved no later than 09-28-2025
-- You can find the Rails backend Readme within the Nuxt repo: portfolio-v3-master/backend-example/README.md <- WIP, needs a few updates. 
+Key Features
+
+• Modern UI: A bento-grid hero section provides a dense, interactive overview of skills and experience, enhanced with animations.
+• Customizable Timeline: The experience timeline is a custom implementation based on the Acternity UI Aurora Background component, re-built specifically for Vue.
+• Fully Responsive: The application is built to be fully responsive and mobile-friendly across all devices.
+• CMS Integration: The portfolio view is designed for easy integration with a Sanity headless CMS, but can be adapted for any CMS of your choice.
+• Backend & API:
+• A functional contact form with included backend support (a Rails API example is provided).
+• The Rails API acts as a proxy to securely fetch data from Sanity via POST requests, handling critical configurations like CORS and environment variables.
+• The backend's README.md is located at portfolio-v3-master/backend-example/README.md and contains detailed setup instructions.
+• Quick Deployment: The project is structured for rapid deployment and straightforward customization.
+• Interactive Footer: The footer features a dynamic, multi-purpose design:
+• A section for a title, paragraph, and an animated icon.
+• Social media links with corresponding icons.
+• A list of core skills that can be configured to navigate to specific sections of the site.
+
 
 ---
 
