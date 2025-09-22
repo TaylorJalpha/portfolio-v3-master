@@ -1,24 +1,24 @@
-**🛠️ This project is still a WIP (Work-in-progress) – Mobile optimizations needed for the animated experience timeline and portfolio view, PDF viewing experience on mobile, primarily, and a few additional features need to be improved to be considered finished as part of v3.1 - Testing in production to get these optimizations live ASAP**
+**🛠️ This project is still a WIP (Work-in-progress) – Mobile / iPad optimizations needed for the animated experience timeline and portfolio view, PDF viewing experience on mobile, primarily, and a few additional features need to be improved to be considered finished as part of v3.1 - Testing in production to get these optimizations live ASAP**
 
 ---
 
 # ⚡️Nuxt Bento Portfolio
 
-This is a modern, quasi-minimal, and highly customizable portfolio template built with Nuxt 3, Vue, and Tailwind CSS—[Fork of the Ladvace Astro theme]( https://github.com/Ladvace/astro-bento-portfolio) by [Appdev95](https://github.com/apdev95/bento-portfolio-nuxt ). Crafted for developers, technical product managers, designers, or anyone who wants to showcase their work in a design-focused way with dense content sections for a hasty overview on page load, it features a bento grid hero section, an experience timeline, and a versatile portfolio view supporting blog posts, case studies with an embedded PDF viewer, projects, and tags. Effortlessly connect your own [Sanity.io](https://www.sanity.io/) headless CMS to manage portfolio items, and use any backend you prefer (Rails, Node, etc.) to handle contact form submissions and API logic.
+This is a modern, quasi-minimal, and highly customizable portfolio template built with Nuxt 3, Vue, and Tailwind CSS—[Fork of the Ladvace Astro theme]( https://github.com/Ladvace/astro-bento-portfolio) by [Appdev95](https://github.com/apdev95/bento-portfolio-nuxt ). Crafted for developers, technical product managers, engineers, data scientists, or anyone technical who wants to showcase their work in a design-focused way with dense content sections for a hasty overview on page load, it features a bento grid hero section, an experience timeline, and a versatile portfolio view supporting blog posts, case studies with an embedded PDF viewer, projects, and tags. Effortlessly connect your own [Sanity.io](https://www.sanity.io/) headless CMS to manage portfolio items, and use any backend you prefer (Rails, Node, etc.) to handle contact form submissions and API logic.
 
 ---
 
 ## Features
 
 - Bento-grid hero section to display dense content and animations for a quick overview of experience, skills, etc
-- The experience timeline was modeled after Acternity.ui. The UI timeline component was converted from React to Vue Syntax.
+- The experience timeline was modeled after Acternity.ui [Aurora Background component](https://ui.aceternity.com/components/aurora-background),converted from React to Vue Syntax
 - Fully responsive and mobile-friendly
-- Portfolio view with easy integration with your own Sanity headless CMS, or CMS of your choosing.
+- Portfolio view with easy integration with your own Sanity headless CMS, or CMS of your choosing
 - Contact form with backend support (Rails example included)
-- Rails API proxy is used to fetch Sanity data via the POST HTTP method from the Nuxt front end. It sets CORS, .env variables, and other necessary configurations. If you’d like a copy of the Rails backend, please let me know, and I’d be more than happy to share the codebase with you.
+- Rails API proxy is used to fetch Sanity data via the POST HTTP method from the Nuxt front end. It sets CORS, .env variables, and other necessary configurations. Ping me ff you’d like a copy of the Rails backend, more than happy to duplicate and share
 - Built for quick deployment and customization
-- The footer or secondary navigation section should include a title and paragraph section with an icon and a ping animation. It should also include social links + icons and a list of core skills that can link to desired locations within the viewport or site - Contact Me from the Footer currently triggers the contact form modal to open in the Hero section, this will be resolved no later than 09-28-2025.
-- 
+- The footer or secondary navigation section includes a title and paragraph section with an icon and ping animation. It also includes social links + icons and a list of core skills that can link/route to desired locations within the viewport or site - Contact Me from the Footer currently triggers the contact form modal to open in the Hero section, this will be resolved no later than 09-28-2025
+- You can find the Rails backend Readme within the Nuxt repo: portfolio-v3-master/backend-example/README.md <- WIP, needs a few updates. 
 
 ---
 
