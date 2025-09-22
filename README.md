@@ -1,4 +1,4 @@
-**🛠️ This project is still a WIP (Work-in-progress) – Mobile / iPad optimizations needed for the animated experience timeline and portfolio view, PDF viewing experience on mobile, primarily, and a few additional features need to be improved to be considered finished as part of v3.1 - Testing in production to get these optimizations live ASAP**
+ **🛠️ This project is still a WIP (Work-in-progress) – Mobile / iPad optimizations needed for the animated experience timeline and portfolio view, PDF viewing experience on mobile, primarily, and a few additional features need to be improved to be considered finished as part of v3.1 - Testing in production to get these optimizations live ASAP**
 
 ---
 
@@ -15,7 +15,7 @@ This is a modern, quasi-minimal, and highly customizable portfolio template buil
 - Fully responsive and mobile-friendly
 - Portfolio view with easy integration with your own Sanity headless CMS, or CMS of your choosing
 - Contact form with backend support (Rails example included)
-- Rails API proxy is used to fetch Sanity data via the POST HTTP method from the Nuxt front end. It sets CORS, .env variables, and other necessary configurations. Ping me ff you’d like a copy of the Rails backend, more than happy to duplicate and share
+- Rails API proxy is used to fetch Sanity data via the POST HTTP method from the Nuxt front end. It sets CORS, .env variables, and other necessary configurations. Ping me if you’d like a copy of the Rails backend, more than happy to duplicate and share
 - Built for quick deployment and customization
 - The footer or secondary navigation section includes a title and paragraph section with an icon and ping animation. It also includes social links + icons and a list of core skills that can link/route to desired locations within the viewport or site - Contact Me from the Footer currently triggers the contact form modal to open in the Hero section, this will be resolved no later than 09-28-2025
 - You can find the Rails backend Readme within the Nuxt repo: portfolio-v3-master/backend-example/README.md <- WIP, needs a few updates. 
