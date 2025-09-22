@@ -53,10 +53,11 @@ export const usePortfolioApi = () => {
     // Build GROQ query for portfolio items
     let filter = ''
     if (params.content_type) filter += ` && _type == "${params.content_type}"`
-    if (params.tag) filter += ` && "${params.tag}" in tags[].name`
+  if (params.tag) filter += ` && \"${params.tag}\" in tags[]->title`
     const start = ((params.page || 1) - 1) * (params.per_page || 12)
     const end = start + (params.per_page || 12)
-    const query = `*[_type in [\"project\", \"caseStudy\", \"blogPost\"]${filter}] | order(published_at desc) [${start}...${end}] { _id, title, description, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, published_at, external_url }`
+    // Exclude drafts so draft+published don't appear as duplicates
+    const query = `*[_type in [\"project\", \"caseStudy\", \"blogPost\"] && !(_id in path('drafts.**'))${filter}] | order(published_at desc) [${start}...${end}] { _id, title, description, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, published_at, external_url }`
     const response = await fetchSanityContent(query)
     // Normalize type and slug for routing
     response.data = response.data.map((item: any) => ({
@@ -76,7 +77,7 @@ export const usePortfolioApi = () => {
 
   // Fetch single portfolio item by ID or slug
   const fetchPortfolioItem = async (idOrSlug: string): Promise<PortfolioDetailResponse> => {
-    const query = `*[_type in [\"project\", \"caseStudy\", \"blogPost\"] && (slug.current == \"${idOrSlug}\" || _id == \"${idOrSlug}\")][0]{ _id, title, description, slug, _type, featuredImage, tags[]->{ _id, title }, published_at, external_url, content, markdown, galleryImages, pdfFile{ asset->{url,_ref} } }`
+  const query = `*[_type in [\"project\", \"caseStudy\", \"blogPost\"] && !(_id in path('drafts.**')) && (slug.current == \"${idOrSlug}\" || _id == \"${idOrSlug}\")][0]{ _id, title, description, slug, _type, featuredImage, tags[]->{ _id, title }, published_at, external_url, content, markdown, galleryImages, pdfFile{ asset->{url,_ref} } }`
     const data = await fetchSanityContent(query)
     return { data }
   }

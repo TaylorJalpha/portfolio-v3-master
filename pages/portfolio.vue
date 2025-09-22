@@ -180,15 +180,18 @@ definePageMeta({ layout: 'portfolio' })
 function buildPortfolioItemsQuery(params: { page?: number; per_page?: number; content_type?: string; tag?: string }) {
   let filter = ''
   if (params.content_type) filter += ` && _type == "${params.content_type}"`
-  if (params.tag) filter += ` && "${params.tag}" in tags[].name`
+  // tags are dereferenced with title; use that in filter
+  if (params.tag) filter += ` && \"${params.tag}\" in tags[]->title`
   const start = ((params.page || 1) - 1) * (params.per_page || 12)
   const end = start + (params.per_page || 12)
-  return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"]${filter}] | order(published_at desc) [${start}...${end}] { _id, title, description, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, published_at, external_url }`
+  // Exclude drafts to prevent duplicate published+draft entries
+  return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"] && !(_id in path('drafts.**'))${filter}] | order(published_at desc) [${start}...${end}] { _id, title, description, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, published_at, external_url }`
 }
 
 // Helper to build GROQ query for a single item
 function buildPortfolioItemQuery(idOrSlug: string) {
-  return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"] && (slug.current == \"${idOrSlug}\" || _id == \"${idOrSlug}\")][0]{ _id, title, description, slug, _type, featuredImage, tags[]->{ _id, title }, published_at, external_url, content, markdown, galleryImages, pdfFile{ asset->{url,_ref} } }`
+  // Exclude drafts to ensure only the published document is returned
+  return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"] && !(_id in path('drafts.**')) && (slug.current == \"${idOrSlug}\" || _id == \"${idOrSlug}\")][0]{ _id, title, description, slug, _type, featuredImage, tags[]->{ _id, title }, published_at, external_url, content, markdown, galleryImages, pdfFile{ asset->{url,_ref} } }`
 }
 
 // Reactive state
@@ -201,6 +204,18 @@ const currentPage = ref(1)
 const perPage = 12
 const selectedFilter = ref<string>('')
 const selectedTag = ref<string>('')
+
+// Simple client-side safeguard to remove duplicates by canonical id
+function dedupeById(list: any[]) {
+  const seen = new Set<string>()
+  return list.filter((item) => {
+    const id = (item?._id as string)?.replace(/^drafts\./, '') || (item?.id as string)
+    if (!id) return true
+    if (seen.has(id)) return false
+    seen.add(id)
+    return true
+  })
+}
 
 function mappedTypeLabel(type: string, plural = false) {
   if (type === 'caseStudy') return plural ? 'Case Studies' : 'Case Study'
@@ -235,10 +250,11 @@ async function loadPortfolioItems(reset = false) {
     const query = buildPortfolioItemsQuery(params)
     const response = await fetchSanityContent(query)
     console.log('Portfolio fetchSanityContent response:', response)
+    // Apply de-duplication as a safety net in case backend returns overlapping docs
     if (reset) {
-      items.value = response
+      items.value = dedupeById(response)
     } else {
-      items.value.push(...response)
+      items.value = dedupeById([...items.value, ...response])
     }
     // hasMore logic is not applicable since response is just an array
     hasMore.value = response.length === perPage
