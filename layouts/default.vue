@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import Meteors from '~/components/Meteors.vue'
-import AuroraBackgroundDemo from '~/components/AuroraBackgroundDemo.vue'
+import AuroraBackground from '~/components/AuroraBackground.vue'
 import FloatingNav from '~/components/FloatingNav.vue'
 import Footer from '~/components/Footer.vue'
 import BlurFade from '~/components/BlurFade.vue'
@@ -12,7 +12,7 @@ const experiences = ref([
     year: '2024-Current',
     title: 'Product Management Sabbatical',
     company: 'Consultant - Los Angeles, CA',
-    description: 'Took intentional time off to reassess priorities and deepen skills across product strategy, software development, AI/ML, cloud engineering, business strategy, and customer acquisition.',
+    description: 'Took time off to reassess priorities and deepen skills across product strategy, software development, AI/ML, cloud engineering, business strategy, and sales/customer acquisition.',
     skills: ['Rails API Development', 'Vue.js', 'AWS Certification', 'Product Strategy', 'UX Design', 'Technical Discovery'],
     achievements: [
       'Completed advanced training in Rails API development and Vue.js frameworks',
@@ -247,11 +247,11 @@ onBeforeUnmount(() => {
         </div>
     </div>
 
-    <div class="text-white relative w-full z-10" data-section="experience">
+  <div class="text-white relative w-full z-10" data-section="experience">
         <!-- Aurora background positioned absolutely behind content -->
-        <div class="absolute inset-0 -z-10">
-            <AuroraBackgroundDemo />
-        </div>
+    <div class="absolute inset-0 -z-10 pointer-events-none" aria-hidden="true">
+      <AuroraBackground :className="'h-full'" :min-height="'100%'" />
+    </div>
 
         <div class="m-auto max-w-6xl">
             <section class="py-20 px-4 sm:px-6 lg:px-8">
