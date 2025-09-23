@@ -142,3 +142,20 @@ Have feature requests or suggestions? Use the contact form button in the Bento-g
 
 ---
 
+## iPad / iOS Safari compatibility
+
+This project includes animated effects (Aurora background and Experience Timeline). On iPad/iOS Safari, a few CSS features can cause layout glitches or jank (notably `background-attachment: fixed`, sticky children inside complex layouts, and masking).
+
+Included fixes:
+
+- `components/AuroraBackground.vue`
+	- Detects iOS/iPadOS at runtime and avoids `background-attachment: fixed` on the pseudo-element, reducing blur slightly for smoother performance. Animations are kept active.
+	- Uses a radial mask via CSS with cross-browser fallbacks.
+
+- `components/ExperienceTimeline.vue`
+	- Disables `position: sticky` only on iOS/iPadOS to avoid layout breakage; falls back to `position: relative`.
+	- Adds `-webkit-mask-image` to the vertical timeline line for WebKit.
+	- Throttles scroll-driven animation to `requestAnimationFrame`.
+
+If you prefer to force the desktop behavior on iPad, remove the small iOS detection blocks in those two components.
+

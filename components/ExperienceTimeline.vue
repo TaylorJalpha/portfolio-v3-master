@@ -12,13 +12,13 @@
       </p>
     </div>
 
-    <div ref="timelineRef" class="relative max-w-7xl mx-auto pb-20">
+  <div ref="timelineRef" class="relative max-w-7xl mx-auto pb-20">
       <div
         v-for="(item, index) in data"
         :key="index"
         class="flex justify-start pt-10 md:pt-40 md:gap-10"
       >
-        <div class="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
+        <div :class="stickyHeaderClass">
           <div class="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
             <div class="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
           </div>
@@ -44,7 +44,7 @@
       <!-- Animated timeline line -->
       <div
         :style="{ height: timelineHeight + 'px' }"
-        class="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+        class="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
       >
         <div
           ref="progressLine"
@@ -60,6 +60,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount, nextTick, watch, computed } from 'vue';
 interface TimelineEntry {
   title: string;
   content: string | { component: any; props?: Record<string, any> };
@@ -86,6 +87,14 @@ const animatedOpacity = ref(0);
 
 let scrollListener: (() => void) | null = null;
 
+// iPad detection to tweak sticky only on iPad (keep iPhone behavior intact)
+const isIPad = ref(false);
+const stickyHeaderClass = computed(() =>
+  isIPad.value
+    ? 'relative flex flex-col md:flex-row z-40 items-center top-0 self-start max-w-xs lg:max-w-sm md:w-full'
+    : 'sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full'
+);
+
 const updateTimelineHeight = () => {
   if (timelineRef.value) {
     const rect = timelineRef.value.getBoundingClientRect();
@@ -93,6 +102,8 @@ const updateTimelineHeight = () => {
   }
 };
 
+// RAF-throttled scroll handler for smoother updates on mobile Safari
+let ticking = false;
 const updateScrollProgress = () => {
   if (!containerRef.value || !timelineRef.value) return;
 
@@ -121,9 +132,21 @@ onMounted(() => {
   nextTick(() => {
     updateTimelineHeight();
     updateScrollProgress();
+  // Detect iPad (including iPadOS that reports as Mac)
+    const ua = navigator.userAgent || navigator.vendor || (window as any).opera || '';
+  const iPadLike = /iPad/.test(ua) || (navigator.platform === 'MacIntel' && (navigator as any).maxTouchPoints > 1);
+  isIPad.value = iPadLike;
     
     // Add scroll listener
-    scrollListener = () => updateScrollProgress();
+    scrollListener = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          updateScrollProgress();
+          ticking = false;
+        });
+      }
+    };
     window.addEventListener('scroll', scrollListener, { passive: true });
     window.addEventListener('resize', updateTimelineHeight, { passive: true });
   });
