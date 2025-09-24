@@ -248,9 +248,11 @@ onBeforeUnmount(() => {
     </div>
 
   <div class="text-white relative w-full z-10" data-section="experience">
-        <!-- Aurora background positioned absolutely behind content -->
-    <div class="absolute inset-0 -z-10 pointer-events-none" aria-hidden="true">
-      <AuroraBackground :className="'h-full'" :min-height="'100%'" />
+    <!-- Aurora header background (limited height) -->
+    <div class="absolute left-0 top-0 w-full -z-10 pointer-events-none overflow-hidden" style="height:790px" aria-hidden="true">
+      <AuroraBackground :className="'h-full'" :min-height="'790px'" />
+      <!-- Soft fade to base background so the effect does not cover entire section -->
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-950/20 to-neutral-950"></div>
     </div>
 
         <div class="m-auto max-w-6xl">
