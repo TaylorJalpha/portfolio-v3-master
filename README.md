@@ -1,7 +1,3 @@
- **🛠️ This project is still a WIP (Work-in-progress) – Mobile / iPad optimizations needed for the animated experience timeline and portfolio view, PDF viewing experience on mobile, primarily, and a few additional features need to be improved to be considered finished as part of v3.1 - Testing in production to get these optimizations live ASAP**
-
----
-
 # ⚡️Nuxt Bento Portfolio
 
 This is a modern, quasi-minimal, and highly customizable portfolio template built with Nuxt 3, Vue, and Tailwind CSS—[Fork of the Ladvace Astro theme]( https://github.com/Ladvace/astro-bento-portfolio) by [Appdev95](https://github.com/apdev95/bento-portfolio-nuxt ). Crafted for developers, technical product managers, engineers, data scientists, or anyone technical who wants to showcase their work in a design-focused way with dense content sections for a hasty overview on page load, it features a bento grid hero section, an experience timeline, and a versatile portfolio view supporting blog posts, case studies with an embedded PDF viewer, projects, and tags. Effortlessly connect your own [Sanity.io](https://www.sanity.io/) headless CMS to manage portfolio items, and use any backend you prefer (Rails, Node, etc.) to handle contact form submissions and API logic.
