@@ -93,21 +93,20 @@ const updateTimelineAnimation = () => {
         itemProgress > 0.9 ? 1 : 
         (itemProgress - 0.1) / 0.8 // Create a reveal window
       
-      // Smooth opacity with fade-in effect
-      const baseOpacity = activeIndex.value >= index ? 1 : 0.4
-      const revealOpacity = Math.max(0.2, baseOpacity * (0.3 + revealProgress * 0.7))
+      // Smooth opacity with fade-in effect (no layout shift)
+      const baseOpacity = activeIndex.value >= index ? 1 : 0.45
+      const revealOpacity = Math.max(0.25, baseOpacity * (0.35 + revealProgress * 0.65))
       item.style.opacity = revealOpacity.toString()
-      
-      // Use margin-based positioning instead of transform to avoid stacking context
+
+      // Transform only the card wrapper so badges/dots stay aligned to vertical line
+      const cardWrapper = item.querySelector('.timeline-card-wrapper') as HTMLElement | null
       const translateX = revealProgress > 0.3 ? 0 : 40 * (1 - revealProgress / 0.3)
-      const translateY = revealProgress > 0.5 ? 0 : 25 * (1 - (revealProgress - 0.5) / 0.5)
-      
-      // Apply positioning using margins instead of transforms
-      item.style.marginLeft = `${translateX}px`
-      item.style.marginTop = `${translateY}px`
-      
-      // Use a subtle scale effect with CSS custom properties instead of transform
-      const scaleValue = 0.95 + (revealProgress * 0.05)
+      const translateY = revealProgress > 0.6 ? 0 : 14 * (1 - (revealProgress / 0.6))
+      const scaleValue = 0.96 + (revealProgress * 0.04)
+      if (cardWrapper) {
+        cardWrapper.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scaleValue})`
+        cardWrapper.style.willChange = 'transform'
+      }
       item.style.setProperty('--scale-factor', scaleValue.toString())
     }
   })
@@ -118,6 +117,8 @@ let scrollListener: (() => void) | null = null
 onMounted(() => {
   nextTick(() => {
     updateTimelineAnimation()
+    // Hint browser for smoother animation without layout thrash
+    timelineItems.value.forEach(i => { if (i) i.style.willChange = 'transform, opacity' })
     scrollListener = () => updateTimelineAnimation()
     window.addEventListener('scroll', scrollListener, { passive: true })
     window.addEventListener('resize', updateTimelineAnimation, { passive: true })
@@ -262,7 +263,7 @@ onBeforeUnmount(() => {
                             </div>
 
                             <!-- Content Card Container - Properly offset from timeline with no overlap -->
-                            <div class="ml-20 sm:ml-24 lg:ml-36 transition-all duration-700 z-[1] relative">
+                            <div class="timeline-card-wrapper ml-20 sm:ml-24 lg:ml-36 transition-all duration-700 z-[1] relative">
             <div class="bg-white/5 border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border transition-all duration-500 relative timeline-card-background max-w-3xl lg:max-w-4xl group"
             style="background: rgba(255, 255, 255, 0.08);">
               <!-- Dotted background for texture -->
