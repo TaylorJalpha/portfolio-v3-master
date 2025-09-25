@@ -30,6 +30,7 @@ export { requestIdleCallback, cancelIdleCallback } from '#app/compat/idle-callba
 export { setInterval } from '#app/compat/interval';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';
 export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
+export { useExperiences, ExperienceItem } from '../composables/useExperiences';
 export { usePortfolioApi, PortfolioDetailResponse } from '../composables/usePortfolioApi';
 export { useSanityImageUrl } from '../composables/useSanityImageUrl';
 export { reactiveStyle, reactiveTransform, useElementStyle, useElementTransform, useMotion, useMotionControls, useMotionProperties, useMotions, useMotionTransitions, useMotionVariants, useSpring, useReducedMotion } from '../node_modules/@vueuse/motion/dist/nuxt/runtime/composables/index';

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { useExperiences } from '@/composables/useExperiences'
 import Meteors from '~/components/Meteors.vue'
 import AuroraBackground from '~/components/AuroraBackground.vue'
 import FloatingNav from '~/components/FloatingNav.vue'
@@ -7,86 +8,7 @@ import Footer from '~/components/Footer.vue'
 import BlurFade from '~/components/BlurFade.vue'
 
 
-const experiences = ref([
-  {
-    year: '2024-Current',
-    title: 'Product Management Sabbatical',
-    company: 'Consultant - Los Angeles, CA',
-    description: 'Took time off to reassess priorities and deepen skills across product strategy, software development, AI/ML, cloud engineering, business strategy, and sales/customer acquisition.',
-    skills: ['Rails API Development', 'Vue.js', 'AWS Certification', 'Product Strategy', 'UX Design', 'Technical Discovery'],
-    achievements: [
-      'Completed advanced training in Rails API development and Vue.js frameworks',
-      'Led freelance consulting projects for early-stage teams',
-      'Pursuing AWS certification for cloud engineering expertise',
-      'Focused on deepening AI/ML and business strategy knowledge'
-    ]
-  },
-  {
-    year: '2022-2024',
-    title: 'Product Manager, Technical',
-    company: 'Consultant - Los Angeles, CA',
-    description: 'Led cross-functional teams on projects including personalization, customer acquisition, fiat-to-crypto onramp, role-based access control, Shopify re-build, UI/UX strategy, NFT marketplace optimization, and fintech API integrations.',
-    skills: ['Cross-functional Leadership', 'Stripe & Plaid APIs', 'DeFi Platforms', 'Web3 Gaming', 'Vue.js', 'Rails', 'AWS', 'PostgreSQL'],
-    achievements: [
-      'Delivered 10% increase in transaction volume and 90%+ CSAT for 13+ months for a DeFi platform',
-      'Launched Web3 gaming retention campaigns that reactivated dormant users by 4%',
-      'Spearheaded full-stack B2B website redesign using Vue.js, Rails, AWS, and PostgreSQL',
-      'Oversaw end-to-end product delivery including PRDs and business case validation'
-    ]
-  },
-  {
-    year: '2021-2022',
-    title: 'Product Manager',
-    company: 'GalacticWay - Los Angeles',
-    description: 'Led development of NEAR-based NFT marketplace and drove significant user growth through strategic GTM execution and user-focused roadmap development.',
-    skills: ['GTM Strategy', 'NEAR Blockchain', 'NFT Marketplace', 'User Onboarding', 'Market Research', 'Product Discovery'],
-    achievements: [
-      'Drove 600% increase in user growth via GTM strategy and user-focused roadmap execution',
-      'Achieved $293 LTV with onboarding automation for NEAR-based NFT marketplace',
-      'Conducted market research and discovery resulting in successful codebase acquisition',
-      'Led pitch development and strategic product positioning'
-    ]
-  },
-  {
-    year: '2021',
-    title: 'Product Manager, Consultant',
-    company: 'Erupt - Los Angeles, US',
-    description: 'Implemented unified Engineering-Product-Design (EPD) processes and led process improvement initiatives to streamline team workflows across the organization.',
-    skills: ['Process Improvement', 'EPD Alignment', 'Stakeholder Management', 'Workshop Facilitation', 'Team Leadership'],
-    achievements: [
-      'Implemented unified Engineering-Product-Design (EPD) processes',
-      'Secured buy-in from senior stakeholders to streamline team workflows',
-      'Led workshops, presentations, and regular team check-ins for successful adoption',
-      'Improved cross-functional collaboration across multiple teams'
-    ]
-  },
-  {
-    year: '2019-2020',
-    title: 'Associate Product Manager, Admin',
-    company: 'GoGuardian - Los Angeles',
-    description: 'Collaborated with data science teams to enhance machine learning models and drove significant revenue growth by solving critical customer pain points during the COVID-19 pandemic.',
-    skills: ['Machine Learning', 'Data Science', 'Product Analytics', 'User Research', 'Statistical Analysis', 'Customer Feedback Analysis'],
-    achievements: [
-      'Played key role in driving multimillion-dollar increase in ARR/MRR during COVID-19',
-      'Collaborated with data science teams to optimize ML models and platform performance',
-      'Led multiple rounds of product discovery and user research initiatives',
-      'Implemented comprehensive product analytics and statistical analysis frameworks'
-    ]
-  },
-  {
-    year: '2019',
-    title: 'Product & Project Manager',
-    company: 'EatOS By POS Labs - Beverly Hills',
-    description: 'Led development of time and attendance application using Dart/Flutter, managing cross-functional teams and implementing prioritization frameworks for capacity planning.',
-    skills: ['Dart/Flutter', 'Cross-platform Development', 'System Architecture', 'UI/UX Development', 'Team Management', 'AirTable'],
-    achievements: [
-      'Led development of cross-platform time and attendance application',
-      'Directed 3 cross-functional teams across multiple time zones (25+ members)',
-      'Created prioritization framework using AirTable for capacity and velocity planning',
-      'Managed full product lifecycle from discovery to full-stack engineering'
-    ]
-  }
-])
+const { experiences } = useExperiences()
 
 // Timeline animation states
 const timelineContainer = ref<HTMLDivElement>()
@@ -212,18 +134,14 @@ onBeforeUnmount(() => {
 
 <template>
     <FloatingNav />
-    
-  <!-- Hero Section with Dotted Background -->
-  <!-- Added top padding to account for fixed floating nav so it doesn't overlap the bento grid -->
   <div class="relative w-full min-h-screen bg-black pt-8 md:pt-12">
         <!-- Background gradient overlay -->
         <div class="absolute inset-0 bg-gradient-to-br from-[#111111] via-[#171717] to-[#111111] opacity-50"></div>
-        
         <!-- Subtle dot pattern background -->
         <div class="absolute inset-0 opacity-30">
             <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
         </div>
-        
+
         <Meteors :number="30" />
         
         <!-- Hero Bento Grid Section - Keep original constraints -->
@@ -248,18 +166,17 @@ onBeforeUnmount(() => {
     </div>
 
   <div class="text-white relative w-full z-10" data-section="experience">
-    <!-- Aurora header background (limited height) -->
+    <!-- Aurora background section header -->
     <div class="absolute left-0 top-0 w-full -z-10 pointer-events-none overflow-hidden" style="height:790px" aria-hidden="true">
       <AuroraBackground :className="'h-full'" :min-height="'790px'" />
-      <!-- Soft fade to base background so the effect does not cover entire section -->
       <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-950/20 to-neutral-950"></div>
     </div>
 
         <div class="m-auto max-w-6xl">
-            <section class="py-20 px-4 sm:px-6 lg:px-8">
+      <section class="py-20 px-4 sm:px-6 lg:px-8" role="region" aria-labelledby="experience-heading">
                 <div class="text-center mb-20">
                   <BlurFade in-view :delay="250">
-                    <h2 class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-4xl md:text-5xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10 mb-6">
+          <h2 id="experience-heading" class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-4xl md:text-5xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10 mb-6">
                         My Professional Journey
                     </h2>
                     </BlurFade>
@@ -296,12 +213,13 @@ onBeforeUnmount(() => {
                     </div>
 
                     <!-- Timeline Items - New Left-aligned Layout -->
-                    <div class="space-y-12 sm:space-y-16 lg:space-y-20 relative z-[10]">
-                        <div
+                    <div class="space-y-12 sm:space-y-16 lg:space-y-20 relative z-[10]" role="list">
+            <div
                             v-for="(experience, index) in experiences"
                             :key="index"
                             :ref="(el: Element | ComponentPublicInstance | null) => setTimelineItemRef(el, index)"
-                            class="relative transition-all duration-700 ease-out timeline-item-scale"
+              class="relative transition-all duration-700 ease-out timeline-item-scale focus-within:ring-2 focus-within:ring-purple-500/60"
+              role="listitem"
                             :class="[
                                 activeIndex >= index ? 'opacity-100' : 'opacity-40'
                             ]"
@@ -325,32 +243,43 @@ onBeforeUnmount(() => {
                                     </div>
                                 </div>
 
-                                <!-- Year Badge - Positioned to the left with absolute positioning to prevent overlap -->
-                                <div class="absolute right-12 sm:right-14 lg:right-16 transition-all duration-500"
-                                    :class="[
-                                        activeIndex >= index 
-                                            ? 'scale-105' 
-                                            : 'scale-100'
-                                    ]">
-                                    <span class="inline-block px-2 py-1 sm:px-3 sm:py-1.5 text-xs sm:text-sm lg:text-base font-bold rounded-full whitespace-nowrap transition-all duration-500 bg-neutral-800 dark:bg-neutral-800 text-neutral-300 dark:text-neutral-300 border border-neutral-700 dark:border-neutral-700"
-                                        :class="[
-                                            activeIndex >= index 
-                                                ? 'bg-neutral-700 dark:bg-neutral-700 text-neutral-200 dark:text-neutral-200 border-neutral-600 dark:border-neutral-600' 
-                                                : 'bg-neutral-800 dark:bg-neutral-800 text-neutral-400 dark:text-neutral-400'
-                                        ]">
-                                        {{ experience.year }}
-                                    </span>
-                                </div>
+                <!-- Year Badge (desktop) - hidden on mobile, positioned externally -->
+                <div class="hidden md:block absolute right-12 sm:right-14 lg:right-16 transition-all duration-500"
+                  :class="[
+                    activeIndex >= index 
+                      ? 'scale-105' 
+                      : 'scale-100'
+                  ]">
+                  <span class="inline-block px-2 py-1 sm:px-3 sm:py-1.5 text-xs sm:text-sm lg:text-base font-bold rounded-full whitespace-nowrap transition-all duration-500 bg-neutral-800 dark:bg-neutral-800 text-neutral-300 dark:text-neutral-300 border border-neutral-700 dark:border-neutral-700"
+                    :class="[
+                      activeIndex >= index 
+                        ? 'bg-neutral-700 dark:bg-neutral-700 text-neutral-200 dark:text-neutral-200 border-neutral-600 dark:border-neutral-600' 
+                        : 'bg-neutral-800 dark:bg-neutral-800 text-neutral-400 dark:text-neutral-400'
+                    ]">
+                    {{ experience.year }}
+                  </span>
+                </div>
                             </div>
 
                             <!-- Content Card Container - Properly offset from timeline with no overlap -->
-                            <div class="ml-24 sm:ml-28 lg:ml-36 transition-all duration-700 z-[1] relative">
+                            <div class="ml-20 sm:ml-24 lg:ml-36 transition-all duration-700 z-[1] relative">
             <div class="bg-white/5 border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border transition-all duration-500 relative timeline-card-background max-w-3xl lg:max-w-4xl group"
             style="background: rgba(255, 255, 255, 0.08);">
               <!-- Dotted background for texture -->
               <div class="absolute inset-0 rounded-xl sm:rounded-2xl opacity-30 pointer-events-none"
                 style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;">
               </div>
+                                    <!-- Mobile Year Badge (appears above content on small screens) -->
+                                    <div class="md:hidden mb-3 animate-fade-in-up">
+                                      <span class="inline-block px-3 py-1 text-xs font-bold rounded-full bg-neutral-800 text-neutral-300 border border-neutral-700 shadow-sm"
+                                        :class="[
+                                          activeIndex >= index 
+                                            ? 'bg-neutral-700 text-neutral-200 border-neutral-600' 
+                                            : 'bg-neutral-800 text-neutral-400'
+                                        ]">
+                                        {{ experience.year }}
+                                      </span>
+                                    </div>
                                     <!-- Job Title & Company -->
                                     <div class="mb-3 sm:mb-4 lg:mb-6 text-left">
                                         <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-1 sm:mb-2 leading-tight">{{ experience.title }}</h3>
@@ -458,4 +387,10 @@ onBeforeUnmount(() => {
   border-radius: inherit;
   pointer-events: none;
 }
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.5s ease-out both; }
 </style>

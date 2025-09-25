@@ -26,6 +26,7 @@ declare global {
   const { reloadNuxtApp }: typeof import('../../node_modules/nuxt/dist/app/composables/chunk')
   const { setInterval }: typeof import('../../node_modules/nuxt/dist/app/compat/interval')
   const { updateAppConfig, useAppConfig }: typeof import('../../node_modules/nuxt/dist/app/config')
+  const { useExperiences }: typeof import('../../composables/useExperiences')
   const { useFetch, useLazyFetch }: typeof import('../../node_modules/nuxt/dist/app/composables/fetch')
   const { useHydration }: typeof import('../../node_modules/nuxt/dist/app/composables/hydrate')
   const { useLoadingIndicator }: typeof import('../../node_modules/nuxt/dist/app/composables/loading-indicator')
@@ -43,6 +44,9 @@ declare global {
   // @ts-ignore
   export type { Component, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue'
   import('vue')
+  // @ts-ignore
+  export type { ExperienceItem } from '../../composables/useExperiences'
+  import('../../composables/useExperiences')
   // @ts-ignore
   export type { PortfolioDetailResponse } from '../../composables/usePortfolioApi'
   import('../../composables/usePortfolioApi')
@@ -77,6 +81,7 @@ namespace _ComponentCustomProperties {
   const { reloadNuxtApp }: typeof import('../../node_modules/nuxt/dist/app/composables/chunk')
   const { setInterval }: typeof import('../../node_modules/nuxt/dist/app/compat/interval')
   const { updateAppConfig, useAppConfig }: typeof import('../../node_modules/nuxt/dist/app/config')
+  const { useExperiences }: typeof import('../../composables/useExperiences')
   const { useFetch, useLazyFetch }: typeof import('../../node_modules/nuxt/dist/app/composables/fetch')
   const { useHydration }: typeof import('../../node_modules/nuxt/dist/app/composables/hydrate')
   const { useLoadingIndicator }: typeof import('../../node_modules/nuxt/dist/app/composables/loading-indicator')

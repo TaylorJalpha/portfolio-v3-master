@@ -16,19 +16,26 @@
       <div
         v-for="(item, index) in data"
         :key="index"
-        class="flex justify-start pt-10 md:pt-40 md:gap-10"
+        class="pt-10 md:pt-40 md:flex md:justify-start md:gap-10"
       >
         <div :class="stickyHeaderClass">
-          <div class="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
+          <!-- Desktop timeline dot (hidden on mobile) -->
+          <div class="hidden md:flex h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black items-center justify-center">
             <div class="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
           </div>
-          <h3 class="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500">
+          <!-- Desktop / Wide screens year label (hidden on iPad so it uses mobile style) -->
+          <h3 v-if="!isIPad" class="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500">
             {{ item.title }}
           </h3>
         </div>
 
   <div class="relative pl-20 pr-4 md:pl-4 w-full liquid-glass-card">
-          <h3 class="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
+          <!-- Mobile timeline dot -->
+          <div class="md:hidden absolute left-0 top-2 h-10 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
+            <div class="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
+          </div>
+          <!-- Mobile / iPad year label shown above the card -->
+          <h3 :class="[isIPad ? 'block' : 'md:hidden block', 'text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500']">
             {{ item.title }}
           </h3>
           <div class="text-neutral-700 dark:text-neutral-300">
