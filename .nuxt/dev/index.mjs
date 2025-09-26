@@ -709,7 +709,7 @@ const _inlineRuntimeConfig = {
     }
   },
   "public": {
-    "apiBaseUrl": "http://localhost:3000",
+    "siteUrl": "http://localhost:3000",
     "motion": {}
   },
   "apiSecret": ""
@@ -1090,7 +1090,7 @@ const _0Mi28v7E8I7MUjWUYyJgDfJLFuw2dy3ZuqCePwhK0e0 = (function(nitro) {
 
 const rootDir = "/Users/tayloralphaaa/portfolio-v3-master";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"google-site-verification","content":"HRD7ZPskFWyXNDiPLlJY3uLUhz1RrcA8tLsEGuUHlhQ"}],"link":[],"style":[],"script":[{"type":"text/javascript","innerHTML":"(function(c,l,a,r,i,t,y){\n            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};\n            t=l.createElement(r);t.async=1;t.src=\"https://www.clarity.ms/tag/\"+i;\n            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);\n          })(window, document, \"clarity\", \"script\", \"okw3w7o39y\");"}],"noscript":[]};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"google-site-verification","content":"HRD7ZPskFWyXNDiPLlJY3uLUhz1RrcA8tLsEGuUHlhQ"},{"property":"og:site_name","content":"Taylor J. Ferguson"}],"link":[],"style":[],"script":[{"type":"text/javascript","innerHTML":"(function(c,l,a,r,i,t,y){\n            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};\n            t=l.createElement(r);t.async=1;t.src=\"https://www.clarity.ms/tag/\"+i;\n            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);\n          })(window, document, \"clarity\", \"script\", \"okw3w7o39y\");"}],"noscript":[]};
 
 const appRootTag = "div";
 

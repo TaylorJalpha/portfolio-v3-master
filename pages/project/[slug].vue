@@ -1,37 +1,37 @@
 <template>
-  <PortfolioDetailLayout v-if="portfolioItem" :item="portfolioItem.data" />
+  <PortfolioDetailLayout v-if="data" :item="data" />
 </template>
 
 <script setup lang="ts">
 definePageMeta({ layout: 'portfolio-detail' })
 import { useRoute } from 'vue-router'
-import { ref, onMounted, watch } from 'vue'
-import { fetchSanityContent } from '@/services/sanityApi'
+import { computed } from 'vue'
 import { useHead } from '#imports'
+import { usePortfolioApi, resolveMetaDescription } from '@/composables/usePortfolioApi'
+import { useCanonicalUrl } from '@/composables/useCanonicalUrl'
 
 const route = useRoute()
-const portfolioItem = ref<any>(null)
+const slugParam = Array.isArray(route.params.slug) ? route.params.slug[0] : route.params.slug as string
+const { fetchPortfolioItem } = usePortfolioApi()
 
-onMounted(async () => {
-  const slug = Array.isArray(route.params.slug) ? route.params.slug[0] : route.params.slug
-  const query = `*[_type in [\"project\", \"caseStudy\", \"blogPost\"] && !(_id in path('drafts.**')) && (slug.current == \"${slug}\" || _id == \"${slug}\")][0]{ _id, title, description, metadata, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, published_at, external_url, content, markdown, galleryImages, pdfFile{ asset->{url,_ref} } }`
-  const data = await fetchSanityContent(query)
-  console.log('Project [slug] fetchSanityContent response:', data)
-  portfolioItem.value = { data }
-})
+const { data } = await useAsyncData(`project-${slugParam}`,( ) => fetchPortfolioItem(slugParam).then(r => r.data))
 
-// Watch for portfolioItem and set meta tags when loaded
-watch(portfolioItem, (val) => {
-  if (val && val.data) {
-    useHead({
-      title: val.data.title || 'Project',
-      meta: [
-        {
-          name: 'description',
-          content: val.data.metadata || val.data.description || ''
-        }
-      ]
-    })
-  }
-})
+const metaDescription = computed(() => resolveMetaDescription(data.value))
+const canonical = useCanonicalUrl()
+const ogImage = computed(() => data.value?.featuredImage?.asset?.url || '')
+
+useHead(() => ({
+  title: data.value?.title ? `${data.value.title}` : 'Project',
+  link: [ { rel: 'canonical', href: canonical } ],
+  meta: [
+    { name: 'description', content: metaDescription.value },
+    { property: 'og:title', content: data.value?.title || '' },
+    { property: 'og:description', content: metaDescription.value },
+    { property: 'og:url', content: canonical },
+    ogImage.value ? { property: 'og:image', content: ogImage.value } : {},
+    { property: 'og:type', content: 'article' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    ogImage.value ? { name: 'twitter:image', content: ogImage.value } : {}
+  ].filter(Boolean as any)
+}))
 </script>

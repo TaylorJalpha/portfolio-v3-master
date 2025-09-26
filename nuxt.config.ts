@@ -11,7 +11,8 @@ export default defineNuxtConfig({
     apiSecret: process.env.API_SECRET,
     // Keys within public, will be also exposed to the client-side
     public: {
-      apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:3000'
+      // Base site URL used for canonical and og:url (set NUXT_PUBLIC_SITE_URL / SITE_URL in env for production)
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || process.env.SITE_URL || 'http://localhost:3000'
     }
   },
   
@@ -21,7 +22,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       meta: [
-        { name: 'google-site-verification', content: 'HRD7ZPskFWyXNDiPLlJY3uLUhz1RrcA8tLsEGuUHlhQ' } // <- Google Site Verification
+        { name: 'google-site-verification', content: 'HRD7ZPskFWyXNDiPLlJY3uLUhz1RrcA8tLsEGuUHlhQ' }, // Google Site Verification
+        // Global Open Graph site name (will appear in link previews)
+        { property: 'og:site_name', content: process.env.NUXT_PUBLIC_SITE_NAME || 'Taylor J. Ferguson' }
       ],
       script: [
         {
