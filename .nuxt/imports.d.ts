@@ -33,5 +33,6 @@ export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
 export { useExperiences, ExperienceItem } from '../composables/useExperiences';
 export { usePortfolioApi, PortfolioDetailResponse } from '../composables/usePortfolioApi';
 export { useSanityImageUrl } from '../composables/useSanityImageUrl';
+export { useTimelineAnimation } from '../composables/useTimelineAnimation';
 export { reactiveStyle, reactiveTransform, useElementStyle, useElementTransform, useMotion, useMotionControls, useMotionProperties, useMotions, useMotionTransitions, useMotionVariants, useSpring, useReducedMotion } from '../node_modules/@vueuse/motion/dist/nuxt/runtime/composables/index';
 export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { ref } from 'vue'
 import { useExperiences } from '@/composables/useExperiences'
+import { useTimelineAnimation } from '@/composables/useTimelineAnimation'
 import Meteors from '~/components/Meteors.vue'
 import AuroraBackground from '~/components/AuroraBackground.vue'
 import FloatingNav from '~/components/FloatingNav.vue'
@@ -10,126 +11,14 @@ import BlurFade from '~/components/BlurFade.vue'
 
 const { experiences } = useExperiences()
 
-// Timeline animation states
+// New composable-driven animation (earlier reveal + smoother)
 const timelineContainer = ref<HTMLDivElement>()
-const timelineItems = ref<(HTMLDivElement | null)[]>([])
 const progressLine = ref<HTMLDivElement>()
-const activeIndex = ref(-1)
-const scrollProgress = ref(0)
-
-// Function to set timeline item refs
-const setTimelineItemRef = (el: Element | ComponentPublicInstance | null, index: number) => {
-  timelineItems.value[index] = el as HTMLDivElement | null
-}
-
-// Scroll-based animation logic
-const updateTimelineAnimation = () => {
-  if (!timelineContainer.value) return
-
-  const containerRect = timelineContainer.value.getBoundingClientRect()
-  const viewportHeight = window.innerHeight
-  const scrollTop = window.pageYOffset
-
-  // Calculate progress based on container position with smoother transitions
-  const containerTop = containerRect.top + scrollTop
-  const containerHeight = containerRect.height
-  const startPoint = containerTop - viewportHeight * 0.75
-  const endPoint = containerTop + containerHeight - viewportHeight * 0.25
-
-  let progress = 0
-  if (scrollTop > startPoint && scrollTop < endPoint) {
-    progress = (scrollTop - startPoint) / (endPoint - startPoint)
-    progress = Math.max(0, Math.min(1, progress))
-    // Apply smooth easing for natural animation
-    progress = progress * progress * (3.0 - 2.0 * progress) // Smoothstep function
-  } else if (scrollTop >= endPoint) {
-    progress = 1
-  }
-
-  scrollProgress.value = progress
-
-  // Update active item with buffer for smoother transitions
-  const totalItems = experiences.value.length
-  const itemProgress = progress * (totalItems + 0.3) // Add buffer for smoother transitions
-  const currentItemIndex = Math.floor(itemProgress)
-  activeIndex.value = Math.min(currentItemIndex, totalItems - 1)
-
-  // Enhanced progress line animation with smooth scroll following
-  if (progressLine.value) {
-    const lineProgress = Math.min(progress * 1.02, 1) // Slightly ahead of content for better visual flow
-    progressLine.value.style.transform = `scaleY(${lineProgress})`
-    
-    // Update the moving progress indicator position
-    const progressIndicator = progressLine.value.querySelector('.absolute.w-3.h-3') as HTMLElement
-    if (progressIndicator) {
-      const indicatorPosition = Math.min(progress * 100, 100)
-      progressIndicator.style.top = `${indicatorPosition}%`
-      
-      // Add pulsing effect when actively scrolling
-      if (progress > 0 && progress < 1) {
-        const pulseScale = 1 + Math.sin(Date.now() * 0.004) * 0.15
-        progressIndicator.style.transform = `translateX(-50%) translateY(-50%) scale(${pulseScale})`
-      } else {
-        progressIndicator.style.transform = 'translateX(-50%) translateY(-50%) scale(1)'
-      }
-    }
-    
-    // Smooth opacity transitions
-    if (progress > 0) {
-      progressLine.value.style.opacity = '1'
-    } else {
-      progressLine.value.style.opacity = '0'
-    }
-  }
-
-  // Animate timeline items with enhanced staggered reveal
-  timelineItems.value.forEach((item, index) => {
-    if (item) {
-      const itemRevealPoint = (index / totalItems) - 0.15
-      const itemProgress = Math.max(0, Math.min(1, (progress - itemRevealPoint) / 0.35))
-      
-      // Enhanced reveal animation
-      const revealProgress = itemProgress < 0.1 ? 0 : 
-        itemProgress > 0.9 ? 1 : 
-        (itemProgress - 0.1) / 0.8 // Create a reveal window
-      
-      // Smooth opacity with fade-in effect (no layout shift)
-      const baseOpacity = activeIndex.value >= index ? 1 : 0.45
-      const revealOpacity = Math.max(0.25, baseOpacity * (0.35 + revealProgress * 0.65))
-      item.style.opacity = revealOpacity.toString()
-
-      // Transform only the card wrapper so badges/dots stay aligned to vertical line
-      const cardWrapper = item.querySelector('.timeline-card-wrapper') as HTMLElement | null
-      const translateX = revealProgress > 0.3 ? 0 : 40 * (1 - revealProgress / 0.3)
-      const translateY = revealProgress > 0.6 ? 0 : 14 * (1 - (revealProgress / 0.6))
-      const scaleValue = 0.96 + (revealProgress * 0.04)
-      if (cardWrapper) {
-        cardWrapper.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scaleValue})`
-        cardWrapper.style.willChange = 'transform'
-      }
-      item.style.setProperty('--scale-factor', scaleValue.toString())
-    }
-  })
-}
-
-let scrollListener: (() => void) | null = null
-
-onMounted(() => {
-  nextTick(() => {
-    updateTimelineAnimation()
-    // Hint browser for smoother animation without layout thrash
-    timelineItems.value.forEach(i => { if (i) i.style.willChange = 'transform, opacity' })
-    scrollListener = () => updateTimelineAnimation()
-    window.addEventListener('scroll', scrollListener, { passive: true })
-    window.addEventListener('resize', updateTimelineAnimation, { passive: true })
-  })
-})
-
-onBeforeUnmount(() => {
-  if (scrollListener) {
-    window.removeEventListener('scroll', scrollListener)
-    window.removeEventListener('resize', updateTimelineAnimation)
-  }
+const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimelineAnimation({
+  containerRef: timelineContainer,
+  progressLineRef: progressLine,
+  getItemCount: () => experiences.value.length,
+  pivotRatio: 0.38
 })
 </script>
 
