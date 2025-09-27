@@ -265,8 +265,11 @@ const socialLinks = [
     </div>
 
    
+    <!-- Dedicated teleport target for Footer's contact modal -->
+    <div id="footer-contact-teleport"></div>
     <ContactForm
       v-model:isOpen="isContactFormOpen"
+      teleport-target="#footer-contact-teleport"
       class="footer-contact-modal"
     />
   </footer>
@@ -274,7 +277,7 @@ const socialLinks = [
 
 <style scoped>
 
-:deep(.footer-contact-modal .modal-overlay-pv3) {
+:deep(.footer-contact-modal.modal-overlay-pv3) {
   z-index: 2000 !important;
   position: fixed !important;
 }

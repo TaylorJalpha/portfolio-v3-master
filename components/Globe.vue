@@ -33,9 +33,36 @@ onMounted(() => {
     markerColor: [0.1, 0.8, 1],
     glowColor: [1, 1, 1],
     markers: [
-      // longitude latitude
-      { location: [37.7595, -122.4367], size: 0.03 },
-      { location: [40.7128, -74.006], size: 0.1 },
+      // latitude, longitude
+      // Color legend by region:
+      // - US:       cyan [0.1, 0.8, 1]
+      // - Europe:   magenta [1, 0.3, 0.6]
+      // - Asia:     orange [1, 0.6, 0.1]
+      // Major hubs slightly larger (size ~0.08)
+      
+      // US
+      // SF Bay Area, CA (major hub)
+      { location: [37.7749, -122.4194], size: 0.08, color: [0.1, 0.8, 1] },
+      // Los Angeles, CA
+      { location: [34.0522, -118.2437], size: 0.06, color: [0.1, 0.8, 1] },
+      // Denver, CO
+      { location: [39.7392, -104.9903], size: 0.06, color: [0.1, 0.8, 1] },
+      // Setauket, NY
+      { location: [40.9415, -73.1077], size: 0.06, color: [0.1, 0.8, 1] },
+
+      // Asia
+      // Tokyo, Japan (major hub)
+      { location: [35.6762, 139.6503], size: 0.08, color: [1, 0.6, 0.1] },
+      // New Delhi, India
+      { location: [28.6139, 77.209], size: 0.06, color: [1, 0.6, 0.1] },
+
+      // Europe
+      // London, England (major hub)
+      { location: [51.5074, -0.1278], size: 0.08, color: [1, 0.3, 0.6] },
+      // Berlin, Germany
+      { location: [52.52, 13.405], size: 0.06, color: [1, 0.3, 0.6] },
+      // Kyiv, Ukraine
+      { location: [50.4501, 30.5234], size: 0.06, color: [1, 0.3, 0.6] },
     ],
     onRender: (state) => {
       // This prevents rotation while dragging

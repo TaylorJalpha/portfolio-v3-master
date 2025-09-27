@@ -1,6 +1,6 @@
 <template>
-  <teleport to="body">
-    <div v-if="isModalOpen" class="modal-overlay-pv3" @click="closeModal()">
+  <teleport :to="teleportTarget">
+    <div v-if="isModalOpen" class="modal-overlay-pv3" v-bind="$attrs" @click="closeModal()">
       <div class="modal-content-pv3" @click.stop>
         <h3><b>Contact Me 🚵</b></h3>
         <p class="contact-form-paragraph">Have a question or want to collab? I'm always open to new opportunities. I'll respond within 24 hours.
@@ -76,10 +76,15 @@ api.interceptors.request.use((config) => {
 });
 
 export default defineComponent({
+  inheritAttrs: false,
   props: {
     isOpen: {
       type: Boolean,
       required: true,
+    },
+    teleportTarget: {
+      type: String,
+      default: 'body',
     },
   },
   emits: ["close", "update:isOpen"],
