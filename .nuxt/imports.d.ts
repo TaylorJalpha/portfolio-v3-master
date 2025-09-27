@@ -34,6 +34,7 @@ export { useCanonicalUrl } from '../composables/useCanonicalUrl';
 export { useExperiences, ExperienceItem } from '../composables/useExperiences';
 export { resolveMetaDescription, usePortfolioApi, PortfolioDetailResponse } from '../composables/usePortfolioApi';
 export { useSanityImageUrl } from '../composables/useSanityImageUrl';
+export { useStructuredData } from '../composables/useStructuredData';
 export { useTimelineAnimation } from '../composables/useTimelineAnimation';
 export { reactiveStyle, reactiveTransform, useElementStyle, useElementTransform, useMotion, useMotionControls, useMotionProperties, useMotions, useMotionTransitions, useMotionVariants, useSpring, useReducedMotion } from '../node_modules/@vueuse/motion/dist/nuxt/runtime/composables/index';
 export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';

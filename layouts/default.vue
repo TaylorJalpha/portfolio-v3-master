@@ -80,26 +80,23 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
                 <!-- Animated Timeline -->
                 <div ref="timelineContainer" class="relative max-w-6xl mx-auto">
                     <div class="absolute left-8 sm:left-10 lg:left-14 top-0 bottom-0 w-0.5 z-[1]">
-                        <div class="w-full h-full bg-gray-700/20 relative rounded-full">
+                      <!-- Track -->
+                      <div class="w-full h-full bg-gray-700/20 relative rounded-full overflow-visible" style="min-height: 200px;">
+                        <!-- Progress container -->
+                        <div ref="progressLine" class="absolute inset-0 w-full rounded-full">
+                          <div class="progress-fill w-full absolute top-0 left-0 rounded-full overflow-visible"
+                               style="height:0%">
+                            <div class="absolute inset-0 bg-gradient-to-b from-purple-400 via-blue-500 to-cyan-400 rounded-full"></div>
+                            <div class="absolute inset-0 bg-gradient-to-b from-purple-400/70 via-blue-500/70 to-cyan-400/70 blur-sm rounded-full pointer-events-none"></div>
+                            <!-- Subtle end-cap glow (no moving dot) -->
+                            <div
+                              class="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none z-[2]"
+                              style="width:18px; height:18px; filter: blur(10px); opacity: 0.35; background: radial-gradient(closest-side, rgba(168,85,247,0.9) 0%, rgba(59,130,246,0.65) 50%, rgba(34,211,238,0.0) 75%);"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
                         </div>
-                        <div 
-                            ref="progressLine" 
-                            class="absolute inset-0 w-full origin-top transition-all duration-300 ease-out overflow-hidden rounded-full"
-                            style="transform: scaleY(0)"
-                        >
-                            
-                            <div class="w-full h-full bg-gradient-to-b from-purple-400 via-blue-500 to-cyan-400 relative rounded-full">
-                             
-                                <div class="absolute inset-0 bg-gradient-to-b from-purple-400/70 via-blue-500/70 to-cyan-400/70 blur-sm rounded-full"></div>
-                                
-                               
-                                <div class="absolute w-3 h-3 bg-white rounded-full left-1/2 -translate-x-1/2 shadow-xl border-2 border-purple-300 transition-all duration-300"
-                                     style="top: 100%; transform: translateX(-50%) translateY(-50%);">
-                                   
-                                    <div class="absolute inset-0.5 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full"></div>
-                                </div>
-                            </div>
-                        </div>
+                      </div>
                     </div>
 
                     <!-- Timeline Items - New Left-aligned Layout -->

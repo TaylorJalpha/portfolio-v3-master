@@ -38,6 +38,7 @@ export const PdfViewer: typeof import("../components/PdfViewer.vue")['default']
 export const PortfolioCard: typeof import("../components/PortfolioCard.vue")['default']
 export const PortfolioCardSkeleton: typeof import("../components/PortfolioCardSkeleton.vue")['default']
 export const PortfolioDetailLayout: typeof import("../components/PortfolioDetailLayout.vue")['default']
+export const PortfolioDetailView: typeof import("../components/PortfolioDetailView.vue")['default']
 export const PortfolioModal: typeof import("../components/PortfolioModal.vue")['default']
 export const PortfolioNav: typeof import("../components/PortfolioNav.vue")['default']
 export const PoweredByRubyOnRails: typeof import("../components/PoweredByRubyOnRails.vue")['default']
@@ -94,6 +95,7 @@ export const LazyPdfViewer: LazyComponent<typeof import("../components/PdfViewer
 export const LazyPortfolioCard: LazyComponent<typeof import("../components/PortfolioCard.vue")['default']>
 export const LazyPortfolioCardSkeleton: LazyComponent<typeof import("../components/PortfolioCardSkeleton.vue")['default']>
 export const LazyPortfolioDetailLayout: LazyComponent<typeof import("../components/PortfolioDetailLayout.vue")['default']>
+export const LazyPortfolioDetailView: LazyComponent<typeof import("../components/PortfolioDetailView.vue")['default']>
 export const LazyPortfolioModal: LazyComponent<typeof import("../components/PortfolioModal.vue")['default']>
 export const LazyPortfolioNav: LazyComponent<typeof import("../components/PortfolioNav.vue")['default']>
 export const LazyPoweredByRubyOnRails: LazyComponent<typeof import("../components/PoweredByRubyOnRails.vue")['default']>

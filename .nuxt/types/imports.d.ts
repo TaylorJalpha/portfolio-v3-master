@@ -39,6 +39,7 @@ declare global {
   const { useRuntimeHook }: typeof import('../../node_modules/nuxt/dist/app/composables/runtime-hook')
   const { useSanityImageUrl }: typeof import('../../composables/useSanityImageUrl')
   const { useScript, useScriptClarity, useScriptCloudflareWebAnalytics, useScriptCrisp, useScriptEventPage, useScriptFathomAnalytics, useScriptGoogleAdsense, useScriptGoogleAnalytics, useScriptGoogleMaps, useScriptGoogleTagManager, useScriptHotjar, useScriptIntercom, useScriptLemonSqueezy, useScriptMatomoAnalytics, useScriptMetaPixel, useScriptNpm, useScriptPlausibleAnalytics, useScriptRybbitAnalytics, useScriptSegment, useScriptSnapchatPixel, useScriptStripe, useScriptTriggerConsent, useScriptTriggerElement, useScriptUmamiAnalytics, useScriptVimeoPlayer, useScriptXPixel, useScriptYouTubePlayer }: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')
+  const { useStructuredData }: typeof import('../../composables/useStructuredData')
   const { useTimelineAnimation }: typeof import('../../composables/useTimelineAnimation')
 }
 // for type re-export
@@ -96,6 +97,7 @@ namespace _ComponentCustomProperties {
   const { useRuntimeHook }: typeof import('../../node_modules/nuxt/dist/app/composables/runtime-hook')
   const { useSanityImageUrl }: typeof import('../../composables/useSanityImageUrl')
   const { useScript, useScriptClarity, useScriptCloudflareWebAnalytics, useScriptCrisp, useScriptEventPage, useScriptFathomAnalytics, useScriptGoogleAdsense, useScriptGoogleAnalytics, useScriptGoogleMaps, useScriptGoogleTagManager, useScriptHotjar, useScriptIntercom, useScriptLemonSqueezy, useScriptMatomoAnalytics, useScriptMetaPixel, useScriptNpm, useScriptPlausibleAnalytics, useScriptRybbitAnalytics, useScriptSegment, useScriptSnapchatPixel, useScriptStripe, useScriptTriggerConsent, useScriptTriggerElement, useScriptUmamiAnalytics, useScriptVimeoPlayer, useScriptXPixel, useScriptYouTubePlayer }: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')
+  const { useStructuredData }: typeof import('../../composables/useStructuredData')
   const { useTimelineAnimation }: typeof import('../../composables/useTimelineAnimation')
 }
 declare module 'vue' {

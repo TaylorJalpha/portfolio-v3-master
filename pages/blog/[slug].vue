@@ -1,6 +1,6 @@
 <template>
-  <PortfolioDetailLayout v-if="data" :item="data" />
-</template>
+  <PortfolioDetailView v-if="data" :item="data" />
+  </template>
 
 <script setup lang="ts">
 definePageMeta({ layout: 'portfolio-detail' })
@@ -9,6 +9,7 @@ import { computed } from 'vue'
 import { useHead } from '#imports'
 import { usePortfolioApi, resolveMetaDescription } from '@/composables/usePortfolioApi'
 import { useCanonicalUrl } from '@/composables/useCanonicalUrl'
+import { useStructuredData } from '@/composables/useStructuredData'
 
 const route = useRoute()
 const slugParam = Array.isArray(route.params.slug) ? route.params.slug[0] : route.params.slug as string
@@ -34,4 +35,7 @@ useHead(() => ({
     ogImage.value ? { name: 'twitter:image', content: ogImage.value } : {}
   ].filter(Boolean as any)
 }))
+
+// Structured data injection
+useStructuredData(data)
 </script>

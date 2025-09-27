@@ -29,6 +29,18 @@ const title = 'Taylor J. Ferguson - Dynamic Product Manager with Technical Exper
 const description = 'Taylor J. Ferguson - Skilled Product Manager with extensive experience in Fintech, Blockchain, and HealthTech.'
 const ogImage = computed(() => canonical + '/me/me1.webp')
 
+// Global Organization JSON-LD (only on root page)
+const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Taylor J. Ferguson',
+    url: canonical,
+    logo: ogImage.value,
+    sameAs: [
+        // Add verified profile URLs here (GitHub, LinkedIn, etc.) once available
+    ]
+}
+
 useHead({
     title,
     link: [
@@ -44,6 +56,12 @@ useHead({
         { name: 'twitter:title', content: title },
         { name: 'twitter:description', content: description },
         { name: 'twitter:image', content: ogImage.value }
+    ],
+    script: [
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify(organizationJsonLd)
+        }
     ]
 })
 </script>

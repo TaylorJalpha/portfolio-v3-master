@@ -38,6 +38,7 @@ interface _GlobalComponents {
     'PortfolioCard': typeof import("../../components/PortfolioCard.vue")['default']
     'PortfolioCardSkeleton': typeof import("../../components/PortfolioCardSkeleton.vue")['default']
     'PortfolioDetailLayout': typeof import("../../components/PortfolioDetailLayout.vue")['default']
+    'PortfolioDetailView': typeof import("../../components/PortfolioDetailView.vue")['default']
     'PortfolioModal': typeof import("../../components/PortfolioModal.vue")['default']
     'PortfolioNav': typeof import("../../components/PortfolioNav.vue")['default']
     'PoweredByRubyOnRails': typeof import("../../components/PoweredByRubyOnRails.vue")['default']
@@ -94,6 +95,7 @@ interface _GlobalComponents {
     'LazyPortfolioCard': LazyComponent<typeof import("../../components/PortfolioCard.vue")['default']>
     'LazyPortfolioCardSkeleton': LazyComponent<typeof import("../../components/PortfolioCardSkeleton.vue")['default']>
     'LazyPortfolioDetailLayout': LazyComponent<typeof import("../../components/PortfolioDetailLayout.vue")['default']>
+    'LazyPortfolioDetailView': LazyComponent<typeof import("../../components/PortfolioDetailView.vue")['default']>
     'LazyPortfolioModal': LazyComponent<typeof import("../../components/PortfolioModal.vue")['default']>
     'LazyPortfolioNav': LazyComponent<typeof import("../../components/PortfolioNav.vue")['default']>
     'LazyPoweredByRubyOnRails': LazyComponent<typeof import("../../components/PoweredByRubyOnRails.vue")['default']>

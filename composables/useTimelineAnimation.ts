@@ -31,7 +31,9 @@ export function useTimelineAnimation({ containerRef, progressLineRef, getItemCou
     if (!containerRef.value) return
     const rect = containerRef.value.getBoundingClientRect()
     containerTop = rect.top + window.scrollY
-    containerHeight = rect.height
+    // Use the larger of visual height and scrollHeight to avoid 0-height glitches during mount/layout shifts
+    const scrollH = (containerRef.value as HTMLElement).scrollHeight || 0
+    containerHeight = Math.max(rect.height, scrollH)
     itemOffsets = timelineItems.value.map(el => el ? (el.offsetTop || 0) : 0)
   }
 
@@ -46,8 +48,12 @@ export function useTimelineAnimation({ containerRef, progressLineRef, getItemCou
       item.style.opacity = '1'
     })
     if (progressLineRef.value) {
-      progressLineRef.value.style.transform = 'scaleY(1)'
-      progressLineRef.value.style.opacity = '1'
+      const fillEl = progressLineRef.value.querySelector('.progress-fill') as HTMLElement | null
+      if (fillEl) {
+        fillEl.style.height = '100%'
+        fillEl.style.opacity = '1'
+        fillEl.style.transition = 'none'
+      }
     }
   }
 
@@ -77,36 +83,49 @@ export function useTimelineAnimation({ containerRef, progressLineRef, getItemCou
     for (let i=0;i<itemOffsets.length;i++) { if (pivot >= itemOffsets[i]) idx = i; else break }
     activeIndex.value = Math.min(idx, total - 1)
 
-    // progress line updates (scaled to visible portion of container rather than eased value)
+    // progress line updates using height percentage instead of scale to maintain gradient fidelity
     if (progressLineRef.value) {
-      if (containerHeight === 0) measure()
-      const viewportBottom = scrollY + vh * 0.8 // advance line a bit before absolute bottom
-      const rawLine = (viewportBottom - containerTop) / containerHeight
-      const lineScale = Math.max(0, Math.min(1, rawLine))
-      progressLineRef.value.style.transform = `scaleY(${lineScale})`
-      progressLineRef.value.style.opacity = lineScale > 0 ? '1' : '0'
-      progressLineRef.value.style.willChange = 'transform, opacity'
-      const indicator = progressLineRef.value.querySelector('.absolute.w-3.h-3') as HTMLElement | null
-      if (indicator) {
-        indicator.style.top = `${Math.min(lineScale * 100, 100)}%`
-        if (lineScale > 0 && lineScale < 1) {
-          const pulse = 1 + Math.sin(Date.now() * 0.004) * 0.12
-          indicator.style.transform = `translateX(-50%) translateY(-50%) scale(${pulse})`
+      if (containerHeight <= 0) measure()
+      const fillEl = progressLineRef.value.querySelector('.progress-fill') as HTMLElement | null
+      if (fillEl) {
+        if (containerHeight > 0) {
+          const viewportBottom = scrollY + vh * 0.7 // slightly earlier fill
+          const rawLine = (viewportBottom - containerTop) / containerHeight
+          let lineRatio = Math.max(0, Math.min(1, isNaN(rawLine) ? 0 : rawLine))
+          if (scrollY + vh >= containerTop + containerHeight - 32) lineRatio = 1
+          const pct = Math.max(0, Math.min(100, lineRatio * 100))
+          fillEl.style.height = pct + '%'
+          fillEl.style.opacity = lineRatio < 0.015 ? '0' : '1'
+          fillEl.style.transition = 'height 0.25s ease-out'
+          fillEl.style.willChange = 'height, opacity'
+          // Handle optional end-cap glow opacity subtly
+          const glow = fillEl.querySelector(':scope > div + div + div') as HTMLElement | null
+          if (glow) {
+            glow.style.opacity = (lineRatio > 0.02 && lineRatio < 0.995) ? '0.35' : (lineRatio >= 0.995 ? '0.25' : '0')
+            glow.style.transition = 'opacity 0.25s ease-out'
+          }
         } else {
-          indicator.style.transform = 'translateX(-50%) translateY(-50%) scale(1)'
+          // Fallback while awaiting a reliable measure
+          fillEl.style.height = '0%'
+          fillEl.style.opacity = '0'
         }
       }
     }
 
     // item animations
+    const totalItems = getItemCount()
     timelineItems.value.forEach((item, i) => {
       if (!item) return
       const cardWrapper = item.querySelector('.timeline-card-wrapper') as HTMLElement | null
 
       // window for each item reveal
-      const norm = i / ( (getItemCount() - 1) || 1 )
+      const norm = i / ( (totalItems - 1) || 1 )
       const windowStart = norm - 0.18
-      const local = (eased - windowStart) / 0.40
+      // For the final item, expand the window so it can actually reach full reveal at eased=1
+      const dynamicWindow = (i === totalItems - 1)
+        ? Math.max(0.12, 1 - windowStart) // ensure non-zero window; typical ~0.18
+        : 0.40
+      const local = (eased - windowStart) / dynamicWindow
       const clamped = Math.max(0, Math.min(1, local))
       const reveal = clamped < 0.08 ? 0 : clamped > 0.92 ? 1 : (clamped - 0.08) / 0.84
 
@@ -117,7 +136,8 @@ export function useTimelineAnimation({ containerRef, progressLineRef, getItemCou
       if (cardWrapper) {
         const translateX = reveal > 0.35 ? 0 : 42 * (1 - reveal / 0.35)
         const translateY = reveal > 0.65 ? 0 : 16 * (1 - (reveal / 0.65))
-        const scale = 0.955 + reveal * 0.045
+        // Slightly larger max scale for the active card to improve foreground emphasis at the end
+        const scale = 0.955 + reveal * 0.055
         cardWrapper.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`
         cardWrapper.style.willChange = 'transform'
         item.style.setProperty('--scale-factor', scale.toString())
@@ -135,6 +155,7 @@ export function useTimelineAnimation({ containerRef, progressLineRef, getItemCou
     nextTick(() => {
       measure()
       timelineItems.value.forEach(i => { if (i) i.style.willChange = 'opacity' })
+      // Kick an initial animation pass so the line is visible on load
       animate()
       scrollListener = () => requestAnimate()
       resizeListener = () => {
@@ -144,8 +165,9 @@ export function useTimelineAnimation({ containerRef, progressLineRef, getItemCou
       window.addEventListener('scroll', scrollListener, { passive: true })
       window.addEventListener('resize', resizeListener, { passive: true })
       // measure again after images/fonts settle
-      setTimeout(() => { measure(); requestAnimate() }, 400)
-      setTimeout(() => { measure(); requestAnimate() }, 1000)
+      setTimeout(() => { measure(); requestAnimate() }, 300)
+      setTimeout(() => { measure(); requestAnimate() }, 900)
+      setTimeout(() => { measure(); requestAnimate() }, 1600)
       prefersReduced?.addEventListener('change', () => { prefersReduced?.matches ? applyReducedMotion() : requestAnimate() })
     })
   })
