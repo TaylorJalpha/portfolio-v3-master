@@ -181,15 +181,16 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
                                     <!-- Skills & Technologies -->
                                     <div class="mb-3 sm:mb-4 lg:mb-6 text-left">
                                         <h4 class="text-xs sm:text-sm font-semibold text-white mb-2 sm:mb-3 uppercase tracking-wider">Skills & Technologies</h4>
-                                        <div class="flex flex-wrap gap-1 sm:gap-1.5 lg:gap-2 justify-start">
-                                            <span
-                                                v-for="skill in experience.skills"
-                                                :key="skill"
-                                                class="px-2 sm:px-2.5 lg:px-3 py-1 sm:py-1.5 text-xs sm:text-sm rounded-md sm:rounded-lg bg-blue-500/20 text-blue-200 border border-blue-400/30 hover:bg-blue-500/30 transition-colors duration-200"
-                                            >
-                                                {{ skill }}
-                                            </span>
-                                        </div>
+                    <div class="flex flex-wrap gap-1 sm:gap-1.5 lg:gap-2 justify-start">
+                      <span
+                        v-for="skill in experience.skills"
+                        :key="skill"
+                        class="inline-flex items-center gap-1.5 px-2 sm:px-2.5 lg:px-3 py-1 sm:py-1.5 text-xs sm:text-sm rounded-md sm:rounded-lg bg-white/10 text-neutral-100 border border-white/15 font-medium hover:bg-white/15 hover:border-white/25 hover:ring-1 hover:ring-blue-400/30 transition-colors duration-200"
+                      >
+                        <span class="inline-block h-1.5 w-1.5 rounded-full bg-gradient-to-r from-purple-400 via-blue-500 to-cyan-400"></span>
+                        <span>{{ skill }}</span>
+                      </span>
+                    </div>
                                     </div>
 
                                     <!-- Key Achievements -->
