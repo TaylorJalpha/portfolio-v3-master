@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="rootEl"
     :class="cn(
       'transition-bg relative bg-zinc-50 text-slate-950 dark:bg-zinc-900',
       props.className,
@@ -22,7 +23,7 @@
 
 <script setup lang="ts">
 import { cn } from "@/lib/utils";
-import { computed, onMounted, ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 
 interface AuroraBackgroundProps {
     className?: string;
@@ -36,10 +37,39 @@ const props = withDefaults(defineProps<AuroraBackgroundProps>(), {
 
 // Detect iOS/iPadOS Safari at runtime (client-only) to avoid SSR issues
 const isIOS = ref(false);
+const isVisible = ref(true);
+const rootEl = ref<HTMLDivElement | null>(null);
+let io: IntersectionObserver | null = null;
 onMounted(() => {
   const ua = navigator.userAgent || navigator.vendor || (window as any).opera || "";
   const iOSLike = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && (navigator as any).maxTouchPoints > 1);
   isIOS.value = iOSLike;
+
+  // Pause aurora animation when the section is off-screen
+  try {
+    if ('IntersectionObserver' in window && rootEl.value) {
+      io = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          isVisible.value = entry.isIntersecting;
+        }
+      }, {
+        root: null,
+        // Start/stop right as it leaves/enters the viewport
+        rootMargin: '0px',
+        threshold: 0,
+      });
+      io.observe(rootEl.value);
+    }
+  } catch (e) {
+    // no-op; keep default visible
+  }
+});
+
+onBeforeUnmount(() => {
+  if (io) {
+    io.disconnect();
+    io = null;
+  }
 });
 
 const cssVariables = computed(() => ({
@@ -73,7 +103,9 @@ const auroraClasses = computed(() => {
 
   return cn(
     isIOS.value ? ios : nonIOS,
-    props.showRadialGradient && radialGradientClass
+    props.showRadialGradient && radialGradientClass,
+    // Pause animations when off-screen
+    !isVisible.value && 'paused'
   );
 });
 </script>

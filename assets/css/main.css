@@ -241,3 +241,17 @@ html {
   animation: aurora 20s ease-in-out infinite;
 }
 
+/* Pause support: when the animating element has .paused, stop the keyframes */
+.animate-aurora.paused,
+.animate-aurora.paused::after {
+  animation-play-state: paused !important;
+}
+
+/* Respect reduced motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .animate-aurora,
+  .animate-aurora::after {
+    animation: none !important;
+  }
+}
+
