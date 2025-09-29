@@ -23,6 +23,12 @@ export async function fetchSanityContent(query) {
     return response?.data?.result ?? response?.data;
   } catch (error) {
     console.error('Error fetching data from Rails API:', error);
+    // During build time, if the API is not available, return null instead of throwing
+    // This prevents the build process from failing
+    if (process.env.NODE_ENV === 'production' && process.env.NUXT_ENV === 'generate') {
+      console.warn('API not available during build, returning null for query:', query);
+      return null;
+    }
     throw error;
   }
 }

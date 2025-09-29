@@ -16,7 +16,22 @@ const route = useRoute()
 const slugParam = Array.isArray(route.params.slug) ? route.params.slug[0] : route.params.slug as string
 const { fetchPortfolioItem } = usePortfolioApi()
 
-const { data } = await useAsyncData(`blog-${slugParam}`,( ) => fetchPortfolioItem(slugParam).then(r => r.data))
+const { data } = await useAsyncData(`blog-${slugParam}`, async () => {
+  try {
+    const result = await fetchPortfolioItem(slugParam)
+    return result.data
+  } catch (error) {
+    console.error('Error fetching blog post:', error)
+    // During build time, if API is not available, return null to prevent build failure
+    if (process.env.NODE_ENV === 'production') {
+      throw createError({
+        statusCode: 404,
+        statusMessage: 'Blog post not found'
+      })
+    }
+    return null
+  }
+})
 
 const metaDescription = computed(() => resolveMetaDescription(data.value))
 const canonical = useCanonicalUrl()

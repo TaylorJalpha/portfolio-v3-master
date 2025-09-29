@@ -23,6 +23,14 @@ export default defineNuxtConfig({
   // SSR configuration
   ssr: true,
   
+  // Nitro configuration for better error handling during build
+  nitro: {
+    // Handle prerender errors more gracefully
+    prerender: {
+      failOnError: false
+    }
+  },
+  
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
@@ -56,6 +64,10 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/sitemap.xml': { prerender: true },
-    '/robots.txt': { prerender: true }
+    '/robots.txt': { prerender: true },
+    // Disable prerendering for dynamic routes that depend on API data
+    '/project/**': { ssr: true, prerender: false },
+    '/case-study/**': { ssr: true, prerender: false },
+    '/blog/**': { ssr: true, prerender: false }
   }
 })

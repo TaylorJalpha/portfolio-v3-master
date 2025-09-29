@@ -1,11 +1,11 @@
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'vue-bundle-renderer/runtime';
-import { j as joinRelativeURL, u as useRuntimeConfig, g as getResponseStatusText, a as getResponseStatus, d as defineRenderHandler, b as getQuery, c as createError, e as getRouteRules, h as hasProtocol, r as relative, f as joinURL, i as useNitroApp } from '../nitro/nitro.mjs';
+import { j as joinRelativeURL, u as useRuntimeConfig, g as getResponseStatusText, a as getResponseStatus, b as defineRenderHandler, c as getQuery, e as createError, f as getRouteRules, h as hasProtocol, r as relative, i as joinURL, k as useNitroApp } from '../nitro/nitro.mjs';
 import { renderToString } from 'vue/server-renderer';
 import { createHead as createHead$1, propsToString, renderSSRHead } from 'unhead/server';
 import { stringify, uneval } from 'devalue';
-import { FlatMetaPlugin, DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'unhead/plugins';
 import { walkResolver } from 'unhead/utils';
 import { toValue, isRef, hasInjectionContext, inject, ref, watchEffect, getCurrentInstance, onBeforeUnmount, onDeactivated, onActivated } from 'vue';
+import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'unhead/plugins';
 
 const VueResolver = (_, value) => {
   return isRef(value) ? toValue(value) : value;
@@ -62,16 +62,6 @@ function clientUseHead(head, input, options = {}) {
   }
   return entry;
 }
-function useSeoMeta(input = {}, options = {}) {
-  const head = options.head || injectHead();
-  head.use(FlatMetaPlugin);
-  const { title, titleTemplate, ...meta } = input;
-  return useHead({
-    title,
-    titleTemplate,
-    _flatMeta: meta
-  }, options);
-}
 
 function createHead(options = {}) {
   const head = createHead$1({
@@ -82,7 +72,7 @@ function createHead(options = {}) {
   return head;
 }
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"google-site-verification","content":"HRD7ZPskFWyXNDiPLlJY3uLUhz1RrcA8tLsEGuUHlhQ"}],"link":[],"style":[],"script":[{"type":"text/javascript","innerHTML":"(function(c,l,a,r,i,t,y){\n            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};\n            t=l.createElement(r);t.async=1;t.src=\"https://www.clarity.ms/tag/\"+i;\n            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);\n          })(window, document, \"clarity\", \"script\", \"okw3w7o39y\");"}],"noscript":[]};
+const appHead = {"meta":[{"name":"google-site-verification","content":"HRD7ZPskFWyXNDiPLlJY3uLUhz1RrcA8tLsEGuUHlhQ"},{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"format-detection","content":"telephone=no"},{"name":"theme-color","content":"#0f172a"},{"property":"og:site_name","content":"Taylor J. Ferguson"},{"property":"og:type","content":"website"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/me/favicon.ico"},{"rel":"apple-touch-icon","href":"/me/favicon.ico"}],"style":[],"script":[{"type":"text/javascript","innerHTML":"(function(c,l,a,r,i,t,y){\n            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};\n            t=l.createElement(r);t.async=1;t.src=\"https://www.clarity.ms/tag/\"+i;\n            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);\n          })(window, document, \"clarity\", \"script\", \"okw3w7o39y\");"}],"noscript":[],"htmlAttrs":{"lang":"en"},"title":"Taylor J. Ferguson","titleTemplate":"%s • Taylor J. Ferguson"};
 
 const appRootTag = "div";
 
@@ -274,7 +264,7 @@ async function renderInlineStyles(usedModules) {
 
 const renderSSRHeadOptions = {"omitLineBreaks":false};
 
-const entryFileName = "B1AfSF20.js";
+const entryFileName = "MX8MwPuY.js";
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
@@ -457,5 +447,5 @@ const renderer$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty
   default: renderer
 }, Symbol.toStringTag, { value: 'Module' }));
 
-export { useHead as a, baseURL as b, buildAssetsURL as c, headSymbol as h, renderer$1 as r, useSeoMeta as u };
+export { buildAssetsURL as a, baseURL as b, headSymbol as h, renderer$1 as r, useHead as u };
 //# sourceMappingURL=renderer.mjs.map

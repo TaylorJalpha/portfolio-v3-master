@@ -702,6 +702,18 @@ const _inlineRuntimeConfig = {
       "/robots.txt": {
         "prerender": true
       },
+      "/project/**": {
+        "ssr": true,
+        "prerender": false
+      },
+      "/case-study/**": {
+        "ssr": true,
+        "prerender": false
+      },
+      "/blog/**": {
+        "ssr": true,
+        "prerender": false
+      },
       "/_nuxt/builds/meta/**": {
         "headers": {
           "cache-control": "public, max-age=31536000, immutable"

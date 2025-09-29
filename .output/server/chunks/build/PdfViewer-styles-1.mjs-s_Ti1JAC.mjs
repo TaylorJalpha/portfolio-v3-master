@@ -1,4 +1,0 @@
-const PdfViewer_vue_vue_type_style_index_0_scoped_f65e9666_lang = ".pdf-viewer-container[data-v-f65e9666]{background:#111;border-radius:16px;box-shadow:0 2px 16px #0000001f;margin:2rem 0;overflow:hidden}.pdf-iframe-wrapper[data-v-f65e9666]{position:relative}iframe[data-v-f65e9666]{background:#111;border-radius:16px;box-shadow:0 2px 16px #0000001f}.pdf-toolbar-overlay[data-v-f65e9666]{background:#ffffff03;height:40px;left:0;pointer-events:auto;position:absolute;top:0;width:100%;z-index:2}";
-
-export { PdfViewer_vue_vue_type_style_index_0_scoped_f65e9666_lang as P };
-//# sourceMappingURL=PdfViewer-styles-1.mjs-s_Ti1JAC.mjs.map
