@@ -17,6 +17,7 @@ declare global {
   const { getAppManifest, getRouteRules }: typeof import('../../node_modules/nuxt/dist/app/composables/manifest')
   const { injectHead, useHead, useHeadSafe, useSeoMeta, useServerHead, useServerHeadSafe, useServerSeoMeta }: typeof import('../../node_modules/nuxt/dist/app/composables/head')
   const { isVue2, isVue3 }: typeof import('../../node_modules/nuxt/dist/app/compat/vue-demi')
+  const { normalizeItem, resolveMetaDescription, usePortfolioApi }: typeof import('../../composables/usePortfolioApi')
   const { onBeforeRouteLeave, onBeforeRouteUpdate, useLink }: typeof import('vue-router')
   const { onNuxtReady }: typeof import('../../node_modules/nuxt/dist/app/composables/ready')
   const { onPrehydrate, prerenderRoutes, setResponseStatus, useRequestEvent, useRequestFetch, useRequestHeader, useRequestHeaders, useResponseHeader }: typeof import('../../node_modules/nuxt/dist/app/composables/ssr')
@@ -24,12 +25,13 @@ declare global {
   const { reactiveStyle, reactiveTransform, useElementStyle, useElementTransform, useMotion, useMotionControls, useMotionProperties, useMotionTransitions, useMotionVariants, useMotions, useReducedMotion, useSpring }: typeof import('../../node_modules/@vueuse/motion/dist/nuxt/runtime/composables/index')
   const { refreshCookie, useCookie }: typeof import('../../node_modules/nuxt/dist/app/composables/cookie')
   const { reloadNuxtApp }: typeof import('../../node_modules/nuxt/dist/app/composables/chunk')
-  const { resolveMetaDescription, usePortfolioApi }: typeof import('../../composables/usePortfolioApi')
   const { setInterval }: typeof import('../../node_modules/nuxt/dist/app/compat/interval')
   const { updateAppConfig, useAppConfig }: typeof import('../../node_modules/nuxt/dist/app/config')
+  const { useBreadcrumbsLd }: typeof import('../../composables/useBreadcrumbsLd')
   const { useCanonicalUrl }: typeof import('../../composables/useCanonicalUrl')
   const { useExperiences }: typeof import('../../composables/useExperiences')
   const { useFetch, useLazyFetch }: typeof import('../../node_modules/nuxt/dist/app/composables/fetch')
+  const { useHeroSpotlight }: typeof import('../../composables/useHeroSpotlight')
   const { useHydration }: typeof import('../../node_modules/nuxt/dist/app/composables/hydrate')
   const { useLoadingIndicator }: typeof import('../../node_modules/nuxt/dist/app/composables/loading-indicator')
   const { useNuxtDevTools }: typeof import('../../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools')
@@ -39,6 +41,7 @@ declare global {
   const { useRuntimeHook }: typeof import('../../node_modules/nuxt/dist/app/composables/runtime-hook')
   const { useSanityImageUrl }: typeof import('../../composables/useSanityImageUrl')
   const { useScript, useScriptClarity, useScriptCloudflareWebAnalytics, useScriptCrisp, useScriptEventPage, useScriptFathomAnalytics, useScriptGoogleAdsense, useScriptGoogleAnalytics, useScriptGoogleMaps, useScriptGoogleTagManager, useScriptHotjar, useScriptIntercom, useScriptLemonSqueezy, useScriptMatomoAnalytics, useScriptMetaPixel, useScriptNpm, useScriptPlausibleAnalytics, useScriptRybbitAnalytics, useScriptSegment, useScriptSnapchatPixel, useScriptStripe, useScriptTriggerConsent, useScriptTriggerElement, useScriptUmamiAnalytics, useScriptVimeoPlayer, useScriptXPixel, useScriptYouTubePlayer }: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')
+  const { useSeo }: typeof import('../../composables/useSeo')
   const { useStructuredData }: typeof import('../../composables/useStructuredData')
   const { useTimelineAnimation }: typeof import('../../composables/useTimelineAnimation')
 }
@@ -50,6 +53,9 @@ declare global {
   // @ts-ignore
   export type { ExperienceItem } from '../../composables/useExperiences'
   import('../../composables/useExperiences')
+  // @ts-ignore
+  export type { HeroSpotlightItem } from '../../composables/useHeroSpotlight'
+  import('../../composables/useHeroSpotlight')
   // @ts-ignore
   export type { PortfolioDetailResponse } from '../../composables/usePortfolioApi'
   import('../../composables/usePortfolioApi')
@@ -75,6 +81,7 @@ namespace _ComponentCustomProperties {
   const { getAppManifest, getRouteRules }: typeof import('../../node_modules/nuxt/dist/app/composables/manifest')
   const { injectHead, useHead, useHeadSafe, useSeoMeta, useServerHead, useServerHeadSafe, useServerSeoMeta }: typeof import('../../node_modules/nuxt/dist/app/composables/head')
   const { isVue2, isVue3 }: typeof import('../../node_modules/nuxt/dist/app/compat/vue-demi')
+  const { normalizeItem, resolveMetaDescription, usePortfolioApi }: typeof import('../../composables/usePortfolioApi')
   const { onBeforeRouteLeave, onBeforeRouteUpdate, useLink }: typeof import('vue-router')
   const { onNuxtReady }: typeof import('../../node_modules/nuxt/dist/app/composables/ready')
   const { onPrehydrate, prerenderRoutes, setResponseStatus, useRequestEvent, useRequestFetch, useRequestHeader, useRequestHeaders, useResponseHeader }: typeof import('../../node_modules/nuxt/dist/app/composables/ssr')
@@ -82,12 +89,13 @@ namespace _ComponentCustomProperties {
   const { reactiveStyle, reactiveTransform, useElementStyle, useElementTransform, useMotion, useMotionControls, useMotionProperties, useMotionTransitions, useMotionVariants, useMotions, useReducedMotion, useSpring }: typeof import('../../node_modules/@vueuse/motion/dist/nuxt/runtime/composables/index')
   const { refreshCookie, useCookie }: typeof import('../../node_modules/nuxt/dist/app/composables/cookie')
   const { reloadNuxtApp }: typeof import('../../node_modules/nuxt/dist/app/composables/chunk')
-  const { resolveMetaDescription, usePortfolioApi }: typeof import('../../composables/usePortfolioApi')
   const { setInterval }: typeof import('../../node_modules/nuxt/dist/app/compat/interval')
   const { updateAppConfig, useAppConfig }: typeof import('../../node_modules/nuxt/dist/app/config')
+  const { useBreadcrumbsLd }: typeof import('../../composables/useBreadcrumbsLd')
   const { useCanonicalUrl }: typeof import('../../composables/useCanonicalUrl')
   const { useExperiences }: typeof import('../../composables/useExperiences')
   const { useFetch, useLazyFetch }: typeof import('../../node_modules/nuxt/dist/app/composables/fetch')
+  const { useHeroSpotlight }: typeof import('../../composables/useHeroSpotlight')
   const { useHydration }: typeof import('../../node_modules/nuxt/dist/app/composables/hydrate')
   const { useLoadingIndicator }: typeof import('../../node_modules/nuxt/dist/app/composables/loading-indicator')
   const { useNuxtDevTools }: typeof import('../../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools')
@@ -97,6 +105,7 @@ namespace _ComponentCustomProperties {
   const { useRuntimeHook }: typeof import('../../node_modules/nuxt/dist/app/composables/runtime-hook')
   const { useSanityImageUrl }: typeof import('../../composables/useSanityImageUrl')
   const { useScript, useScriptClarity, useScriptCloudflareWebAnalytics, useScriptCrisp, useScriptEventPage, useScriptFathomAnalytics, useScriptGoogleAdsense, useScriptGoogleAnalytics, useScriptGoogleMaps, useScriptGoogleTagManager, useScriptHotjar, useScriptIntercom, useScriptLemonSqueezy, useScriptMatomoAnalytics, useScriptMetaPixel, useScriptNpm, useScriptPlausibleAnalytics, useScriptRybbitAnalytics, useScriptSegment, useScriptSnapchatPixel, useScriptStripe, useScriptTriggerConsent, useScriptTriggerElement, useScriptUmamiAnalytics, useScriptVimeoPlayer, useScriptXPixel, useScriptYouTubePlayer }: typeof import('../../node_modules/nuxt/dist/app/composables/script-stubs')
+  const { useSeo }: typeof import('../../composables/useSeo')
   const { useStructuredData }: typeof import('../../composables/useStructuredData')
   const { useTimelineAnimation }: typeof import('../../composables/useTimelineAnimation')
 }

@@ -24,7 +24,7 @@
             </ul>
             <p class="text-sm font-light">
                 
- I bring a well-rounded perspective to any project or role – Driving strategy, build scalable web solutions, or unlock growth opportunities through biz dev / customer acquisition
+ I bring a well-rounded perspective to any project or role – Driving strategy, build scalable web solutions, or unlock growth opportunities through customer acquisition
             </p>
             <p class="text-sm font-light">
                 

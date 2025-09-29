@@ -7,6 +7,19 @@
 </template>
 
 <script setup lang="ts">
+import { useHead } from '#imports'
+import { useCanonicalUrl } from '@/composables/useCanonicalUrl'
+const canonical = useCanonicalUrl('/about')
+useHead({
+  title: 'About',
+  link: [{ rel: 'canonical', href: canonical }],
+  meta: [
+    { name: 'description', content: "About Taylor J. Ferguson." },
+    { property: 'og:title', content: 'About' },
+    { property: 'og:description', content: "About Taylor J. Ferguson." },
+    { property: 'og:url', content: canonical }
+  ]
+})
 
 </script>
 

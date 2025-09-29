@@ -27,7 +27,9 @@ onMounted(animateCards);
 const canonical = useCanonicalUrl()
 const title = 'Taylor J. Ferguson - Dynamic Product Manager with Technical Expertise'
 const description = 'Taylor J. Ferguson - Skilled Product Manager with extensive experience in Fintech, Blockchain, and HealthTech.'
-const ogImage = computed(() => canonical + '/me/me1.webp')
+const ogImage = computed(() => {
+    try { const u = new URL(canonical); return `${u.origin}/me/me1.webp` } catch { return '/me/me1.webp' }
+})
 
 // Global Organization JSON-LD (only on root page)
 const organizationJsonLd = {

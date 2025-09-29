@@ -10,6 +10,7 @@ import { useHead } from '#imports'
 import { usePortfolioApi, resolveMetaDescription } from '@/composables/usePortfolioApi'
 import { useCanonicalUrl } from '@/composables/useCanonicalUrl'
 import { useStructuredData } from '@/composables/useStructuredData'
+import { useBreadcrumbsLd } from '@/composables/useBreadcrumbsLd'
 
 const route = useRoute()
 const slugParam = Array.isArray(route.params.slug) ? route.params.slug[0] : route.params.slug as string
@@ -37,4 +38,5 @@ useHead(() => ({
 }))
 
 useStructuredData(data)
+useBreadcrumbsLd(data)
 </script>

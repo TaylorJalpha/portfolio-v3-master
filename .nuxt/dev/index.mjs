@@ -1,5 +1,5 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getResponseStatusText } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, setHeader, getMethod, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getResponseStatusText } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
@@ -696,6 +696,12 @@ const _inlineRuntimeConfig = {
       "/__nuxt_error": {
         "cache": false
       },
+      "/sitemap.xml": {
+        "prerender": true
+      },
+      "/robots.txt": {
+        "prerender": true
+      },
       "/_nuxt/builds/meta/**": {
         "headers": {
           "cache-control": "public, max-age=31536000, immutable"
@@ -710,6 +716,8 @@ const _inlineRuntimeConfig = {
   },
   "public": {
     "siteUrl": "http://localhost:3000",
+    "siteName": "Taylor J. Ferguson",
+    "indexable": "true",
     "motion": {}
   },
   "apiSecret": ""
@@ -1090,7 +1098,7 @@ const _0Mi28v7E8I7MUjWUYyJgDfJLFuw2dy3ZuqCePwhK0e0 = (function(nitro) {
 
 const rootDir = "/Users/tayloralphaaa/portfolio-v3-master";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"google-site-verification","content":"HRD7ZPskFWyXNDiPLlJY3uLUhz1RrcA8tLsEGuUHlhQ"},{"property":"og:site_name","content":"Taylor J. Ferguson"}],"link":[],"style":[],"script":[{"type":"text/javascript","innerHTML":"(function(c,l,a,r,i,t,y){\n            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};\n            t=l.createElement(r);t.async=1;t.src=\"https://www.clarity.ms/tag/\"+i;\n            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);\n          })(window, document, \"clarity\", \"script\", \"okw3w7o39y\");"}],"noscript":[]};
+const appHead = {"meta":[{"name":"google-site-verification","content":"HRD7ZPskFWyXNDiPLlJY3uLUhz1RrcA8tLsEGuUHlhQ"},{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"format-detection","content":"telephone=no"},{"name":"theme-color","content":"#0f172a"},{"property":"og:site_name","content":"Taylor J. Ferguson"},{"property":"og:type","content":"website"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/me/favicon.ico"},{"rel":"apple-touch-icon","href":"/me/favicon.ico"}],"style":[],"script":[{"type":"text/javascript","innerHTML":"(function(c,l,a,r,i,t,y){\n            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};\n            t=l.createElement(r);t.async=1;t.src=\"https://www.clarity.ms/tag/\"+i;\n            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);\n          })(window, document, \"clarity\", \"script\", \"okw3w7o39y\");"}],"noscript":[],"htmlAttrs":{"lang":"en"},"title":"Taylor J. Ferguson","titleTemplate":"%s • Taylor J. Ferguson"};
 
 const appRootTag = "div";
 
@@ -1268,6 +1276,20 @@ const _sAaCMy = eventHandler((event) => {
     setResponseHeader(event, "Content-Length", asset.size);
   }
   return readAsset(id);
+});
+
+const _dziuUr = defineEventHandler((event) => {
+  setHeader(event, "X-Robots-Tag", "noai, noimageai");
+});
+
+const _yunhWE = defineEventHandler((event) => {
+  if (getMethod(event) !== "GET") return;
+  const url = getRequestURL(event);
+  if (url.pathname.startsWith("/_nuxt") || url.pathname.startsWith("/api") || url.pathname.includes(".")) return;
+  if (url.pathname.length > 1 && url.pathname.endsWith("/")) {
+    const target = url.pathname.replace(/\/$/, "") + (url.search || "");
+    return sendRedirect(event, target, 301);
+  }
 });
 
 const VueResolver = (_, value) => {
@@ -1588,10 +1610,14 @@ async function getIslandContext(event) {
   return ctx;
 }
 
+const _lazy_p72hrZ = () => Promise.resolve().then(function () { return sitemap_xml$1; });
 const _lazy_Wky3gb = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
   { route: '', handler: _sAaCMy, lazy: false, middleware: true, method: undefined },
+  { route: '', handler: _dziuUr, lazy: false, middleware: true, method: undefined },
+  { route: '', handler: _yunhWE, lazy: false, middleware: true, method: undefined },
+  { route: '/sitemap.xml', handler: _lazy_p72hrZ, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_Wky3gb, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_Wky3gb, lazy: true, middleware: false, method: undefined }
@@ -1923,6 +1949,58 @@ const styles = {};
 const styles$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: styles
+}, Symbol.toStringTag, { value: 'Module' }));
+
+async function getDynamicEntries(event) {
+  try {
+    const query = `{
+      "projects": *[_type == "project" && !(_id in path('drafts.**'))]{slug, _updatedAt},
+      "caseStudies": *[_type == "caseStudy" && !(_id in path('drafts.**'))]{slug, _updatedAt},
+      "blogPosts": *[_type == "blogPost" && !(_id in path('drafts.**'))]{slug, _updatedAt}
+    }`;
+    const base = false ? "https://salty-thicket-78087-c98e1b01d069.herokuapp.com" : false ? "https://fierce-cliffs-40135-8a4277dc65fb.herokuapp.com/" : "http://localhost:3000";
+    const resp = await $fetch(`${base}/api/fetch-sanity`, { method: "POST", body: { query } });
+    const result = (resp == null ? void 0 : resp.result) || resp;
+    const entries = [];
+    const push = (arr, prefix) => {
+      var _a;
+      for (const doc of arr || []) {
+        const slug = ((_a = doc == null ? void 0 : doc.slug) == null ? void 0 : _a.current) || (doc == null ? void 0 : doc.slug);
+        if (!slug) continue;
+        entries.push({ loc: `${prefix}/${slug}`, lastmod: doc == null ? void 0 : doc._updatedAt });
+      }
+    };
+    push(result == null ? void 0 : result.projects, "/project");
+    push(result == null ? void 0 : result.caseStudies, "/case-study");
+    push(result == null ? void 0 : result.blogPosts, "/blog");
+    return entries;
+  } catch (e) {
+    return [];
+  }
+}
+const sitemap_xml = defineEventHandler(async (event) => {
+  var _a;
+  const config = useRuntimeConfig();
+  const siteUrl = (((_a = config.public) == null ? void 0 : _a.siteUrl) || "").replace(/\/$/, "");
+  const staticPaths = ["/", "/portfolio"];
+  const dynamicEntries = await getDynamicEntries();
+  const urls = [
+    ...staticPaths.map((p) => ({ loc: p })),
+    ...dynamicEntries
+  ];
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">` + urls.map((u) => {
+    const loc = siteUrl ? `${siteUrl}${u.loc}` : u.loc;
+    const lastmod = u.lastmod ? `<lastmod>${new Date(u.lastmod).toISOString()}</lastmod>` : "";
+    return `<url><loc>${loc}</loc>${lastmod}</url>`;
+  }).join("") + `</urlset>`;
+  setHeader(event, "Content-Type", "application/xml; charset=utf-8");
+  return xml;
+});
+
+const sitemap_xml$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: sitemap_xml
 }, Symbol.toStringTag, { value: 'Module' }));
 
 function renderPayloadResponse(ssrContext) {

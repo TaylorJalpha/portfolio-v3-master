@@ -30,10 +30,13 @@ export { requestIdleCallback, cancelIdleCallback } from '#app/compat/idle-callba
 export { setInterval } from '#app/compat/interval';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';
 export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
+export { useBreadcrumbsLd } from '../composables/useBreadcrumbsLd';
 export { useCanonicalUrl } from '../composables/useCanonicalUrl';
 export { useExperiences, ExperienceItem } from '../composables/useExperiences';
-export { resolveMetaDescription, usePortfolioApi, PortfolioDetailResponse } from '../composables/usePortfolioApi';
+export { useHeroSpotlight, HeroSpotlightItem } from '../composables/useHeroSpotlight';
+export { resolveMetaDescription, normalizeItem, usePortfolioApi, PortfolioDetailResponse } from '../composables/usePortfolioApi';
 export { useSanityImageUrl } from '../composables/useSanityImageUrl';
+export { useSeo } from '../composables/useSeo';
 export { useStructuredData } from '../composables/useStructuredData';
 export { useTimelineAnimation } from '../composables/useTimelineAnimation';
 export { reactiveStyle, reactiveTransform, useElementStyle, useElementTransform, useMotion, useMotionControls, useMotionProperties, useMotions, useMotionTransitions, useMotionVariants, useSpring, useReducedMotion } from '../node_modules/@vueuse/motion/dist/nuxt/runtime/composables/index';

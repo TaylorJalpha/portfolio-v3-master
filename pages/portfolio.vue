@@ -156,6 +156,9 @@
 <script setup lang="ts">
 
 import { useRouter } from 'vue-router'
+import { useHead } from '#imports'
+import { useCanonicalUrl } from '@/composables/useCanonicalUrl'
+import { computed } from 'vue'
 const router = useRouter()
 
 function goToDetail(item: any) {
@@ -174,6 +177,27 @@ import PortfolioCardSkeleton from '~/components/PortfolioCardSkeleton.vue'
 import PortfolioNav from '~/components/PortfolioNav.vue'
 
 definePageMeta({ layout: 'portfolio' })
+// SEO defaults for portfolio listing page
+const canonical = useCanonicalUrl('/portfolio')
+const title = 'Portfolio'
+const description = 'A collection of projects, case studies, and blog posts by Taylor J. Ferguson.'
+const ogImage = computed(() => { try { const u = new URL(canonical); return `${u.origin}/me/me1.webp` } catch { return '/me/me1.webp' } })
+
+useHead({
+  title,
+  link: [{ rel: 'canonical', href: canonical }],
+  meta: [
+    { name: 'description', content: description },
+    { property: 'og:title', content: title },
+    { property: 'og:description', content: description },
+    { property: 'og:url', content: canonical },
+    { property: 'og:image', content: ogImage.value },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description },
+    { name: 'twitter:image', content: ogImage.value }
+  ]
+})
 
 
 // Helper to build GROQ query for items

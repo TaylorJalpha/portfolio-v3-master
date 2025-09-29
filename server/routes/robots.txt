@@ -1,0 +1,33 @@
+export default defineEventHandler((event) => {
+  // Respect indexable flag from runtime config to control crawling on non-prod
+  const config = useRuntimeConfig()
+  const indexable = String(config.public?.indexable || 'true') === 'true'
+  const siteUrl = (config.public?.siteUrl || '').replace(/\/$/, '')
+
+  // Standard robots rules for general crawlers
+  const lines = [
+    `User-agent: *`,
+    indexable ? `Allow: /` : `Disallow: /`,
+    siteUrl ? `Sitemap: ${siteUrl}/sitemap.xml` : ''
+  ].filter(Boolean)
+
+  // Explicitly disallow popular AI crawlers while allowing standard search indexing
+  const aiBots = [
+    'GPTBot',               // OpenAI
+    'ChatGPT-User',         // OpenAI user agent
+    'CCBot',                // Common Crawl
+    'ClaudeBot',            // Anthropic
+    'Claude-Web',           // Anthropic web fetcher
+    'PerplexityBot',        // Perplexity AI
+    'Google-Extended',      // Google AI training
+    'Applebot-Extended',    // Apple AI training
+    'Amazonbot',            // Amazon bot
+    'Bytespider'            // ByteDance
+  ]
+  for (const bot of aiBots) {
+    lines.push('', `User-agent: ${bot}`, 'Disallow: /')
+  }
+
+  setHeader(event, 'Content-Type', 'text/plain; charset=utf-8')
+  return lines.join('\n') + '\n'
+})

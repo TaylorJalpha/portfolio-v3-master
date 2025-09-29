@@ -116,6 +116,10 @@ declare module 'nuxt/schema' {
   interface PublicRuntimeConfig {
    siteUrl: string,
 
+   siteName: string,
+
+   indexable: string,
+
    motion: any,
   }
 }
