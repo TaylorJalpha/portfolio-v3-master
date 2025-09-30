@@ -29,31 +29,53 @@ function resolveLinkUrl(type?: string, slug?: string): string {
 
 /**
  * Composable: fetch a single hero spotlight item from Sanity.
- * Strategy: order by the boolean "featured" flag (multiple possible field names),
- * then by published date, and pick the first item. Drafts are excluded.
+ * Strategy: check for featured content across all types (blog posts, case studies, projects),
+ * order by published date, and pick the first item. Falls back through content types if no featured content exists.
+ * Drafts are excluded.
  */
 export function useHeroSpotlight() {
   // We return the standard Nuxt useAsyncData result so components get
   // { data, pending, error, refresh } ergonomics.
-  return useAsyncData<HeroSpotlightItem>('hero-spotlight', async () => {
+  return useAsyncData<HeroSpotlightItem>('hero-spotlight-v2', async () => {
     try {
-      // Primary query: explicitly featured case studies
-      const featuredQuery = `*[_type == "caseStudy" && !(_id in path('drafts.**')) && isFeatured == true]
+      // Primary query: check for featured content across all content types (blog posts, case studies, projects)
+      const featuredContentQuery = `*[(_type == "blogPost" || _type == "caseStudy" || _type == "project") && !(_id in path('drafts.**')) && (isFeatured == true || featured == true || is_featured == true)]
         | order(published_at desc)[0]
-        { _id, title, description, summary, shortDescription, heroDescription, overview, excerpt, tagline, meta_description, metadata, seo{ description }, slug, _type, featuredImage{ asset->{_id, url} }, published_at }`
+        { _id, title, description, summary, shortDescription, heroDescription, overview, excerpt, tagline, meta_description, metadata, seo{ description }, slug, _type, featuredImage{ asset->{_id, url} }, published_at, isFeatured, featured, is_featured }`
 
-      let raw = await fetchSanityContent(featuredQuery)
+      let raw = await fetchSanityContent(featuredContentQuery)
 
-      // Fallback: latest case study (non-featured) if none are featured
-      if (!raw) {
-        const latestQuery = `*[_type == "caseStudy" && !(_id in path('drafts.**'))]
+      // Fallback: latest blog post (non-featured) if no featured content
+      if (!raw || (typeof raw === 'object' && Object.keys(raw).length === 0)) {
+        const latestBlogQuery = `*[_type == "blogPost" && !(_id in path('drafts.**'))]
           | order(published_at desc)[0]
           { _id, title, description, summary, shortDescription, heroDescription, overview, excerpt, tagline, meta_description, metadata, seo{ description }, slug, _type, featuredImage{ asset->{_id, url} }, published_at }`
-        raw = await fetchSanityContent(latestQuery)
+        raw = await fetchSanityContent(latestBlogQuery)
+      }
+
+      // Fallback: latest case study if no blog posts
+      if (!raw || (typeof raw === 'object' && Object.keys(raw).length === 0)) {
+        const latestCaseQuery = `*[_type == "caseStudy" && !(_id in path('drafts.**'))]
+          | order(published_at desc)[0]
+          { _id, title, description, summary, shortDescription, heroDescription, overview, excerpt, tagline, meta_description, metadata, seo{ description }, slug, _type, featuredImage{ asset->{_id, url} }, published_at }`
+        raw = await fetchSanityContent(latestCaseQuery)
+      }
+
+
+
+      // Fallback: try projects if no blog posts
+      if (!raw || (typeof raw === 'object' && Object.keys(raw).length === 0)) {
+
+        const projectQuery = `*[_type == "project" && !(_id in path('drafts.**'))]
+          | order(published_at desc)[0]
+          { _id, title, description, summary, shortDescription, heroDescription, overview, excerpt, tagline, meta_description, metadata, seo{ description }, slug, _type, featuredImage{ asset->{_id, url} }, published_at }`
+        raw = await fetchSanityContent(projectQuery)
+
       }
 
       // Fallback when there is no content in the dataset yet at all
-      if (!raw) {
+      if (!raw || (typeof raw === 'object' && Object.keys(raw).length === 0)) {
+
         return {
           title: 'Check it out!',
           description: '',
@@ -91,6 +113,7 @@ export function useHeroSpotlight() {
       }
     } catch (error) {
       console.error('Error fetching hero spotlight data:', error)
+      
       // Return a fallback when API is not available (e.g., during build)
       return {
         title: 'Check it out!',

@@ -7,25 +7,25 @@ const { data, pending, error } = useHeroSpotlight()
 <template>
   <Card class="spotlight-card" colSpan="md:col-span-1" rowSpan="md:row-span-3">
     <template v-if="!pending && !error && data">
-  <NuxtLink :to="data.linkUrl || '/portfolio'" class="block focus:outline-none group">
+      <NuxtLink :to="data.linkUrl || '/portfolio'" class="block focus:outline-none group">
         <div class="mb-3">
           <AnimatedShinyText class="text-base font-semibold text-[#FFFFFF] dark:text-[#ff6b73] featured-shimmer-text" :shimmerWidth="120">
-            ✨ Latest Case Study
+            ✨ Featured Post
           </AnimatedShinyText>
         </div>
         <div class="relative overflow-hidden rounded-md aspect-[16/9] mb-4"> 
-          <!-- Simple Skills Marquee -->
-          <div class="absolute inset-0 flex items-center">
-            <div class="flex animate-marquee-scroll whitespace-nowrap">
-              <!-- First set of skills -->
-              <div class="flex items-center space-x-4 mr-8">
+          <!-- Two-Row Skills Marquee with opposite directions -->
+          <div class="absolute inset-0 flex flex-col justify-center">
+            <!-- First row - left to right -->
+            <div class="marquee-row animate-marquee-scroll mb-2">
+              <div class="marquee-content">
                 <div class="skill-badge">
                   <span class="skill-icon">📊</span>
                   <span>Product Strategy</span>
                 </div>
                 <div class="skill-badge">
                   <span class="skill-icon">🔍</span>
-                  <span>User Research</span>
+                  <span>Market Research</span>
                 </div>
                 <div class="skill-badge">
                   <span class="skill-icon">⚡</span>
@@ -33,26 +33,26 @@ const { data, pending, error } = useHeroSpotlight()
                 </div>
                 <div class="skill-badge">
                   <span class="skill-icon">📈</span>
-                  <span>Data Analysis</span>
+                  <span>Data Analytics</span>
                 </div>
                 <div class="skill-badge">
                   <span class="skill-icon">🎯</span>
-                  <span>KPI Tracking</span>
+                  <span>KPI Optimization</span>
                 </div>
                 <div class="skill-badge">
                   <span class="skill-icon">💡</span>
-                  <span>Innovation</span>
+                  <span>Feature Innovation</span>
                 </div>
               </div>
               <!-- Duplicate for seamless loop -->
-              <div class="flex items-center space-x-4 mr-8">
+              <div class="marquee-content" aria-hidden="true">
                 <div class="skill-badge">
                   <span class="skill-icon">📊</span>
                   <span>Product Strategy</span>
                 </div>
                 <div class="skill-badge">
                   <span class="skill-icon">🔍</span>
-                  <span>User Research</span>
+                  <span>Market Research</span>
                 </div>
                 <div class="skill-badge">
                   <span class="skill-icon">⚡</span>
@@ -60,26 +60,82 @@ const { data, pending, error } = useHeroSpotlight()
                 </div>
                 <div class="skill-badge">
                   <span class="skill-icon">📈</span>
-                  <span>Data Analysis</span>
+                  <span>Data Analytics</span>
                 </div>
                 <div class="skill-badge">
                   <span class="skill-icon">🎯</span>
-                  <span>KPI Tracking</span>
+                  <span>KPI Optimization</span>
                 </div>
                 <div class="skill-badge">
                   <span class="skill-icon">💡</span>
-                  <span>Innovation</span>
+                  <span>Feature Innovation</span>
+                </div>
+              </div>
+            </div>
+            <!-- Second row - right to left -->
+            <div class="marquee-row animate-marquee-scroll-reverse">
+              <div class="marquee-content">
+                <div class="skill-badge">
+                  <span class="skill-icon">🔗</span>
+                  <span>API Design</span>
+                </div>
+                <div class="skill-badge">
+                  <span class="skill-icon">⚙️</span>
+                  <span>System Integration</span>
+                </div>
+                <div class="skill-badge">
+                  <span class="skill-icon">🏗️</span>
+                  <span>Platform Architecture</span>
+                </div>
+                <div class="skill-badge">
+                  <span class="skill-icon">📊</span>
+                  <span>Performance Metrics</span>
+                </div>
+                <div class="skill-badge">
+                  <span class="skill-icon">🔒</span>
+                  <span>Security & Compliance</span>
+                </div>
+                <div class="skill-badge">
+                  <span class="skill-icon">☁️</span>
+                  <span>Cloud Infrastructure</span>
+                </div>
+              </div>
+              <!-- Duplicate for seamless loop -->
+              <div class="marquee-content" aria-hidden="true">
+                <div class="skill-badge">
+                  <span class="skill-icon">🔗</span>
+                  <span>API Design</span>
+                </div>
+                <div class="skill-badge">
+                  <span class="skill-icon">⚙️</span>
+                  <span>System Integration</span>
+                </div>
+                <div class="skill-badge">
+                  <span class="skill-icon">🏗️</span>
+                  <span>Platform Architecture</span>
+                </div>
+                <div class="skill-badge">
+                  <span class="skill-icon">📊</span>
+                  <span>Performance Metrics</span>
+                </div>
+                <div class="skill-badge">
+                  <span class="skill-icon">🔒</span>
+                  <span>Security & Compliance</span>
+                </div>
+                <div class="skill-badge">
+                  <span class="skill-icon">☁️</span>
+                  <span>Cloud Infrastructure</span>
                 </div>
               </div>
             </div>
           </div>
           <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div>
         </div>
-        <h2 class="text-xl font-bold m-0 z-20 line-clamp-1">{{ data.title }}</h2>
+        <h2 class="text-xl font-bold m-0 z-20 line-clamp-1 text-white">{{ data.title }}</h2>
         
         <!-- CTA -->
-  <div class="mt-4 inline-flex items-center gap-2 text-[#746CFF] hover:text-[#ff6b73] transition-colors">
-          <span class="text-sm font-medium">Explore case study</span>
+        <div class="mt-4 inline-flex items-center gap-2 text-[#746CFF] hover:text-[#ff6b73] transition-colors">
+          <span class="text-sm font-medium">Explore the featured post</span>
           <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
@@ -89,52 +145,23 @@ const { data, pending, error } = useHeroSpotlight()
 
     <!-- Fallback / loading state -->
     <template v-else>
+      <div class="mb-3">
+        <AnimatedShinyText class="text-base font-semibold text-[#FFFFFF] dark:text-[#ff6b73] featured-shimmer-text" :shimmerWidth="120">
+          ✨ Featured Post
+        </AnimatedShinyText>
+      </div>
       <NuxtLink to="/portfolio" class="block focus:outline-none group">
-        <div class="relative overflow-hidden rounded-md aspect-[16/9] mb-4">
-          <!-- Same skills marquee for fallback -->
-          <div class="absolute inset-0 flex items-center">
-            <div class="flex animate-marquee-scroll whitespace-nowrap">
-              <div class="flex items-center space-x-4 mr-8">
-                <div class="skill-badge">
-                  <span class="skill-icon">🚀</span>
-                  <span>Product Launch</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">💻</span>
-                  <span>Full-Stack Dev</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">🎨</span>
-                  <span>UI/UX Design</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">📱</span>
-                  <span>Mobile First</span>
-                </div>
-              </div>
-              <div class="flex items-center space-x-4 mr-8">
-                <div class="skill-badge">
-                  <span class="skill-icon">🚀</span>
-                  <span>Product Launch</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">💻</span>
-                  <span>Full-Stack Dev</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">🎨</span>
-                  <span>UI/UX Design</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">📱</span>
-                  <span>Mobile First</span>
-                </div>
+        <div class="relative overflow-hidden rounded-md aspect-[16/9] mb-4 bg-gradient-to-br from-gray-800 to-gray-900">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-gray-400 text-center">
+              <div class="animate-pulse">
+                <div class="w-16 h-16 bg-gray-700 rounded-full mx-auto mb-4"></div>
+                <p class="text-sm">Loading content...</p>
               </div>
             </div>
           </div>
-          <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div>
         </div>
-        <h2 class="text-xl font-bold m-0 z-20">My Work</h2>
+        <h2 class="text-xl font-bold m-0 z-20 text-white">My Work</h2>
         <p class="mt-2 text-sm text-gray-300">Product management portfolio and case studies</p>
         <div class="mt-4 inline-flex items-center gap-2 text-[#E63946] hover:text-[#ff6b73] transition-colors">
           <span class="text-sm font-medium">Browse portfolio</span>
@@ -146,8 +173,6 @@ const { data, pending, error } = useHeroSpotlight()
     </template>
   </Card>
 </template>
-
-
 
 <style lang="css" scoped>
 .spotlight-card {
@@ -240,17 +265,46 @@ const { data, pending, error } = useHeroSpotlight()
   flex-shrink: 0;
 }
 
+/* Marquee container and content styling */
+.marquee-row {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 100%; /* Ensure each content section takes full width */
+}
+
+/* Marquee animations - simplified approach */
 @keyframes marquee-scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Move by exactly half the total width */
+  }
+}
+
+@keyframes marquee-scroll-reverse {
+  0% {
+    transform: translateX(-50%); /* Start from half width away */
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
 .animate-marquee-scroll {
-  animation: marquee-scroll 20s linear infinite;
+  animation: marquee-scroll 28s linear infinite;
+}
+
+.animate-marquee-scroll-reverse {
+  animation: marquee-scroll-reverse 27s linear infinite;
 }
 
 /* Utility: single line clamp (fallback if tailwind plugin absent) */

@@ -18,11 +18,13 @@ const api = axios.create({
 export async function fetchSanityContent(query) {
   try {
     const response = await api.post('/api/fetch-sanity', { query });
+    
     // Sanity returns shape { result, query, ms }. Normalize to return `result` directly.
     // This ensures callers consistently receive either an array of docs or a single doc.
     return response?.data?.result ?? response?.data;
   } catch (error) {
     console.error('Error fetching data from Rails API:', error);
+    
     // During build time, if the API is not available, return null instead of throwing
     // This prevents the build process from failing
     if (process.env.NODE_ENV === 'production' && process.env.NUXT_ENV === 'generate') {
