@@ -300,11 +300,11 @@ const { data, pending, error } = useHeroSpotlight()
 }
 
 .animate-marquee-scroll {
-  animation: marquee-scroll 28s linear infinite;
+  animation: marquee-scroll 38s linear infinite;
 }
 
 .animate-marquee-scroll-reverse {
-  animation: marquee-scroll-reverse 27s linear infinite;
+  animation: marquee-scroll-reverse 34s linear infinite;
 }
 
 /* Utility: single line clamp (fallback if tailwind plugin absent) */
