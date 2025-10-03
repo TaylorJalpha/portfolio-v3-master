@@ -43,6 +43,7 @@ interface _GlobalComponents {
     'PortfolioModal': typeof import("../../components/PortfolioModal.vue")['default']
     'PortfolioNav': typeof import("../../components/PortfolioNav.vue")['default']
     'PoweredByRubyOnRails': typeof import("../../components/PoweredByRubyOnRails.vue")['default']
+    'PreviewBanner': typeof import("../../components/PreviewBanner.vue")['default']
     'SanityImage': typeof import("../../components/SanityImage.vue")['default']
     'Status': typeof import("../../components/Status.vue")['default']
     'TerminalCard': typeof import("../../components/TerminalCard.vue")['default']
@@ -102,6 +103,7 @@ interface _GlobalComponents {
     'LazyPortfolioModal': LazyComponent<typeof import("../../components/PortfolioModal.vue")['default']>
     'LazyPortfolioNav': LazyComponent<typeof import("../../components/PortfolioNav.vue")['default']>
     'LazyPoweredByRubyOnRails': LazyComponent<typeof import("../../components/PoweredByRubyOnRails.vue")['default']>
+    'LazyPreviewBanner': LazyComponent<typeof import("../../components/PreviewBanner.vue")['default']>
     'LazySanityImage': LazyComponent<typeof import("../../components/SanityImage.vue")['default']>
     'LazyStatus': LazyComponent<typeof import("../../components/Status.vue")['default']>
     'LazyTerminalCard': LazyComponent<typeof import("../../components/TerminalCard.vue")['default']>

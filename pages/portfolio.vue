@@ -200,16 +200,22 @@ useHead({
 })
 
 
+const { isPreview } = usePreview()
+
 // Helper to build GROQ query for items
-function buildPortfolioItemsQuery(params: { page?: number; per_page?: number; content_type?: string; tag?: string }) {
+function buildPortfolioItemsQuery(params: { page?: number; per_page?: number; content_type?: string; tag?: string; preview?: boolean }) {
   let filter = ''
   if (params.content_type) filter += ` && _type == "${params.content_type}"`
   // tags are dereferenced with title; use that in filter
   if (params.tag) filter += ` && \"${params.tag}\" in tags[]->title`
   const start = ((params.page || 1) - 1) * (params.per_page || 12)
   const end = start + (params.per_page || 12)
-  // Exclude drafts to prevent duplicate published+draft entries
-  return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"] && !(_id in path('drafts.**'))${filter}] | order(published_at desc) [${start}...${end}] { _id, title, description, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, published_at, external_url }`
+  
+  // Include drafts in preview mode, exclude them in production
+  const previewMode = params.preview || isPreview.value
+  const draftFilter = previewMode ? '' : ' && !(_id in path(\'drafts.**\'))'
+  
+  return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"]${draftFilter}${filter}] | order(published_at desc) [${start}...${end}] { _id, title, description, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, published_at, external_url }`
 }
 
 // Helper to build GROQ query for a single item
@@ -271,8 +277,8 @@ async function loadPortfolioItems(reset = false) {
       ...(selectedTag.value && { tag: selectedTag.value })
     }
 
-    const query = buildPortfolioItemsQuery(params)
-    const response = await fetchSanityContent(query)
+    const query = buildPortfolioItemsQuery({ ...params, preview: isPreview.value })
+    const response = await fetchSanityContent(query, isPreview.value)
     console.log('Portfolio fetchSanityContent response:', response)
     // Apply de-duplication as a safety net in case backend returns overlapping docs
     if (reset) {

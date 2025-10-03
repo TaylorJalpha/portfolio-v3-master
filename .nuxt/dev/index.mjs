@@ -1,5 +1,5 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, setHeader, getMethod, getQuery as getQuery$1, readBody, getResponseStatus, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, getResponseStatusText } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, setHeader, getMethod, getQuery as getQuery$1, readBody, getResponseStatus, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, deleteCookie, setCookie, getResponseStatusText } from 'file:///Users/tayloralphaaa/portfolio-v3-master/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
@@ -734,6 +734,7 @@ const _inlineRuntimeConfig = {
     "motion": {}
   },
   "apiSecret": "",
+  "previewSecret": "",
   "ipx": {
     "baseURL": "/_ipx",
     "alias": {},
@@ -1729,6 +1730,8 @@ const _phG6xv = lazyEventHandler(() => {
   return useBase(opts.baseURL, ipxHandler);
 });
 
+const _lazy_FoPtWD = () => Promise.resolve().then(function () { return exitPreview_post$1; });
+const _lazy_OB_76t = () => Promise.resolve().then(function () { return preview_post$1; });
 const _lazy_p72hrZ = () => Promise.resolve().then(function () { return sitemap_xml$1; });
 const _lazy_Wky3gb = () => Promise.resolve().then(function () { return renderer$1; });
 
@@ -1736,6 +1739,8 @@ const handlers = [
   { route: '', handler: _sAaCMy, lazy: false, middleware: true, method: undefined },
   { route: '', handler: _dziuUr, lazy: false, middleware: true, method: undefined },
   { route: '', handler: _yunhWE, lazy: false, middleware: true, method: undefined },
+  { route: '/api/exit-preview', handler: _lazy_FoPtWD, lazy: true, middleware: false, method: "post" },
+  { route: '/api/preview', handler: _lazy_OB_76t, lazy: true, middleware: false, method: "post" },
   { route: '/sitemap.xml', handler: _lazy_p72hrZ, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_Wky3gb, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
@@ -1993,6 +1998,63 @@ const styles = {};
 const styles$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: styles
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const exitPreview_post = defineEventHandler(async (event) => {
+  deleteCookie(event, "__prerender_bypass");
+  deleteCookie(event, "__next_preview_data");
+  return {
+    success: true,
+    message: "Preview mode disabled"
+  };
+});
+
+const exitPreview_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: exitPreview_post
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const preview_post = defineEventHandler(async (event) => {
+  const { secret, slug, type, id } = await readBody(event);
+  if (!secret) {
+    throw createError({
+      statusCode: 401,
+      statusMessage: "No secret provided"
+    });
+  }
+  const config = useRuntimeConfig();
+  const expectedSecret = config.previewSecret;
+  if (!expectedSecret || secret !== expectedSecret) {
+    throw createError({
+      statusCode: 401,
+      statusMessage: "Invalid secret"
+    });
+  }
+  setCookie(event, "__prerender_bypass", secret, {
+    httpOnly: true,
+    sameSite: "none",
+    secure: true,
+    maxAge: 60 * 60
+    // 1 hour
+  });
+  setCookie(event, "__next_preview_data", JSON.stringify({ type, id, slug }), {
+    httpOnly: true,
+    sameSite: "none",
+    secure: true,
+    maxAge: 60 * 60
+    // 1 hour
+  });
+  const redirectPath = (slug == null ? void 0 : slug.startsWith("/")) ? slug : `/${slug}`;
+  return {
+    success: true,
+    redirectPath,
+    message: "Preview mode enabled"
+  };
+});
+
+const preview_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: preview_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
 async function getDynamicEntries(event) {

@@ -15,10 +15,11 @@ import { useBreadcrumbsLd } from '@/composables/useBreadcrumbsLd'
 const route = useRoute()
 const slugParam = Array.isArray(route.params.slug) ? route.params.slug[0] : route.params.slug as string
 const { fetchPortfolioItem } = usePortfolioApi()
+const { isPreview } = usePreview()
 
 const { data } = await useAsyncData(`project-${slugParam}`, async () => {
   try {
-    const result = await fetchPortfolioItem(slugParam)
+    const result = await fetchPortfolioItem(slugParam, isPreview.value)
     return result.data
   } catch (error) {
     console.error('Error fetching portfolio item:', error)

@@ -43,6 +43,7 @@ export const PortfolioDetailView: typeof import("../components/PortfolioDetailVi
 export const PortfolioModal: typeof import("../components/PortfolioModal.vue")['default']
 export const PortfolioNav: typeof import("../components/PortfolioNav.vue")['default']
 export const PoweredByRubyOnRails: typeof import("../components/PoweredByRubyOnRails.vue")['default']
+export const PreviewBanner: typeof import("../components/PreviewBanner.vue")['default']
 export const SanityImage: typeof import("../components/SanityImage.vue")['default']
 export const Status: typeof import("../components/Status.vue")['default']
 export const TerminalCard: typeof import("../components/TerminalCard.vue")['default']
@@ -102,6 +103,7 @@ export const LazyPortfolioDetailView: LazyComponent<typeof import("../components
 export const LazyPortfolioModal: LazyComponent<typeof import("../components/PortfolioModal.vue")['default']>
 export const LazyPortfolioNav: LazyComponent<typeof import("../components/PortfolioNav.vue")['default']>
 export const LazyPoweredByRubyOnRails: LazyComponent<typeof import("../components/PoweredByRubyOnRails.vue")['default']>
+export const LazyPreviewBanner: LazyComponent<typeof import("../components/PreviewBanner.vue")['default']>
 export const LazySanityImage: LazyComponent<typeof import("../components/SanityImage.vue")['default']>
 export const LazyStatus: LazyComponent<typeof import("../components/Status.vue")['default']>
 export const LazyTerminalCard: LazyComponent<typeof import("../components/TerminalCard.vue")['default']>

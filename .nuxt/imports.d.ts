@@ -37,9 +37,12 @@ export { useHeroSpotlight, HeroSpotlightItem } from '../composables/useHeroSpotl
 export { useMarkdownWithAssets } from '../composables/useMarkdownWithAssets';
 export { usePortableTextComponents } from '../composables/usePortableTextComponents';
 export { resolveMetaDescription, normalizeItem, usePortfolioApi, PortfolioDetailResponse } from '../composables/usePortfolioApi';
+export { usePreview } from '../composables/usePreview';
 export { useSanityImageUrl } from '../composables/useSanityImageUrl';
 export { useSeo } from '../composables/useSeo';
 export { useStructuredData } from '../composables/useStructuredData';
 export { useTimelineAnimation } from '../composables/useTimelineAnimation';
 export { debugMarkdownContent, identifyImageReferences } from '../utils/debugMarkdown';
 export { reactiveStyle, reactiveTransform, useElementStyle, useElementTransform, useMotion, useMotionControls, useMotionProperties, useMotions, useMotionTransitions, useMotionVariants, useSpring, useReducedMotion } from '../node_modules/@vueuse/motion/dist/nuxt/runtime/composables/index';
+export { useImage } from '../node_modules/@nuxt/image/dist/runtime/composables';
+export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';

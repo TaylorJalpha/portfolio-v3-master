@@ -15,9 +15,12 @@ const api = axios.create({
   },
 });
 
-export async function fetchSanityContent(query) {
+export async function fetchSanityContent(query, preview = false) {
   try {
-    const response = await api.post('/api/fetch-sanity', { query });
+    const response = await api.post('/api/fetch-sanity', { 
+      query,
+      preview: preview || false
+    });
     
     // Sanity returns shape { result, query, ms }. Normalize to return `result` directly.
     // This ensures callers consistently receive either an array of docs or a single doc.

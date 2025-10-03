@@ -23,6 +23,7 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
 </script>
 
 <template>
+    <PreviewBanner />
     <FloatingNav />
   <div class="relative w-full min-h-screen bg-black pt-8 md:pt-12">
         <!-- Background gradient overlay -->

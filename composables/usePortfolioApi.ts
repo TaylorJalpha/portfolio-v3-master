@@ -114,6 +114,9 @@ export function normalizeItem(raw: any): PortfolioItemDetail {
 }
 
 export const usePortfolioApi = () => {
+  // Get preview state
+  const { isPreview } = usePreview()
+
   // Fetch portfolio items with pagination and filters
   // Contract
   // - Input: optional page (1-based), per_page, content_type filter, and tag filter
@@ -124,6 +127,7 @@ export const usePortfolioApi = () => {
     per_page?: number
     content_type?: string
     tag?: string
+    preview?: boolean
   } = {}): Promise<PortfolioResponse> => {
     // Build GROQ query for portfolio items
     // Notes on GROQ:
@@ -135,10 +139,14 @@ export const usePortfolioApi = () => {
     if (params.tag) filter += ` && \"${params.tag}\" in tags[]->title`
     const start = ((params.page || 1) - 1) * (params.per_page || 12)
     const end = start + (params.per_page || 12)
-    // Exclude drafts so draft+published don't appear as duplicates
+    
+    // Include drafts in preview mode, exclude them in production
+    const previewMode = params.preview || isPreview.value
+    const draftFilter = previewMode ? '' : ' && !(_id in path(\'drafts.**\'))'
+    
     // Select only the fields the UI needs; fetch assets via asset-> projection to lift url.
-    const query = `*[_type in ["project", "caseStudy", "blogPost"] && !(_id in path('drafts.**'))${filter}] | order(published_at desc) [${start}...${end}] { _id, title, description, meta_description, metadata, seo{ description }, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, published_at, external_url }`
-    const result = await fetchSanityContent(query)
+    const query = `*[_type in ["project", "caseStudy", "blogPost"]${draftFilter}${filter}] | order(published_at desc) [${start}...${end}] { _id, title, description, meta_description, metadata, seo{ description }, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, published_at, external_url }`
+    const result = await fetchSanityContent(query, previewMode)
     const docs: any[] = Array.isArray(result) ? result : (result?.data || [])
     const normalized = docs.map(d => normalizeItem(d))
     // Caution: total_count here is the page length, not the true collection size.
@@ -161,9 +169,13 @@ export const usePortfolioApi = () => {
   // - Uses [0] at the end of the GROQ to return the first match only.
   // - Matches either slug.current or exact _id. If your slugs can contain quotes
   //   or special characters, consider escaping or using query parameters.
-  const fetchPortfolioItem = async (idOrSlug: string): Promise<PortfolioDetailResponse> => {
+  const fetchPortfolioItem = async (idOrSlug: string, preview?: boolean): Promise<PortfolioDetailResponse> => {
+    // Include drafts in preview mode, exclude them in production
+    const previewMode = preview || isPreview.value
+    const draftFilter = previewMode ? '' : ' && !(_id in path(\'drafts.**\'))'
+    
     // Standard query that works with sanity-plugin-markdown out of the box
-    const query = `*[_type in ["project", "caseStudy", "blogPost"] && !(_id in path('drafts.**')) && (slug.current == "${idOrSlug}" || _id == "${idOrSlug}")][0]{ 
+    const query = `*[_type in ["project", "caseStudy", "blogPost"]${draftFilter} && (slug.current == "${idOrSlug}" || _id == "${idOrSlug}")][0]{ 
       _id, 
       title, 
       description, 
@@ -181,7 +193,7 @@ export const usePortfolioApi = () => {
       galleryImages[]{ asset->{_id, _ref, url} }, 
       pdfFile{ asset->{url,_ref} }
     }`
-    const raw = await fetchSanityContent(query)
+    const raw = await fetchSanityContent(query, previewMode)
     const data = normalizeItem(raw)
     return { data }
   }

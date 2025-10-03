@@ -129,6 +129,8 @@ declare module 'nuxt/schema' {
 
    apiSecret: string,
 
+   previewSecret: string,
+
    nitro: {
       envPrefix: string,
    },
