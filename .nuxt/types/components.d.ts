@@ -33,6 +33,7 @@ interface _GlobalComponents {
     'Footer': typeof import("../../components/Footer.vue")['default']
     'Globe': typeof import("../../components/Globe.vue")['default']
     'Intro': typeof import("../../components/Intro.vue")['default']
+    'MarkdownRenderer': typeof import("../../components/MarkdownRenderer.vue")['default']
     'Meteors': typeof import("../../components/Meteors.vue")['default']
     'PdfViewer': typeof import("../../components/PdfViewer.vue")['default']
     'PortfolioCard': typeof import("../../components/PortfolioCard.vue")['default']
@@ -42,6 +43,7 @@ interface _GlobalComponents {
     'PortfolioModal': typeof import("../../components/PortfolioModal.vue")['default']
     'PortfolioNav': typeof import("../../components/PortfolioNav.vue")['default']
     'PoweredByRubyOnRails': typeof import("../../components/PoweredByRubyOnRails.vue")['default']
+    'SanityImage': typeof import("../../components/SanityImage.vue")['default']
     'Status': typeof import("../../components/Status.vue")['default']
     'TerminalCard': typeof import("../../components/TerminalCard.vue")['default']
     'UiBackgroundGradient': typeof import("../../components/ui/BackgroundGradient.vue")['default']
@@ -55,8 +57,8 @@ interface _GlobalComponents {
     'NuxtLoadingIndicator': typeof import("../../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']
     'NuxtTime': typeof import("../../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']
     'NuxtRouteAnnouncer': typeof import("../../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']
-    'NuxtImg': typeof import("../../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']
-    'NuxtPicture': typeof import("../../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
+    'NuxtImg': typeof import("../../node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue")['default']
+    'NuxtPicture': typeof import("../../node_modules/@nuxt/image/dist/runtime/components/NuxtPicture.vue")['default']
     'Motion': typeof import("@vueuse/motion")['MotionComponent']
     'MotionGroup': typeof import("@vueuse/motion")['MotionGroupComponent']
     'NuxtPage': typeof import("../../node_modules/nuxt/dist/pages/runtime/page")['default']
@@ -90,6 +92,7 @@ interface _GlobalComponents {
     'LazyFooter': LazyComponent<typeof import("../../components/Footer.vue")['default']>
     'LazyGlobe': LazyComponent<typeof import("../../components/Globe.vue")['default']>
     'LazyIntro': LazyComponent<typeof import("../../components/Intro.vue")['default']>
+    'LazyMarkdownRenderer': LazyComponent<typeof import("../../components/MarkdownRenderer.vue")['default']>
     'LazyMeteors': LazyComponent<typeof import("../../components/Meteors.vue")['default']>
     'LazyPdfViewer': LazyComponent<typeof import("../../components/PdfViewer.vue")['default']>
     'LazyPortfolioCard': LazyComponent<typeof import("../../components/PortfolioCard.vue")['default']>
@@ -99,6 +102,7 @@ interface _GlobalComponents {
     'LazyPortfolioModal': LazyComponent<typeof import("../../components/PortfolioModal.vue")['default']>
     'LazyPortfolioNav': LazyComponent<typeof import("../../components/PortfolioNav.vue")['default']>
     'LazyPoweredByRubyOnRails': LazyComponent<typeof import("../../components/PoweredByRubyOnRails.vue")['default']>
+    'LazySanityImage': LazyComponent<typeof import("../../components/SanityImage.vue")['default']>
     'LazyStatus': LazyComponent<typeof import("../../components/Status.vue")['default']>
     'LazyTerminalCard': LazyComponent<typeof import("../../components/TerminalCard.vue")['default']>
     'LazyUiBackgroundGradient': LazyComponent<typeof import("../../components/ui/BackgroundGradient.vue")['default']>
@@ -112,8 +116,8 @@ interface _GlobalComponents {
     'LazyNuxtLoadingIndicator': LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']>
     'LazyNuxtTime': LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']>
     'LazyNuxtRouteAnnouncer': LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']>
-    'LazyNuxtImg': LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']>
-    'LazyNuxtPicture': LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']>
+    'LazyNuxtImg': LazyComponent<typeof import("../../node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue")['default']>
+    'LazyNuxtPicture': LazyComponent<typeof import("../../node_modules/@nuxt/image/dist/runtime/components/NuxtPicture.vue")['default']>
     'LazyMotion': LazyComponent<typeof import("@vueuse/motion")['MotionComponent']>
     'LazyMotionGroup': LazyComponent<typeof import("@vueuse/motion")['MotionGroupComponent']>
     'LazyNuxtPage': LazyComponent<typeof import("../../node_modules/nuxt/dist/pages/runtime/page")['default']>

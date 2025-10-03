@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useSanityImageUrl } from '@/composables/useSanityImageUrl'
-import { renderMarkdown } from '@/lib/markdown'
+import { useMarkdownWithAssets } from '@/composables/useMarkdownWithAssets'
 import { PortableText } from '@portabletext/vue'
+import { usePortableTextComponents } from '@/composables/usePortableTextComponents'
 import PdfViewer from './PdfViewer.vue'
 
 const props = defineProps<{ item: any }>()
@@ -10,36 +12,18 @@ function imageUrl(image: any) {
   return image && image.asset ? useSanityImageUrl(image) : ''
 }
 
-// Custom Portable Text components
-import { h } from 'vue'
+// Get portable text components configuration
+const { portableTextComponents } = usePortableTextComponents()
 
-const ptComponents = {
-  types: {
-    image: ({ value }: any) => {
-      return value && value.asset
-        ? h('img', {
-            src: imageUrl(value),
-            alt: value.alt || '',
-            class: 'my-6 rounded-xl w-full max-h-96 object-cover'
-          })
-        : null
-    }
-  },
-  marks: {
-    link: ({ children, value }: any) => {
-      return h(
-        'a',
-        {
-          href: value.href,
-          target: '_blank',
-          rel: 'noopener',
-          class: 'text-blue-600 underline'
-        },
-        children
-      )
-    }
-  }
-}
+// Get markdown processing functionality
+const { processMarkdownContent, hasSanityImageReferences } = useMarkdownWithAssets()
+
+// Process the markdown content with asset resolution
+const processedMarkdownContent = computed(() => {
+  // Enable debug mode in development
+  const debug = process.env.NODE_ENV === 'development'
+  return processMarkdownContent(props.item, debug)
+})
 </script>
 
 <template>
@@ -76,11 +60,11 @@ const ptComponents = {
         <PortableText
           v-if="item.portableText"
           :value="item.portableText"
-          :components="ptComponents"
+          :components="portableTextComponents"
         />
         <div
           v-else
-          v-html="renderMarkdown(item.markdown?.content || item.content)"
+          v-html="processedMarkdownContent"
         />
       </div>
     </div>

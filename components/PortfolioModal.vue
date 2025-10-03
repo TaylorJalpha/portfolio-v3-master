@@ -34,7 +34,7 @@
             
             <!-- Scrollable Content -->
             <div class="flex-1 overflow-y-auto prose prose-invert max-w-none">
-              <div v-html="renderMarkdown(item.content)"></div>
+              <div v-html="processedContent"></div>
             </div>
           </div>
           
@@ -108,8 +108,7 @@
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
-// Import a simple markdown renderer or use a lightweight library
-// For now, we'll use a simple function to handle basic markdown
+import { useMarkdownWithAssets } from '@/composables/useMarkdownWithAssets'
 
 const props = defineProps<{ item: any; open: boolean }>();
 const emit = defineEmits(['close']);
@@ -118,7 +117,24 @@ function close() {
   emit('close');
 }
 
-// Simple markdown renderer for basic formatting
+// Get markdown processing functionality
+const { processMarkdownContent } = useMarkdownWithAssets()
+
+// Process the content with asset resolution
+const processedContent = computed(() => {
+  if (!props.item?.content) return ''
+  
+  // Create a temporary item structure for the markdown processor
+  const itemForProcessing = {
+    content: props.item.content,
+    markdown: props.item.markdown,
+    ...props.item // Include any other asset data
+  }
+  
+  return processMarkdownContent(itemForProcessing)
+})
+
+// Simple markdown renderer for basic formatting (fallback)
 function renderMarkdown(content: string): string {
   if (!content) return ''
   

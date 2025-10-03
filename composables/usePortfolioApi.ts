@@ -162,7 +162,25 @@ export const usePortfolioApi = () => {
   // - Matches either slug.current or exact _id. If your slugs can contain quotes
   //   or special characters, consider escaping or using query parameters.
   const fetchPortfolioItem = async (idOrSlug: string): Promise<PortfolioDetailResponse> => {
-    const query = `*[_type in ["project", "caseStudy", "blogPost"] && !(_id in path('drafts.**')) && (slug.current == "${idOrSlug}" || _id == "${idOrSlug}")][0]{ _id, title, description, meta_description, metadata, seo{ description }, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, published_at, external_url, content, markdown, galleryImages, pdfFile{ asset->{url,_ref} } }`
+    // Standard query that works with sanity-plugin-markdown out of the box
+    const query = `*[_type in ["project", "caseStudy", "blogPost"] && !(_id in path('drafts.**')) && (slug.current == "${idOrSlug}" || _id == "${idOrSlug}")][0]{ 
+      _id, 
+      title, 
+      description, 
+      meta_description, 
+      metadata, 
+      seo{ description }, 
+      slug, 
+      _type, 
+      featuredImage{ asset->{_id, _ref, url} }, 
+      tags[]->{ _id, title }, 
+      published_at, 
+      external_url, 
+      content, 
+      markdown, 
+      galleryImages[]{ asset->{_id, _ref, url} }, 
+      pdfFile{ asset->{url,_ref} }
+    }`
     const raw = await fetchSanityContent(query)
     const data = normalizeItem(raw)
     return { data }

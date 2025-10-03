@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@vueuse/motion/nuxt'],
+  modules: ['@nuxtjs/tailwindcss', '@vueuse/motion/nuxt', '@nuxt/image'],
   css: ['~/assets/css/main.css'],
   compatibilityDate: '2024-10-16',
   plugins: ['~/plugins/portal-vue.js', '~/plugins/seo-robots.ts'], // Register plugins
