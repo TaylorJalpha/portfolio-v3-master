@@ -146,7 +146,7 @@ export const usePortfolioApi = () => {
     const draftFilter = previewMode ? '' : ' && !(_id in path(\'drafts.**\'))'
     
     // Select only the fields the UI needs; fetch assets via asset-> projection to lift url.
-    const query = `*[_type in ["project", "caseStudy", "blogPost"]${draftFilter}${filter}] | order(published_at desc) [${start}...${end}] { _id, title, description, meta_description, metadata, seo{ description }, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, published_at, external_url }`
+    const query = `*[_type in ["project", "caseStudy", "blogPost"]${draftFilter}${filter}] | order(coalesce(published_at, _createdAt) desc) [${start}...${end}] { _id, title, description, meta_description, metadata, seo{ description }, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, published_at, _createdAt, external_url }`
     const result = await fetchSanityContent(query, previewMode)
     const docs: any[] = Array.isArray(result) ? result : (result?.data || [])
     const normalized = docs.map(d => normalizeItem(d))
