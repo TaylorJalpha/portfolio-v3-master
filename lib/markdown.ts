@@ -98,7 +98,7 @@ renderer.link = function(href: string, title: string | null, text: string) {
 marked.setOptions({
   renderer: renderer,
   gfm: true, // GitHub Flavored Markdown
-  breaks: true, // Convert \n to <br>
+  breaks: false, // Don't convert single \n to <br> as it interferes with lists
   pedantic: false
 });
 
