@@ -56,7 +56,7 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
         </div>
     </div>
 
-  <div class="text-white relative w-full z-10" data-section="experience">
+  <div class="text-white relative w-full z-10 isolate" data-section="experience">
     <!-- Aurora background section header -->
     <div class="absolute left-0 top-0 w-full -z-10 pointer-events-none overflow-hidden" style="height:790px" aria-hidden="true">
       <AuroraBackground :className="'h-full'" :min-height="'790px'" />
