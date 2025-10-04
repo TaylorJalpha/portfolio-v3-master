@@ -75,14 +75,15 @@ export interface PortfolioDetailResponse { data: PortfolioItemDetail }
 
 /**
  * Helper: derive a unified meta description from possible fields (in priority order).
- * Falls back through meta_description -> metadata.description -> seo.description -> description.
+ * Prioritizes meta_description (dedicated SEO field) over description (display content).
+ * Falls back through meta_description -> seo.description -> metadata.description -> description.
  */
 export function resolveMetaDescription(item: PortfolioItem | PortfolioItemDetail | null | undefined): string {
   if (!item) return ''
   return (
     item.meta_description ||
-    (typeof item.metadata === 'string' ? item.metadata : item.metadata?.description) ||
     item.seo?.description ||
+    (typeof item.metadata === 'string' ? item.metadata : item.metadata?.description) ||
     item.description ||
     ''
   )
