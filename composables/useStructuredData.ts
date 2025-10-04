@@ -51,7 +51,10 @@ export function useStructuredData(itemRef: Ref<ItemLike | undefined | null>) {
     if (!item) return null
 
     const type = mapType(item._type || item.content_type)
-    const canonicalFromHook = useCanonicalUrl(pathForItem(item))
+    const path = pathForItem(item)
+    // Build canonical URL manually to avoid calling composable inside computed
+    const baseUrl = (config.public?.baseURL || config.public?.siteUrl || 'https://portfolio.taylorjferguson.com') as string
+    const canonicalUrl = new URL(path, baseUrl).toString()
     const siteName = config.public?.siteName || 'Taylor J. Ferguson'
     const description = resolveMetaDescription(item as any)
     const image = item.featuredImage?.asset?.url
@@ -63,7 +66,7 @@ export function useStructuredData(itemRef: Ref<ItemLike | undefined | null>) {
       name: item.title || item.name,
       headline: item.title || item.name,
       description,
-      url: canonicalFromHook,
+      url: canonicalUrl,
       ...(image ? { image } : {}),
       ...(tags.length ? { keywords: tags.join(', ') } : {}),
       author: {
