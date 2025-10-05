@@ -11,7 +11,12 @@
                 Primary Toolbox:
             </p>
             <ul class="list-disc list-inside">
-                <li>Product Management </li>
+                <li>
+                    Product Management
+                    <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-yellow-400 border border-yellow-400">
+                         Focus
+                    </span>
+                </li>
                 <li>Product Discovery</li>
                 <li>Data Analysis </li>
                 <li>Business Modeling </li>
