@@ -52,7 +52,7 @@ interface FormData {
 
 const api = axios.create({
   baseURL: process.env.NODE_ENV === 'production'
-    ? "https://salty-thicket-78087-c98e1b01d069.herokuapp.com"
+    ? "https://portfolio-v3-rails-backend-0096da26ec3e.herokuapp.com/"
     : process.env.NODE_ENV === 'staging'
     ? "https://fierce-cliffs-40135-8a4277dc65fb.herokuapp.com/"
     : "http://localhost:3000",
