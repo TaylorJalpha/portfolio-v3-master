@@ -1,3 +1,4 @@
+
 # ⚡️Nuxt Bento Portfolio
 
 This is a modern, quasi-minimal, and highly customizable portfolio template built with Nuxt 3, Vue, and Tailwind CSS—[Fork of the Ladvace Astro theme]( https://github.com/Ladvace/astro-bento-portfolio) by [Appdev95](https://github.com/apdev95/bento-portfolio-nuxt ). Crafted for developers, technical product managers, engineers, data scientists, or anyone technical who wants to showcase their work in a design-focused way with dense content sections for a hasty overview on page load, it features a bento grid hero section, an experience timeline, and a versatile portfolio view supporting blog posts, case studies with an embedded PDF viewer, projects, and tags. Effortlessly connect your own [Sanity.io](https://www.sanity.io/) headless CMS to manage portfolio items, and use any backend you prefer (Rails, Node, etc.) to handle contact form submissions and API logic.
@@ -8,17 +9,21 @@ This is a modern, quasi-minimal, and highly customizable portfolio template buil
 
 #### Front end 
 
-- Modern UI: A bento-grid hero section provides a dense, interactive overview of skills and experience, enhanced with animations- a hasty overview on page load.
-- Customizable Timeline: The animated experience timeline is implemented/modeled based on the Acternity UI, timeline, and Aurora Background components, re-built specifically for Vue/Nuxt from React syntax.
-- CMS Integration: The portfolio view is designed for easy integration with a Sanity headless CMS, but can be adapted for any CMS you choose.
-- Interactive Footer: Features a multi-purpose secondary nav, title, and paragraph with a ping animation in-line with the title, social links and icons, and copyright info appended to the bottom of the footer - contact me button should open the contact form modal(WIP). 
+- Modern bento-grid hero section provides a dense, interactive overview of skills and experience, enhanced with animations- Hasty overview on page load. 
+- Animated experience timeline implementation modeled off the Acternity UI Timeline and Aurora Background components, re-built specifically from React to Vue syntax.
+- Built to be fully responsive and mobile-friendly across all devices.
+- Easy integration with a Sanity headless CMS, but can be adapted for any CMS of your choice.
 
 #### Backend & API:
 
-- Functional contact form with included backend support (a Rails API example is provided).
-- Rails API proxy server to securely fetch data from Sanity via POST requests, handling critical configurations like CORS and environment variables.
-- The backend's README.md is located at portfolio-v3-master/backend-example/README.md and contains detailed setup instructions.
-- Quick Deployment: The project is structured for rapid deployment and straightforward customization.
+- Functional contact form with included backend logic (Rails API example provided).
+- The Rails API acts as a proxy to securely fetch data from Sanity via POST requests, handling critical configurations like CORS and environment variables.
+- README.md for the Rails backend implementation is located at portfolio-v3-master/backend-example/README.md and contains detailed setup instructions.
+- Structured for rapid deployment and straightforward customization.
+
+
+
+
 
 ---
 
@@ -84,21 +89,16 @@ end
 
 ## Contributing & Customization
 
-Feel free to fork, star, and make this project your own! If you add cool features or integrations, open a pull request or reach out—I'm always happy to connect with fellow builders.
-
----
-
-## Next Steps
-
-- **Mobile Optimizations:** Improving the experience for portfolio items, case studies, and posts, with a special focus on better PDF viewing and device-specific enhancements.
-- **About Me Page:** Adding a dedicated `/about-me` page to share a more story-driven overview of my professional journey.
-- **Gen-AI Feature:** Exploring the addition of a generative AI feature (acceptance criteria still to be determined).
+Feel free to fork, star, and make this project your own – If you add cool features or integrations, open a pull request or reach out—I'm always happy to connect with fellow builders.
 
 ---
 
 ## Feedback & Feature Requests
 
 Have feature requests or suggestions? Use the contact form button in the Bento-grid hero section on the home screen (right next to the interactive easter egg button). I welcome all recommendations and feature requests!
+
+
+---
 
 **Check out the live project:** [![Visit www.taylorferguson.xyz](https://img.shields.io/badge/Visit-www.taylorferguson.xyz-1e90ff?style=for-the-badge&logo=google-chrome)](https://www.taylorferguson.xyz)
 
