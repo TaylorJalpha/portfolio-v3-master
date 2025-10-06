@@ -175,8 +175,11 @@ export const usePortfolioApi = () => {
     const previewMode = preview || isPreview.value
     const draftFilter = previewMode ? '' : ' && !(_id in path(\'drafts.**\'))'
     
+    // Escape any quotes in the slug to prevent query breakage
+    const safeIdOrSlug = (idOrSlug || '').replace(/"/g, '\\"')
+
     // Standard query that works with sanity-plugin-markdown out of the box
-    const query = `*[_type in ["project", "caseStudy", "blogPost"]${draftFilter} && (slug.current == "${idOrSlug}" || _id == "${idOrSlug}")][0]{ 
+    const query = `*[_type in ["project", "caseStudy", "blogPost"]${draftFilter} && (slug.current == "${safeIdOrSlug}" || _id == "${safeIdOrSlug}")][0]{ 
       _id, 
       title, 
       description, 
@@ -189,8 +192,12 @@ export const usePortfolioApi = () => {
       tags[]->{ _id, title }, 
       published_at, 
       external_url, 
-      content, 
-      markdown, 
+      "markdown": {
+        "content": coalesce(readme.content, content.content, markdown.content, content, ""),
+        "assets": coalesce(readme.assets, content.assets, markdown.assets, []),
+        "markdownAssets": coalesce(readme.markdownAssets, content.markdownAssets, markdown.markdownAssets, [])
+      },
+      content,
       galleryImages[]{ asset->{_id, _ref, url} }, 
       pdfFile{ asset->{url,_ref} }
     }`
