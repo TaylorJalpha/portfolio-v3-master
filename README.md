@@ -52,7 +52,7 @@ $ npm run dev
 
 ## 🛠️ Connect Your Own Sanity Headless CMS
 
-1. [Create a Sanity.io project](https://www.sanity.io/get-started) and set up your schemas for projects, case studies, and blog posts (see `schemas copy/` for examples).
+1. [Create a Sanity.io project](https://www.sanity.io/get-started) and set up your schemas for projects, case studies, and blog posts.
 2. In your Nuxt app, set the following environment variables (in a `.env` file or your deployment platform):
 	 - `SANITY_PROJECT_ID` (your Sanity project ID)
 	 - `SANITY_DATASET` (usually `production`)
