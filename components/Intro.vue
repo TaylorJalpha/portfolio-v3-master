@@ -179,9 +179,7 @@
             </Button>
         </div>
       </div>
-      <ContactForm
-        v-model:isOpen="isContactFormOpen"
-      />
+      <!-- Global ContactForm is mounted at app root -->
 
       <img
         width="300"
@@ -197,15 +195,17 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import ContactForm from "./ContactForm.vue";
+import { useContactModal } from '@/composables/useContactModal'
 
 const photoSrc = ref("me1.webp");
 
 const isOpen = ref<boolean>(false);
 const isContactFormOpen = ref<boolean>(false);
+const { open: openGlobalContact } = useContactModal()
 // const router = useRouter();
 const openContactForm = (event: Event) => {
   event.preventDefault();
-  isContactFormOpen.value = true;
+  openGlobalContact();
 };
 
 const randomizeMyPhoto = () => {

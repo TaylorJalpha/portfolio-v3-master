@@ -181,7 +181,8 @@ export default defineComponent({
 
 <style scoped>
 .modal-overlay-pv3 {
-  position: absolute;
+  /* Use fixed so the modal always covers the viewport regardless of teleport target */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -190,7 +191,7 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .modal-content-pv3 {
@@ -199,7 +200,7 @@ export default defineComponent({
   border-radius: 15px;
   width: 80%;
   max-width: 500px;
-  z-index: 1000;
+  z-index: 2001;
   border: 1px solid #4f4b4b;
   animation: fadeIn 0.3s ease-out;
 }

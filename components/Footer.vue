@@ -1,19 +1,16 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-
 import moment from 'moment'
+import { useContactModal } from '@/composables/useContactModal'
 
 const router = useRouter()
-
-// Contact form modal state
-const isContactFormOpen = ref<boolean>(false)
+const { open: openGlobalContact } = useContactModal()
 
 const openContactForm = (event: Event) => {
   event.preventDefault()
   event.stopPropagation()
-  console.log('Footer contact form opening...')
-  isContactFormOpen.value = true
+  if (process.client) console.debug('[Footer] Contact button clicked')
+  openGlobalContact()
 }
 
 const scrollToSection = (section: string) => {
@@ -114,6 +111,7 @@ const socialLinks = [
               </h3>
               <div class="flex flex-col space-y-4">
                 <button
+                  type="button"
                   @click="openContactForm"
                   class="group inline-flex items-center text-left text-neutral-400 hover:text-[#E63946] transition-all duration-300 bg-transparent border border-neutral-600/50 hover:border-[#E63946]/50 rounded-md px-3 py-1.5 cursor-pointer text-sm font-medium hover:bg-[#E63946]/10"
                 >
@@ -264,25 +262,12 @@ const socialLinks = [
       </div>
     </div>
 
-   
-    <!-- Dedicated teleport target for Footer's contact modal -->
-    <div id="footer-contact-teleport"></div>
-    <ContactForm
-      v-model:isOpen="isContactFormOpen"
-      teleport-target="#footer-contact-teleport"
-      class="footer-contact-modal"
-    />
+    
+    <!-- Contact modal is mounted globally in app.vue -->
   </footer>
 </template>
 
 <style scoped>
-
-:deep(.footer-contact-modal.modal-overlay-pv3) {
-  z-index: 2000 !important;
-  position: fixed !important;
-}
-
-:deep(.footer-contact-modal .modal-content-pv3) {
-  z-index: 2001 !important;
-}
+/* Footer-specific overrides are no longer required since the modal teleports to body
+   and has fixed positioning with a high z-index. Styles kept minimal here. */
 </style>
