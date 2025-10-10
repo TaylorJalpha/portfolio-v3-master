@@ -1,1 +1,0 @@
-import{ad as l,U as a}from"#entry";function u(i){const n=a(),s=l();let t=(n.public?.siteUrl||"").replace(/\/$/,"");(!t||t.includes("localhost"))&&(typeof window<"u"?t=window.location.origin.replace(/\/$/,""):t||(t="http://localhost:3000"));const e=(i||s.fullPath||"/").split("?")[0].split("#")[0],o=e!=="/"?e.replace(/\/$/,""):"/";return t+(o.startsWith("/")?o:`/${o}`)}export{u};

@@ -1,6 +1,14 @@
 # build output
 dist/
 
+# Nuxt build artifacts
+.nuxt/
+.output/
+
+# Build caches
+.vite/
+.cache/
+
 # generated types
 .astro/
 
