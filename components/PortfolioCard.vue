@@ -18,6 +18,10 @@
         <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white line-clamp-2 group-hover:text-[#E63946] transition-colors duration-200">
           {{ item.title }}
         </h3>
+        <!-- Optional Published Date -->
+        <p v-if="displayDate" class="text-xs text-gray-400 mb-2">
+          {{ displayDate }}
+        </p>
         
         <!-- Description -->
         <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-4 line-clamp-3 flex-1">
@@ -60,7 +64,9 @@
 
 <script lang="ts" setup>
 import { useSanityImageUrl } from '@/composables/useSanityImageUrl'
-defineProps<{ item: any }>();
+import { computed } from 'vue'
+// Define props once and reuse within this script
+const props = defineProps<{ item: any }>()
 
 function imageUrl(image: any) {
   return image && image.asset ? useSanityImageUrl(image) : ''
@@ -71,6 +77,22 @@ function mapType(type: string) {
   if (type === 'blogPost') return 'blog'
   return 'project'
 }
+
+// Conditionally derive a short date for cards
+const displayDate = computed(() => {
+  const type = props.item?._type || props.item?.content_type
+  const isArticle = type === 'blogPost' || type === 'caseStudy' || type === 'blog_post' || type === 'case_study'
+  let raw: string | undefined
+  if (isArticle) {
+    raw = props.item?.published_at || props.item?._createdAt
+  } else if (type === 'project') {
+    raw = props.item?.published_at
+  }
+  if (!raw) return ''
+  const d = new Date(raw)
+  if (isNaN(d.getTime())) return ''
+  return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
+})
 </script>
 
 <style scoped>

@@ -35,6 +35,7 @@ interface PortfolioItem {
   featured_image_url?: string
   tags?: Array<{ name?: string; title?: string; slug?: string; _id?: string }>
   published_at?: string
+  _createdAt?: string
   external_url?: string
 }
 
@@ -191,6 +192,7 @@ export const usePortfolioApi = () => {
       featuredImage{ asset->{_id, _ref, url} }, 
       tags[]->{ _id, title }, 
       published_at, 
+      _createdAt,
       external_url, 
       "markdown": {
         "content": coalesce(readme.content, content.content, markdown.content, content, ""),

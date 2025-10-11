@@ -17,6 +17,7 @@ interface ItemLike {
   seo?: { description?: string }
   featuredImage?: { asset?: { url?: string } }
   published_at?: string
+  _createdAt?: string
   updated_at?: string
   tags?: Array<{ title?: string; name?: string }>
 }
@@ -83,9 +84,9 @@ export function useStructuredData(itemRef: Ref<ItemLike | undefined | null>) {
       base.articleSection = tags[0]
     }
 
-    const published = item.published_at
+  const published = item.published_at || (item as any)._createdAt
     if (published) base.datePublished = published
-    const updated = item.updated_at || published
+  const updated = item.updated_at || published
     if (updated) base.dateModified = updated
 
     return base
