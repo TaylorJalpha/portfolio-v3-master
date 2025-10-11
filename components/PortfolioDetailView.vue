@@ -25,20 +25,10 @@ const processedMarkdownContent = computed(() => {
   return processMarkdownContent(props.item, debug)
 })
 
-// Conditionally format published date
-// - Blog posts and case studies: always show (published_at fallback to _createdAt)
-// - Projects: show only if published_at is explicitly set
+// Conditionally format published date using explicit Sanity fields only.
+// Checks datePublished, date, then published_at; shows nothing if absent.
 const formattedDate = computed(() => {
-  const type = props.item?._type || props.item?.content_type
-  const isArticle = type === 'blogPost' || type === 'caseStudy' || type === 'blog_post' || type === 'case_study'
-  let raw: string | undefined
-  if (isArticle) {
-    raw = props.item?.published_at || props.item?._createdAt
-  } else if (type === 'project') {
-    raw = props.item?.published_at
-  } else {
-    raw = undefined
-  }
+  const raw = props.item?.datePublished || props.item?.date || props.item?.published_at
   if (!raw) return ''
   const d = new Date(raw)
   if (isNaN(d.getTime())) return ''

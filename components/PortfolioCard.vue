@@ -80,14 +80,7 @@ function mapType(type: string) {
 
 // Conditionally derive a short date for cards
 const displayDate = computed(() => {
-  const type = props.item?._type || props.item?.content_type
-  const isArticle = type === 'blogPost' || type === 'caseStudy' || type === 'blog_post' || type === 'case_study'
-  let raw: string | undefined
-  if (isArticle) {
-    raw = props.item?.published_at || props.item?._createdAt
-  } else if (type === 'project') {
-    raw = props.item?.published_at
-  }
+  const raw = props.item?.datePublished || props.item?.date || props.item?.published_at
   if (!raw) return ''
   const d = new Date(raw)
   if (isNaN(d.getTime())) return ''

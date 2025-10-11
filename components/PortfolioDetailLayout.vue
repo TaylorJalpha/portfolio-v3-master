@@ -46,9 +46,9 @@ const ptComponents = {
 const formattedDate = computed(() => {
   const type = props.item?._type || props.item?.content_type
   const isArticle = type === 'blogPost' || type === 'caseStudy' || type === 'blog_post' || type === 'case_study'
-  let raw: string | undefined
-  if (isArticle) {
-    raw = props.item?.published_at || props.item?._createdAt
+        let raw: string | undefined
+        if (isArticle) {
+          raw = props.item?.datePublished || props.item?.date || props.item?.published_at
   } else if (type === 'project') {
     raw = props.item?.published_at
   }
