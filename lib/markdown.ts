@@ -116,11 +116,90 @@ marked.setOptions({
   pedantic: false
 });
 
+// Utilities for TOC generation and heading anchors
+type HeadingItem = { text: string; level: number; id: string };
+
+function slugify(text: string, counts: Map<string, number>): string {
+  const base = text
+    .toLowerCase()
+    .trim()
+    .replace(/<[^>]+>/g, '') // strip HTML tags
+    .replace(/&[a-z]+;/g, '') // strip HTML entities
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+  const prev = counts.get(base) || 0;
+  counts.set(base, prev + 1);
+  return prev === 0 ? base : `${base}-${prev}`;
+}
+
+function buildToc(headings: HeadingItem[]): string {
+  if (!headings.length) return '';
+  // Prefer H2-H4; if none exist, fall back to all levels
+  const primary = headings.filter(h => h.level >= 2 && h.level <= 4);
+  const list = primary.length ? primary : headings;
+  let html = '<nav class="md-toc"><div class="md-toc-title">On this page</div>';
+  let currentLevel = 0;
+  list.forEach(h => {
+    const level = h.level;
+    if (currentLevel === 0) {
+      html += '<ul class="md-toc-list">';
+      currentLevel = level;
+    }
+    while (level > currentLevel) {
+      html += '<ul class="md-toc-sub">';
+      currentLevel++;
+    }
+    while (level < currentLevel) {
+      html += '</ul>';
+      currentLevel--;
+    }
+    html += `<li><a href="#${h.id}">${h.text}</a></li>`;
+  });
+  while (currentLevel > 0) {
+    html += '</ul>';
+    currentLevel--;
+  }
+  html += '</nav>';
+  return html;
+}
+
 export function renderMarkdown(md: string): string {
   if (!md) return '';
-  
+
   try {
-    return marked.parse(md);
+    // Detect TOC placeholders and mark them with a unique token
+    const tocRegex = /(^|\n)\s*(\[\[toc\]\]|\[toc\]|<!--\s*toc\s*-->)/gi;
+    const TOC_MARKER = '::TOC_MARKER::';
+    const hasToc = tocRegex.test(md);
+    const src = hasToc ? md.replace(tocRegex, `$1${TOC_MARKER}`) : md;
+
+    // Capture headings per-render and ensure unique slugs
+    const headings: HeadingItem[] = [];
+    const slugCounts = new Map<string, number>();
+
+    // Create a per-call renderer that reuses base overrides for image/link/table
+    const localRenderer = new marked.Renderer();
+    // Reuse global overrides
+    localRenderer.image = renderer.image.bind(renderer) as any;
+    localRenderer.link = renderer.link.bind(renderer) as any;
+    localRenderer.table = renderer.table.bind(renderer) as any;
+    // Override headings to add ids and capture for TOC
+    (localRenderer as any).heading = function(text: string, level: number) {
+      const id = slugify(text, slugCounts);
+      headings.push({ text, level, id });
+      return `<h${level} id="${id}">${text}</h${level}>`;
+    };
+
+    // Parse with the local renderer
+    let html = marked.parse(src, { renderer: localRenderer as any }) as unknown as string;
+
+    // Inject TOC HTML where the marker appears
+    if (hasToc) {
+      const tocHtml = buildToc(headings);
+      html = html.replaceAll(TOC_MARKER, tocHtml);
+    }
+    return html;
   } catch (error) {
     console.error('Error parsing markdown:', error);
     return md; // Fallback to raw markdown

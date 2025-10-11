@@ -126,6 +126,58 @@
   font-size: 0.95em;
 }
 
+/* Table of Contents styles */
+.prose .md-toc,
+.markdown-content .md-toc {
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(148, 163, 184, 0.07);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0 1.25rem;
+}
+.prose .md-toc-title,
+.markdown-content .md-toc-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.prose .md-toc-list,
+.markdown-content .md-toc-list {
+  list-style: none;
+  margin: 0.25rem 0 0 0;
+  padding-left: 0.25rem;
+}
+.prose .md-toc-sub,
+.markdown-content .md-toc-sub {
+  list-style: none;
+  margin: 0.25rem 0 0.25rem 1rem;
+  padding-left: 0.5rem;
+}
+.prose .md-toc a,
+.markdown-content .md-toc a {
+  text-decoration: none;
+  color: #2563eb; /* blue-600 */
+}
+.prose .md-toc a:hover,
+.markdown-content .md-toc a:hover {
+  text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose .md-toc,
+  .markdown-content .md-toc {
+    border-color: rgba(148, 163, 184, 0.25);
+    background: rgba(148, 163, 184, 0.06);
+  }
+  .prose .md-toc a,
+  .markdown-content .md-toc a {
+    color: #60a5fa; /* blue-400 */
+  }
+  .prose .md-toc a:hover,
+  .markdown-content .md-toc a:hover {
+    color: #93c5fd; /* blue-300 */
+  }
+}
+
 /* Markdown table styles */
 .prose .md-table-wrapper,
 .markdown-content .md-table-wrapper {
