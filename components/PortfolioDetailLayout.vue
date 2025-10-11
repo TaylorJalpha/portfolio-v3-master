@@ -4,6 +4,7 @@ import { renderMarkdown } from '@/lib/markdown'
 import { PortableText } from '@portabletext/vue'
 import PdfViewer from './PdfViewer.vue'
 import { computed } from 'vue'
+import { formatDisplayDate } from '@/lib/utils'
 
 const props = defineProps<{ item: any }>()
 
@@ -42,7 +43,6 @@ const ptComponents = {
   }
 }
 
-// Conditionally format published date
 const formattedDate = computed(() => {
   const type = props.item?._type || props.item?.content_type
   const isArticle = type === 'blogPost' || type === 'caseStudy' || type === 'blog_post' || type === 'case_study'
@@ -52,10 +52,7 @@ const formattedDate = computed(() => {
   } else if (type === 'project') {
     raw = props.item?.published_at
   }
-  if (!raw) return ''
-  const d = new Date(raw)
-  if (isNaN(d.getTime())) return ''
-  return d.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })
+  return formatDisplayDate(raw, { variant: 'long' })
 })
 </script>
 

@@ -5,6 +5,7 @@ import { useMarkdownWithAssets } from '@/composables/useMarkdownWithAssets'
 import { PortableText } from '@portabletext/vue'
 import { usePortableTextComponents } from '@/composables/usePortableTextComponents'
 import PdfViewer from './PdfViewer.vue'
+import { formatDisplayDate } from '@/lib/utils'
 
 const props = defineProps<{ item: any }>()
 
@@ -29,10 +30,7 @@ const processedMarkdownContent = computed(() => {
 // Checks datePublished, date, then published_at; shows nothing if absent.
 const formattedDate = computed(() => {
   const raw = props.item?.datePublished || props.item?.date || props.item?.published_at
-  if (!raw) return ''
-  const d = new Date(raw)
-  if (isNaN(d.getTime())) return ''
-  return d.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })
+  return formatDisplayDate(raw, { variant: 'long' })
 })
 </script>
 

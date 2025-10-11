@@ -13,8 +13,9 @@ interface ItemLike {
   name?: string
   description?: string
   meta_description?: string
+  metaDescription?: string
   metadata?: any
-  seo?: { description?: string }
+  seo?: { description?: string; meta_description?: string; metaDescription?: string }
   featuredImage?: { asset?: { url?: string } }
   published_at?: string
   _createdAt?: string

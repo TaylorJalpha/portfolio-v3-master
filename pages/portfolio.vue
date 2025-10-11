@@ -215,13 +215,13 @@ function buildPortfolioItemsQuery(params: { page?: number; per_page?: number; co
   const previewMode = params.preview || isPreview.value
   const draftFilter = previewMode ? '' : ' && !(_id in path(\'drafts.**\'))'
   
-  return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"]${draftFilter}${filter}] | order(coalesce(datePublished, date, published_at, _createdAt) desc) [${start}...${end}] { _id, title, description, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, datePublished, date, published_at, _createdAt, external_url }`
+  return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"]${draftFilter}${filter}] | order(coalesce(datePublished, date, published_at, _createdAt) desc) [${start}...${end}] { _id, title, description, meta_description, metaDescription, seo{ description, meta_description, metaDescription }, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, datePublished, date, published_at, _createdAt, external_url }`
 }
 
 // Helper to build GROQ query for a single item
 function buildPortfolioItemQuery(idOrSlug: string) {
   // Exclude drafts to ensure only the published document is returned
-  return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"] && !(_id in path('drafts.**')) && (slug.current == \"${idOrSlug}\" || _id == \"${idOrSlug}\")][0]{ _id, title, description, meta_description, metadata, seo{ description }, slug, _type, featuredImage, tags[]->{ _id, title }, published_at, external_url, content, markdown, galleryImages, pdfFile{ asset->{url,_ref} } }`
+  return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"] && !(_id in path('drafts.**')) && (slug.current == \"${idOrSlug}\" || _id == \"${idOrSlug}\")][0]{ _id, title, description, meta_description, metaDescription, metadata, seo{ description, meta_description, metaDescription }, slug, _type, featuredImage, tags[]->{ _id, title }, published_at, external_url, content, markdown, galleryImages, pdfFile{ asset->{url,_ref} } }`
 }
 
 // Reactive state

@@ -10,6 +10,9 @@ dist
 .vite/
 .cache/
 
+# Editor settings
+.vscode/
+
 # generated types
 .astro/
 

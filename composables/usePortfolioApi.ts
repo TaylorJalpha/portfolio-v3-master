@@ -25,8 +25,10 @@ interface PortfolioItem {
   title: string
   description?: string
   meta_description?: string
+  // Some datasets use camelCase for this field
+  metaDescription?: string
   metadata?: any
-  seo?: { description?: string }
+  seo?: { description?: string; meta_description?: string; metaDescription?: string }
   // In Sanity documents, slug is usually { current: string }. We normalize to string when possible.
   slug: any
   _type?: string
@@ -82,7 +84,11 @@ export interface PortfolioDetailResponse { data: PortfolioItemDetail }
 export function resolveMetaDescription(item: PortfolioItem | PortfolioItemDetail | null | undefined): string {
   if (!item) return ''
   return (
+    // Prefer explicit SEO meta description fields
     item.meta_description ||
+    (item as any).metaDescription ||
+    item.seo?.meta_description ||
+    item.seo?.metaDescription ||
     item.seo?.description ||
     (typeof item.metadata === 'string' ? item.metadata : item.metadata?.description) ||
     item.description ||
@@ -147,7 +153,7 @@ export const usePortfolioApi = () => {
     const draftFilter = previewMode ? '' : ' && !(_id in path(\'drafts.**\'))'
     
     // Select only the fields the UI needs; fetch assets via asset-> projection to lift url.
-  const query = `*[_type in ["project", "caseStudy", "blogPost"]${draftFilter}${filter}] | order(coalesce(datePublished, date, published_at, _createdAt) desc) [${start}...${end}] { _id, title, description, meta_description, metadata, seo{ description }, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, datePublished, date, published_at, _createdAt, external_url }`
+  const query = `*[_type in ["project", "caseStudy", "blogPost"]${draftFilter}${filter}] | order(coalesce(datePublished, date, published_at, _createdAt) desc) [${start}...${end}] { _id, title, description, meta_description, metaDescription, metadata, seo{ description, meta_description, metaDescription }, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, datePublished, date, published_at, _createdAt, external_url }`
     const result = await fetchSanityContent(query, previewMode)
     const docs: any[] = Array.isArray(result) ? result : (result?.data || [])
     const normalized = docs.map(d => normalizeItem(d))
@@ -185,8 +191,9 @@ export const usePortfolioApi = () => {
       title, 
       description, 
       meta_description, 
+      metaDescription,
       metadata, 
-      seo{ description }, 
+      seo{ description, meta_description, metaDescription }, 
       slug, 
       _type, 
       featuredImage{ asset->{_id, _ref, url} }, 

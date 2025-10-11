@@ -65,6 +65,7 @@
 <script lang="ts" setup>
 import { useSanityImageUrl } from '@/composables/useSanityImageUrl'
 import { computed } from 'vue'
+import { formatDisplayDate } from '@/lib/utils'
 // Define props once and reuse within this script
 const props = defineProps<{ item: any }>()
 
@@ -81,10 +82,7 @@ function mapType(type: string) {
 // Conditionally derive a short date for cards
 const displayDate = computed(() => {
   const raw = props.item?.datePublished || props.item?.date || props.item?.published_at
-  if (!raw) return ''
-  const d = new Date(raw)
-  if (isNaN(d.getTime())) return ''
-  return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
+  return formatDisplayDate(raw, { variant: 'short' })
 })
 </script>
 
