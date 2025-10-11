@@ -215,7 +215,7 @@ function buildPortfolioItemsQuery(params: { page?: number; per_page?: number; co
   const previewMode = params.preview || isPreview.value
   const draftFilter = previewMode ? '' : ' && !(_id in path(\'drafts.**\'))'
   
-  return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"]${draftFilter}${filter}] | order(coalesce(published_at, _createdAt) desc) [${start}...${end}] { _id, title, description, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, published_at, _createdAt, external_url }`
+  return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"]${draftFilter}${filter}] | order(coalesce(datePublished, date, published_at, _createdAt) desc) [${start}...${end}] { _id, title, description, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, datePublished, date, published_at, _createdAt, external_url }`
 }
 
 // Helper to build GROQ query for a single item

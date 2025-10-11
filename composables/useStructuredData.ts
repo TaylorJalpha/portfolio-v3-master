@@ -61,7 +61,7 @@ export function useStructuredData(itemRef: Ref<ItemLike | undefined | null>) {
     const image = item.featuredImage?.asset?.url
     const tags = (item.tags || []).map(t => t.title || t.name).filter(Boolean)
 
-    const base: Record<string, any> = {
+  const base: Record<string, any> = {
       '@context': 'https://schema.org',
       '@type': type,
       name: item.title || item.name,
@@ -84,7 +84,7 @@ export function useStructuredData(itemRef: Ref<ItemLike | undefined | null>) {
       base.articleSection = tags[0]
     }
 
-  const published = item.published_at || (item as any)._createdAt
+  const published = (item as any).datePublished || (item as any).date || item.published_at || (item as any)._createdAt
     if (published) base.datePublished = published
   const updated = item.updated_at || published
     if (updated) base.dateModified = updated
