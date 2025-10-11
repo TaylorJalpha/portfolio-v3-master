@@ -86,12 +86,26 @@ renderer.image = function(href: string, title: string | null, text: string) {
 
 // Override link rendering to handle external links properly
 renderer.link = function(href: string, title: string | null, text: string) {
-  const isExternal = href.startsWith('http') && !href.includes(window?.location?.hostname || '');
+  const hostname = (typeof window !== 'undefined' && window.location?.hostname) ? window.location.hostname : '';
+  const isExternal = href.startsWith('http') && (hostname ? !href.includes(hostname) : true);
   const targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
   const titleAttr = title ? ` title="${title}"` : '';
   const linkClass = 'text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline transition-colors duration-200';
   
   return `<a href="${href}" class="${linkClass}"${titleAttr}${targetAttr}>${text}</a>`;
+};
+
+// Override table rendering to ensure responsive layout and styling hooks
+renderer.table = function(header: string, body: string) {
+  const tableHtml = `
+    <div class="md-table-wrapper">
+      <table class="md-table">
+        <thead>${header}</thead>
+        <tbody>${body}</tbody>
+      </table>
+    </div>
+  `;
+  return tableHtml;
 };
 
 // Configure marked options
