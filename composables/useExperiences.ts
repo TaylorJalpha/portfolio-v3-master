@@ -12,7 +12,7 @@ export interface ExperienceItem {
 export function useExperiences() {
   const experiences = ref<ExperienceItem[]>([
     {
-      year: '2024-Current',
+      year: '2024-2025',
       title: 'Product Management Sabbatical',
       company: 'Consultant - Los Angeles, CA',
       description: 'Took time off to reassess priorities and deepen skills across product strategy, software development, AI/ML, cloud engineering, business strategy, and sales/customer acquisition.',
