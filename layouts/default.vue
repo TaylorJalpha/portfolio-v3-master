@@ -73,7 +73,7 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
                     </BlurFade>
                     <BlurFade in-view :delay="250">
                       <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                          Below is an timeline view of some of my experience as a product manager with core technical experience– Test your assumptions, world...
+                          Below is a timeline view of some of my experience as a product manager with core technical experience– Test your assumptions, world...
                       </p>
                     </BlurFade>
                 </div>
