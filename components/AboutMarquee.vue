@@ -85,31 +85,27 @@ const logoAlt = (src: string) => {
       <div class="marquee-row" aria-hidden="false">
         <div class="marquee-track">
           <div class="marquee-content">
-            <NuxtImg
+            <img
               v-for="(src, idx) in row1"
               :key="`r1-a-${idx}`"
               :src="src"
               :alt="logoAlt(src)"
-              class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition"
-              sizes="(max-width: 768px) 48px, 64px"
+              class="h-12 md:h-16 w-auto object-contain opacity-80 hover:opacity-100 transition"
               decoding="async"
               loading="lazy"
               fetchpriority="low"
-              fit="contain"
             />
           </div>
           <div class="marquee-content" aria-hidden="true">
-            <NuxtImg
+            <img
               v-for="(src, idx) in row1"
               :key="`r1-b-${idx}`"
               :src="src"
               :alt="logoAlt(src)"
-              class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition"
-              sizes="(max-width: 768px) 48px, 64px"
+              class="h-12 md:h-16 w-auto object-contain opacity-80 hover:opacity-100 transition"
               decoding="async"
               loading="lazy"
               fetchpriority="low"
-              fit="contain"
             />
           </div>
         </div>
@@ -121,31 +117,27 @@ const logoAlt = (src: string) => {
       <div class="marquee-row" data-reverse>
         <div class="marquee-track">
           <div class="marquee-content">
-            <NuxtImg
+            <img
               v-for="(src, idx) in row2"
               :key="`r2-a-${idx}`"
               :src="src"
               :alt="logoAlt(src)"
-              class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition"
-              sizes="(max-width: 768px) 48px, 64px"
+              class="h-12 md:h-16 w-auto object-contain opacity-80 hover:opacity-100 transition"
               decoding="async"
               loading="lazy"
               fetchpriority="low"
-              fit="contain"
             />
           </div>
           <div class="marquee-content" aria-hidden="true">
-            <NuxtImg
+            <img
               v-for="(src, idx) in row2"
               :key="`r2-b-${idx}`"
               :src="src"
               :alt="logoAlt(src)"
-              class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition"
-              sizes="(max-width: 768px) 48px, 64px"
+              class="h-12 md:h-16 w-auto object-contain opacity-80 hover:opacity-100 transition"
               decoding="async"
               loading="lazy"
               fetchpriority="low"
-              fit="contain"
             />
           </div>
         </div>
@@ -188,7 +180,7 @@ const logoAlt = (src: string) => {
   padding-right: var(--gap);
 }
 
-/* Prevent individual logos (NuxtImg <picture> roots) from shrinking */
+/* Prevent individual logos (image elements) from shrinking */
 .marquee-content > * {
   flex: 0 0 auto;
   min-width: 48px; /* match small size */

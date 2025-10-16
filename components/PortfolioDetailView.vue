@@ -36,10 +36,10 @@ const formattedDate = computed(() => {
 
 <template>
   <div class="portfolio-detail overflow-x-hidden">
-    <h1 class="text-3xl font-bold mb-2">{{ item.title }}</h1>
-    <p class="text-lg text-gray-500 mb-2">{{ item.description }}</p>
+  <h1 class="text-3xl font-bold mb-3 md:mb-4">{{ item.title }}</h1>
+  <p class="text-lg text-gray-500 mb-3 md:mb-4">{{ item.description }}</p>
     <!-- Conditional Published Date -->
-    <div v-if="formattedDate" class="flex items-center gap-2 text-sm text-gray-400 mb-4">
+    <div v-if="formattedDate" class="flex items-center gap-2 text-sm text-gray-400 mb-5">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
         <path d="M6 2a1 1 0 0 1 1 1v1h6V3a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1V3a1 1 0 1 1 2 0v1Zm11 6H3v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8Z"/>
       </svg>

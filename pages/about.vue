@@ -30,7 +30,7 @@
         </BlurFade>
         <BlurFade :delay="300">
           <div class="mt-6 md:mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
-            <button @click="scrollToBento" class="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-sm font-medium text-white/85 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50">
+            <button @click="scrollToBento" class="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-sm font-medium text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50">
               <span class="relative z-10 flex items-center gap-2">
                 <span class="h-2 w-2 rounded-full bg-gradient-to-r from-[#667eea] to-[#E63946] animate-pulse"></span>
                 Product Approach
@@ -40,7 +40,7 @@
               </span>
               <span class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 bg-gradient-to-r from-[#667eea]/30 via-[#E63946]/20 to-transparent blur transition" />
             </button>
-            <button @click="scrollToAbout" class="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-sm font-medium text-white/85 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50">
+            <button @click="scrollToAbout" class="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-sm font-medium text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50">
               <span class="relative z-10 flex items-center gap-2">
                 <span class="h-2 w-2 rounded-full bg-gradient-to-r from-[#667eea] to-[#E63946] animate-pulse"></span>
                  More About Me
@@ -96,11 +96,6 @@
               />
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#0f172a]/40 via-transparent to-[#667eea]/20" aria-hidden="true" />
             </AuroraBackground>
-            <BlurFade :delay="360" class="mt-4">
-              <p class="text-neutral-100/85 leading-relaxed text-base sm:text-lg">
-               🚴 When I'm not working I'm usually riding my bike , exploring LA, or hacking away on a side project.
-              </p>
-            </BlurFade>
           </div>
           <div class="order-1 lg:order-2 space-y-6">
             <BlurFade v-for="(para, i) in narrative" :key="i" :delay="320 + i*240" class="will-change-transform">
@@ -390,7 +385,8 @@ const narrative = [
   'My approach to product development begins with structured continuous product discovery, immersing in customer goals, validating hypotheses with rapid testing, and iterating, and shaping products that hold up to pricing, revenue, and go-to-market scrutiny.',
   'Recent epochs have been intentionally split between consulting, focused learning, and building: completing a product leadership certification (PLC), sharpening Vue/Nuxt and AWS fundamentals, and broadening AI/ML knowledge so I can contribute deeper insight with engineering and data science stakeholders.',
   'Right now I’m a part-time Technical Co-Director and Technical PM at OneSynergee, helping an environmental startup prioritize the roadmap, formalize delivery rituals, and align data, design, and engineering on durable operating cadence.',
-  'If we collaborate, you can expect clarity around objectives, principled curiosity for the user, and an insistence on shipping outcomes that compound value for the business and the teams shipping the work.'
+  'If we collaborate, you can expect clarity around objectives, principled curiosity for the user, and an insistence on shipping outcomes that compound value for the business and the teams shipping the work.',
+  'When I\'m not working I\'m usually riding my bike 🚴, exploring LA, or hacking away on a side project.'
 ]
 
 

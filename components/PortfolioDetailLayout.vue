@@ -59,7 +59,7 @@ const formattedDate = computed(() => {
 <template>
   <div class="portfolio-detail overflow-x-hidden">
     <h1 class="text-3xl font-bold mb-2">{{ item.title }}</h1>
-    <p class="text-lg text-gray-500 mb-2">{{ item.description }}</p>
+  <p class="text-lg text-gray-500 mb-2">{{ item.description }}</p>
     <!-- Conditional Published Date -->
     <div v-if="formattedDate" class="flex items-center gap-2 text-sm text-gray-400 mb-4">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">

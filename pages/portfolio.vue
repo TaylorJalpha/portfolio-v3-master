@@ -25,10 +25,10 @@
             <button
               @click="filterByType('')"
               :class="[
-                'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
+                'relative inline-flex items-center gap-2 px-6 py-3 rounded-full border text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50',
                 selectedFilter === '' 
-                  ? 'bg-[#E63946] text-white shadow-lg' 
-                  : 'bg-gray-800 text-gray-300 border border-gray-600 hover:bg-gray-700 hover:border-gray-500'
+                  ? 'bg-[#E63946] text-white border-[#E63946] shadow-lg' 
+                  : 'border-white/10 bg-white/5 text-white'
               ]"
             >
               All Projects
@@ -36,10 +36,10 @@
             <button
               @click="filterByType('project')"
               :class="[
-                'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
+                'relative inline-flex items-center gap-2 px-6 py-3 rounded-full border text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50',
                 selectedFilter === 'project' 
-                  ? 'bg-[#E63946] text-white shadow-lg' 
-                  : 'bg-gray-800 text-gray-300 border border-gray-600 hover:bg-gray-700 hover:border-gray-500'
+                  ? 'bg-[#E63946] text-white border-[#E63946] shadow-lg' 
+                  : 'border-white/10 bg-white/5 text-white'
               ]"
             >
               Projects
@@ -47,10 +47,10 @@
             <button
               @click="filterByType('caseStudy')"
               :class="[
-                'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
+                'relative inline-flex items-center gap-2 px-6 py-3 rounded-full border text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50',
                 selectedFilter === 'caseStudy' 
-                  ? 'bg-[#E63946] text-white shadow-lg' 
-                  : 'bg-gray-800 text-gray-300 border border-gray-600 hover:bg-gray-700 hover:border-gray-500'
+                  ? 'bg-[#E63946] text-white border-[#E63946] shadow-lg' 
+                  : 'border-white/10 bg-white/5 text-white'
               ]"
             >
               Case Studies
@@ -58,10 +58,10 @@
             <button
               @click="filterByType('blogPost')"
               :class="[
-                'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
+                'relative inline-flex items-center gap-2 px-6 py-3 rounded-full border text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50',
                 selectedFilter === 'blogPost' 
-                  ? 'bg-[#E63946] text-white shadow-lg' 
-                  : 'bg-gray-800 text-gray-300 border border-gray-600 hover:bg-gray-700 hover:border-gray-500'
+                  ? 'bg-[#E63946] text-white border-[#E63946] shadow-lg' 
+                  : 'border-white/10 bg-white/5 text-white'
               ]"
             >
               Blog Posts
