@@ -34,7 +34,7 @@
               <p
                 class="mt-2 max-w-lg text-lg/7 text-gray-600 max-lg:text-center"
               >
-                Leverage Agile, Scrum, and pragmatic process design—paired with clear communication—to deliver predictable outcomes and de‑risk execution.
+                Leverage Agile, Scrum, and pragmatic process design—paired with clear communication to deliver predictable outcomes and de‑risk execution.
               </p>
             </div>
             <div
@@ -102,7 +102,7 @@
               <p
                 class="mt-2 max-w-lg text-lg/7 text-gray-600 max-lg:text-center"
               >
-                I Prioritize security across initiatives and drive controls to prevent vulnerabilities—protecting data, systems, and people.
+                I Prioritize security across initiatives and implement controls to prevent vulnerabilities—protecting data, systems, and people.
               </p>
             </div>
             <div
@@ -135,7 +135,7 @@
               <p
                 class="mt-2 max-w-lg text-lg/7 text-gray-600 max-lg:text-center"
               >
-                I lead API‑first integrations and love wiring scalable REST and GraphQL services—from Stripe and Plaid to PayPal, Airtable, Salesforce, and more—to unlock business capability.
+                I promote API‑first integrations, wiring scalable REST and GraphQL services—from Stripe and Plaid to PayPal, Airtable, Salesforce and more; unlock business capability without the complexity of a monolithic architecture.
               </p>
             </div>
             <div class="relative min-h-[30rem] w-full grow">
