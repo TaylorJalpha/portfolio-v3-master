@@ -116,7 +116,7 @@
           </p>
         </BlurFade>
 
-        <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6" role="list">
+  <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 xl:gap-8" role="list">
           <BlurFade v-for="(group, gi) in groupedTools" :key="group.label" :delay="260 + gi*90">
             <article role="listitem" class="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-5 sm:p-6 lg:p-7 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.1] hover:shadow-[0_24px_45px_-26px_rgba(102,126,234,0.85)]">
               <span
@@ -178,7 +178,7 @@
                 <p class="mt-4 text-sm sm:text-base leading-relaxed text-neutral-200/85">
                   {{ group.description }}
                 </p>
-                <ul class="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2" role="list">
+                <ul class="mt-6 grid grid-cols-2 gap-2 max-[420px]:grid-cols-1" role="list">
                   <li v-for="tool in group.items" :key="tool">
                     <span class="inline-flex items-center gap-2 rounded-md border border-white/5 bg-white/[0.06] px-3 py-1.5 text-xs sm:text-sm font-medium text-white/80 transition duration-200 group-hover:border-white/12 group-hover:bg-white/[0.1]">
                       <span class="h-1.5 w-1.5 rounded-sm" :style="{ backgroundColor: toolboxAccent.dot }"></span>
