@@ -35,6 +35,10 @@ const navigateToPortfolio = () => {
   router.push('/portfolio')
 }
 
+const navigateToAbout = () => {
+  router.push('/about')
+}
+
 const socialLinks = [
   {
     name: 'LinkedIn',
@@ -170,6 +174,12 @@ const socialLinks = [
                   class="group text-left text-neutral-400 hover:text-white transition-colors duration-300 bg-transparent border-none cursor-pointer p-0 text-sm font-medium"
                 >
                   Portfolio
+                </button>
+                <button
+                  @click="navigateToAbout"
+                  class="group text-left text-neutral-400 hover:text-white transition-colors duration-300 bg-transparent border-none cursor-pointer p-0 text-sm font-medium"
+                >
+                  About
                 </button>
               </div>
             </div>
