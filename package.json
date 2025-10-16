@@ -2,11 +2,8 @@
   "name": "nuxt-app",
   "private": true,
   "type": "module",
-  "exports": {
-    "#internal/nuxt/paths": "./.nuxt/dist/server/server.mjs"
-  },
   "imports": {
-    "#internal/nuxt/paths": "./.nuxt/dist/server/server.mjs"
+    "#internal/nuxt/paths": "./node_modules/nuxt/dist/core/runtime/nitro/utils/paths.js"
   },
   "scripts": {
     "build": "nuxt build",
@@ -29,6 +26,7 @@
     "@portabletext/vue": "^1.0.14",
     "@sanity/client": "^7.11.1",
     "@sanity/image-url": "^1.2.0",
+  "@selemondev/vue3-marquee": "^0.0.9",
     "@vueuse/motion": "^3.0.3",
     "axios": "^1.7.9",
     "cobe": "^0.6.4",

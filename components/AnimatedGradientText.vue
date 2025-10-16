@@ -22,3 +22,22 @@ const className = cn(
     <slot />
   </div>
 </template>
+
+<style scoped>
+/* Provide the missing gradient animation used by the decorative border */
+.animate-gradient {
+  animation: animatedGradientX 6s linear infinite;
+}
+
+@keyframes animatedGradientX {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+</style>

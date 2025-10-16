@@ -17,7 +17,7 @@
         'gap-1 sm:gap-2',
         'text-xs sm:text-sm',
         'hover:bg-white/10 active:scale-95',
-        activeSection === 'home' 
+        (isHomeRoute && activeSection === 'home') 
           ? 'text-[#E63946] bg-white/10 shadow-lg' 
           : 'text-gray-300 hover:text-[#F1FAEE]'
       ]"
@@ -58,13 +58,35 @@
     <div class="w-px h-4 sm:h-6 bg-gray-500/30"></div>
 
     <button
+      @click="navigateToAbout"
+      class="font-semibold flex items-center focus:outline-none transition-all duration-200 rounded-full touch-manipulation"
+      :class="[
+        'px-2 py-1.5 sm:px-3 sm:py-2',
+        'gap-1 sm:gap-2',
+        'text-xs sm:text-sm',
+        'hover:bg-white/10 active:scale-95',
+        currentRouteName === 'about' ? 'text-[#E63946] bg-white/10 shadow-lg' : 'text-gray-300 hover:text-[#F1FAEE]'
+      ]"
+      :aria-label="'Navigate to about page'"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" :class="['w-4 h-4 sm:w-5 sm:h-5','flex-shrink-0']">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 7.5a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 21a8.25 8.25 0 0115 0" />
+      </svg>
+      <span class="hidden sm:inline">About</span>
+    </button>
+
+    <div class="w-px h-4 sm:h-6 bg-gray-500/30"></div>
+
+    <button
       @click="navigateToPortfolio"
       class="font-semibold flex items-center focus:outline-none transition-all duration-200 rounded-full touch-manipulation"
       :class="[
         'px-2 py-1.5 sm:px-3 sm:py-2',
         'gap-1 sm:gap-2',
         'text-xs sm:text-sm',
-        'text-gray-300 hover:text-[#F1FAEE] hover:bg-white/10 active:scale-95'
+        'hover:bg-white/10 active:scale-95',
+        currentRouteName === 'portfolio' ? 'text-[#E63946] bg-white/10 shadow-lg' : 'text-gray-300 hover:text-[#F1FAEE]'
       ]"
       :aria-label="'Navigate to portfolio page'"
     >
@@ -74,15 +96,16 @@
       </svg>
       <span class="hidden sm:inline">Portfolio</span>
     </button>
-    <!-- About Me Nav Item -->
-  <!-- About button intentionally removed from floating nav per design -->
   </nav>
 </template>
 
 <script setup>
 const router = useRouter()
+const route = useRoute()
+const currentRouteName = computed(() => (route.name || '').toString().replace('-___slug', ''))
 const isVisible = ref(true) // Always visible now
 const activeSection = ref('home')
+const isHomeRoute = computed(() => currentRouteName.value === 'index')
 
 // Detect if on detail page (no experience section)
 const isDetailPage = computed(() => {
@@ -129,6 +152,11 @@ const navigateToAbout = () => {
 }
 
 const handleScroll = () => {
+  // Only compute Home/Experience highlighting on the home route
+  if (!isHomeRoute.value) {
+    activeSection.value = 'none'
+    return
+  }
   const scrollY = window.pageYOffset
   const viewportHeight = window.innerHeight
   
@@ -146,7 +174,7 @@ const handleScroll = () => {
       activeSection.value = 'home'
     }
   } else {
-    activeSection.value = scrollY < viewportHeight ? 'home' : 'home'
+    activeSection.value = 'home'
   }
 }
 

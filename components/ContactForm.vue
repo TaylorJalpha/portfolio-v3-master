@@ -162,11 +162,17 @@ export default defineComponent({
 
     onMounted(async () => {
       await fetchCSRFToken();
+      if (process.client) console.debug('[ContactForm] mounted, initial isOpen:', props.isOpen)
     });
 
     watch(() => props.isOpen, (newVal) => {
       isModalOpen.value = newVal;
+      if (process.client) console.debug('[ContactForm] props.isOpen changed:', newVal)
     });
+
+    watch(isModalOpen, (val) => {
+      if (process.client) console.debug('[ContactForm] isModalOpen changed:', val)
+    })
 
     return {
       isModalOpen,

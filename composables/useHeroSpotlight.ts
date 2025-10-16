@@ -99,11 +99,11 @@ export function useHeroSpotlight() {
       }
 
       // Normalize document into consistent shape
-      const normalized = normalizeItem(raw)
-      const typeSpecific = resolveTypeSpecificDescription(raw)
-      const description = '' // Only title needed for featured posts
-      const imageUrl = '' // Empty since we're using marquee instead of images
-      const linkUrl = resolveLinkUrl(normalized.content_type || normalized._type, normalized.slug)
+  const normalized = normalizeItem(raw)
+  const typeSpecific = resolveTypeSpecificDescription(raw)
+  const description = typeSpecific || resolveMetaDescription(normalized)
+  const imageUrl = normalized.featured_image_url || normalized.featuredImage?.asset?.url || raw?.featuredImage?.asset?.url || ''
+  const linkUrl = resolveLinkUrl(normalized.content_type || normalized._type, normalized.slug)
 
       return {
         title: normalized.title || 'Check it out!',
@@ -116,9 +116,9 @@ export function useHeroSpotlight() {
       
       // Return a fallback when API is not available (e.g., during build)
       return {
-        title: 'Check it out!',
-        description: '',
-        imageUrl: '',
+  title: 'Check it out!',
+  description: '',
+  imageUrl: '',
         linkUrl: '/portfolio'
       }
     }

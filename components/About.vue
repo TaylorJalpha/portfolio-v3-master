@@ -29,13 +29,10 @@
             </ul>
             <p class="text-sm font-light">
                 
- I bring a well-rounded perspective to any project or role – Driving strategy, build scalable web solutions, or unlock growth opportunities through customer acquisition
+ I bring a well-rounded perspective to any project or role–Driving strategy, build scalable web solutions, or unlock growth opportunities
             </p>
             <p class="text-sm font-light">
-                
             </p>
-            <!-- There should be a Learn More text that will link to the new About Me page -->
-            
-        </div>
+         </div>
     </Card>
 </template>
