@@ -221,7 +221,7 @@
                   </div>
                 </div>
                 <div class="flex-1 space-y-4">
-                  <h3 class="text-2xl font-semibold text-white/95">Unable to load spotlight right now</h3>
+                  <h3 class="text-2xl font-semibold text-white/95">Unable to load spotlight post right now</h3>
                   <p class="text-sm text-neutral-300 leading-relaxed max-w-2xl">
                     Something went wrong while fetching the latest featured work. You can still explore my portfolio to see recent projects and case studies.
                   </p>
