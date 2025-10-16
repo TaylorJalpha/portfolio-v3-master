@@ -43,7 +43,7 @@
             <button @click="scrollToAbout" class="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-sm font-medium text-white/85 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50">
               <span class="relative z-10 flex items-center gap-2">
                 <span class="h-2 w-2 rounded-full bg-gradient-to-r from-[#667eea] to-[#E63946] animate-pulse"></span>
-                More About Me
+                 More About Me
                 <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12l-7.5 7.5M3 12h18" />
                 </svg>
@@ -70,7 +70,7 @@
             Spotlight
           </span>
           <h2 class="mt-5 text-3xl sm:text-4xl font-semibold sm:font-bold tracking-tight text-white/95 leading-tight">
-            More About Me
+           More <AuroraText>About Me</AuroraText>
           </h2>
         </div>
       </BlurFade>
@@ -350,6 +350,7 @@ import Meteors from '@/components/Meteors.vue'
 import GrowthMiniChart from '@/components/GrowthMiniChart.vue'
 import AuroraBackground from '@/components/AuroraBackground.vue'
 import BentoGrid from '~/components/BentoGrid.vue'
+import AuroraText from '~/components/AuroraText.vue'
 
 const canonical = useCanonicalUrl('/about')
 definePageMeta({ layout: 'about' })
