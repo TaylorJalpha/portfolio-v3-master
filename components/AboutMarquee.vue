@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-defineOptions({ name: 'TechMarquee' });
+defineOptions({ name: 'AboutMarquee' });
 
 // Default icon set used for both rows unless overridden by props
 const defaultImages: string[] = [
@@ -54,6 +54,16 @@ const props = withDefaults(defineProps<{
 // Resolve rows with sensible fallbacks
 const row1 = computed<string[]>(() => props.row1Images?.length ? props.row1Images : (props.images?.length ? props.images : defaultImages));
 const row2 = computed<string[]>(() => props.row2Images?.length ? props.row2Images : defaultImages);
+// Generate accessible alt text from filename
+const logoAlt = (src: string) => {
+  try {
+    const file = (src.split('/').pop() || '').replace(/\.(svg|png|jpe?g|webp|gif)$/i, '')
+    const cleaned = file.replace(/[%_\-]+/g, ' ').replace(/\s+/g, ' ').trim()
+    return cleaned ? `${cleaned} logo` : 'technology logo'
+  } catch {
+    return 'technology logo'
+  }
+}
 </script>
 
 <template>
@@ -75,10 +85,32 @@ const row2 = computed<string[]>(() => props.row2Images?.length ? props.row2Image
       <div class="marquee-row" aria-hidden="false">
         <div class="marquee-track">
           <div class="marquee-content">
-            <img v-for="(src, idx) in row1" :key="`r1-a-${idx}`" :src="src" class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition" />
+            <NuxtImg
+              v-for="(src, idx) in row1"
+              :key="`r1-a-${idx}`"
+              :src="src"
+              :alt="logoAlt(src)"
+              class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition"
+              sizes="(max-width: 768px) 48px, 64px"
+              decoding="async"
+              loading="lazy"
+              fetchpriority="low"
+              fit="contain"
+            />
           </div>
           <div class="marquee-content" aria-hidden="true">
-            <img v-for="(src, idx) in row1" :key="`r1-b-${idx}`" :src="src" class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition" />
+            <NuxtImg
+              v-for="(src, idx) in row1"
+              :key="`r1-b-${idx}`"
+              :src="src"
+              :alt="logoAlt(src)"
+              class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition"
+              sizes="(max-width: 768px) 48px, 64px"
+              decoding="async"
+              loading="lazy"
+              fetchpriority="low"
+              fit="contain"
+            />
           </div>
         </div>
       </div>
@@ -89,10 +121,32 @@ const row2 = computed<string[]>(() => props.row2Images?.length ? props.row2Image
       <div class="marquee-row" data-reverse>
         <div class="marquee-track">
           <div class="marquee-content">
-            <img v-for="(src, idx) in row2" :key="`r2-a-${idx}`" :src="src" class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition" />
+            <NuxtImg
+              v-for="(src, idx) in row2"
+              :key="`r2-a-${idx}`"
+              :src="src"
+              :alt="logoAlt(src)"
+              class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition"
+              sizes="(max-width: 768px) 48px, 64px"
+              decoding="async"
+              loading="lazy"
+              fetchpriority="low"
+              fit="contain"
+            />
           </div>
           <div class="marquee-content" aria-hidden="true">
-            <img v-for="(src, idx) in row2" :key="`r2-b-${idx}`" :src="src" class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition" />
+            <NuxtImg
+              v-for="(src, idx) in row2"
+              :key="`r2-b-${idx}`"
+              :src="src"
+              :alt="logoAlt(src)"
+              class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition"
+              sizes="(max-width: 768px) 48px, 64px"
+              decoding="async"
+              loading="lazy"
+              fetchpriority="low"
+              fit="contain"
+            />
           </div>
         </div>
       </div>
@@ -130,6 +184,20 @@ const row2 = computed<string[]>(() => props.row2Images?.length ? props.row2Image
   display: flex;
   gap: var(--gap);
   flex: 0 0 auto;
+  /* Ensure the seam between duplicated blocks has the same spacing as between items */
+  padding-right: var(--gap);
+}
+
+/* Prevent individual logos (NuxtImg <picture> roots) from shrinking */
+.marquee-content > * {
+  flex: 0 0 auto;
+  min-width: 48px; /* match small size */
+}
+
+@media (min-width: 768px) {
+  .marquee-content > * {
+    min-width: 64px; /* match md size */
+  }
 }
 
 @keyframes marquee-scroll {

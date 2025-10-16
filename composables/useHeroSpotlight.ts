@@ -73,7 +73,7 @@ export function useHeroSpotlight() {
 
       }
 
-      // Fallback when there is no content in the dataset yet at all
+      // Fallback when there is no content in the dataset
       if (!raw || (typeof raw === 'object' && Object.keys(raw).length === 0)) {
 
         return {

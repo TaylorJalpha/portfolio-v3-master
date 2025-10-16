@@ -4,6 +4,13 @@ export default defineNuxtConfig({
   css: ['~/assets/css/tailwind.css', '~/assets/css/main.css'],
   compatibilityDate: '2024-10-16',
   plugins: ['~/plugins/portal-vue.js', '~/plugins/seo-robots.ts'], // Register plugins
+  image: {
+    // Allow remote hosts used in AboutMarquee logos
+    domains: ['app.imgforce.com', 'ik.imagekit.io'],
+    // Prefer modern formats where possible; Nuxt Image will negotiate fallbacks
+    format: ['avif', 'webp', 'png'],
+    quality: 80,
+  },
   
   // Runtime configuration for API
   runtimeConfig: {
@@ -29,6 +36,9 @@ export default defineNuxtConfig({
     // Handle prerender errors more gracefully
     prerender: {
       failOnError: false
+    },
+    externals: {
+      inline: ['vue']
     }
   },
   
