@@ -48,18 +48,12 @@ const formattedDate = computed(() => {
     <!-- Tags below description, styled like PortfolioCard -->
     <div v-if="item.tags && item.tags.length" class="mb-4">
       <div class="flex flex-wrap gap-1.5 sm:gap-2">
-        <span 
-          v-for="(tag, index) in item.tags.slice(0, 4)" 
-          :key="tag._id || tag.title" 
+        <span
+          v-for="tag in item.tags"
+          :key="tag._id || tag.title"
           class="inline-flex items-center px-2 py-1 bg-gray-800/50 border border-gray-600 text-gray-300 rounded-md text-xs font-medium hover:bg-gray-700/50 hover:border-gray-500 transition-colors duration-200"
         >
           {{ tag.title }}
-        </span>
-        <span 
-          v-if="item.tags.length > 4"
-          class="inline-flex items-center px-2 py-1 bg-gray-800/30 text-gray-400 rounded-md text-xs"
-        >
-          +{{ item.tags.length - 4 }}
         </span>
       </div>
     </div>
