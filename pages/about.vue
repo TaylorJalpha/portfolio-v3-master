@@ -29,8 +29,8 @@
           </div>
         </BlurFade>
         <BlurFade :delay="300">
-          <div class="mt-6 md:mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
-            <button @click="scrollToBento" class="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-sm font-medium text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50">
+          <div class="mt-6 md:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
+            <button @click="scrollToBento" class="group relative inline-flex w-full sm:w-auto justify-center items-center gap-2 px-8 py-4 sm:px-7 sm:py-3.5 lg:px-9 lg:py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-base font-semibold text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50">
               <span class="relative z-10 flex items-center gap-2">
                 <span class="h-2 w-2 rounded-full bg-gradient-to-r from-[#667eea] to-[#E63946] animate-pulse"></span>
                 Product Approach
@@ -40,7 +40,7 @@
               </span>
               <span class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 bg-gradient-to-r from-[#667eea]/30 via-[#E63946]/20 to-transparent blur transition" />
             </button>
-            <button @click="scrollToAbout" class="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-sm font-medium text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50">
+            <button @click="scrollToAbout" class="group relative inline-flex w-full sm:w-auto justify-center items-center gap-2 px-8 py-4 sm:px-7 sm:py-3.5 lg:px-9 lg:py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-base font-semibold text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50">
               <span class="relative z-10 flex items-center gap-2">
                 <span class="h-2 w-2 rounded-full bg-gradient-to-r from-[#667eea] to-[#E63946] animate-pulse"></span>
                  More About Me
