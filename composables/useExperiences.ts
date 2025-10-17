@@ -15,12 +15,12 @@ export function useExperiences() {
       year: '2025-Present',
       title: 'Technical Product Manager',
       company: 'OneSynergee - Los Angeles, California, United States',
-      description: 'Directing technical strategy for an international climate-focused program while elevating agile delivery standards across product engineering pods.',
+      description: 'Leading technical strategy for an international agri-tech and climate-focused program while elevating agile delivery standards across product engineering pods.',
       skills: ['Technical Strategy', 'Program Management', 'Market Research', 'Agile Coaching', 'Backlog Management', 'Sprint Planning', 'Roadmapping', 'Asana', 'Product Discovery', 'Cross-functional Leadership'],
       achievements: [
-        'Directing technical strategy and delivery standards for an international, climate-focused product engineering program aligned with program goals and agile best practices',
-        'Implementing structured agile workflows across cross-functional pods, guiding pod leads in backlog management, sprint planning, roadmapping, and progress tracking and prioritization using tools like Jira, Asana, and GitHub',
-        'Defining program goals into actionable technical tasks for 0-1 product development, facilitating product discovery and technical problem solving within Build and Scale teams while supporting business case validation'
+        'Shaped technical strategy and delivery standards for an international, agri-tech and climate-focused program.',
+        'Implemented structured agile workflows across pods; coached leads on backlog, sprints, roadmaps, and progress tracking (Jira/Asana/GitHub).',
+        'Translated program goals into 0→1 technical work; facilitated discovery and problem-solving across Build and Scale teams; supported business-case validation.'
       ]
     },
     {
