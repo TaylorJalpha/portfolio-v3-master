@@ -99,7 +99,7 @@
           </div>
           <div class="order-1 lg:order-2 space-y-6">
             <BlurFade v-for="(para, i) in narrative" :key="i" :delay="320 + i*240" class="will-change-transform">
-              <p class="text-neutral-100/85 leading-relaxed text-lg sm:text-xl">{{ para }}</p>
+              <p class="text-neutral-100/85 leading-relaxed text-lg sm:text-xl" v-html="para"></p>
             </BlurFade>
           </div>
         </div>
@@ -384,7 +384,7 @@ const narrative = [
   'I’m Taylor J. Ferguson, Los Angeles–based, but originally from East Setauket, NY. I’m a product and technical product manager with 8+ years translating ambiguous mandates into traction for fintech, consultancy, and emerging tech teams.',
   'My approach to product development begins with structured continuous product discovery, immersing in customer goals, validating hypotheses with rapid testing, and iterating, and shaping products that hold up to pricing, revenue, and go-to-market scrutiny.',
   'Recent epochs have been intentionally split between consulting, focused learning, and building: completing a product leadership certification (PLC), sharpening Vue/Nuxt and AWS fundamentals, and broadening AI/ML knowledge so I can contribute deeper insight with engineering and data science stakeholders.',
-  'Right now I’m a part-time Technical Co-Director and Technical PM at OneSynergee, helping an Agri-tech and Climate-focused environmental startup prioritize the roadmap, formalize delivery rituals, and align data, design, and engineering on durable operating cadence.',
+  'Right now I’m a part-time Technical Co-Director and Technical PM at OneSynergee, helping an <b>agri-tech and climate-focused startup</b> (fintech-adjacent), prioritize the roadmap, formalize delivery rituals, and align data, design, and engineering on durable operating cadence.',
   'If we collaborate, you can expect clarity around objectives, principled curiosity for the user, and an insistence on shipping outcomes that compound value for the business and the teams shipping the work.',
   'When I\'m not working I\'m usually riding my bike 🚴, exploring LA, or hacking away on a side project.'
 ]

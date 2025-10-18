@@ -181,13 +181,14 @@
       </div>
       <!-- Global ContactForm is mounted at app root -->
 
-      <img
+      <NuxtImg
         width="300"
         height="300"
-        :src="'./me/' + photoSrc"
+        :src="'/me/' + photoSrc"
         :key="photoSrc"
-        class="w-auto max-h-[300px] select-none absolute right-[-110px] bottom-[-20px] z-[-1] opacity-50 md:opacity-100 md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none"
-        alt="memoji of Taylor Ferguson"
+        class="w-auto max-h-[260px] select-none absolute right-[-80px] bottom-[-12px] z-[-1] opacity-50 md:opacity-100 md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none"
+        sizes="(max-width: 640px) 160px, (max-width: 1024px) 220px, 300px"
+        :alt="'memoji of Taylor Ferguson'"
       />
     </div>
   </Card>

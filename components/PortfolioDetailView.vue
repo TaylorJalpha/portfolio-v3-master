@@ -57,10 +57,12 @@ const formattedDate = computed(() => {
         </span>
       </div>
     </div>
-    <img
+    <NuxtImg
       v-if="item.featuredImage && item.featuredImage.asset"
       :src="imageUrl(item.featuredImage)"
       class="mb-6 rounded-xl w-full max-w-full max-h-96 object-cover"
+      sizes="(max-width:640px) 320px, 800px"
+      width="1200"
       style="display: block;"
     />
     <!-- Render Portable Text if available, else fallback to markdown -->
@@ -85,11 +87,13 @@ const formattedDate = computed(() => {
     <div v-if="item.galleryImages && item.galleryImages.length">
       <h2 class="text-xl font-semibold mt-8 mb-2">Gallery</h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <img
+        <NuxtImg
           v-for="(img, i) in item.galleryImages"
           :key="i"
           :src="imageUrl(img)"
           class="rounded-lg w-full max-w-full object-cover"
+          sizes="(max-width:640px) 320px, 800px"
+          width="800"
           style="display: block;"
         />
       </div>

@@ -66,7 +66,7 @@
 
             <!-- Featured Image -->
             <div v-if="featuredImageUrl" class="mb-4 flex justify-center">
-              <img :src="featuredImageUrl" alt="Project image" class="rounded-lg max-h-48 object-contain" />
+              <NuxtImg :src="featuredImageUrl" alt="Project image" class="rounded-lg max-h-48 object-contain" sizes="(max-width:640px) 320px, 640px" width="640" />
             </div>
 
             <!-- Project Details Paragraph -->
@@ -77,7 +77,7 @@
             <!-- Tech Used Icons -->
             <div v-if="item.techUsed?.length" class="mb-4 flex flex-wrap gap-2 items-center">
               <span v-for="tech in item.techUsed" :key="tech.name" class="inline-flex items-center px-2 py-1 bg-gray-100 rounded text-sm">
-                <img v-if="tech.icon" :src="tech.icon" :alt="tech.name" class="w-5 h-5 mr-1" />
+                <NuxtImg v-if="tech.icon" :src="tech.icon" :alt="tech.name" class="w-5 h-5 mr-1" sizes="24px" width="24" />
                 {{ tech.name }}
               </span>
             </div>
@@ -97,7 +97,7 @@
 
             <!-- Screenshots -->
             <div v-if="item.screenshots?.length" class="mb-4 grid grid-cols-2 gap-2">
-              <img v-for="src in item.screenshots" :key="src" :src="src" class="rounded-lg w-full h-32 object-cover" />
+              <NuxtImg v-for="src in item.screenshots" :key="src" :src="src" class="rounded-lg w-full h-32 object-cover" sizes="(max-width:640px) 320px, 800px" width="800" />
             </div>
           </div>
         </div>

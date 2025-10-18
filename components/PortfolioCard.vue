@@ -2,10 +2,12 @@
   <div class="group relative bg-[#171717] rounded-xl shadow-xl border border-gray-600 overflow-hidden hover:scale-[1.02] hover:shadow-2xl hover:border-gray-500 transition-all duration-300 h-full flex flex-col min-h-[420px] sm:min-h-[450px] lg:min-h-[440px]">
     <!-- Image Container with consistent aspect ratio -->
     <div class="relative overflow-hidden bg-gray-800">
-      <img 
+      <NuxtImg 
         :src="imageUrl(item.featuredImage)" 
         :alt="`${item.title} preview image`" 
         class="w-full h-48 sm:h-52 lg:h-48 xl:h-44 object-cover group-hover:scale-105 transition-transform duration-500" 
+        sizes="(max-width: 640px) 320px, (max-width: 1024px) 640px, 1024px"
+        width="1024"
         loading="lazy"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

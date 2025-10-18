@@ -85,7 +85,7 @@ const logoAlt = (src: string) => {
       <div class="marquee-row" aria-hidden="false">
         <div class="marquee-track">
           <div class="marquee-content">
-            <img
+            <NuxtImg
               v-for="(src, idx) in row1"
               :key="`r1-a-${idx}`"
               :src="src"
@@ -94,10 +94,11 @@ const logoAlt = (src: string) => {
               decoding="async"
               loading="lazy"
               fetchpriority="low"
+              sizes="(max-width:640px) 48px, (max-width:1024px) 64px, 96px"
             />
           </div>
           <div class="marquee-content" aria-hidden="true">
-            <img
+            <NuxtImg
               v-for="(src, idx) in row1"
               :key="`r1-b-${idx}`"
               :src="src"
@@ -106,6 +107,7 @@ const logoAlt = (src: string) => {
               decoding="async"
               loading="lazy"
               fetchpriority="low"
+              sizes="(max-width:640px) 48px, (max-width:1024px) 64px, 96px"
             />
           </div>
         </div>
@@ -117,7 +119,7 @@ const logoAlt = (src: string) => {
       <div class="marquee-row" data-reverse>
         <div class="marquee-track">
           <div class="marquee-content">
-            <img
+            <NuxtImg
               v-for="(src, idx) in row2"
               :key="`r2-a-${idx}`"
               :src="src"
@@ -126,10 +128,11 @@ const logoAlt = (src: string) => {
               decoding="async"
               loading="lazy"
               fetchpriority="low"
+              sizes="(max-width:640px) 48px, (max-width:1024px) 64px, 96px"
             />
           </div>
           <div class="marquee-content" aria-hidden="true">
-            <img
+            <NuxtImg
               v-for="(src, idx) in row2"
               :key="`r2-b-${idx}`"
               :src="src"
@@ -138,6 +141,7 @@ const logoAlt = (src: string) => {
               decoding="async"
               loading="lazy"
               fetchpriority="low"
+              sizes="(max-width:640px) 48px, (max-width:1024px) 64px, 96px"
             />
           </div>
         </div>

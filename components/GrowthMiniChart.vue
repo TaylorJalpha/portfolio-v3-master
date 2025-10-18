@@ -19,10 +19,17 @@ const props = withDefaults(defineProps<Props>(), {
 
 const rootRef = ref<HTMLElement | null>(null)
 const started = ref(false)
+const prefersReducedMotion = ref(false)
 let io: IntersectionObserver | null = null
 
 onMounted(() => {
   if (typeof window === 'undefined') return
+  try { prefersReducedMotion.value = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches } catch {}
+  if (prefersReducedMotion.value) {
+    // If user prefers reduced motion, render static bars immediately
+    started.value = true
+    return
+  }
   if (!('IntersectionObserver' in window)) {
     started.value = true
     return
