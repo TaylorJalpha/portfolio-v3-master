@@ -85,7 +85,7 @@ const logoAlt = (src: string) => {
       <div class="marquee-row" aria-hidden="false">
         <div class="marquee-track">
           <div class="marquee-content">
-            <NuxtImg
+            <img
               v-for="(src, idx) in row1"
               :key="`r1-a-${idx}`"
               :src="src"
@@ -93,12 +93,11 @@ const logoAlt = (src: string) => {
               class="h-12 md:h-16 w-auto object-contain opacity-80 hover:opacity-100 transition"
               decoding="async"
               loading="lazy"
-              fetchpriority="low"
               sizes="(max-width:640px) 48px, (max-width:1024px) 64px, 96px"
             />
           </div>
           <div class="marquee-content" aria-hidden="true">
-            <NuxtImg
+            <img
               v-for="(src, idx) in row1"
               :key="`r1-b-${idx}`"
               :src="src"
@@ -106,7 +105,6 @@ const logoAlt = (src: string) => {
               class="h-12 md:h-16 w-auto object-contain opacity-80 hover:opacity-100 transition"
               decoding="async"
               loading="lazy"
-              fetchpriority="low"
               sizes="(max-width:640px) 48px, (max-width:1024px) 64px, 96px"
             />
           </div>
@@ -119,7 +117,7 @@ const logoAlt = (src: string) => {
       <div class="marquee-row" data-reverse>
         <div class="marquee-track">
           <div class="marquee-content">
-            <NuxtImg
+            <img
               v-for="(src, idx) in row2"
               :key="`r2-a-${idx}`"
               :src="src"
@@ -127,12 +125,11 @@ const logoAlt = (src: string) => {
               class="h-12 md:h-16 w-auto object-contain opacity-80 hover:opacity-100 transition"
               decoding="async"
               loading="lazy"
-              fetchpriority="low"
               sizes="(max-width:640px) 48px, (max-width:1024px) 64px, 96px"
             />
           </div>
           <div class="marquee-content" aria-hidden="true">
-            <NuxtImg
+            <img
               v-for="(src, idx) in row2"
               :key="`r2-b-${idx}`"
               :src="src"
@@ -140,7 +137,6 @@ const logoAlt = (src: string) => {
               class="h-12 md:h-16 w-auto object-contain opacity-80 hover:opacity-100 transition"
               decoding="async"
               loading="lazy"
-              fetchpriority="low"
               sizes="(max-width:640px) 48px, (max-width:1024px) 64px, 96px"
             />
           </div>
