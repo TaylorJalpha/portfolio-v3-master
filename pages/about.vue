@@ -4,9 +4,9 @@
       <Meteors :number="28" />
     </div>
 
-  <div class="relative mx-auto max-w-5xl px-6 pb-12 pt-28 sm:pt-32 lg:pt-36">
+  <div class="relative mx-auto max-w-5xl px-6 pb-4 pt-12 sm:pb-12 sm:pt-32 lg:pt-36">
       <!-- Hero / Intro -->
-  <header class="space-y-10 sm:space-y-12 max-w-4xl relative z-10 pb-6 md:pb-8" aria-labelledby="about-hero-title">
+  <header class="space-y-6 sm:space-y-12 max-w-4xl relative z-10 pb-4 md:pb-8" aria-labelledby="about-hero-title">
         <BlurFade :delay="120" class="inline-block">
           <AnimatedGradientText class="text-xs tracking-wide uppercase">About Me</AnimatedGradientText>
         </BlurFade>
@@ -29,7 +29,7 @@
           </div>
         </BlurFade>
         <BlurFade :delay="300">
-          <div class="mt-6 md:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
+          <div class="mt-4 md:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
             <button @click="scrollToBento" class="group relative inline-flex w-full sm:w-auto justify-center items-center gap-2 px-8 py-4 sm:px-7 sm:py-3.5 lg:px-9 lg:py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-base font-semibold text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50">
               <span class="relative z-10 flex items-center gap-2">
                 <span class="h-2 w-2 rounded-full bg-gradient-to-r from-[#667eea] to-[#E63946] animate-pulse"></span>
