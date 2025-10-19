@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, watch, ref } from 'vue';
+import { animate, spring } from 'motion';
 
 defineOptions({ name: 'AboutMarquee' });
 
@@ -32,16 +33,13 @@ const defaultImages: string[] = [
 ];
 
 const props = withDefaults(defineProps<{
-  // Icon rows (override to customize). If not provided, fall back to defaultImages.
   row1Images?: string[];
   row2Images?: string[];
-  // Back-compat (ignored if row*Images provided)
-  images?: string[]; // legacy single row images
-  // Optional overrides for the heading
+  images?: string[];
   title?: string;
   subtitle?: string;
-  // If true, ignore prefers-reduced-motion and force animation
   forceMotion?: boolean;
+  inView?: boolean;
 }>(), {
   row1Images: undefined,
   row2Images: undefined,
@@ -49,7 +47,27 @@ const props = withDefaults(defineProps<{
   title: () => "Tech used throughout my product career",
   subtitle: () => "Experience across major stacks and languages as a product manager, and experience building personally with Rails, HTML/CSS, AWS/Heroku, Vue/Nuxt, React, Flutter, and more, but I know my limitations - I'm always learning!",
   forceMotion: false,
+  inView: false,
 });
+// Animation for title/subtitle
+const marqueeHeaderRef = ref<HTMLElement | null>(null)
+const marqueeSubtitleRef = ref<HTMLElement | null>(null)
+
+watch(() => props.inView, (inView) => {
+  if (inView && marqueeHeaderRef.value) {
+    animate(marqueeHeaderRef.value, { y: ["40%", "0%"], opacity: [0, 1] }, {
+      duration: 0.5,
+      easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
+    })
+  }
+  if (inView && marqueeSubtitleRef.value) {
+    animate(marqueeSubtitleRef.value, { y: ["40%", "0%"], opacity: [0, 1] }, {
+      duration: 0.5,
+      delay: 0.2,
+      easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
+    })
+  }
+})
 
 // Resolve rows with sensible fallbacks
 const row1 = computed<string[]>(() => props.row1Images?.length ? props.row1Images : (props.images?.length ? props.images : defaultImages));
@@ -73,10 +91,10 @@ const logoAlt = (src: string) => {
   <br />
   <section id="technologies used and tech stacks" class="max-w-[75%] mx-auto pb-24 sm:pb-32" :class="{ 'force-motion': forceMotion }">
     <header class="mx-auto mb-8 max-w-3xl text-center">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
+      <h2 ref="marqueeHeaderRef" class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-100" style="opacity:0; transform:translateY(40%)">
         {{ title }}
       </h2>
-      <p v-if="subtitle" class="mt-3 text-base sm:text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+      <p v-if="subtitle" ref="marqueeSubtitleRef" class="mt-3 text-base sm:text-lg leading-relaxed text-gray-600 dark:text-gray-400" style="opacity:0; transform:translateY(40%)">
         {{ subtitle }}
       </p>
     </header>

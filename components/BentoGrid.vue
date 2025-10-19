@@ -18,7 +18,7 @@
         Ship secure, reliable, and scalable products
       </p>
       <div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
-        <div class="relative lg:row-span-2">
+        <div class="relative lg:row-span-2 card">
           <div
             class="absolute inset-px rounded-lg bg-white lg:rounded-l-[2rem]"
           />
@@ -55,7 +55,7 @@
             class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-l-[2rem]"
           />
         </div>
-        <div class="relative max-lg:row-start-1">
+  <div class="relative max-lg:row-start-1 card">
           <div
             class="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem]"
           />
@@ -88,7 +88,7 @@
             class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem]"
           />
         </div>
-        <div class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
+  <div class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2 card">
           <div class="absolute inset-px rounded-lg bg-white" />
           <div
             class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)]"
@@ -119,7 +119,7 @@
             class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
           />
         </div>
-        <div class="relative lg:row-span-2">
+  <div class="relative lg:row-span-2 card">
           <div
             class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"
           />
@@ -205,11 +205,30 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import BlurFade from '@/components/BlurFade.vue'
+import { timeline, stagger, spring } from 'motion'
 
 const rootEl = ref<HTMLElement | null>(null)
 const inView = ref(false)
-
 let observer: IntersectionObserver | null = null
+
+// Animate cards in sequence when grid enters viewport
+const animateCards = () => {
+  const cards = rootEl.value?.querySelectorAll('.card')
+  if (!cards || cards.length === 0) return
+  // Convert NodeList to array and spread for timeline
+  timeline([
+    [
+      [...cards],
+      { y: ["40%", "0%"], opacity: [0, 1] },
+      {
+        at: "-0.1",
+        duration: 0.4,
+        delay: stagger(0.3),
+        easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
+      },
+    ],
+  ])
+}
 
 onMounted(() => {
   if (!rootEl.value) return
@@ -218,6 +237,7 @@ onMounted(() => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           inView.value = true
+          animateCards()
           if (observer && rootEl.value) observer.unobserve(rootEl.value)
         }
       })
