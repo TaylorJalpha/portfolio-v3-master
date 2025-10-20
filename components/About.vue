@@ -27,12 +27,13 @@
                 <li>UI/UX</li>
                 <li>Tailwind CSS | Bootstrap </li>
             </ul>
-            <p class="text-sm font-light">
-                
- I bring a well-rounded perspective to projects — aligning strategy, building scalable web solutions, and driving measurable growth
-            </p>
-            <p class="text-sm font-light">
-            </p>
+                        <!-- CTA: Learn more about me -->
+                        <NuxtLink to="/about" class="mt-4 inline-flex items-center gap-2 text-[#746CFF] hover:text-[#ff6b73] transition-colors text-sm font-medium">
+                                Learn more about me
+                                <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                        </NuxtLink>
          </div>
     </Card>
 </template>
