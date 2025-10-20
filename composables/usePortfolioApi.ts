@@ -123,7 +123,7 @@ export function normalizeItem(raw: any): PortfolioItemDetail {
 
 export const usePortfolioApi = () => {
   // Get preview state
-  const { isPreview } = usePreview()
+  // ...existing code...
 
   // Fetch portfolio items with pagination and filters
   // Contract
@@ -149,12 +149,11 @@ export const usePortfolioApi = () => {
     const end = start + (params.per_page || 12)
     
     // Include drafts in preview mode, exclude them in production
-    const previewMode = params.preview || isPreview.value
-    const draftFilter = previewMode ? '' : ' && !(_id in path(\'drafts.**\'))'
+  const draftFilter = ' && !(_id in path(\'drafts.**\'))'
     
     // Select only the fields the UI needs; fetch assets via asset-> projection to lift url.
   const query = `*[_type in ["project", "caseStudy", "blogPost"]${draftFilter}${filter}] | order(coalesce(datePublished, date, published_at, _createdAt) desc) [${start}...${end}] { _id, title, description, meta_description, metaDescription, metadata, seo{ description, meta_description, metaDescription }, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, datePublished, date, published_at, _createdAt, external_url }`
-    const result = await fetchSanityContent(query, previewMode)
+  const result = await fetchSanityContent(query, false)
     const docs: any[] = Array.isArray(result) ? result : (result?.data || [])
     const normalized = docs.map(d => normalizeItem(d))
     // Caution: total_count here is the page length, not the true collection size.
@@ -179,8 +178,7 @@ export const usePortfolioApi = () => {
   //   or special characters, consider escaping or using query parameters.
   const fetchPortfolioItem = async (idOrSlug: string, preview?: boolean): Promise<PortfolioDetailResponse> => {
     // Include drafts in preview mode, exclude them in production
-    const previewMode = preview || isPreview.value
-    const draftFilter = previewMode ? '' : ' && !(_id in path(\'drafts.**\'))'
+  const draftFilter = ' && !(_id in path(\'drafts.**\'))'
     
     // Escape any quotes in the slug to prevent query breakage
     const safeIdOrSlug = (idOrSlug || '').replace(/"/g, '\\"')
@@ -212,7 +210,7 @@ export const usePortfolioApi = () => {
       galleryImages[]{ asset->{_id, _ref, url} }, 
       pdfFile{ asset->{url,_ref} }
     }`
-    const raw = await fetchSanityContent(query, previewMode)
+  const raw = await fetchSanityContent(query, false)
     const data = normalizeItem(raw)
     return { data }
   }

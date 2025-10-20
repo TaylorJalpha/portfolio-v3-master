@@ -15,11 +15,10 @@ import { useBreadcrumbsLd } from '@/composables/useBreadcrumbsLd'
 const route = useRoute()
 const slugParam = Array.isArray(route.params.slug) ? route.params.slug[0] : route.params.slug as string
 const { fetchPortfolioItem } = usePortfolioApi()
-const { isPreview } = usePreview()
 
 const { data } = await useAsyncData(`case-${slugParam}`, async () => {
   try {
-    const result = await fetchPortfolioItem(slugParam, isPreview.value)
+    const result = await fetchPortfolioItem(slugParam, false)
     return result.data
   } catch (error) {
     console.error('Error fetching case study:', error)

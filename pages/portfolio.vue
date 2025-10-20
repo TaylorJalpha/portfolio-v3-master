@@ -200,7 +200,7 @@ useHead({
 })
 
 
-const { isPreview } = usePreview()
+// ...existing code...
 
 // Helper to build GROQ query for items
 function buildPortfolioItemsQuery(params: { page?: number; per_page?: number; content_type?: string; tag?: string; preview?: boolean }) {
@@ -212,8 +212,7 @@ function buildPortfolioItemsQuery(params: { page?: number; per_page?: number; co
   const end = start + (params.per_page || 12)
   
   // Include drafts in preview mode, exclude them in production
-  const previewMode = params.preview || isPreview.value
-  const draftFilter = previewMode ? '' : ' && !(_id in path(\'drafts.**\'))'
+  const draftFilter = ' && !(_id in path(\'drafts.**\'))'
   
   return `*[_type in [\"project\", \"caseStudy\", \"blogPost\"]${draftFilter}${filter}] | order(coalesce(datePublished, date, published_at, _createdAt) desc) [${start}...${end}] { _id, title, description, meta_description, metaDescription, seo{ description, meta_description, metaDescription }, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, datePublished, date, published_at, _createdAt, external_url }`
 }
@@ -277,8 +276,8 @@ async function loadPortfolioItems(reset = false) {
       ...(selectedTag.value && { tag: selectedTag.value })
     }
 
-    const query = buildPortfolioItemsQuery({ ...params, preview: isPreview.value })
-    const response = await fetchSanityContent(query, isPreview.value)
+  const query = buildPortfolioItemsQuery({ ...params, preview: false })
+  const response = await fetchSanityContent(query, false)
     console.log('Portfolio fetchSanityContent response:', response)
     // Apply de-duplication as a safety net in case backend returns overlapping docs
     if (reset) {
