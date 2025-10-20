@@ -3,7 +3,7 @@
         <div class="flex flex-col gap-2">
             <h2 class="text-xl font-bold m-0 z-20">About me</h2>
             <p class="text-sm font-light">
-                Product Manager (PMC/ PLC) with over 8 years of total experience
+                Product Manager (PMC/PLC) with 7+ years of experience delivering web and mobile products.
                 <br />
 
             </p>
@@ -29,7 +29,7 @@
             </ul>
             <p class="text-sm font-light">
                 
- I bring a well-rounded perspective to any project or role–Driving strategy, build scalable web solutions, or unlock growth opportunities
+ I bring a well-rounded perspective to projects — aligning strategy, building scalable web solutions, and driving measurable growth
             </p>
             <p class="text-sm font-light">
             </p>
