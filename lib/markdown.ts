@@ -199,6 +199,33 @@ export function renderMarkdown(md: string): string {
       const tocHtml = buildToc(headings);
       html = html.replaceAll(TOC_MARKER, tocHtml);
     }
+
+    // Sanitize HTML output for safe rendering
+    if (typeof window !== 'undefined') {
+      // Use DOMPurify in browser
+      let domPurifyInstance;
+      if (typeof (globalThis as any).DOMPurify !== 'undefined') {
+        domPurifyInstance = (globalThis as any).DOMPurify;
+      } else if ((window as any)['DOMPurify']) {
+        domPurifyInstance = (window as any)['DOMPurify'];
+      }
+      if (domPurifyInstance) {
+        html = domPurifyInstance.sanitize(html, { USE_PROFILES: { html: true } });
+      }
+    } else {
+      // SSR: require dompurify and jsdom
+      try {
+        // @ts-ignore
+        const createDOMPurify = require('dompurify');
+        // @ts-ignore
+        const { JSDOM } = require('jsdom');
+        const window = new JSDOM('').window;
+        const DOMPurify = createDOMPurify(window);
+        html = DOMPurify.sanitize(html, { USE_PROFILES: { html: true } });
+      } catch (e) {
+        // Fallback: return unsanitized HTML
+      }
+    }
     return html;
   } catch (error) {
     console.error('Error parsing markdown:', error);
