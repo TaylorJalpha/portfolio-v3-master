@@ -384,7 +384,6 @@
           <div
             class="rounded-3xl border border-white/12 bg-white/[0.03] p-6 sm:p-8"
           >
-            <!-- ...existing feature post logic... -->
             <template v-if="spotlightPending">
               <div class="flex flex-col gap-6 md:flex-row md:items-center">
                 <div
@@ -599,7 +598,7 @@ import AuroraText from "~/components/AuroraText.vue";
 const canonical = useCanonicalUrl("/about");
 definePageMeta({ layout: "about" });
 useHead({
-  title: "About | Taylor J. Ferguson",
+  title: "About | Taylor J. Ferguson - Dynamic Product Manager with Technical Expertise ",
   link: [{ rel: "canonical", href: canonical }],
   meta: [
     {

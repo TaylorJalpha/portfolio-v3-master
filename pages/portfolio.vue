@@ -179,7 +179,7 @@ import PortfolioNav from '~/components/PortfolioNav.vue'
 definePageMeta({ layout: 'portfolio' })
 // SEO defaults for portfolio listing page
 const canonical = useCanonicalUrl('/portfolio')
-const title = 'Portfolio'
+const title = 'Portfolio | Taylor J. Ferguson - Dynamic Product Manager with Technical Expertise '
 const description = 'A collection of projects, case studies, and blog posts by Taylor J. Ferguson.'
 const ogImage = computed(() => { try { const u = new URL(canonical); return `${u.origin}/me/me1.webp` } catch { return '/me/me1.webp' } })
 
