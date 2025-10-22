@@ -178,7 +178,6 @@ import PortfolioCardSkeleton from '~/components/PortfolioCardSkeleton.vue'
 import PortfolioNav from '~/components/PortfolioNav.vue'
 
 definePageMeta({ layout: 'portfolio' })
-// SEO defaults for portfolio listing page
 const canonical = useCanonicalUrl('/portfolio')
 const title = 'Portfolio | Taylor J. Ferguson - Product Manager with Technical Expertise'
 const description = 'A collection of projects, case studies, and blog posts by Taylor J. Ferguson.'
@@ -201,10 +200,10 @@ useHead({
 })
 
 
-// ...existing code...
+
 
 // Helper to build GROQ query for items
-function buildPortfolioItemsQuery(params: { page?: number; per_page?: number; content_type?: string; tag?: string; preview?: boolean }) {
+function buildPortfolioItemsQuery(params: { page?: number; per_page?: number; content_type?: string; tag?: string }) {
   let filter = ''
   if (params.content_type) filter += ` && _type == "${params.content_type}"`
   // tags are dereferenced with title; use that in filter
@@ -277,8 +276,8 @@ async function loadPortfolioItems(reset = false) {
       ...(selectedTag.value && { tag: selectedTag.value })
     }
 
-  const query = buildPortfolioItemsQuery({ ...params, preview: false })
-  const response = await fetchSanityContent(query, false)
+  const query = buildPortfolioItemsQuery({ ...params })
+  const response = await fetchSanityContent(query)
     console.log('Portfolio fetchSanityContent response:', response)
     // Apply de-duplication as a safety net in case backend returns overlapping docs
     if (reset) {
@@ -291,7 +290,6 @@ async function loadPortfolioItems(reset = false) {
     currentPage.value++
   } catch (error) {
     console.error('Failed to load portfolio items:', error)
-    // Fallback to mock data if API fails
     if (items.value.length === 0) {
       items.value = [
         {
@@ -319,20 +317,6 @@ function loadMore() {
   loadPortfolioItems()
 }
 
-async function openModal(item: any) {
-  try {
-    // Fetch detailed item data for modal
-  const query = buildPortfolioItemQuery(item.id)
-  const response = await fetchSanityContent(query)
-  selectedItem.value = response.data
-  modalOpen.value = true
-  } catch (error) {
-    console.error('Failed to fetch item details:', error)
-    // Fallback to basic item data
-    selectedItem.value = item
-    modalOpen.value = true
-  }
-}
 
 // Filter functions
 function filterByType(type: string) {

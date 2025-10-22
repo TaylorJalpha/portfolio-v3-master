@@ -15,16 +15,14 @@ const api = axios.create({
   },
 });
 
-export async function fetchSanityContent(query, preview = false) {
+export async function fetchSanityContent(query) {
   try {
     const response = await api.post('/api/fetch-sanity', { 
-      query,
-      preview: preview || false
+      query
     });
     
-    // Sanity returns shape { result, query, ms }. Normalize to return `result` directly.
-    // This ensures callers consistently receive either an array of docs or a single doc.
-    return response?.data?.result ?? response?.data;
+  // Sanity returns shape { result, query, ms }. Normalize to return `result` directly.
+  return response?.data?.result ?? response?.data;
   } catch (error) {
     console.error('Error fetching data from Rails API:', error);
     

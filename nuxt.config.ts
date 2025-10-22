@@ -16,7 +16,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // The private keys which are only available within server-side
     apiSecret: process.env.API_SECRET,
-    previewSecret: process.env.PREVIEW_SECRET,
+  // previewSecret removed
     // Keys within public, will be also exposed to the client-side
     public: {
       // Base site URL used for canonical and og:url (set NUXT_PUBLIC_SITE_URL / SITE_URL in env for production)

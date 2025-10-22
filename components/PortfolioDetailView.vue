@@ -66,28 +66,27 @@ const formattedDate = computed(() => {
       ref="titleView.root"
       :delay="100"
       :inView="titleIn"
-      class="text-3xl sm:text-4xl font-bold mb-4 text-white leading-tight"
+      class="text-3xl sm:text-4xl font-bold mb-4 text-gray-100 leading-tight"
     >
       {{ item.title }}
     </BlurFade>
 
-    <p :ref="descView.root">
-      <BlurFade :delay="180" :inView="descIn">
+    <BlurFade :delay="180" :inView="descIn">
+      <p ref="descView.root" class="text-lg text-gray-400 mb-6">
         {{ item.description }}
-      </BlurFade>
-    </p>
+      </p>
+    </BlurFade>
 
-    <div :ref="dateView.root">
-      <BlurFade :delay="260" :inView="dateIn">
-        <!-- Conditional Published Date -->
-        <div v-if="formattedDate" class="flex items-center gap-2 text-sm text-gray-400 mb-5">
+    <BlurFade :delay="260" :inView="dateIn">
+      <div ref="dateView.root" class="mb-2">
+        <div v-if="formattedDate" class="flex items-center gap-2 text-sm text-gray-400/80 mb-2">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
             <path d="M6 2a1 1 0 0 1 1 1v1h6V3a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1V3a1 1 0 1 1 2 0v1Zm11 6H3v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8Z"/>
           </svg>
           <span>Published {{ formattedDate }}</span>
         </div>
-      </BlurFade>
-    </div>
+      </div>
+    </BlurFade>
 
     <div :ref="tagsView.root">
       <BlurFade :delay="340" :inView="tagsIn">

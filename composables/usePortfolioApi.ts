@@ -122,7 +122,6 @@ export function normalizeItem(raw: any): PortfolioItemDetail {
 }
 
 export const usePortfolioApi = () => {
-  // Get preview state
   // ...existing code...
 
   // Fetch portfolio items with pagination and filters
@@ -135,31 +134,29 @@ export const usePortfolioApi = () => {
     per_page?: number
     content_type?: string
     tag?: string
-    preview?: boolean
   } = {}): Promise<PortfolioResponse> => {
-    // Build GROQ query for portfolio items
-    // Notes on GROQ:
-    // - We restrict to known types and exclude drafts to avoid duplicate draft+published documents.
-    // - Tag filter checks membership by resolving tag references and comparing their title.
-    // - Pagination is done via slicing [start...end].
+  // Build GROQ query for portfolio items
+  // Notes on GROQ:
+  // - We restrict to known types and exclude drafts to avoid duplicate draft+published documents.
+  // - Tag filter checks membership by resolving tag references and comparing their title.
+  // - Pagination is done via slicing [start...end].
     let filter = ''
     if (params.content_type) filter += ` && _type == "${params.content_type}"`
     if (params.tag) filter += ` && \"${params.tag}\" in tags[]->title`
     const start = ((params.page || 1) - 1) * (params.per_page || 12)
     const end = start + (params.per_page || 12)
     
-    // Include drafts in preview mode, exclude them in production
   const draftFilter = ' && !(_id in path(\'drafts.**\'))'
     
     // Select only the fields the UI needs; fetch assets via asset-> projection to lift url.
-  const query = `*[_type in ["project", "caseStudy", "blogPost"]${draftFilter}${filter}] | order(coalesce(datePublished, date, published_at, _createdAt) desc) [${start}...${end}] { _id, title, description, meta_description, metaDescription, metadata, seo{ description, meta_description, metaDescription }, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, datePublished, date, published_at, _createdAt, external_url }`
-  const result = await fetchSanityContent(query, false)
+    const query = `*[_type in ["project", "caseStudy", "blogPost"]${draftFilter}${filter}] | order(coalesce(datePublished, date, published_at, _createdAt) desc) [${start}...${end}] { _id, title, description, meta_description, metaDescription, metadata, seo{ description, meta_description, metaDescription }, slug, _type, featuredImage{ asset->{_id, url} }, tags[]->{ _id, title }, datePublished, date, published_at, _createdAt, external_url }`
+    const result = await fetchSanityContent(query)
     const docs: any[] = Array.isArray(result) ? result : (result?.data || [])
     const normalized = docs.map(d => normalizeItem(d))
-    // Caution: total_count here is the page length, not the true collection size.
-    // If you need the real total count for pagination UI, run a separate query such as:
-    // const countQuery = `count(*[_type in ["project", "caseStudy", "blogPost"] && !(_id in path('drafts.**'))${filter}])`
-    // const total_count = await fetchSanityContent(countQuery)
+  // Caution: total_count here is the page length, not the true collection size.
+  // If you need the real total count for pagination UI, run a separate query such as:
+  // const countQuery = `count(*[_type in ["project", "caseStudy", "blogPost"] && !(_id in path('drafts.**'))${filter}])`
+  // const total_count = await fetchSanityContent(countQuery)
     return {
       data: normalized as any,
       meta: {
@@ -176,9 +173,8 @@ export const usePortfolioApi = () => {
   // - Uses [0] at the end of the GROQ to return the first match only.
   // - Matches either slug.current or exact _id. If your slugs can contain quotes
   //   or special characters, consider escaping or using query parameters.
-  const fetchPortfolioItem = async (idOrSlug: string, preview?: boolean): Promise<PortfolioDetailResponse> => {
-    // Include drafts in preview mode, exclude them in production
-  const draftFilter = ' && !(_id in path(\'drafts.**\'))'
+  const fetchPortfolioItem = async (idOrSlug: string): Promise<PortfolioDetailResponse> => {
+    const draftFilter = ' && !(_id in path(\'drafts.**\'))'
     
     // Escape any quotes in the slug to prevent query breakage
     const safeIdOrSlug = (idOrSlug || '').replace(/"/g, '\\"')
@@ -210,7 +206,7 @@ export const usePortfolioApi = () => {
       galleryImages[]{ asset->{_id, _ref, url} }, 
       pdfFile{ asset->{url,_ref} }
     }`
-  const raw = await fetchSanityContent(query, false)
+  const raw = await fetchSanityContent(query)
     const data = normalizeItem(raw)
     return { data }
   }

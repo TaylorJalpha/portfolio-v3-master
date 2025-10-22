@@ -8,7 +8,6 @@ import FloatingNav from '~/components/FloatingNav.vue'
 import Footer from '~/components/Footer.vue'
 import BlurFade from '~/components/BlurFade.vue'
 
-
 const { experiences } = useExperiences()
 
 // New composable-driven animation (earlier reveal + smoother)
@@ -23,7 +22,7 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
 </script>
 
 <template>
-  <PreviewBanner />
+  <!-- PreviewBanner removed -->
   <FloatingNav />
   <div class="relative w-full min-h-screen bg-black pt-8 md:pt-12">
     <!-- Background gradient overlay -->
