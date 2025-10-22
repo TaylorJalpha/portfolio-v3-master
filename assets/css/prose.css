@@ -106,7 +106,7 @@
 .prose blockquote {
   border-left: 4px solid #E63946;
   padding-left: 1rem;
-  color: #555;
+  color: #d1d5db; /* Tailwind gray-300, matches .text-gray-400 in PortfolioDetailView */
   font-style: italic;
   margin: 1rem 0;
 }
