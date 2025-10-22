@@ -1,4 +1,5 @@
 <script setup lang='ts'>
+import { ref, defineExpose } from 'vue'
 interface BlurFadeProps {
   class?: string
   variant?: {
@@ -12,6 +13,7 @@ interface BlurFadeProps {
   inView?: boolean
   blur?: string
   inViewMargin?: string
+  tag?: string
 };
 
 const props = withDefaults(defineProps<BlurFadeProps>(), {
@@ -21,6 +23,7 @@ const props = withDefaults(defineProps<BlurFadeProps>(), {
   inView: false,
   inViewMargin: '-50px',
   blur: '6px',
+  tag: 'div',
 })
 const defaultVariants = {
   hidden: { y: props.yOffset, opacity: 0, filter: `blur(${props.blur})` },
@@ -47,13 +50,20 @@ const defaultVariants = {
 }
 
 const combinedVariants = props.variant || defaultVariants
+const rootEl = ref<HTMLElement | null>(null)
+defineExpose({ root: rootEl })
 </script>
 
 <template>
-  <div
-    v-motion :initial="combinedVariants.hidden" :visible="props.inView ? combinedVariants.visible : undefined"
-    :enter="!props.inView ? combinedVariants.enter : undefined" :class="props.class"
+  <component
+    :is="props.tag"
+    ref="rootEl"
+    v-motion
+    :initial="combinedVariants.hidden"
+    :visible="props.inView ? combinedVariants.visible : undefined"
+    :enter="!props.inView ? combinedVariants.enter : undefined"
+    :class="props.class"
   >
     <slot />
-  </div>
+  </component>
 </template>

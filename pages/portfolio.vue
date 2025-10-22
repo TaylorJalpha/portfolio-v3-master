@@ -87,9 +87,10 @@
       <div class="portfolio-grid auto-rows-fr">
         <!-- Actual portfolio cards -->
         <PortfolioCard
-          v-for="item in items"
+          v-for="(item, i) in items"
           :key="item._id || item.id"
           :item="{ ...item, content_type: item._type }"
+          :index="i"
           class="portfolio-card"
           @learn-more="goToDetail"
         />
@@ -173,6 +174,7 @@ function goToDetail(item: any) {
 import { fetchSanityContent } from '@/services/sanityApi'
 import Meteors from '~/components/Meteors.vue'
 import BlurFade from '~/components/BlurFade.vue'
+import InViewWrapper from '~/components/InViewWrapper.vue'
 import PortfolioCardSkeleton from '~/components/PortfolioCardSkeleton.vue'
 import PortfolioNav from '~/components/PortfolioNav.vue'
 
