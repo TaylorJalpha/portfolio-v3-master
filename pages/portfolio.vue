@@ -174,7 +174,6 @@ function goToDetail(item: any) {
 import { fetchSanityContent } from '@/services/sanityApi'
 import Meteors from '~/components/Meteors.vue'
 import BlurFade from '~/components/BlurFade.vue'
-import InViewWrapper from '~/components/InViewWrapper.vue'
 import PortfolioCardSkeleton from '~/components/PortfolioCardSkeleton.vue'
 import PortfolioNav from '~/components/PortfolioNav.vue'
 
