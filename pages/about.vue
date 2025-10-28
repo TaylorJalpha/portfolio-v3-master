@@ -218,8 +218,8 @@
             <p
               class="max-w-3xl text-lg sm:text-xl leading-relaxed text-[#9CA3AF]"
             >
-              Tag-based overview of my my chosen toolbox, and platforms I use to
-              orchestrate product delivery, product strategy, discovery, UI/UX
+              Overview of my my chosen toolbox, and platforms- Used to
+              coordinate product delivery, strategy, and discovery; UI/UX
               Design, collaboration, engineering/development, and data
               analytics.
             </p>
