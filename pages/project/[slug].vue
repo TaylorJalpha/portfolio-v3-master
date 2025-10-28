@@ -18,7 +18,7 @@ const { fetchPortfolioItem } = usePortfolioApi()
 
 const { data } = await useAsyncData(`project-${slugParam}`, async () => {
   try {
-    const result = await fetchPortfolioItem(slugParam, false)
+    const result = await fetchPortfolioItem(slugParam)
     return result.data
   } catch (error) {
     console.error('Error fetching portfolio item:', error)

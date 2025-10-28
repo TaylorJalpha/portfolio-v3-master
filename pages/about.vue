@@ -638,7 +638,7 @@ const spotlightImage = computed(() => {
 });
 
 const narrative = [
-  "I’m Taylor J. Ferguson, Los Angeles–based, but originally from East Setauket, NY. I’m a product and technical product manager with 8+ years translating ambiguous mandates into traction for fintech, consultancy, and emerging tech teams.",
+  "I’m Taylor J. Ferguson, Los Angeles–based, but originally from East Setauket, NY. I’m a product and technical product manager with 7+ years translating ambiguous mandates into traction for fintech, consultancy, and emerging tech teams.",
   "My approach to product development begins with structured continuous product discovery, immersing in customer goals, validating hypotheses with rapid testing, and iterating, and shaping products that hold up to pricing, revenue, and go-to-market scrutiny.",
   "Recent epochs have been intentionally split between consulting, focused learning, and building: completing a product leadership certification (PLC), sharpening Vue/Nuxt and AWS fundamentals, and broadening AI/ML knowledge so I can contribute deeper insight with engineering and data science stakeholders.",
   "Right now I’m a part-time Technical PM at OneSynergee, helping an <b>agri-tech and climate-focused startup</b> (fintech-adjacent), prioritize the roadmap, formalize delivery rituals, and align data, design, and engineering on durable operating cadence.",

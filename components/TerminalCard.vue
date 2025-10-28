@@ -89,9 +89,9 @@ const startAnimation = () => {
   hasRunOnce.value = true;
   cursorIntervalId = blinkCursor();
   dispatchStartEvent();
-  // small intentional delay for a nicer reveal after entering viewport
+  
   setTimeout(() => { 
-    runCounter++; // start a new run and invalidate any previous
+    runCounter++; // start a new run and invalidate any prev
     const thisRun = runCounter;
     typeText(thisRun); 
   }, 350);

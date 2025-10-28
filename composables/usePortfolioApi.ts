@@ -122,7 +122,7 @@ export function normalizeItem(raw: any): PortfolioItemDetail {
 }
 
 export const usePortfolioApi = () => {
-  // ...existing code...
+
 
   // Fetch portfolio items with pagination and filters
   // Contract
