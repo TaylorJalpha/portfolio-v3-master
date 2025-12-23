@@ -18,9 +18,10 @@ export function useExperiences() {
       description: 'Leading technical strategy for an international agri-tech and climate-focused program while elevating agile delivery standards across product engineering pods.',
       skills: ['Technical Strategy', 'Program Management', 'Market Research', 'Agile Coaching', 'Backlog Management', 'Sprint Planning', 'Roadmapping', 'Asana', 'Product Discovery', 'Cross-functional Leadership'],
       achievements: [
-        'Shaped technical strategy and delivery standards for an international, agri-tech and climate-focused program.',
-        'Implemented structured agile workflows across pods; coached leads on backlog, sprints, roadmaps, and progress tracking (Jira/Asana/GitHub).',
-        'Translated program goals into 0→1 technical work; facilitated discovery and problem-solving across Build and Scale teams; supported business-case validation.'
+        'Shaped technical strategy and delivery standards for an international, agri-tech and climate-focused initiative',
+        'Building a tokenized marketplace (RWA) for farmers to access new markets and harness the power of a decentralized ledger',
+        'Implemented structured agile workflows across pods; coached leads on backlog, sprints, roadmaps, and progress tracking (Jira/Asana/GitHub)',
+        'Translated program goals into 0→1 technical work; facilitated discovery and problem-solving across Build and Scale teams; supported business-case validation'
       ]
     },
     {
