@@ -260,8 +260,51 @@ body {
 /* Respect reduced motion settings */
 @media (prefers-reduced-motion: reduce) {
   .animate-aurora,
-  .animate-aurora::after {
+  .animate-aurora::after,
+  .animate-meteor,
+  .animate-pulse,
+  [data-motion] {
     animation: none !important;
+    transition: none !important;
+  }
+  
+  .blur-fade,
+  .blur-in {
+    filter: none !important;
+  }
+  
+  /* Keep shimmer animation for important UI elements */
+  .animate-shimmer {
+    animation: shimmer 8s infinite !important;
+  }
+}
+
+/* Performance optimizations for low-end devices */
+@media (max-width: 768px), (pointer: coarse) {
+  .animate-aurora {
+    animation-duration: 30s; /* Slower animation */
+  }
+  
+  .blur-fade,
+  .blur-in {
+    filter: blur(2px) !important;
+  }
+  
+  /* Preserve shimmer on all devices */
+  .animate-shimmer {
+    animation-duration: 8s !important;
+  }
+}
+
+/* Windows Chrome performance fixes */
+@supports (-webkit-appearance: none) {
+  .animate-aurora {
+    will-change: auto;
+  }
+  
+  /* Ensure shimmer works properly on Windows Chrome */
+  .animate-shimmer {
+    will-change: background-position;
   }
 }
 

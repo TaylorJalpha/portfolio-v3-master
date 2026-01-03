@@ -113,8 +113,20 @@ const updateTimelineHeight = () => {
 
 // RAF-throttled scroll handler for smoother updates on mobile Safari
 let ticking = false;
+let lastScrollTime = 0;
 const updateScrollProgress = () => {
   if (!containerRef.value || !timelineRef.value) return;
+
+  // Throttle on low-end devices
+  const now = performance.now();
+  const isLowEnd = process.client && (
+    navigator.hardwareConcurrency <= 4 || 
+    (navigator as any).deviceMemory <= 4 ||
+    /Windows.*Chrome/.test(navigator.userAgent)
+  );
+  
+  if (isLowEnd && now - lastScrollTime < 32) return; // Cap at 30fps for low-end
+  lastScrollTime = now;
 
   const containerRect = containerRef.value.getBoundingClientRect();
   const viewportHeight = window.innerHeight;

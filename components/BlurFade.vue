@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import { ref, defineExpose } from 'vue'
+import { ref } from 'vue'
 interface BlurFadeProps {
   class?: string
   variant?: {
@@ -47,6 +47,17 @@ const defaultVariants = {
     },
     filter: 'blur(0px)',
   },
+}
+
+// Reduce blur on low-end devices
+const isLowEnd = process.client && (
+  navigator.hardwareConcurrency <= 4 || 
+  (navigator as any).deviceMemory <= 4 ||
+  /Windows.*Chrome/.test(navigator.userAgent)
+);
+
+if (isLowEnd) {
+  defaultVariants.hidden.filter = `blur(${Math.max(2, parseInt(props.blur) / 2)}px)`;
 }
 
 const combinedVariants = props.variant || defaultVariants

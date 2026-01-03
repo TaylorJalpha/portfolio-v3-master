@@ -22,6 +22,7 @@ export function useTimelineAnimation({ containerRef, progressLineRef, getItemCou
   let rAFPending = false
   let resizeTimer: number | null = null
   let prefersReduced: MediaQueryList | null = null
+  let lastAnimateTime = 0
 
   const setItemRef = (el: Element | ComponentPublicInstance | null, index: number) => {
     timelineItems.value[index] = el as HTMLDivElement | null
@@ -61,6 +62,11 @@ export function useTimelineAnimation({ containerRef, progressLineRef, getItemCou
     rAFPending = false
     if (!containerRef.value) return
     if (prefersReduced?.matches) { applyReducedMotion(); return }
+
+    // Skip expensive calculations on low-end devices during fast scrolling
+    const now = performance.now()
+    if (lastAnimateTime && now - lastAnimateTime < 16) return // Cap at 60fps
+    lastAnimateTime = now
 
     const scrollY = window.scrollY
     const vh = window.innerHeight
@@ -145,7 +151,12 @@ export function useTimelineAnimation({ containerRef, progressLineRef, getItemCou
     })
   }
 
-  const requestAnimate = () => { if (!rAFPending) { rAFPending = true; requestAnimationFrame(animate) } }
+  const requestAnimate = () => { 
+    if (!rAFPending && !prefersReduced?.matches) { 
+      rAFPending = true; 
+      requestAnimationFrame(animate) 
+    } 
+  }
 
   let scrollListener: (() => void) | null = null
   let resizeListener: (() => void) | null = null
@@ -164,10 +175,13 @@ export function useTimelineAnimation({ containerRef, progressLineRef, getItemCou
       }
       window.addEventListener('scroll', scrollListener, { passive: true })
       window.addEventListener('resize', resizeListener, { passive: true })
-      // measure again after images/fonts settle
+      // measure again after images/fonts settle - reduce frequency on low-end devices
       setTimeout(() => { measure(); requestAnimate() }, 300)
-      setTimeout(() => { measure(); requestAnimate() }, 900)
-      setTimeout(() => { measure(); requestAnimate() }, 1600)
+      setTimeout(() => { measure(); requestAnimate() }, 1200) // Reduced from 900ms
+      // Skip final measurement on low-end devices
+      if (!prefersReduced?.matches) {
+        setTimeout(() => { measure(); requestAnimate() }, 1600)
+      }
       prefersReduced?.addEventListener('change', () => { prefersReduced?.matches ? applyReducedMotion() : requestAnimate() })
     })
   })

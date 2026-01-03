@@ -21,11 +21,19 @@ if (process.client) {
       meteorCount.value = 0
       return
     }
+    
+    // Reduce meteors on low-end devices
+    const isLowEnd = process.client && (
+      navigator.hardwareConcurrency <= 4 || 
+      (navigator as any).deviceMemory <= 4 ||
+      /Windows.*Chrome/.test(navigator.userAgent)
+    );
+    
     if (mq.matches) {
-      meteorCount.value = Math.max(4, Math.floor((props.number || 20) / 2))
+      meteorCount.value = Math.max(2, Math.floor((props.number || 20) / (isLowEnd ? 4 : 2)))
       return
     }
-    meteorCount.value = props.number || 20
+    meteorCount.value = isLowEnd ? Math.max(8, Math.floor((props.number || 20) / 2)) : (props.number || 20)
   }
 
   recompute()
