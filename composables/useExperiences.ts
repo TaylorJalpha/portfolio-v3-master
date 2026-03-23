@@ -13,6 +13,19 @@ export function useExperiences() {
   const experiences = ref<ExperienceItem[]>([
     {
       year: '2025-Present',
+      title: 'Technical Product Lead',
+      company: 'RevSec AI — Pricing Intelligence & RevOps Platform · Self-employed · Los Angeles, CA (Remote)',
+      description: 'Sole builder of a multi-service SaaS platform (Nuxt 3, Rails 8, AWS Bedrock, PostgreSQL) spanning RevOps analytics, competitive intelligence, plan management with CPQ, and interactive pricing simulation — a unified workspace for teams to research, model, and validate pricing strategies end-to-end. Owned every phase from product discovery and Figma design through full-stack development and cloud deployment, compressing what typically requires a cross-functional team and 2+ year timeline into a 6-month solo build using AI-assisted development via AWS Kiro CLI.',
+      skills: ['Product Strategy', 'Nuxt 3', 'Rails 8', 'AWS Bedrock', 'PostgreSQL', 'Figma', 'RAG Pipelines', 'Python', 'Data Warehousing', 'Vector Search', 'Web Scraping', 'CPQ', 'Pricing Strategy', 'AWS Amplify', 'Kiro CLI', 'RevOps', 'Competitive Intelligence', 'AI/ML', 'Full-stack Development', 'Cloud Architecture'],
+      achievements: [
+        'Shipped a multi-service SaaS business end-to-end as a solo builder — requirements, Figma design, full-stack development, and AWS deployment — reducing typical 2-year team timeline to 6 months and cutting development and discovery costs by nearly 90% via AI-assisted development with AWS Kiro CLI',
+        'Engineered a Python-based web scraper, data warehouse, and RAG vector search pipeline that automates competitive benchmarking and synthesizes unstructured market data into risk-scored pricing recommendations — LLMs present findings, never decide',
+        'Designed synchronous AI pipelines using Rails service layers with parallel processing, feeding structured business logic into Bedrock prompt chains that produce validated discovery templates, pricing experiments, and CPQ-ready plan configurations',
+        'Launched a fully automated, low-touch cloud business on AWS — the landing page is live in open beta as of March 2026, with hosting, CI/CD, and Bedrock AI capabilities managed entirely through infrastructure-as-code'
+      ]
+    },
+    {
+      year: '2025-Present',
       title: 'Technical Product Manager',
       company: 'OneSynergee - Los Angeles, California, United States',
       description: 'Leading technical strategy for an international agri-tech and climate-focused program while elevating agile delivery standards across product engineering pods.',
