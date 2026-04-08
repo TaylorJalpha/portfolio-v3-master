@@ -172,8 +172,8 @@
                   :show-radial-gradient="false"
                 >
                   <img
-                    src="/me/me3.webp"
-                    alt="Taylor J. Ferguson leading product collaboration"
+                    src="/me/taylor-ferguson-profile-pic-no-background.png"
+                    alt="Taylor J. Ferguson - Technical Product Manager"
                     class="relative z-10 h-full w-full object-cover object-center mix-blend-luminosity opacity-90"
                     loading="lazy"
                   />
