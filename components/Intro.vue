@@ -62,8 +62,9 @@
       <!-- Global ContactForm is mounted at app root -->
 
       <NuxtImg width="300" height="300" :src="'/me/' + photoSrc" :key="photoSrc"
-        class="w-auto max-h-[260px] select-none absolute right-[-80px] bottom-[-12px] z-[-1] opacity-50 md:opacity-100 md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none rounded-2xl shadow-[0_0_20px_rgba(255,255,255,0.15)]"
-        sizes="(max-width: 640px) 160px, (max-width: 1024px) 220px, 300px" :alt="photoSrc === defaultPhoto ? 'Taylor Ferguson profile photo' : 'memoji of Taylor Ferguson'" />
+        :class="['w-auto max-h-[260px] select-none absolute right-[-80px] bottom-[-12px] z-[-1] md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none rounded-2xl transition-opacity duration-700 ease-out', imageLoaded ? 'opacity-50 md:opacity-100 shadow-[0_0_20px_rgba(255,255,255,0.15)]' : 'opacity-0']"
+        sizes="(max-width: 640px) 160px, (max-width: 1024px) 220px, 300px" :alt="photoSrc === defaultPhoto ? 'Taylor Ferguson profile photo' : 'memoji of Taylor Ferguson'"
+        @load="imageLoaded = true" />
     </div>
   </Card>
 </template>
@@ -74,6 +75,7 @@ import { useContactModal } from '@/composables/useContactModal'
 
 const defaultPhoto = "taylor-ferguson-profile-img.jpg";
 const photoSrc = ref(defaultPhoto);
+const imageLoaded = ref(false);
 
 const isOpen = ref<boolean>(false);
 const isContactFormOpen = ref<boolean>(false);
