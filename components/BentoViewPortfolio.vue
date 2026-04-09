@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useHeroSpotlight } from '#imports'
+import { BarChart3, Search, Zap, TrendingUp, Target, Lightbulb, Link, Settings, Building2, Activity, Shield, Cloud } from 'lucide-vue-next'
 
 const { data, pending, error } = useHeroSpotlight()
 </script>
@@ -19,113 +20,39 @@ const { data, pending, error } = useHeroSpotlight()
             <!-- First row - left to right -->
             <div class="marquee-row animate-marquee-scroll mb-2">
               <div class="marquee-content">
-                <div class="skill-badge">
-                  <span class="skill-icon">📊</span>
-                  <span>Product Strategy</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">🔍</span>
-                  <span>Market Research</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">⚡</span>
-                  <span>Agile/Scrum</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">📈</span>
-                  <span>Data Analytics</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">🎯</span>
-                  <span>KPI Optimization</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">💡</span>
-                  <span>Feature Innovation</span>
-                </div>
+                <div class="skill-badge"><BarChart3 :size="14" class="flex-shrink-0" /><span>Product Strategy</span></div>
+                <div class="skill-badge"><Search :size="14" class="flex-shrink-0" /><span>Market Research</span></div>
+                <div class="skill-badge"><Zap :size="14" class="flex-shrink-0" /><span>Agile/Scrum</span></div>
+                <div class="skill-badge"><TrendingUp :size="14" class="flex-shrink-0" /><span>Data Analytics</span></div>
+                <div class="skill-badge"><Target :size="14" class="flex-shrink-0" /><span>KPI Optimization</span></div>
+                <div class="skill-badge"><Lightbulb :size="14" class="flex-shrink-0" /><span>Feature Innovation</span></div>
               </div>
-              <!-- Duplicate for seamless loop -->
               <div class="marquee-content" aria-hidden="true">
-                <div class="skill-badge">
-                  <span class="skill-icon">📊</span>
-                  <span>Product Strategy</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">🔍</span>
-                  <span>Market Research</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">⚡</span>
-                  <span>Agile/Scrum</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">📈</span>
-                  <span>Data Analytics</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">🎯</span>
-                  <span>KPI Optimization</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">💡</span>
-                  <span>Feature Innovation</span>
-                </div>
+                <div class="skill-badge"><BarChart3 :size="14" class="flex-shrink-0" /><span>Product Strategy</span></div>
+                <div class="skill-badge"><Search :size="14" class="flex-shrink-0" /><span>Market Research</span></div>
+                <div class="skill-badge"><Zap :size="14" class="flex-shrink-0" /><span>Agile/Scrum</span></div>
+                <div class="skill-badge"><TrendingUp :size="14" class="flex-shrink-0" /><span>Data Analytics</span></div>
+                <div class="skill-badge"><Target :size="14" class="flex-shrink-0" /><span>KPI Optimization</span></div>
+                <div class="skill-badge"><Lightbulb :size="14" class="flex-shrink-0" /><span>Feature Innovation</span></div>
               </div>
             </div>
             <!-- Second row - right to left -->
             <div class="marquee-row animate-marquee-scroll-reverse">
               <div class="marquee-content">
-                <div class="skill-badge">
-                  <span class="skill-icon">🔗</span>
-                  <span>API Design</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">⚙️</span>
-                  <span>System Integration</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">🏗️</span>
-                  <span>Platform Architecture</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">📊</span>
-                  <span>Performance Metrics</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">🔒</span>
-                  <span>Security & Compliance</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">☁️</span>
-                  <span>Cloud Infrastructure</span>
-                </div>
+                <div class="skill-badge"><Link :size="14" class="flex-shrink-0" /><span>API Design</span></div>
+                <div class="skill-badge"><Settings :size="14" class="flex-shrink-0" /><span>System Integration</span></div>
+                <div class="skill-badge"><Building2 :size="14" class="flex-shrink-0" /><span>Platform Architecture</span></div>
+                <div class="skill-badge"><Activity :size="14" class="flex-shrink-0" /><span>Performance Metrics</span></div>
+                <div class="skill-badge"><Shield :size="14" class="flex-shrink-0" /><span>Security & Compliance</span></div>
+                <div class="skill-badge"><Cloud :size="14" class="flex-shrink-0" /><span>Cloud Infrastructure</span></div>
               </div>
-              <!-- Duplicate for seamless loop -->
               <div class="marquee-content" aria-hidden="true">
-                <div class="skill-badge">
-                  <span class="skill-icon">🔗</span>
-                  <span>API Design</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">⚙️</span>
-                  <span>System Integration</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">🏗️</span>
-                  <span>Platform Architecture</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">📊</span>
-                  <span>Performance Metrics</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">🔒</span>
-                  <span>Security & Compliance</span>
-                </div>
-                <div class="skill-badge">
-                  <span class="skill-icon">☁️</span>
-                  <span>Cloud Infrastructure</span>
-                </div>
+                <div class="skill-badge"><Link :size="14" class="flex-shrink-0" /><span>API Design</span></div>
+                <div class="skill-badge"><Settings :size="14" class="flex-shrink-0" /><span>System Integration</span></div>
+                <div class="skill-badge"><Building2 :size="14" class="flex-shrink-0" /><span>Platform Architecture</span></div>
+                <div class="skill-badge"><Activity :size="14" class="flex-shrink-0" /><span>Performance Metrics</span></div>
+                <div class="skill-badge"><Shield :size="14" class="flex-shrink-0" /><span>Security & Compliance</span></div>
+                <div class="skill-badge"><Cloud :size="14" class="flex-shrink-0" /><span>Cloud Infrastructure</span></div>
               </div>
             </div>
           </div>
@@ -248,20 +175,14 @@ const { data, pending, error } = useHeroSpotlight()
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 14px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  color: white;
-  font-size: 13px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
   font-weight: 500;
-  backdrop-filter: blur(8px);
   white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.skill-icon {
-  font-size: 16px;
   flex-shrink: 0;
 }
 
