@@ -162,11 +162,29 @@
               ref="aboutImageSection"
             >
               <BlurFade :delay="360" :inView="aboutImageInView">
-                <AuroraBackground
-                  class-name="relative flex h-full min-h-[320px] md:min-h-[360px] overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/[0.04]"
-                  min-height="360px"
-                  :show-radial-gradient="false"
+                <div
+                  class="relative flex h-full min-h-[320px] md:min-h-[360px] overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/[0.04]"
                 >
+                  <PixelBlast
+                    variant="circle"
+                    :pixel-size="6"
+                    color="#A7EF9E"
+                    :pattern-scale="3"
+                    :pattern-density="1.2"
+                    :pixel-size-jitter="0.5"
+                    :enable-ripples="true"
+                    :ripple-speed="0.4"
+                    :ripple-thickness="0.12"
+                    :ripple-intensity-scale="1.5"
+                    :liquid="true"
+                    :liquid-strength="0.12"
+                    :liquid-radius="1.2"
+                    :liquid-wobble-speed="5"
+                    :speed="0.6"
+                    :edge-fade="0.25"
+                    :transparent="true"
+                    class="absolute inset-0 w-full h-full"
+                  />
                   <img
                     src="/me/taylor-ferguson-profile-pic-no-background-v2.png"
                     alt="Taylor J. Ferguson - Sr Technical Product & Program Manager"
@@ -177,7 +195,7 @@
                     class="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#0f172a]/40 via-transparent to-[#667eea]/20"
                     aria-hidden="true"
                   />
-                </AuroraBackground>
+                </div>
               </BlurFade>
             </div>
             <div class="order-1 lg:order-2 space-y-6">
@@ -581,6 +599,7 @@ import AnimatedShinyText from "@/components/AnimatedShinyText.vue";
 import Meteors from "@/components/Meteors.vue";
 import GrowthMiniChart from "@/components/GrowthMiniChart.vue";
 import AuroraBackground from "@/components/AuroraBackground.vue";
+import PixelBlast from "~/components/ui/PixelBlast.vue";
 import BentoGrid from "~/components/BentoGrid.vue";
 import AuroraText from "~/components/AuroraText.vue";
 
