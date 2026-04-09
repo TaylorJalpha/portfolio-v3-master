@@ -172,7 +172,7 @@
                   :show-radial-gradient="false"
                 >
                   <img
-                    src="/me/taylor-ferguson-profile-pic-no-background.png"
+                    src="/me/taylor-ferguson-profile-pic-no-background-v2.png"
                     alt="Taylor J. Ferguson - Technical Product Manager"
                     class="relative z-10 h-full w-full object-cover object-center mix-blend-luminosity opacity-90"
                     loading="lazy"
