@@ -168,9 +168,9 @@
                   <ClientOnly>
                     <div class="absolute inset-0 w-full h-full z-[1]">
                       <Grainient
-                        color1="#5227FF"
-                        color2="#FF9FFC"
-                        color3="#B19EEF"
+                        color1="#FFFFFF"
+                        color2="#171717"
+                        color3="#98A197"
                         :time-speed="0.25"
                         :color-balance="0.0"
                         :warp-strength="1.0"
