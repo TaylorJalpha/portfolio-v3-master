@@ -11,7 +11,7 @@ import AnimatedShinyText from "./AnimatedShinyText.vue";
       </header>
       <div class="flex flex-col mt-4">
         <h2 class="text-gray-500">Contact</h2>
-        <p>📧 taylorjacobferguson @gmail.com</p>
+        <p>📧 taylorjacobferguson@gmail.com</p>
         <p>📍Los Angeles,CA</p>
       </div>
 
@@ -20,26 +20,10 @@ import AnimatedShinyText from "./AnimatedShinyText.vue";
         <ul>
           <li>
             <a
-              href="https://instagram.com/tayloralphaa"
-              target="_blank"
-              class="gradient font-light text-base hover:text-red-500"
-              >Instagram</a
-            >
-          </li>
-          <li>
-            <a
               href="https://www.linkedin.com/in/taylor-jacob-ferguson/"
               target="_blank"
               class="text-sm font-light hover:text-red-500"
               >LinkedIn</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.strava.com/athletes/63030031"
-              target="_blank"
-              class="text-sm font-light hover:text-red-500"
-              >Strava</a
             >
           </li>
           <li>

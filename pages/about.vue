@@ -33,11 +33,7 @@
             <p
               class="max-w-2xl text-lg sm:text-xl leading-relaxed text-neutral-700 dark:text-neutral-300 m-0"
             >
-              A Product & Technical Program Manager with a passion for driving
-              product strategy, discovery, and execution. With a background
-              spanning industries and business models, I specialize in
-              transforming complex challenges into actionable roadmaps that
-              accelerate growth and drive revenue.
+              Sr Technical Product & Program Manager with 7+ years shipping outcomes across fintech, consultancy, and emerging tech. I lead with structured discovery, align cross-functional teams around clear priorities, and drive delivery against the metrics that matter — pricing, revenue, and go-to-market readiness.
               <br /><br />
             </p>
             <div class="md:justify-self-end">
@@ -173,7 +169,7 @@
                 >
                   <img
                     src="/me/taylor-ferguson-profile-pic-no-background-v2.png"
-                    alt="Taylor J. Ferguson - Technical Product Manager"
+                    alt="Taylor J. Ferguson - Sr Technical Product & Program Manager"
                     class="relative z-10 h-full w-full object-cover object-center mix-blend-luminosity opacity-90"
                     loading="lazy"
                   />
@@ -233,15 +229,8 @@
             <article
               v-for="(group, gi) in groupedTools"
               :key="group.label"
-              class="card group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-5 sm:p-6 lg:p-7 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.1] hover:shadow-[0_24px_45px_-26px_rgba(102,126,234,0.85)]"
+              class="card group relative flex h-full flex-col overflow-hidden rounded-lg border border-darkslate-100 bg-darkslate-500 p-4 sm:p-6 shadow-lg transition duration-300 hover:border-primary-500"
             >
-              <span
-                aria-hidden="true"
-                class="pointer-events-none absolute inset-0 opacity-40 transition duration-500 ease-out group-hover:opacity-80"
-                :style="{
-                  background: `radial-gradient(120% 120% at 0% 0%, ${toolboxAccent.glow}, transparent 65%), radial-gradient(120% 120% at 100% 0%, ${toolboxAccent.glowSecondary}, transparent 70%)`,
-                }"
-              />
               <div class="relative z-10 flex h-full flex-col">
                 <div class="flex items-start justify-between gap-4">
                   <div>
@@ -598,19 +587,19 @@ import AuroraText from "~/components/AuroraText.vue";
 const canonical = useCanonicalUrl("/about");
 definePageMeta({ layout: "about" });
 useHead({
-  title: "About | Taylor J. Ferguson - Dynamic Product Manager with Technical Expertise ",
+  title: "About | Taylor J. Ferguson - Sr Technical Product & Program Manager",
   link: [{ rel: "canonical", href: canonical }],
   meta: [
     {
       name: "description",
       content:
-        "Product & Technical Program Manager with depth across product strategy, discovery, execution, and emerging tech.",
+        "Sr Technical Product & Program Manager with 7+ years driving strategy, cross-functional delivery, and technical execution across fintech, consultancy, and emerging tech.",
     },
     { property: "og:title", content: "About | Taylor J. Ferguson" },
     {
       property: "og:description",
       content:
-        "Product & Technical Program Manager with depth across product strategy, discovery, execution, and emerging tech.",
+        "Sr Technical Product & Program Manager with 7+ years driving strategy, cross-functional delivery, and technical execution across fintech, consultancy, and emerging tech.",
     },
     { property: "og:url", content: canonical },
   ],

@@ -1,7 +1,7 @@
 <template>
   <div
     ref="root"
-    class="group relative bg-[#171717] rounded-xl shadow-xl border border-gray-600 overflow-hidden hover:scale-[1.02] hover:shadow-2xl hover:border-gray-500 transition-all duration-300 h-full flex flex-col min-h-[420px] sm:min-h-[450px] lg:min-h-[440px]"
+    class="group relative bg-darkslate-500 rounded-lg shadow-lg border border-darkslate-100 overflow-hidden hover:border-primary-500 transition-all duration-300 h-full flex flex-col min-h-[420px] sm:min-h-[450px] lg:min-h-[440px]"
   >
   <BlurIn :inView="enteredClass" tag="div" :class="'w-full h-full block'">
       <!-- Image Container with consistent aspect ratio -->
@@ -41,13 +41,13 @@
             <span 
               v-for="(tag, index) in item.tags.slice(0, 4)" 
               :key="tag._id" 
-              class="inline-flex items-center px-2 py-1 bg-gray-800/50 border border-gray-600 text-gray-300 rounded-md text-xs font-medium hover:bg-gray-700/50 hover:border-gray-500 transition-colors duration-200"
+              class="inline-flex items-center px-2 py-1 bg-white/[0.06] border border-white/5 text-white/80 rounded-md text-xs font-medium hover:bg-white/[0.1] hover:border-white/12 transition-colors duration-200"
             >
               {{ tag.title }}
             </span>
             <span 
               v-if="item.tags.length > 4"
-              class="inline-flex items-center px-2 py-1 bg-gray-800/30 text-gray-400 rounded-md text-xs"
+              class="inline-flex items-center px-2 py-1 bg-white/[0.04] text-white/60 rounded-md text-xs"
             >
               +{{ item.tags.length - 4 }}
             </span>
@@ -65,7 +65,7 @@
     </BlurIn>
 
     <!-- Hover overlay effect -->
-    <div class="absolute inset-0 bg-gradient-to-br from-[#E63946]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-xl"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-[#E63946]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-lg"></div>
   </div>
 </template>
 

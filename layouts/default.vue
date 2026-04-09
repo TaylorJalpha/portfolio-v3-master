@@ -70,8 +70,7 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
           </BlurFade>
           <BlurFade in-view :delay="250">
             <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Below is a timeline view of some of my experience as a product manager with core technical
-              experience 
+              Below is a timeline view of my experience as a Sr Technical Product & Program Manager 
             </p>
           </BlurFade>
         </div>
@@ -149,12 +148,7 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
               <!-- Content Card Container - Properly offset from timeline with no overlap -->
               <div class="timeline-card-wrapper ml-20 sm:ml-24 lg:ml-36 transition-all duration-700 z-[1] relative">
                 <div
-                  class="bg-white/5 border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border transition-all duration-500 relative timeline-card-background max-w-3xl lg:max-w-4xl group"
-                  style="background: rgba(255, 255, 255, 0.08);">
-                  <!-- Dotted background for texture -->
-                  <div class="absolute inset-0 rounded-xl sm:rounded-2xl opacity-30 pointer-events-none"
-                    style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;">
-                  </div>
+                  class="bg-darkslate-500 border-darkslate-100 rounded-lg p-4 sm:p-6 border shadow-lg transition-all duration-500 relative hover:border-primary-500 max-w-3xl lg:max-w-4xl group">
                   <!-- Mobile Year Badge (appears above content on small screens) -->
                   <div class="md:hidden mb-3 animate-fade-in-up">
                     <span
@@ -184,9 +178,9 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
                       & Technologies</h4>
                     <div class="skills-list flex flex-wrap gap-1 sm:gap-1.5 lg:gap-2 justify-start">
                       <span v-for="skill in experience.skills" :key="skill"
-                        class="skill-chip inline-flex items-center gap-1.5 px-2 sm:px-2.5 lg:px-3 py-1 sm:py-1.5 text-xs sm:text-sm rounded-md sm:rounded-lg bg-white/10 text-neutral-100 border border-white/15 font-medium hover:bg-white/15 hover:border-white/25 hover:ring-1 hover:ring-blue-400/30 transition-colors duration-200">
+                        class="skill-chip inline-flex items-center gap-2 rounded-md border border-white/5 bg-white/[0.06] px-3 py-1.5 text-xs sm:text-sm font-medium text-white/80 transition duration-200 hover:border-white/12 hover:bg-white/[0.1]">
                         <span
-                          class="tag-chip h-1.5 w-1.5 rounded-full bg-gradient-to-r from-purple-400 via-blue-500 to-cyan-400"></span>
+                          class="tag-chip h-1.5 w-1.5 rounded-sm bg-[#E63946]"></span>
                         <span>{{ skill }}</span>
                       </span>
                       <!-- Mobile-only '+N more' indicator when there are more than 6 tags -->
@@ -233,7 +227,7 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
               <!-- Optional end card for mobile readability -->
               <div class="ml-24 sm:ml-28 lg:ml-36">
                 <div class="text-gray-400 text-left">
-                  <p class="text-xs sm:text-sm mt-1">Always learning, always growing- Keep building, fam. (Note to Self)
+                  <p class="text-xs sm:text-sm mt-1">Always learning, always growing — keep building. (Note to Self)
                   </p>
                 </div>
               </div>
@@ -275,15 +269,6 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
   transition: filter 0.3s ease;
 }
 
-/* Enhanced card styling without backdrop-filter */
-.timeline-card-background::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-  border-radius: inherit;
-  pointer-events: none;
-}
 
 @keyframes fadeInUp {
   0% {

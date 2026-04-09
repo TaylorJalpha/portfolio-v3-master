@@ -9,7 +9,7 @@
           Operating Model
         </span>
         <h2 class="mt-5 text-3xl sm:text-4xl font-semibold sm:font-bold tracking-tight text-white/95 leading-tight">
-          My Product Management Approach
+          My Product & Technical Approach
         </h2>
       </div>
       <p

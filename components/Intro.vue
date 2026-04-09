@@ -7,9 +7,7 @@
             Good day <span id="wave">👋</span>
           </h6>
           <p class="m-0 font-light text-xl">
-            I'm <b>Taylor J. Ferguson</b>, a Certified Product Manager (PMC) with a technical foundation in web
-            development — connecting product and business strategy, design, and engineering to build products that drive
-            impact, high customer satisfaction, and revenue growth.
+            I'm <b>Taylor J. Ferguson</b>, a Sr Technical Product & Program Manager with 7+ years driving product strategy, cross-functional delivery, and technical execution across fintech, consultancy, and emerging tech — turning ambiguous mandates into shipped outcomes that move business metrics.
           </p>
         </div>
         <div class="flex gap-4">

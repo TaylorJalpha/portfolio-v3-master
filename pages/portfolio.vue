@@ -15,7 +15,7 @@
       <PortfolioNav />
         <BlurFade in-view :delay="250">
           <p class="text-lg mb-8 mt-2 pt-2 text-center max-w-2xl px-4">
-            A collection of some of my work: case studies, business cases, projects, and blog posts from over the years - showcasing my skills and expertise as a PM/ Technical Product Manager 
+            A collection of some of my work: case studies, business cases, projects, and blog posts from over the years - showcasing my work as a Sr Technical Product & Program Manager 
           </p>
         </BlurFade>
         
@@ -179,8 +179,8 @@ import PortfolioNav from '~/components/PortfolioNav.vue'
 
 definePageMeta({ layout: 'portfolio' })
 const canonical = useCanonicalUrl('/portfolio')
-const title = 'Portfolio | Taylor J. Ferguson - Product Manager with Technical Expertise'
-const description = 'A collection of projects, case studies, and blog posts by Taylor J. Ferguson.'
+const title = 'Portfolio | Taylor J. Ferguson - Sr Technical Product & Program Manager'
+const description = 'Projects, case studies, and posts by Taylor J. Ferguson — Sr Technical Product & Program Manager.'
 const ogImage = computed(() => { try { const u = new URL(canonical); return `${u.origin}/me/me1.webp` } catch { return '/me/me1.webp' } })
 
 useHead({

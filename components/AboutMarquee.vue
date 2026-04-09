@@ -45,7 +45,7 @@ const props = withDefaults(defineProps<{
   row2Images: undefined,
   images: undefined,
   title: () => "Tech used throughout my product career",
-  subtitle: () => "Experience across major stacks and languages as a product manager, and experience building personally with Rails, HTML/CSS, AWS/Heroku, Vue/Nuxt, React, Flutter, and more, but I know my limitations - I'm always learning!",
+  subtitle: () => "Experience across major stacks and languages as a technical product & program manager, with hands-on building in Rails, Vue/Nuxt, AWS, and more — always learning.",
   forceMotion: false,
   inView: false,
 });

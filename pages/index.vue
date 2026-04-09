@@ -25,8 +25,8 @@ const animateCards = () => {
 };
 onMounted(animateCards);
 const canonical = useCanonicalUrl()
-const title = 'Taylor J. Ferguson - Dynamic Product Manager with Technical Expertise'
-const description = 'Taylor J. Ferguson - Skilled Product Manager with extensive experience in Fintech, Blockchain, and HealthTech.'
+const title = 'Taylor J. Ferguson - Sr Technical Product & Program Manager'
+const description = 'Taylor J. Ferguson - Sr Technical Product & Program Manager with 7+ years driving strategy, delivery, and technical execution across fintech, consultancy, and emerging tech.'
 const ogImage = computed(() => {
     try { const u = new URL(canonical); return `${u.origin}/me/me1.webp` } catch { return '/me/me1.webp' }
 })

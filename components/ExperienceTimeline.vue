@@ -5,10 +5,10 @@
   >
     <div class="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
       <h2 class="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
-        {{ title || "Changelog from my journey" }}
+        {{ title || "My Professional Journey" }}
       </h2>
       <p class="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-        {{ description || "Here's a timeline of my journey and experiences." }}
+        {{ description || "A timeline of my experience across product, technical, and program management." }}
       </p>
     </div>
 

@@ -162,7 +162,7 @@ const { data, pending, error } = useHeroSpotlight()
           </div>
         </div>
         <h2 class="text-xl font-bold m-0 z-20 text-white">My Work</h2>
-        <p class="mt-2 text-sm text-gray-300">Product management portfolio and case studies</p>
+        <p class="mt-2 text-sm text-gray-300">Portfolio — projects, case studies, and posts</p>
         <div class="mt-4 inline-flex items-center gap-2 text-[#E63946] hover:text-[#ff6b73] transition-colors">
           <span class="text-sm font-medium">Browse portfolio</span>
           <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

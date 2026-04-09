@@ -14,7 +14,7 @@
       </span>
     </div>
     <p class="text-md">
-      Currently working on a few initiatives..<a
+      Building RevSec AI · Technical PM at OneSynergee<a
         href="https://formability.eu"
         target="_blank"
       ></a>

@@ -101,7 +101,7 @@ const socialLinks = [
               </h2>
             </div>
             <p class="text-neutral-400 text-sm max-w-sm leading-relaxed ml-11">
-              Product Manager with strong technical knowledge– Shipping solutions that drive revenue, user engagement and high customer satisfaction.
+              Sr Technical Product & Program Manager — shipping outcomes that drive revenue, engagement, and customer satisfaction.
             </p>
           </div>
 
@@ -190,21 +190,21 @@ const socialLinks = [
                 Core skills
               </h3>
               <div class="flex flex-col space-y-4">
-                <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium">
-                  Product Management
-                </a>
-                <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium">
-                  Web & Mobile Development
-                </a>
-                <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium">
-                  User Experience Design
-                </a>
-                <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium">
-                  Data Analytics
-                </a>
-                <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-300 text-sm font-medium">
-                  Business Development
-                </a>
+                <span class="text-neutral-400 text-sm font-medium">
+                  Product Strategy & Discovery
+                </span>
+                <span class="text-neutral-400 text-sm font-medium">
+                  Cross-Functional Delivery
+                </span>
+                <span class="text-neutral-400 text-sm font-medium">
+                  Pricing & GTM
+                </span>
+                <span class="text-neutral-400 text-sm font-medium">
+                  Technical Execution
+                </span>
+                <span class="text-neutral-400 text-sm font-medium">
+                  Data & Insights
+                </span>
               </div>
             </div>
 
