@@ -182,19 +182,19 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
                     </span>
                   </div>
                   <div class="mb-3 sm:mb-4 lg:mb-6 text-left">
-                    <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-1 sm:mb-2 leading-tight">{{
+                    <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-white/90 mb-1 sm:mb-2 leading-tight">{{
                       experience.title }}</h3>
-                    <p class="text-sm sm:text-base lg:text-lg text-[#E63946] font-semibold">{{ experience.company }}</p>
+                    <p class="text-sm sm:text-base lg:text-lg text-neutral-400 font-semibold">{{ experience.company }}</p>
                   </div>
 
 
-                  <p class="text-gray-300 mb-3 sm:mb-4 lg:mb-6 leading-relaxed text-sm sm:text-base text-left">
+                  <p class="text-neutral-400 mb-3 sm:mb-4 lg:mb-6 leading-relaxed text-sm sm:text-base text-left">
                     {{ experience.description }}
                   </p>
 
 
                   <div class="mb-3 sm:mb-4 lg:mb-6 text-left">
-                    <h4 class="text-xs sm:text-sm font-semibold text-white mb-2 sm:mb-3 uppercase tracking-wider">Skills
+                    <h4 class="text-xs sm:text-sm font-semibold text-white/60 mb-2 sm:mb-3 uppercase tracking-wider">Skills
                       & Technologies</h4>
                     <div class="skills-list flex flex-wrap gap-1 sm:gap-1.5 lg:gap-2 justify-start">
                       <span v-for="skill in experience.skills" :key="skill"
@@ -212,11 +212,11 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
                   <!-- Key Achievements -->
                   <div class="text-left">
                     <h4
-                      class="text-xs sm:text-sm font-semibold text-white mb-2 sm:mb-3 lg:mb-4 uppercase tracking-wider">
+                      class="text-xs sm:text-sm font-semibold text-white/60 mb-2 sm:mb-3 lg:mb-4 uppercase tracking-wider">
                       Key Achievements</h4>
                     <ul class="space-y-1.5 sm:space-y-2 lg:space-y-3">
                       <li v-for="achievement in experience.achievements" :key="achievement"
-                        class="text-xs sm:text-sm text-gray-300 flex items-start text-left">
+                        class="text-xs sm:text-sm text-neutral-400 flex items-start text-left">
                         <span class="text-green-400 mt-0.5 sm:mt-1 flex-shrink-0 mr-2">▸</span>
                         <span class="leading-relaxed">{{ achievement }}</span>
                       </li>
