@@ -57,7 +57,7 @@
         <!-- Action Button -->
         <NuxtLink
           :to="`/${mapType(item.content_type)}/${item.slug?.current || item.slug}`"
-          class="w-full px-4 py-2.5 bg-[#E63946] text-white rounded-lg font-semibold shadow-lg hover:bg-[#d62839] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:ring-offset-2 focus:ring-offset-[#171717] transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
+          class="w-full px-4 py-2.5 bg-gray-900 text-gray-200 rounded-lg font-semibold border border-[#E63946] hover:text-[#E63946] focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:ring-offset-2 focus:ring-offset-[#171717] transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
         >
           Learn More
         </NuxtLink>
