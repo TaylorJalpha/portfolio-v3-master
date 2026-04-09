@@ -608,7 +608,6 @@ import Meteors from "@/components/Meteors.vue";
 import GrowthMiniChart from "@/components/GrowthMiniChart.vue";
 import AuroraBackground from "@/components/AuroraBackground.vue";
 import PixelBlast from "~/components/ui/PixelBlast.vue";
-import LightRays from "~/components/ui/LightRays.vue";
 import Grainient from "~/components/ui/Grainient.vue";
 import BentoGrid from "~/components/BentoGrid.vue";
 import AuroraText from "~/components/AuroraText.vue";
