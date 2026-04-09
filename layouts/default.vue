@@ -59,7 +59,7 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
       <PixelBlast
         variant="circle"
         :pixel-size="6"
-        color="#A7EF9E"
+        color="#98A197"
         :pattern-scale="3"
         :pattern-density="1.2"
         :pixel-size-jitter="0.5"

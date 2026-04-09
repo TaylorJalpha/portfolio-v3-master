@@ -168,7 +168,7 @@
                   <PixelBlast
                     variant="circle"
                     :pixel-size="6"
-                    color="#A7EF9E"
+                    color="#98A197"
                     :pattern-scale="3"
                     :pattern-density="1.2"
                     :pixel-size-jitter="0.5"
@@ -188,11 +188,11 @@
                   <img
                     src="/me/taylor-ferguson-profile-pic-no-background-v2.png"
                     alt="Taylor J. Ferguson - Sr Technical Product & Program Manager"
-                    class="relative z-10 h-full w-full object-cover object-center mix-blend-luminosity opacity-90"
+                    class="relative z-10 h-full w-full object-cover object-center opacity-80"
                     loading="lazy"
                   />
                   <div
-                    class="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#0f172a]/40 via-transparent to-[#667eea]/20"
+                    class="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#0f172a]/20 via-transparent to-transparent"
                     aria-hidden="true"
                   />
                 </div>
