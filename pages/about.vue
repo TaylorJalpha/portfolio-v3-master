@@ -167,16 +167,29 @@
                 >
                   <ClientOnly>
                     <div class="absolute inset-0 w-full h-full z-[1]">
-                      <LightRays
-                        rays-origin="top-center"
-                        rays-color="#98A197"
-                        :rays-speed="1.5"
-                        :light-spread="0.8"
-                        :ray-length="1.2"
-                        :follow-mouse="true"
-                        :mouse-influence="0.1"
-                        :noise-amount="0.1"
-                        :distortion="0.05"
+                      <Grainient
+                        color1="#5227FF"
+                        color2="#FF9FFC"
+                        color3="#B19EEF"
+                        :time-speed="0.25"
+                        :color-balance="0.0"
+                        :warp-strength="1.0"
+                        :warp-frequency="5.0"
+                        :warp-speed="2.0"
+                        :warp-amplitude="50.0"
+                        :blend-angle="0.0"
+                        :blend-softness="0.05"
+                        :rotation-amount="500.0"
+                        :noise-scale="2.0"
+                        :grain-amount="0.1"
+                        :grain-scale="2.0"
+                        :grain-animated="false"
+                        :contrast="1.5"
+                        :gamma="1.0"
+                        :saturation="1.0"
+                        :center-x="0.0"
+                        :center-y="0.0"
+                        :zoom="0.9"
                       />
                     </div>
                   </ClientOnly>
@@ -596,6 +609,7 @@ import GrowthMiniChart from "@/components/GrowthMiniChart.vue";
 import AuroraBackground from "@/components/AuroraBackground.vue";
 import PixelBlast from "~/components/ui/PixelBlast.vue";
 import LightRays from "~/components/ui/LightRays.vue";
+import Grainient from "~/components/ui/Grainient.vue";
 import BentoGrid from "~/components/BentoGrid.vue";
 import AuroraText from "~/components/AuroraText.vue";
 
