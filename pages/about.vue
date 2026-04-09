@@ -166,18 +166,19 @@
                   class="relative flex h-full min-h-[320px] md:min-h-[360px] overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/[0.04]"
                 >
                   <ClientOnly>
-                    <LightRays
-                      rays-origin="top-center"
-                      rays-color="#98A197"
-                      :rays-speed="1.5"
-                      :light-spread="0.8"
-                      :ray-length="1.2"
-                      :follow-mouse="true"
-                      :mouse-influence="0.1"
-                      :noise-amount="0.1"
-                      :distortion="0.05"
-                      class="absolute inset-0 w-full h-full"
-                    />
+                    <div class="absolute inset-0 w-full h-full z-[1]">
+                      <LightRays
+                        rays-origin="top-center"
+                        rays-color="#98A197"
+                        :rays-speed="1.5"
+                        :light-spread="0.8"
+                        :ray-length="1.2"
+                        :follow-mouse="true"
+                        :mouse-influence="0.1"
+                        :noise-amount="0.1"
+                        :distortion="0.05"
+                      />
+                    </div>
                   </ClientOnly>
                   <img
                     src="/me/taylor-ferguson-profile-pic-no-background-v2.png"
