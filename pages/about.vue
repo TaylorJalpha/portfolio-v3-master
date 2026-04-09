@@ -638,12 +638,12 @@ const spotlightImage = computed(() => {
 });
 
 const narrative = [
-  "I’m Taylor J. Ferguson, Los Angeles–based, but originally from East Setauket, NY. I’m a product and technical product manager with 7+ years translating ambiguous mandates into traction for fintech, consultancy, and emerging tech teams.",
-  "My approach to product development begins with structured continuous product discovery, immersing in customer goals, validating hypotheses with rapid testing, and iterating, and shaping products that hold up to pricing, revenue, and go-to-market scrutiny.",
-  "Recent epochs have been intentionally split between consulting, focused learning, and building: completing a product leadership certification (PLC), sharpening Vue/Nuxt and AWS fundamentals, and broadening AI/ML knowledge so I can contribute deeper insight with engineering and data science stakeholders.",
-  "Right now I’m a part-time Technical PM at OneSynergee, helping an <b>agri-tech and climate-focused startup</b> (fintech-adjacent), prioritize the roadmap, formalize delivery rituals, and align data, design, and engineering on durable operating cadence.",
-  "If we collaborate, you can expect clarity around objectives, principled curiosity for the user, and an insistence on shipping outcomes that compound value for the business and the teams shipping the work.",
-  "When I'm not working I'm usually riding my bike 🚴, exploring LA, or hacking away on a side project.",
+  "I'm Taylor J. Ferguson — a Sr product and technical project manager based in Los Angeles, originally from East Setauket, NY, with 7+ years turning ambiguous mandates into shipped outcomes across fintech, consultancy, and emerging tech.",
+  "My work sits at the intersection of product strategy and technical execution. I lead with structured discovery — testing assumptions and validating hypotheses early, aligning cross-functional teams around clear priorities, and driving delivery against real business metrics: pricing, revenue, and go-to-market readiness.",
+  "Recently, I built <b>RevSec AI</b>, an agentic pricing intelligence platform that supports everything from usage-based to complex hybrid pricing models — covering financial modeling, plans/CPQ with Stripe integration, market research, and more. I also serve as Technical PM and Co-Director at <b>OneSynergee</b>, where I've stood up the delivery process, shaped the roadmap, and aligned product, data, design, and engineering for a decentralized marketplace connecting farmers to new markets.",
+  "In parallel, I completed a Product Leadership Certification and deepened my technical fluency in Vue/Nuxt, AWS, and AI/ML — so I can partner more effectively with engineering and data science teams, not just manage them.",
+  "If we work together, expect someone who brings a process-based approach and structure, asks the right questions early, and stays focused on outcomes that matter to the business and the people building the product.",
+  "When I'm not working, I'm usually riding my bike 🚴, exploring LA, or hacking away on a side project.",
 ];
 
 const groupedTools = [
