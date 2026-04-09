@@ -78,3 +78,14 @@ useHead({
     <PoweredByRubyOnRails />
     <TerminalCard />
 </template>
+
+<style scoped>
+/* Safety net: if motion JS fails, cards become visible after 2.5s */
+@keyframes card-safety {
+  to { opacity: 1; transform: translateY(0); }
+}
+:deep(.card) {
+  animation: card-safety 0.5s ease forwards;
+  animation-delay: 2.5s;
+}
+</style>

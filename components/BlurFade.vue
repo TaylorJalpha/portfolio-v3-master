@@ -73,8 +73,19 @@ defineExpose({ root: rootEl })
     :initial="combinedVariants.hidden"
     :visible="props.inView ? combinedVariants.visible : undefined"
     :enter="!props.inView ? combinedVariants.enter : undefined"
-    :class="props.class"
+    :class="[props.class, 'blur-fade-fallback']"
   >
     <slot />
   </component>
 </template>
+
+<style>
+/* CSS safety net: if v-motion never fires, content becomes visible after 2s */
+@keyframes blur-fade-safety {
+  to { opacity: 1; filter: blur(0px); }
+}
+.blur-fade-fallback {
+  animation: blur-fade-safety 0.5s ease forwards;
+  animation-delay: 2s;
+}
+</style>
