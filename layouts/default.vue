@@ -184,11 +184,11 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
                   <div class="mb-3 sm:mb-4 lg:mb-6 text-left">
                     <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-white/90 mb-1 sm:mb-2 leading-tight">{{
                       experience.title }}</h3>
-                    <p class="text-sm sm:text-base lg:text-lg text-neutral-400 font-semibold">{{ experience.company }}</p>
+                    <p class="text-sm sm:text-base lg:text-lg text-white font-semibold">{{ experience.company }}</p>
                   </div>
 
 
-                  <p class="text-neutral-400 mb-3 sm:mb-4 lg:mb-6 leading-relaxed text-sm sm:text-base text-left">
+                  <p class="text-white mb-3 sm:mb-4 lg:mb-6 leading-relaxed text-sm sm:text-base text-left">
                     {{ experience.description }}
                   </p>
 
@@ -216,7 +216,7 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
                       Key Achievements</h4>
                     <ul class="space-y-1.5 sm:space-y-2 lg:space-y-3">
                       <li v-for="achievement in experience.achievements" :key="achievement"
-                        class="text-xs sm:text-sm text-neutral-400 flex items-start text-left">
+                        class="text-xs sm:text-sm text-white flex items-start text-left">
                         <span class="text-green-400 mt-0.5 sm:mt-1 flex-shrink-0 mr-2">▸</span>
                         <span class="leading-relaxed">{{ achievement }}</span>
                       </li>
