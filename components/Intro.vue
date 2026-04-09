@@ -52,46 +52,6 @@
             </Button>
           </a>
 
-          <Button aria-label="easter-egg" @click="randomizeMyPhoto">
-            <svg class="h-6 vibrate" fill="#fff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" stroke="#fff">
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-              <g id="SVGRepo_iconCarrier">
-                <g>
-                  <g>
-                    <path
-                      d="M256.42,307.849l-38.155-16.958l14.948-29.896l22.369,9.942l89.462-44.733l105.587,52.794 c-1.796-67.876-21.157-131.512-54.999-180.159C358.783,45.867,309.195,16.696,256,16.696S153.217,45.867,116.369,98.837 C82.8,147.092,63.476,210.091,61.411,277.35l93.659-51.088l47.598,21.154l-14.949,29.896l-31.138-13.84l-93.892,51.214 C74.522,416.339,156.698,495.304,256,495.304c99,0,180.985-78.484,193.21-179.685l-104.166-52.083L256.42,307.849z">
-                    </path>
-                  </g>
-                </g>
-                <g>
-                  <g>
-                    <rect y="128" width="55.652" height="33.391"></rect>
-                  </g>
-                </g>
-                <g>
-                  <g>
-                    <rect x="24.183" y="40.811" transform="matrix(0.3333 -0.9428 0.9428 0.3333 -37.458 84.2994)"
-                      width="33.391" height="55.65"></rect>
-                  </g>
-                </g>
-                <g>
-                  <g>
-                    <rect x="456.348" y="128" width="55.652" height="33.391"></rect>
-                  </g>
-                </g>
-                <g>
-                  <g>
-                    <rect x="443.282" y="51.937" transform="matrix(0.9428 -0.3333 0.3333 0.9428 4.0631 160.9478)"
-                      width="55.65" height="33.391"></rect>
-                  </g>
-                </g>
-              </g>
-            </svg>
-            <span class="sr-only">Easter Egg</span>
-          </Button>
-
           <Button aria-label="expand-contact-form" @click="openContactForm">
             <svg class="h-6" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -120,15 +80,9 @@ const photoSrc = ref(defaultPhoto);
 const isOpen = ref<boolean>(false);
 const isContactFormOpen = ref<boolean>(false);
 const { open: openGlobalContact } = useContactModal()
-// const router = useRouter();
+
 const openContactForm = (event: Event) => {
   event.preventDefault();
   openGlobalContact();
-};
-
-const randomizeMyPhoto = () => {
-  const totalImages = 8;
-  const randomIndex = Math.floor(Math.random() * totalImages) + 1;
-  photoSrc.value = `me${randomIndex}.webp`;
 };
 </script>
