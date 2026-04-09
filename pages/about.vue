@@ -165,24 +165,16 @@
                 <div
                   class="relative flex h-full min-h-[320px] md:min-h-[360px] overflow-hidden rounded-3xl border border-white/10 bg-white/5 dark:bg-white/[0.04]"
                 >
-                  <PixelBlast
-                    variant="circle"
-                    :pixel-size="6"
-                    color="#98A197"
-                    :pattern-scale="3"
-                    :pattern-density="1.2"
-                    :pixel-size-jitter="0.5"
-                    :enable-ripples="true"
-                    :ripple-speed="0.4"
-                    :ripple-thickness="0.12"
-                    :ripple-intensity-scale="1.5"
-                    :liquid="true"
-                    :liquid-strength="0.12"
-                    :liquid-radius="1.2"
-                    :liquid-wobble-speed="5"
-                    :speed="0.6"
-                    :edge-fade="0.25"
-                    :transparent="true"
+                  <LightRays
+                    rays-origin="top-center"
+                    rays-color="#98A197"
+                    :rays-speed="1.5"
+                    :light-spread="0.8"
+                    :ray-length="1.2"
+                    :follow-mouse="true"
+                    :mouse-influence="0.1"
+                    :noise-amount="0.1"
+                    :distortion="0.05"
                     class="absolute inset-0 w-full h-full"
                   />
                   <img
@@ -600,6 +592,7 @@ import Meteors from "@/components/Meteors.vue";
 import GrowthMiniChart from "@/components/GrowthMiniChart.vue";
 import AuroraBackground from "@/components/AuroraBackground.vue";
 import PixelBlast from "~/components/ui/PixelBlast.vue";
+import LightRays from "~/components/ui/LightRays.vue";
 import BentoGrid from "~/components/BentoGrid.vue";
 import AuroraText from "~/components/AuroraText.vue";
 
