@@ -1,6 +1,6 @@
 <template>
   <nav
-  class="fixed top-2 left-1/2 transform -translate-x-1/2 z-50 backdrop-blur-lg bg-black/30 shadow-xl rounded-full transition-all duration-300 opacity-95 border border-white/10"
+  class="fixed top-2 left-1/2 transform -translate-x-1/2 z-50 backdrop-blur-lg bg-black/60 shadow-xl rounded-lg transition-all duration-300 opacity-95 border border-white/10"
     :class="[
       'px-3 py-2 sm:px-6 sm:py-2',
       'flex items-center justify-center',
@@ -11,14 +11,14 @@
   >
     <button
       @click="scrollToSection('home')"
-      class="font-semibold flex items-center focus:outline-none transition-all duration-200 rounded-full touch-manipulation"
+      class="font-semibold flex items-center focus:outline-none transition-all duration-200 rounded-md touch-manipulation"
       :class="[
         'px-2 py-1.5 sm:px-3 sm:py-2',
         'gap-1 sm:gap-2',
         'text-xs sm:text-sm',
         'hover:bg-white/10 active:scale-95',
         (isHomeRoute && activeSection === 'home') 
-          ? 'text-[#E63946] bg-white/10 shadow-lg' 
+          ? 'text-white bg-white/10 shadow-lg' 
           : 'text-gray-300 hover:text-[#F1FAEE]'
       ]"
       :aria-label="'Navigate to home section'"
@@ -35,14 +35,14 @@
 
     <button
       @click="scrollToSection('experience')"
-      class="font-semibold flex items-center focus:outline-none transition-all duration-200 rounded-full touch-manipulation"
+      class="font-semibold flex items-center focus:outline-none transition-all duration-200 rounded-md touch-manipulation"
       :class="[
         'px-2 py-1.5 sm:px-3 sm:py-2',
         'gap-1 sm:gap-2',
         'text-xs sm:text-sm',
         'hover:bg-white/10 active:scale-95',
         activeSection === 'experience' 
-          ? 'text-[#E63946] bg-white/10 shadow-lg' 
+          ? 'text-white bg-white/10 shadow-lg' 
           : 'text-gray-300 hover:text-[#F1FAEE]'
       ]"
       :aria-label="'Navigate to experience section'"
@@ -59,13 +59,13 @@
 
     <button
       @click="navigateToAbout"
-      class="font-semibold flex items-center focus:outline-none transition-all duration-200 rounded-full touch-manipulation"
+      class="font-semibold flex items-center focus:outline-none transition-all duration-200 rounded-md touch-manipulation"
       :class="[
         'px-2 py-1.5 sm:px-3 sm:py-2',
         'gap-1 sm:gap-2',
         'text-xs sm:text-sm',
         'hover:bg-white/10 active:scale-95',
-        currentRouteName === 'about' ? 'text-[#E63946] bg-white/10 shadow-lg' : 'text-gray-300 hover:text-[#F1FAEE]'
+        currentRouteName === 'about' ? 'text-white bg-white/10 shadow-lg' : 'text-gray-300 hover:text-[#F1FAEE]'
       ]"
       :aria-label="'Navigate to about page'"
     >
@@ -80,13 +80,13 @@
 
     <button
       @click="navigateToPortfolio"
-      class="font-semibold flex items-center focus:outline-none transition-all duration-200 rounded-full touch-manipulation"
+      class="font-semibold flex items-center focus:outline-none transition-all duration-200 rounded-md touch-manipulation"
       :class="[
         'px-2 py-1.5 sm:px-3 sm:py-2',
         'gap-1 sm:gap-2',
         'text-xs sm:text-sm',
         'hover:bg-white/10 active:scale-95',
-        currentRouteName === 'portfolio' ? 'text-[#E63946] bg-white/10 shadow-lg' : 'text-gray-300 hover:text-[#F1FAEE]'
+        currentRouteName === 'portfolio' ? 'text-white bg-white/10 shadow-lg' : 'text-gray-300 hover:text-[#F1FAEE]'
       ]"
       :aria-label="'Navigate to portfolio page'"
     >

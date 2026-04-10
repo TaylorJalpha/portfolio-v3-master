@@ -1,7 +1,7 @@
 
 <template>
-  <!-- FloatingNav removed to prevent duplicate nav bars -->
   <div class="bg-[#111111] text-white min-h-screen w-full flex flex-col">
+    <FloatingNav />
     <div class="relative flex-1">
       <!-- Background gradient overlay -->
       <div class="absolute inset-0 bg-gradient-to-br from-[#111111] via-[#171717] to-[#111111] opacity-50 pointer-events-none"></div>
@@ -20,4 +20,5 @@
 
 <script setup>
 import Footer from '@/components/Footer.vue'
+import FloatingNav from '@/components/FloatingNav.vue'
 </script>
