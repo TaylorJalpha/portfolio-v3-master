@@ -96,8 +96,7 @@ const auroraClasses = computed(() => {
   // Detect low-end devices for reduced blur
   const isLowEnd = process.client && (
     navigator.hardwareConcurrency <= 4 || 
-    (navigator as any).deviceMemory <= 4 ||
-    /Windows.*Chrome/.test(navigator.userAgent)
+    (navigator as any).deviceMemory <= 4
   );
 
   // Desktop/mobile non-iOS: reduce blur on low-end devices

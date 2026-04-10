@@ -253,4 +253,20 @@ onBeforeUnmount(() => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+/* Safety net: if JS animation never fires, reveal cards after 2.5s */
+@keyframes bento-card-reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+.card {
+  animation: bento-card-reveal 0.5s ease forwards;
+  animation-delay: 2.5s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+</style>

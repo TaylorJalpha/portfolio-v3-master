@@ -21,7 +21,7 @@
         <BlurFade :delay="180" :inView="heroInView">
           <h1
             id="about-hero-title"
-            class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-neutral-900 dark:text-white max-w-3xl"
+            class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-white max-w-3xl"
           >
             Hasten growth and unleash innovation
           </h1>
@@ -31,7 +31,7 @@
             class="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_280px] items-start gap-6 md:gap-8"
           >
             <p
-              class="max-w-2xl text-lg sm:text-xl leading-relaxed text-neutral-700 dark:text-neutral-300 m-0"
+              class="max-w-2xl text-lg sm:text-xl leading-relaxed text-neutral-300 m-0"
             >
               Sr Technical Product & Program Manager with 7+ years shipping outcomes across fintech, consultancy, and emerging tech. I lead with structured discovery, align cross-functional teams around clear priorities, and drive delivery against the metrics that matter — pricing, revenue, and go-to-market readiness.
               <br /><br />
@@ -876,12 +876,6 @@ onMounted(async () => {
     });
   }
 });
-
-createSectionObserver(heroSection, heroInView);
-createSectionObserver(aboutSection, aboutInView);
-createSectionObserver(toolboxSection, toolboxInView);
-createSectionObserver(featureSection, featureInView);
-createSectionObserver(marqueeSection, marqueeInView);
 
 // Smooth scroll to main content block
 const scrollToBento = () => {

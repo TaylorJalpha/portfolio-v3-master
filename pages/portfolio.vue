@@ -7,7 +7,7 @@
             <Meteors :number="30" />
           </div>
           <BlurFade in-view :delay="250">
-            <h1 class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">Portfolio</h1>
+            <h1 class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-white to-slate-900/10 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent">Portfolio</h1>
           </BlurFade>
           <Globe />
           <div class="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />

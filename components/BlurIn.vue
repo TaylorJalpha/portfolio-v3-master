@@ -50,7 +50,7 @@ const enterVariant = hasInView ? (!props.inView ? combinedVariants.visible : und
     :initial="combinedVariants.hidden"
     :visible="visibleVariant"
     :enter="enterVariant"
-    :class="className"
+    :class="[className, 'blur-fade-fallback']"
   >
     <slot>{{ props.word || '' }}</slot>
   </component>

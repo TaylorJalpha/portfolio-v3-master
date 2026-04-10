@@ -52,8 +52,7 @@ const defaultVariants = {
 // Reduce blur on low-end devices
 const isLowEnd = process.client && (
   navigator.hardwareConcurrency <= 4 || 
-  (navigator as any).deviceMemory <= 4 ||
-  /Windows.*Chrome/.test(navigator.userAgent)
+  (navigator as any).deviceMemory <= 4
 );
 
 if (isLowEnd) {

@@ -84,7 +84,7 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
         <div class="text-center mb-20">
           <BlurFade in-view :delay="250">
             <h2 id="experience-heading"
-              class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-4xl md:text-5xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10 mb-6">
+              class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-white to-slate-900/10 bg-clip-text text-center text-4xl md:text-5xl font-semibold leading-none text-transparent mb-6">
               My Professional Journey
             </h2>
           </BlurFade>

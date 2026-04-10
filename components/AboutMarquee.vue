@@ -91,10 +91,10 @@ const logoAlt = (src: string) => {
   <br />
   <section id="technologies used and tech stacks" class="max-w-[75%] mx-auto pb-24 sm:pb-32" :class="{ 'force-motion': forceMotion }">
     <header class="mx-auto mb-8 max-w-3xl text-center">
-      <h2 ref="marqueeHeaderRef" class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-100" style="opacity:0; transform:translateY(40%)">
+      <h2 ref="marqueeHeaderRef" class="marquee-header-fallback text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-100" style="opacity:0; transform:translateY(40%)">
         {{ title }}
       </h2>
-      <p v-if="subtitle" ref="marqueeSubtitleRef" class="mt-3 text-base sm:text-lg leading-relaxed text-gray-600 dark:text-gray-400" style="opacity:0; transform:translateY(40%)">
+      <p v-if="subtitle" ref="marqueeSubtitleRef" class="marquee-header-fallback mt-3 text-base sm:text-lg leading-relaxed text-gray-600 dark:text-gray-400" style="opacity:0; transform:translateY(40%)">
         {{ subtitle }}
       </p>
     </header>
@@ -215,9 +215,23 @@ const logoAlt = (src: string) => {
   to { transform: translateX(-50%); }
 }
 
+/* Safety net: if motion library never fires, reveal header/subtitle after 2s */
+@keyframes marquee-header-reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+.marquee-header-fallback {
+  animation: marquee-header-reveal 0.5s ease forwards;
+  animation-delay: 2s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
     animation: none;
+  }
+  .marquee-header-fallback {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
   }
   .force-motion .marquee-track {
     animation: marquee-scroll var(--duration) linear infinite;
