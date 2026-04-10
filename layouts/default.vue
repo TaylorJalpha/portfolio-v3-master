@@ -199,6 +199,7 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
                     <div class="skills-list flex flex-wrap gap-1 sm:gap-1.5 lg:gap-2 justify-start">
                       <span v-for="skill in experience.skills" :key="skill"
                         class="skill-chip inline-flex items-center gap-2 rounded-md border border-white/5 bg-white/[0.06] px-3 py-1.5 text-xs sm:text-sm font-medium text-white/80 transition duration-200 hover:border-white/12 hover:bg-white/[0.1]">
+                        <span class="h-1.5 w-1.5 rounded-sm bg-[#E63946] flex-shrink-0"></span>
                         <span>{{ skill }}</span>
                       </span>
                       <!-- Mobile-only '+N more' indicator when there are more than 6 tags -->
