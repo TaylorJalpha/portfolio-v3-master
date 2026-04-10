@@ -96,7 +96,7 @@ const formattedDate = computed(() => {
             <span
               v-for="tag in item.tags"
               :key="tag._id || tag.title"
-              class="inline-flex items-center px-2 py-1 bg-gray-800/50 border border-gray-600 text-gray-300 rounded-md text-xs font-medium hover:bg-gray-700/50 hover:border-gray-500 transition-colors duration-200"
+              class="inline-flex items-center px-2 py-1 bg-white/[0.06] border border-white/5 text-white/80 rounded-md text-xs font-medium hover:bg-white/[0.1] hover:border-white/12 transition-colors duration-200"
             >
               {{ tag.title }}
             </span>
