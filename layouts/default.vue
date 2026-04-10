@@ -182,7 +182,7 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
                     </span>
                   </div>
                   <div class="mb-3 sm:mb-4 lg:mb-6 text-left">
-                    <h3 class="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-b from-white to-slate-900/10 bg-clip-text text-transparent mb-1 sm:mb-2 leading-tight">{{
+                    <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-white/90 mb-1 sm:mb-2 leading-tight">{{
                       experience.title }}</h3>
                     <p class="text-sm sm:text-base lg:text-lg text-white font-semibold">{{ experience.company }}</p>
                   </div>
