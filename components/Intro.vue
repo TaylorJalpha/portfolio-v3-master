@@ -3,7 +3,7 @@
     <div class="flex w-full h-full">
       <div class="flex flex-col justify-between md:max-h-[300px] gap-4">
         <div class="flex flex-col h-full">
-          <h6 class="text-sm font-light m-0 text-gray-500">
+          <h6 class="text-sm font-light m-0 text-gray-300">
             Good day <span id="wave">👋</span>
           </h6>
           <p class="m-0 font-light text-xl">

@@ -10,13 +10,13 @@ import AnimatedShinyText from "./AnimatedShinyText.vue";
         <h1 class="text-white text-xl font-bold">Let's sync up!</h1>
       </header>
       <div class="flex flex-col mt-4">
-        <h2 class="text-gray-500">Contact</h2>
+        <h2 class="text-gray-300">Contact</h2>
         <p>📧 taylorjacobferguson@gmail.com</p>
         <p>📍Los Angeles,CA</p>
       </div>
 
       <div class="flex flex-col mt-4 w-fit">
-        <h2 class="text-gray-500">Social Network</h2>
+        <h2 class="text-gray-300">Social Network</h2>
         <ul>
           <li>
             <a

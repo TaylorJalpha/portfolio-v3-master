@@ -10,7 +10,7 @@ const { data, pending, error } = useHeroSpotlight()
     <template v-if="!pending && !error && data">
       <NuxtLink :to="data.linkUrl || '/portfolio'" class="block focus:outline-none group">
         <div class="mb-3">
-          <AnimatedShinyText class="text-base font-semibold text-[#FFFFFF] dark:text-[#ff6b73] featured-shimmer-text" :shimmerWidth="120">
+          <AnimatedShinyText class="text-base font-semibold text-white featured-shimmer-text" :shimmerWidth="120">
             ✨ Featured Post
           </AnimatedShinyText>
         </div>
@@ -73,7 +73,7 @@ const { data, pending, error } = useHeroSpotlight()
     <!-- Fallback / loading state -->
     <template v-else>
       <div class="mb-3">
-        <AnimatedShinyText class="text-base font-semibold text-[#FFFFFF] dark:text-[#ff6b73] featured-shimmer-text" :shimmerWidth="120">
+        <AnimatedShinyText class="text-base font-semibold text-white featured-shimmer-text" :shimmerWidth="120">
           ✨ Featured Post
         </AnimatedShinyText>
       </div>
