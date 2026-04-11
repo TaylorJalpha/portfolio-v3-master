@@ -41,14 +41,12 @@
               class="relative min-h-[30rem] w-full grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm"
             >
               <div
-                class="absolute inset-x-10 bottom-0 top-10 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-gray-700 bg-gray-900 shadow-2xl"
+                class="absolute inset-x-10 bottom-0 top-10 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-[#2C2C2C] bg-[#171717] shadow-2xl"
               >
                 <img
                   class="size-full object-cover object-top"
-                  src="assets/css/ios-mockup-bento-grid-agile-card.webp" 
+                  src="assets/css/about-bento-ios-mockup-v2-04-2026.svg" 
                   alt="Agile Methodologies"
-                  width="387"
-                  height="825"
                 />
               </div>
             </div>
@@ -146,9 +144,9 @@
             </div>
             <div class="relative min-h-[30rem] w-full grow">
               <div
-                class="absolute bottom-0 left-10 right-0 top-10 overflow-hidden rounded-tl-xl bg-gray-900 shadow-2xl"
+                class="absolute bottom-0 left-10 right-0 top-10 overflow-hidden rounded-tl-xl bg-[#171717] shadow-2xl"
               >
-                <div class="flex bg-gray-800/40 ring-1 ring-white/5">
+                <div class="flex bg-[#171717] ring-1 ring-white/5">
                   <div
                     class="-mb-px flex text-sm font-medium leading-6 text-gray-400"
                   >
