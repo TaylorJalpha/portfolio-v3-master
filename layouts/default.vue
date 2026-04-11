@@ -53,6 +53,12 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
   </div>
 
   <div id="experience" class="text-white relative w-full z-10 isolate" data-section="experience">
+    <!-- Dot pattern background for timeline section -->
+    <div class="absolute inset-0 opacity-30 -z-20 pointer-events-none" aria-hidden="true">
+      <div class="absolute inset-0"
+        style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;">
+      </div>
+    </div>
     <!-- Aurora background section header -->
     <div class="absolute left-0 top-0 w-full -z-10 pointer-events-none overflow-hidden" style="height:790px"
       aria-hidden="true">

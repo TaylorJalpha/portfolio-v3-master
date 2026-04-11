@@ -639,7 +639,7 @@ const spotlightImage = computed(() => {
 });
 
 const narrative = [
-  "I'm Taylor J. Ferguson — a Sr product and technical project manager based in Los Angeles, originally from East Setauket, NY, with 7+ years turning ambiguous mandates into shipped outcomes across fintech, consultancy, and emerging tech.",
+  "I'm Taylor J. Ferguson — a Sr Product and Technical Project Manager based in Los Angeles, originally from East Setauket, NY, with 7+ years turning ambiguous mandates into shipped outcomes across fintech, consultancy, and emerging tech.",
   "My work sits at the intersection of product strategy and technical execution. I lead with structured discovery — testing assumptions and validating hypotheses early, aligning cross-functional teams around clear priorities, and driving delivery against real business metrics: pricing, revenue, and go-to-market readiness.",
   "Recently, I built <b>RevSec AI</b>, an agentic pricing intelligence platform that supports everything from usage-based to complex hybrid pricing models — covering financial modeling, plans/CPQ with Stripe integration, market research, and more. I also serve as Technical PM and Co-Director at <b>OneSynergee</b>, where I've stood up the delivery process, shaped the roadmap, and aligned product, data, design, and engineering for a decentralized marketplace connecting farmers to new markets.",
   "In parallel, I completed a Product Leadership Certification and deepened my technical fluency in Vue/Nuxt, AWS, and AI/ML — so I can partner more effectively with engineering and data science teams, not just manage them.",
