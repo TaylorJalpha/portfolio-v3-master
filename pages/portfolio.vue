@@ -288,7 +288,7 @@ async function loadPortfolioItems(reset = false) {
           id: 1,
           title: 'Project Alpha',
           description: 'A web app for managing tasks and productivity.',
-          featured_image_url: '/assets/css/mdrg.jpg',
+          featured_image_url: '/assets/css/mdrg.webp',
           tags: [{ name: 'Vue' }, { name: 'Nuxt' }, { name: 'Productivity' }]
         },
         {

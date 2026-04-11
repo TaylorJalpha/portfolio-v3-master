@@ -76,6 +76,9 @@ export default defineNuxtConfig({
   routeRules: {
     '/sitemap.xml': { prerender: true },
     '/robots.txt': { prerender: true },
+    // Cache static assets for 1 year
+    '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    '/me/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     // Disable prerendering for dynamic routes that depend on API data
     '/project/**': { ssr: true, prerender: false },
     '/case-study/**': { ssr: true, prerender: false },

@@ -45,8 +45,10 @@
               >
                 <img
                   class="size-full object-cover object-top"
-                  src="assets/css/ios-mockup-bento-grid-agile-card.png" 
+                  src="assets/css/ios-mockup-bento-grid-agile-card.webp" 
                   alt="Agile Methodologies"
+                  width="387"
+                  height="825"
                 />
               </div>
             </div>
@@ -79,8 +81,10 @@
             >
               <img
                 class="w-full max-lg:max-w-xs"
-                src="assets/css/bento-grid-seo.png"
+                src="assets/css/bento-grid-seo.webp"
                 alt="Performance Optimization"
+                width="948"
+                height="306"
               />
             </div>
           </div>
@@ -110,8 +114,10 @@
             >
               <img
                 class="h-[min(152px,40cqw)] w-80 object-cover object-center mx-auto max-w-full"
-                src="assets/css/bento-grid-security-badge.png"
+                src="assets/css/bento-grid-security-badge.webp"
                 alt="Security Badge"
+                width="2016"
+                height="456"
               />
             </div>
           </div>

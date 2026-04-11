@@ -73,7 +73,7 @@ import { ref } from "vue";
 import ContactForm from "./ContactForm.vue";
 import { useContactModal } from '@/composables/useContactModal'
 
-const defaultPhoto = "taylor-ferguson-profile-img.jpg";
+const defaultPhoto = "taylor-ferguson-profile-img.webp";
 const photoSrc = ref(defaultPhoto);
 const imageLoaded = ref(false);
 
