@@ -25,7 +25,7 @@
             <button
               @click="filterByType('')"
               :class="[
-                'relative inline-flex items-center gap-2 px-6 py-3 rounded-full border text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50',
+                'relative inline-flex items-center gap-2 px-6 py-3 rounded-lg border text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50',
                 selectedFilter === '' ? 'bg-white/20 border-white/20 text-white' : 'bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:text-white'
               ]"
             >
@@ -34,7 +34,7 @@
             <button
               @click="filterByType('project')"
               :class="[
-                'relative inline-flex items-center gap-2 px-6 py-3 rounded-full border text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50',
+                'relative inline-flex items-center gap-2 px-6 py-3 rounded-lg border text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50',
                 selectedFilter === 'project' ? 'bg-white/20 border-white/20 text-white' : 'bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:text-white'
               ]"
             >
@@ -43,7 +43,7 @@
             <button
               @click="filterByType('caseStudy')"
               :class="[
-                'relative inline-flex items-center gap-2 px-6 py-3 rounded-full border text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50',
+                'relative inline-flex items-center gap-2 px-6 py-3 rounded-lg border text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50',
                 selectedFilter === 'caseStudy' ? 'bg-white/20 border-white/20 text-white' : 'bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:text-white'
               ]"
             >
@@ -52,7 +52,7 @@
             <button
               @click="filterByType('blogPost')"
               :class="[
-                'relative inline-flex items-center gap-2 px-6 py-3 rounded-full border text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50',
+                'relative inline-flex items-center gap-2 px-6 py-3 rounded-lg border text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50',
                 selectedFilter === 'blogPost' ? 'bg-white/20 border-white/20 text-white' : 'bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:text-white'
               ]"
             >

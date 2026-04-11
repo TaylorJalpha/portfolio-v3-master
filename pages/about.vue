@@ -52,57 +52,41 @@
           >
             <button
               @click="scrollToBento"
-              class="group relative inline-flex w-full sm:w-auto justify-center items-center gap-2 px-8 py-4 sm:px-7 sm:py-3.5 lg:px-9 lg:py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-base font-semibold text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50"
+              class="group relative inline-flex w-full sm:w-auto justify-center items-center gap-2 px-8 py-4 sm:px-7 sm:py-3.5 lg:px-9 lg:py-4 rounded-lg border border-[#E63946] bg-gray-900 hover:text-[#E63946] text-base font-semibold text-gray-200 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E63946]/50"
             >
-              <span class="relative z-10 flex items-center gap-2">
-                <span
-                  class="h-2 w-2 rounded-full bg-gradient-to-r from-[#667eea] to-[#E63946] animate-pulse"
-                ></span>
-                Product Approach
-                <svg
-                  class="w-4 h-4 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13.5 4.5L21 12l-7.5 7.5M3 12h18"
-                  />
-                </svg>
-              </span>
-              <span
-                class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 bg-gradient-to-r from-[#667eea]/30 via-[#E63946]/20 to-transparent blur transition"
-              />
+              Product Approach
+              <svg
+                class="w-4 h-4 transition-transform group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5L21 12l-7.5 7.5M3 12h18"
+                />
+              </svg>
             </button>
             <button
               @click="scrollToAbout"
-              class="group relative inline-flex w-full sm:w-auto justify-center items-center gap-2 px-8 py-4 sm:px-7 sm:py-3.5 lg:px-9 lg:py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-base font-semibold text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#667eea]/50"
+              class="group relative inline-flex w-full sm:w-auto justify-center items-center gap-2 px-8 py-4 sm:px-7 sm:py-3.5 lg:px-9 lg:py-4 rounded-lg border border-[#E63946] bg-gray-900 hover:text-[#E63946] text-base font-semibold text-gray-200 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E63946]/50"
             >
-              <span class="relative z-10 flex items-center gap-2">
-                <span
-                  class="h-2 w-2 rounded-full bg-gradient-to-r from-[#667eea] to-[#E63946] animate-pulse"
-                ></span>
-                More About Me
-                <svg
-                  class="w-4 h-4 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13.5 4.5L21 12l-7.5 7.5M3 12h18"
-                  />
-                </svg>
-              </span>
-              <span
-                class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 bg-gradient-to-r from-[#667eea]/30 via-[#E63946]/20 to-transparent blur transition"
-              />
+              More About Me
+              <svg
+                class="w-4 h-4 transition-transform group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5L21 12l-7.5 7.5M3 12h18"
+                />
+              </svg>
             </button>
           </div>
         </BlurFade>
@@ -442,7 +426,7 @@
                   </p>
                   <NuxtLink
                     to="/portfolio"
-                    class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 text-sm font-medium text-white/80 transition hover:border-white/40 hover:bg-white/10"
+                    class="inline-flex items-center gap-2 rounded-lg border border-[#E63946] bg-gray-900 px-5 py-2 text-sm font-semibold text-gray-200 transition hover:text-[#E63946]"
                   >
                     <span>Browse portfolio</span>
                     <svg
@@ -503,7 +487,7 @@
                   <div class="flex flex-wrap gap-3 pt-2">
                     <NuxtLink
                       :to="heroSpotlight.linkUrl || '/portfolio'"
-                      class="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white/85 transition hover:border-white/40 hover:bg-white/10"
+                      class="group inline-flex items-center gap-2 rounded-lg border border-[#E63946] bg-gray-900 px-5 py-2.5 text-sm font-semibold text-gray-200 transition hover:text-[#E63946]"
                     >
                       <span>Read the featured post</span>
                       <svg
@@ -522,7 +506,7 @@
                     </NuxtLink>
                     <NuxtLink
                       to="/portfolio"
-                      class="inline-flex items-center gap-2 rounded-full border border-transparent bg-white/10 px-5 py-2.5 text-sm font-medium text-white/70 transition hover:border-white/20 hover:bg-white/15"
+                      class="inline-flex items-center gap-2 rounded-lg border border-[#E63946] bg-gray-900 px-5 py-2.5 text-sm font-semibold text-gray-200 transition hover:text-[#E63946]"
                     >
                       <span>More posts and case studies</span>
                     </NuxtLink>
@@ -557,7 +541,7 @@
                   </p>
                   <NuxtLink
                     to="/portfolio"
-                    class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 text-sm font-medium text-white/80 transition hover:border-white/40 hover:bg-white/10"
+                    class="inline-flex items-center gap-2 rounded-lg border border-[#E63946] bg-gray-900 px-5 py-2 text-sm font-semibold text-gray-200 transition hover:text-[#E63946]"
                   >
                     <span>Browse portfolio</span>
                     <svg
