@@ -72,10 +72,10 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
           :speed="0.6"
           :edge-fade="0.25"
           :transparent="true"
-          class="w-full h-full opacity-30"
+          class="w-full h-full opacity-60"
         />
       </ClientOnly>
-      <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/70 via-neutral-950/40 to-neutral-950"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/30 via-neutral-950/20 to-neutral-950"></div>
     </div>
 
     <div class="m-auto max-w-6xl">
