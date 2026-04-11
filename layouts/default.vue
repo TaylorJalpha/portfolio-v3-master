@@ -56,26 +56,25 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
     <!-- Aurora background section header -->
     <div class="absolute left-0 top-0 w-full -z-10 pointer-events-none overflow-hidden" style="height:790px"
       aria-hidden="true">
-      <PixelBlast
-        variant="circle"
-        :pixel-size="6"
-        color="#98A197"
-        :pattern-scale="3"
-        :pattern-density="1.2"
-        :pixel-size-jitter="0.5"
-        :enable-ripples="true"
-        :ripple-speed="0.4"
-        :ripple-thickness="0.12"
-        :ripple-intensity-scale="1.5"
-        :liquid="true"
-        :liquid-strength="0.12"
-        :liquid-radius="1.2"
-        :liquid-wobble-speed="5"
-        :speed="0.6"
-        :edge-fade="0.25"
-        :transparent="true"
-        class="w-full h-full opacity-30"
-      />
+      <ClientOnly>
+        <PixelBlast
+          variant="circle"
+          :pixel-size="6"
+          color="#98A197"
+          :pattern-scale="3"
+          :pattern-density="1.2"
+          :pixel-size-jitter="0.5"
+          :enable-ripples="true"
+          :ripple-speed="0.4"
+          :ripple-thickness="0.12"
+          :ripple-intensity-scale="1.5"
+          :liquid="false"
+          :speed="0.6"
+          :edge-fade="0.25"
+          :transparent="true"
+          class="w-full h-full opacity-30"
+        />
+      </ClientOnly>
       <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/70 via-neutral-950/40 to-neutral-950"></div>
     </div>
 
