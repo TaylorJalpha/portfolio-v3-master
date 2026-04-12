@@ -172,23 +172,23 @@
                       background-size: 4px 4px;
                     "
                   ><code class="language-js">
-  <span style="color: #1DA1F2;">const</span> stripe = Stripe('<span style="color: #1DA1F2;">pk_test_51Jf0p1F0yWp3Wf0p1F0yWp3Wf0p1F0yWp3Wf0p1F0yWp3Wf0p1F0yWp3</span>');
-  <span style="color: #1DA1F2;">const</span> <span style="color: #1DA1F2;">const</span>  form = document.getElementById('<span style="color: #4CAF50;">payment-form</span>');
-  form.addEventListener('<span style="color: #FF9800;">submit</span>', async (e) => {
+  <span style="color: #E63946;">const</span> stripe = Stripe('<span style="color: #A0A0A0;">pk_test_51Jf0p1F0yWp3Wf0p1F0yWp3Wf0p1F0yWp3Wf0p1F0yWp3Wf0p1F0yWp3</span>');
+  <span style="color: #E63946;">const</span> <span style="color: #E63946;">const</span>  form = document.getElementById('<span style="color: #A0A0A0;">payment-form</span>');
+  form.addEventListener('<span style="color: #A0A0A0;">submit</span>', async (e) => {
     e.preventDefault();
-  <span style="color: #1DA1F2;">const</span>  { error } = await stripe.confirmCardPayment(clientSecret, {
-      receipt_email: document.querySelector('<span style="color: #9C27B0;">#email</span>').value,
+  <span style="color: #E63946;">const</span>  { error } = await stripe.confirmCardPayment(clientSecret, {
+      receipt_email: document.querySelector('<span style="color: #A0A0A0;">#email</span>').value,
       payment_method: {
         card: cardElement,
         billing_details: {
-          name: document.querySelector('<span style="color: #9C27B0;">#name</span>').value,
+          name: document.querySelector('<span style="color: #A0A0A0;">#name</span>').value,
         },
       },
     });
     if (error) {
-      // <span style="color: #f64c4c;">Handle error</span>
+      // <span style="color: #666666;">Handle error</span>
     } else {
-      // <span style="color: #4CAF50;">Payment successful</span>
+      // <span style="color: #666666;">Payment successful</span>
     }
   });
                     </code></pre>
