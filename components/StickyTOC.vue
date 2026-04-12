@@ -1,12 +1,25 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
 
 interface TocItem { id: string; text: string; level: number }
 
 const props = defineProps<{ contentSelector?: string }>()
 const items = ref<TocItem[]>([])
 const activeId = ref('')
+const windowWidth = ref(process.client ? window.innerWidth : 1200)
 let observer: IntersectionObserver | null = null
+
+// Position TOC in the right margin: content is max-w-3xl (48rem = 768px) centered
+const tocRight = computed(() => {
+  const contentWidth = 768
+  const margin = (windowWidth.value - contentWidth) / 2
+  const tocWidth = 192 // w-48
+  const gap = 32
+  const right = margin - tocWidth - gap
+  return right > 16 ? `${right}px` : '1rem'
+})
+
+function onResize() { windowWidth.value = window.innerWidth }
 
 function extractHeadings() {
   const container = document.querySelector(props.contentSelector || '.portfolio-detail')
@@ -43,38 +56,41 @@ function scrollTo(id: string) {
 }
 
 onMounted(async () => {
+  window.addEventListener('resize', onResize)
   await nextTick()
-  // Wait for content to render
   setTimeout(() => {
     extractHeadings()
     if (items.value.length) observeHeadings()
   }, 600)
 })
 
-onBeforeUnmount(() => { observer?.disconnect() })
+onBeforeUnmount(() => {
+  observer?.disconnect()
+  window.removeEventListener('resize', onResize)
+})
 </script>
 
 <template>
-  <nav v-if="items.length" class="hidden lg:block" aria-label="Table of contents">
-    <div class="sticky top-24">
-      <p class="text-xs uppercase tracking-widest text-white/40 mb-3">On this page</p>
-      <ul class="space-y-1.5 border-l border-white/10">
+  <Teleport to="body">
+    <nav v-if="items.length" class="hidden lg:block fixed top-24 w-48 z-40" :style="{ right: tocRight }" aria-label="Table of contents">
+      <p class="text-xs uppercase tracking-widest text-white/60 mb-3">On this page</p>
+      <ul class="space-y-1.5 border-l border-white/10 max-h-[calc(100vh-8rem)] overflow-y-auto">
         <li v-for="item in items" :key="item.id">
           <a
             :href="`#${item.id}`"
             @click.prevent="scrollTo(item.id)"
             class="block text-sm leading-snug py-1 transition-colors duration-200"
             :class="[
-              item.level === 1 ? 'pl-3' : item.level === 2 ? 'pl-3' : item.level === 3 ? 'pl-6' : 'pl-9',
+              item.level <= 2 ? 'pl-3' : item.level === 3 ? 'pl-6' : 'pl-9',
               activeId === item.id
-                ? 'text-white border-l-2 border-white -ml-px'
-                : 'text-white/40 hover:text-white/70'
+                ? 'text-white border-l-2 border-[#E63946] -ml-px'
+                : 'text-white/60 hover:text-white/80'
             ]"
           >
             {{ item.text }}
           </a>
         </li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </Teleport>
 </template>

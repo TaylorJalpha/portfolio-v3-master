@@ -1,5 +1,5 @@
 <template>
-  <div class="portfolio-detail-layout bg-[#171717] min-h-screen text-white flex flex-col relative overflow-x-hidden">
+  <div class="portfolio-detail-layout bg-[#171717] min-h-screen text-white flex flex-col relative">
     <!-- Background gradient overlay -->
     <div class="absolute inset-0 bg-gradient-to-br from-[#171717] via-[#232323] to-[#171717] opacity-50 pointer-events-none"></div>
     <!-- Subtle dot pattern background -->
@@ -8,12 +8,10 @@
     </div>
     <FloatingNav />
     <div class="h-8 sm:h-12" /> <!-- Spacer for nav -->
-    <div class="max-w-5xl mx-auto py-12 px-4 flex-1 relative z-10 w-full overflow-x-hidden lg:grid lg:grid-cols-[1fr_200px] lg:gap-10">
-      <main class="min-w-0 overflow-x-hidden">
-        <slot />
-      </main>
-      <StickyTOC />
-    </div>
+    <main class="max-w-3xl mx-auto py-12 px-4 flex-1 relative z-10 w-full min-w-0 overflow-x-hidden">
+      <slot />
+    </main>
+    <StickyTOC />
     <Footer />
   </div>
 </template>
