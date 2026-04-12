@@ -9,7 +9,11 @@ module.exports = {
     './nuxt.config.{js,ts}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'spin-slow': 'spin 6s linear infinite',
+      },
+    },
   },
   plugins: [],
 };

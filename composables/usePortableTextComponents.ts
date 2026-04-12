@@ -1,6 +1,19 @@
 import { h } from 'vue'
 import SanityImage from '@/components/SanityImage.vue'
 
+function slugify(children: any): string {
+  // children from @portabletext/vue are VNodes; extract text via recursion
+  function getText(node: any): string {
+    if (typeof node === 'string') return node
+    if (Array.isArray(node)) return node.map(getText).join('')
+    if (node?.children) return getText(node.children)
+    if (node?.props?.children) return getText(node.props.children)
+    return ''
+  }
+  const text = getText(children)
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+}
+
 /**
  * Composable that provides portable text components configuration
  * for consistent rendering across the application
@@ -33,18 +46,17 @@ export const usePortableTextComponents = () => {
       }
     },
     block: {
-      // Custom block-level components can be added here
       h1: ({ children }: any) => {
-        return h('h1', { class: 'text-3xl font-bold mb-6 mt-8' }, children)
+        return h('h1', { id: slugify(children), class: 'text-3xl font-bold mb-6 mt-8' }, children)
       },
       h2: ({ children }: any) => {
-        return h('h2', { class: 'text-2xl font-semibold mb-4 mt-6' }, children)
+        return h('h2', { id: slugify(children), class: 'text-2xl font-semibold mb-4 mt-6' }, children)
       },
       h3: ({ children }: any) => {
-        return h('h3', { class: 'text-xl font-medium mb-3 mt-5' }, children)
+        return h('h3', { id: slugify(children), class: 'text-xl font-medium mb-3 mt-5' }, children)
       },
       h4: ({ children }: any) => {
-        return h('h4', { class: 'text-lg font-medium mb-2 mt-4' }, children)
+        return h('h4', { id: slugify(children), class: 'text-lg font-medium mb-2 mt-4' }, children)
       },
       normal: ({ children }: any) => {
         return h('p', { class: 'mb-4 leading-relaxed text-gray-700 dark:text-gray-300' }, children)

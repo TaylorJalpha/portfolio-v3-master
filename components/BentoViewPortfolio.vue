@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useHeroSpotlight } from '#imports'
-import { BarChart3, Search, Zap, TrendingUp, Target, Lightbulb, Link, Settings, Building2, Activity, Shield, Cloud } from 'lucide-vue-next'
+import { BarChart3, Search, Zap, TrendingUp, Target, Lightbulb, Link, Settings, Building2, Activity, Shield, Cloud, Sparkles } from 'lucide-vue-next'
 
 const { data, pending, error } = useHeroSpotlight()
 </script>
@@ -11,7 +11,7 @@ const { data, pending, error } = useHeroSpotlight()
       <NuxtLink :to="data.linkUrl || '/portfolio'" class="block focus:outline-none group">
         <div class="mb-3">
           <AnimatedShinyText class="text-base font-semibold text-white featured-shimmer-text" :shimmerWidth="120">
-            ✨ Featured Post
+            <Sparkles :size="16" class="inline-block align-text-bottom text-amber-400" /> Featured Post
           </AnimatedShinyText>
         </div>
         <div class="relative overflow-hidden rounded-md aspect-[16/9] mb-4"> 
@@ -74,7 +74,7 @@ const { data, pending, error } = useHeroSpotlight()
     <template v-else>
       <div class="mb-3">
         <AnimatedShinyText class="text-base font-semibold text-white featured-shimmer-text" :shimmerWidth="120">
-          ✨ Featured Post
+          <Sparkles :size="16" class="inline-block align-text-bottom text-amber-400" /> Featured Post
         </AnimatedShinyText>
       </div>
       <NuxtLink to="/portfolio" class="block focus:outline-none group">

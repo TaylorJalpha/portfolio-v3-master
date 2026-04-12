@@ -41,7 +41,7 @@
               class="relative min-h-[30rem] w-full grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm"
             >
               <div
-                class="absolute inset-x-10 bottom-0 top-10 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-[#2C2C2C] bg-[#171717] shadow-2xl"
+                class="absolute inset-x-10 bottom-0 top-10 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-[#A8A8A8] bg-[#171717] shadow-2xl"
               >
                 <img
                   class="size-full object-cover object-top"

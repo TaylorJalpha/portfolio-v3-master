@@ -8,9 +8,12 @@
     </div>
     <FloatingNav />
     <div class="h-8 sm:h-12" /> <!-- Spacer for nav -->
-  <main class="max-w-3xl mx-auto py-12 px-4 flex-1 relative z-10 w-full overflow-x-hidden">
-      <slot />
-    </main>
+    <div class="max-w-5xl mx-auto py-12 px-4 flex-1 relative z-10 w-full overflow-x-hidden lg:grid lg:grid-cols-[1fr_200px] lg:gap-10">
+      <main class="min-w-0 overflow-x-hidden">
+        <slot />
+      </main>
+      <StickyTOC />
+    </div>
     <Footer />
   </div>
 </template>
@@ -18,6 +21,7 @@
 <script setup lang="ts">
 import Footer from '@/components/Footer.vue'
 import FloatingNav from '@/components/FloatingNav.vue'
+import StickyTOC from '@/components/StickyTOC.vue'
 </script>
 
 <style scoped>
