@@ -33,7 +33,7 @@
             <p
               class="max-w-2xl text-lg sm:text-xl leading-relaxed text-neutral-300 m-0"
             >
-              Sr Technical Product & Program Manager with 7+ years shipping outcomes across fintech, consultancy, and emerging tech. I lead with structured discovery, align cross-functional teams around clear priorities, and drive delivery against the metrics that matter — pricing, revenue, and go-to-market readiness.
+              Sr Technical Product & Program Manager with 7+ years shipping outcomes across fintech, consultancy, and emerging tech. I lead with structured discovery and validate before I build — aligning teams around clear priorities and driving delivery against the metrics that actually move the business: pricing, revenue, and go-to-market readiness.
               <br /><br />
             </p>
             <div class="md:justify-self-end">
@@ -639,10 +639,10 @@ const spotlightImage = computed(() => {
 });
 
 const narrative = [
-  "I'm Taylor J. Ferguson — a Sr Product and Technical Project Manager based in Los Angeles, originally from East Setauket, NY, with 7+ years turning ambiguous mandates into shipped outcomes across fintech, consultancy, and emerging tech.",
+  "I'm Taylor J. Ferguson — a Sr Technical Product & Program Manager based in Los Angeles, originally from East Setauket, NY, with 7+ years turning ambiguous mandates into shipped outcomes across fintech, consultancy, and emerging tech.",
   "My work sits at the intersection of product strategy and technical execution. I lead with structured discovery — testing assumptions and validating hypotheses early, aligning cross-functional teams around clear priorities, and driving delivery against real business metrics: pricing, revenue, and go-to-market readiness.",
   "Recently, I built <b>RevSec AI</b>, an agentic pricing intelligence platform that supports everything from usage-based to complex hybrid pricing models — covering financial modeling, plans/CPQ with Stripe integration, market research, and more. I also serve as Technical PM and Co-Director at <b>OneSynergee</b>, where I've stood up the delivery process, shaped the roadmap, and aligned product, data, design, and engineering for a decentralized marketplace connecting farmers to new markets.",
-  "In parallel, I completed a Product Leadership Certification and deepened my technical fluency in Vue/Nuxt, AWS, and AI/ML — so I can partner more effectively with engineering and data science teams, not just manage them.",
+  "In 2024, I completed a Product Leadership Certification that sharpened how I think about pricing strategy and organizational alignment. Since then, I've deepened my technical fluency in Vue/Nuxt, AWS, and AI/ML — so I can partner more effectively with engineering and data science teams, not just manage them.",
   "If we work together, expect someone who brings a process-based approach and structure, asks the right questions early, and stays focused on outcomes that matter to the business and the people building the product.",
   "When I'm not working, I'm usually riding my bike 🚴, exploring LA, or hacking away on a side project.",
 ];

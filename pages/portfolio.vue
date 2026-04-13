@@ -15,7 +15,7 @@
       <PortfolioNav />
         <BlurFade in-view :delay="250">
           <p class="text-lg mb-8 mt-2 pt-2 text-center max-w-2xl px-4">
-            A collection of some of my work: case studies, business cases, projects, and blog posts from over the years - showcasing my work as a Sr Technical Product & Program Manager 
+            Case studies, projects, and posts — how I approach product strategy, technical execution, and delivery. 
           </p>
         </BlurFade>
         
