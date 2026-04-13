@@ -24,7 +24,7 @@ function onResize() { windowWidth.value = window.innerWidth }
 function extractHeadings() {
   const container = document.querySelector(props.contentSelector || '.portfolio-detail')
   if (!container) return
-  const headings = container.querySelectorAll('h1, h2, h3')
+  const headings = container.querySelectorAll('h2')
   items.value = Array.from(headings).filter(el => {
     const text = (el.textContent || '').trim()
     // Skip headings that contain images, have no text, or text that looks like a file path/URL
