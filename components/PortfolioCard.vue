@@ -21,7 +21,7 @@
       <div class="p-4 sm:p-5 lg:p-6 flex-1 flex flex-col justify-between">
         <div class="flex-1">
           <!-- Title -->
-          <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white line-clamp-2 group-hover:text-[#E63946] transition-colors duration-200">
+          <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white/80 line-clamp-2 group-hover:text-white transition-colors duration-200">
             {{ item.title }}
           </h3>
           <!-- Optional Published Date -->
@@ -57,7 +57,7 @@
         <!-- Action Button -->
         <NuxtLink
           :to="`/${mapType(item.content_type)}/${item.slug?.current || item.slug}`"
-          class="w-full px-4 py-2.5 bg-gray-900 text-gray-200 rounded-lg font-semibold border border-[#E63946] hover:text-[#E63946] focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:ring-offset-2 focus:ring-offset-[#171717] transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
+          class="w-full px-4 py-2.5 bg-gray-900 text-gray-200 rounded-lg font-semibold border border-[#E63946] hover:text-white hover:shadow-[0_0_10px_rgba(230,57,70,0.3)] focus:outline-none focus:ring-2 focus:ring-[#E63946] focus:ring-offset-2 focus:ring-offset-[#171717] transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
         >
           Learn More
         </NuxtLink>
