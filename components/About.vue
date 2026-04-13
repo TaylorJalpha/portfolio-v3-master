@@ -3,11 +3,6 @@
         <div class="flex flex-col gap-2">
             <h2 class="text-xl font-bold m-0 z-20">About me</h2>
             <p class="text-sm font-light">
-                Sr Technical Product & Program Manager with 7+ years shipping outcomes across fintech, consultancy, and emerging tech.
-                <br />
-
-            </p>
-            <p class="text-sm font-light">
                 Primary Toolbox:
             </p>
             <ul class="list-disc list-inside">
@@ -18,14 +13,17 @@
                     </span>
                 </li>
                 <li>Product Discovery</li>
+                <li>Roadmapping</li>
                 <li>Pricing & GTM</li>
                 <li>Agile / Scrum</li>
-                <li>Business Modeling</li>
+                <li>Stakeholder Alignment</li>
+                <li>Cross-functional Delivery</li>
+                <li>OKRs & Risk Mitigation</li>
                 <li>Vue / Nuxt</li>
                 <li>Ruby on Rails</li>
+                <li>REST APIs</li>
                 <li>AWS</li>
-                <li>AI / ML</li>
-                <li>Data Analytics</li>
+                <li>PostgreSQL</li>
             </ul>
                         <!-- CTA: Learn more about me -->
                         <NuxtLink to="/about" class="mt-4 inline-flex items-center gap-2 text-[#746CFF] hover:text-[#ff6b73] transition-colors text-sm font-medium">
