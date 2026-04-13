@@ -15,7 +15,7 @@
       <PortfolioNav />
         <BlurFade in-view :delay="250">
           <p class="text-lg mb-8 mt-2 pt-2 text-center max-w-2xl px-4">
-            Case studies, projects, and posts — how I approach product strategy, technical execution, and delivery. 
+            A selection of my work — case studies, projects, business cases, and posts covering product strategy, technical execution, and the side businesses I'm building. 
           </p>
         </BlurFade>
         
