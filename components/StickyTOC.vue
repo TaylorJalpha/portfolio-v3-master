@@ -24,7 +24,7 @@ function onResize() { windowWidth.value = window.innerWidth }
 function extractHeadings() {
   const container = document.querySelector(props.contentSelector || '.portfolio-detail')
   if (!container) return
-  const headings = container.querySelectorAll('h2')
+  const headings = container.querySelectorAll('h1, h2, h3')
   items.value = Array.from(headings).map(el => {
     if (!el.id) {
       el.id = (el.textContent || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
