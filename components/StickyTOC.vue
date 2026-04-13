@@ -25,7 +25,14 @@ function extractHeadings() {
   const container = document.querySelector(props.contentSelector || '.portfolio-detail')
   if (!container) return
   const headings = container.querySelectorAll('h1, h2, h3')
-  items.value = Array.from(headings).map(el => {
+  items.value = Array.from(headings).filter(el => {
+    const text = (el.textContent || '').trim()
+    // Skip headings that contain images, have no text, or text that looks like a file path/URL
+    if (!text || text.length < 2) return false
+    if (el.querySelector('img')) return false
+    if (/^(https?:\/\/|\/|\.\.?\/)/.test(text)) return false
+    return true
+  }).map(el => {
     if (!el.id) {
       el.id = (el.textContent || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
     }
