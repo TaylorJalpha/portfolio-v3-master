@@ -90,10 +90,9 @@ onBeforeUnmount(() => {
             :class="[
               item.level <= 2 ? 'pl-3' : item.level === 3 ? 'pl-6' : 'pl-9',
               activeId === item.id
-                ? 'text-white border-l-2 -ml-px'
+                ? 'text-white toc-active-border -ml-px'
                 : 'text-white/60 hover:text-white/80'
             ]"
-            :style="activeId === item.id ? { borderColor: '#746CFF' } : {}"
           >
             {{ item.text }}
           </a>
@@ -102,3 +101,9 @@ onBeforeUnmount(() => {
     </nav>
   </Teleport>
 </template>
+
+<style>
+.toc-active-border {
+  border-left: 2px solid #746CFF !important;
+}
+</style>
