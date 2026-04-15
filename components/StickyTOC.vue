@@ -104,6 +104,6 @@ onBeforeUnmount(() => {
 
 <style>
 .toc-active-border {
-  border-left: 2px solid #746CFF !important;
+  border-left: 2px solid #E63946 !important;
 }
 </style>
