@@ -155,11 +155,12 @@
 .prose .md-toc a,
 .markdown-content .md-toc a {
   text-decoration: none;
-  color: #746CFF;
+  color: #746CFF !important;
 }
 .prose .md-toc a:hover,
 .markdown-content .md-toc a:hover {
   text-decoration: underline;
+  color: #8b85ff !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -170,11 +171,11 @@
   }
   .prose .md-toc a,
   .markdown-content .md-toc a {
-    color: #746CFF;
+    color: #746CFF !important;
   }
   .prose .md-toc a:hover,
   .markdown-content .md-toc a:hover {
-    color: #8b85ff;
+    color: #8b85ff !important;
   }
 }
 
