@@ -155,7 +155,7 @@
 .prose .md-toc a,
 .markdown-content .md-toc a {
   text-decoration: none;
-  color: #2563eb; /* blue-600 */
+  color: #746CFF;
 }
 .prose .md-toc a:hover,
 .markdown-content .md-toc a:hover {
@@ -170,11 +170,11 @@
   }
   .prose .md-toc a,
   .markdown-content .md-toc a {
-    color: #60a5fa; /* blue-400 */
+    color: #746CFF;
   }
   .prose .md-toc a:hover,
   .markdown-content .md-toc a:hover {
-    color: #93c5fd; /* blue-300 */
+    color: #8b85ff;
   }
 }
 

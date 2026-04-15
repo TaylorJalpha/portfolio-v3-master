@@ -91,7 +91,7 @@ onBeforeUnmount(() => {
               item.level <= 2 ? 'pl-3' : item.level === 3 ? 'pl-6' : 'pl-9',
               activeId === item.id
                 ? 'text-white border-l-2 border-[#746CFF] -ml-px'
-                : 'text-[#746CFF] hover:text-white/80'
+                : 'text-white/60 hover:text-white/80'
             ]"
           >
             {{ item.text }}
