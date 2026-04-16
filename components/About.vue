@@ -4,10 +4,15 @@
             <h2 class="text-xl font-bold m-0 z-20">About me</h2>
             <p class="text-sm font-semibold text-gray-400 mt-1">Strategy & Execution</p>
             <ul class="list-disc list-inside text-sm">
+                <li>Product Strategy
+                    <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-yellow-400 border border-yellow-400">
+                         Focus
+                    </span>
+                </li>
                 <li>Product Discovery</li>
                 <li>Roadmapping</li>
                 <li>Pricing & GTM Strategy</li>
-                <li>Agile / Scrum / Kanban</li>
+                <li>Agile / Scrum</li>
                 <li>Stakeholder Alignment</li>
                 <li>Cross-functional Delivery</li>
                 <li>OKRs & Risk Mitigation</li>
