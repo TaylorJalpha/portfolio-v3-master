@@ -1,0 +1,135 @@
+<script setup lang="ts">
+import { useSanityImageUrl } from '@/composables/useSanityImageUrl'
+import { renderMarkdown } from '@/lib/markdown'
+import { PortableText } from '@portabletext/vue'
+import PdfViewer from './PdfViewer.vue'
+import { computed } from 'vue'
+import { formatDisplayDate } from '@/lib/utils'
+
+const props = defineProps<{ item: any }>()
+
+function imageUrl(image: any) {
+  return image && image.asset ? useSanityImageUrl(image) : ''
+}
+
+// Custom Portable Text components
+import { h } from 'vue'
+
+const ptComponents = {
+  types: {
+    image: ({ value }: any) => {
+      return value && value.asset
+        ? h('img', {
+            src: imageUrl(value),
+            alt: value.alt || '',
+            class: 'my-6 rounded-xl w-full max-h-96 object-cover'
+          })
+        : null
+    }
+  },
+  marks: {
+    link: ({ children, value }: any) => {
+      return h(
+        'a',
+        {
+          href: value.href,
+          target: '_blank',
+          rel: 'noopener',
+          class: 'text-blue-600 underline'
+        },
+        children
+      )
+    }
+  }
+}
+
+const formattedDate = computed(() => {
+  const type = props.item?._type || props.item?.content_type
+  const isArticle = type === 'blogPost' || type === 'caseStudy' || type === 'blog_post' || type === 'case_study'
+        let raw: string | undefined
+        if (isArticle) {
+          raw = props.item?.datePublished || props.item?.date || props.item?.published_at
+  } else if (type === 'project') {
+    raw = props.item?.published_at
+  }
+  return formatDisplayDate(raw, { variant: 'long' })
+})
+</script>
+
+<template>
+  <div class="portfolio-detail overflow-x-hidden">
+    <h1 class="text-3xl font-bold mb-2">{{ item.title }}</h1>
+  <p class="text-lg text-gray-500 mb-2">{{ item.description }}</p>
+    <!-- Conditional Published Date -->
+    <div v-if="formattedDate" class="flex items-center gap-2 text-sm text-gray-400 mb-4">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+        <path d="M6 2a1 1 0 0 1 1 1v1h6V3a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1V3a1 1 0 1 1 2 0v1Zm11 6H3v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8Z"/>
+      </svg>
+      <span>Published {{ formattedDate }}</span>
+    </div>
+    <!-- Tags below description, styled like PortfolioCard -->
+    <div v-if="item.tags && item.tags.length" class="mb-4">
+      <div class="flex flex-wrap gap-1.5 sm:gap-2">
+        <span 
+          v-for="(tag, index) in item.tags.slice(0, 4)" 
+          :key="tag._id || tag.title" 
+          class="inline-flex items-center px-2 py-1 bg-white/[0.06] border border-white/5 text-white/80 rounded-md text-xs font-medium hover:bg-white/[0.1] hover:border-white/12 transition-colors duration-200"
+        >
+          {{ tag.title }}
+        </span>
+        <span 
+          v-if="item.tags.length > 4"
+          class="inline-flex items-center px-2 py-1 bg-white/[0.04] text-white/60 rounded-md text-xs"
+        >
+          +{{ item.tags.length - 4 }}
+        </span>
+      </div>
+    </div>
+    <img
+      v-if="item.featuredImage && item.featuredImage.asset"
+      :src="imageUrl(item.featuredImage)"
+      class="mb-6 rounded-xl w-full max-w-full max-h-96 object-cover"
+      style="display: block;"
+    />
+    <!-- Render Portable Text if available, else fallback to markdown -->
+    <div v-if="item.portableText || item.markdown?.content || item.content">
+      <div class="prose max-w-none">
+        <PortableText
+          v-if="item.portableText"
+          :value="item.portableText"
+          :components="ptComponents"
+        />
+        <div
+          v-else
+          v-html="renderMarkdown(item.markdown?.content || item.content)"
+        />
+      </div>
+    </div>
+    <!-- PDF Viewer for case studies -->
+    <PdfViewer
+      v-if="item.pdfFile && item.pdfFile.asset && item.pdfFile.asset.url"
+      :pdfUrl="item.pdfFile.asset.url"
+    />
+    <div v-if="item.galleryImages && item.galleryImages.length">
+      <h2 class="text-xl font-semibold mt-8 mb-2">Gallery</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <img
+          v-for="(img, i) in item.galleryImages"
+          :key="i"
+          :src="imageUrl(img)"
+          class="rounded-lg w-full max-w-full object-cover"
+          style="display: block;"
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.portfolio-detail {
+  overflow-x: hidden;
+}
+.prose {
+  max-width: 100%;
+}
+</style>

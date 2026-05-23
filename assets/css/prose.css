@@ -1,0 +1,261 @@
+/* Markdown/Prose styles for PortfolioDetailView content */
+
+/* Reset any Tailwind list resets for prose content */
+.prose ul,
+.prose ol,
+.markdown-content ul,
+.markdown-content ol {
+  list-style: revert;
+  margin: revert;
+  padding: revert;
+}
+
+.prose h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 1.5rem 0 1rem 0;
+}
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1.25rem 0 1rem 0;
+}
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1rem 0 0.75rem 0;
+}
+.prose p {
+  font-size: 1rem;
+  margin: 0.75rem 0;
+}
+
+/* Enhanced image styles for Sanity markdown images */
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Viewport-filling images */
+.prose img.viewport-image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  border-radius: 0;
+}
+.prose ul, .prose ol,
+.markdown-content ul, .markdown-content ol {
+  margin: 1rem 0 1rem 0;
+  padding-left: 2rem;
+}
+
+.prose ul,
+.markdown-content ul {
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+}
+
+.prose ol,
+.markdown-content ol {
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+}
+
+.prose ul ul,
+.markdown-content ul ul {
+  list-style-type: circle !important;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose ul ul ul,
+.markdown-content ul ul ul {
+  list-style-type: square !important;
+}
+
+.prose ol ol,
+.markdown-content ol ol {
+  list-style-type: lower-alpha !important;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose ol ol ol,
+.markdown-content ol ol ol {
+  list-style-type: lower-roman !important;
+}
+
+.prose li,
+.markdown-content li {
+  margin-bottom: 0.5rem;
+  display: list-item !important;
+}
+
+/* Ensure list markers are visible */
+.prose ul li::marker,
+.prose ol li::marker,
+.markdown-content ul li::marker,
+.markdown-content ol li::marker {
+  color: inherit;
+}
+.prose hr,
+.markdown-content hr {
+  border: none;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  margin: 2rem 0;
+}
+
+.prose blockquote {
+  border-left: 4px solid #E63946;
+  padding-left: 1rem;
+  color: #d1d5db; /* Tailwind gray-300, matches .text-gray-400 in PortfolioDetailView */
+  font-style: italic;
+  margin: 1rem 0;
+}
+.prose pre {
+  background: #232323;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+.prose code {
+  background: #f4f4f4;
+  color: #E63946;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+/* Table of Contents styles */
+.prose .md-toc,
+.markdown-content .md-toc {
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(148, 163, 184, 0.07);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0 1.25rem;
+}
+.prose .md-toc-title,
+.markdown-content .md-toc-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.prose .md-toc-list,
+.markdown-content .md-toc-list {
+  list-style: none;
+  margin: 0.25rem 0 0 0;
+  padding-left: 0.25rem;
+}
+.prose .md-toc-sub,
+.markdown-content .md-toc-sub {
+  list-style: none;
+  margin: 0.25rem 0 0.25rem 1rem;
+  padding-left: 0.5rem;
+}
+.prose .md-toc a,
+.markdown-content .md-toc a {
+  text-decoration: none;
+  color: #746CFF !important;
+}
+.prose .md-toc a:hover,
+.markdown-content .md-toc a:hover {
+  text-decoration: underline;
+  color: #8b85ff !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose .md-toc,
+  .markdown-content .md-toc {
+    border-color: rgba(148, 163, 184, 0.25);
+    background: rgba(148, 163, 184, 0.06);
+  }
+  .prose .md-toc a,
+  .markdown-content .md-toc a {
+    color: #746CFF !important;
+  }
+  .prose .md-toc a:hover,
+  .markdown-content .md-toc a:hover {
+    color: #8b85ff !important;
+  }
+}
+
+/* Markdown table styles */
+.prose .md-table-wrapper,
+.markdown-content .md-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.prose .md-table,
+.markdown-content .md-table,
+.prose table,
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 0.95rem;
+}
+
+.prose .md-table th,
+.prose .md-table td,
+.markdown-content .md-table th,
+.markdown-content .md-table td,
+.prose table th,
+.prose table td,
+.markdown-content table th,
+.markdown-content table td {
+  border: 1px solid rgba(148, 163, 184, 0.3); /* slate-400/30 */
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose .md-table thead th,
+.markdown-content .md-table thead th,
+.prose table thead th,
+.markdown-content table thead th {
+  background: rgba(148, 163, 184, 0.12); /* subtle header bg */
+  font-weight: 600;
+}
+
+/* Zebra striping for readability */
+.prose .md-table tbody tr:nth-child(odd),
+.markdown-content .md-table tbody tr:nth-child(odd),
+.prose table tbody tr:nth-child(odd),
+.markdown-content table tbody tr:nth-child(odd) {
+  background: rgba(148, 163, 184, 0.06);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .prose .md-table th,
+  .prose .md-table td,
+  .markdown-content .md-table th,
+  .markdown-content .md-table td,
+  .prose table th,
+  .prose table td,
+  .markdown-content table th,
+  .markdown-content table td {
+    border-color: rgba(148, 163, 184, 0.25);
+  }
+  .prose .md-table thead th,
+  .markdown-content .md-table thead th,
+  .prose table thead th,
+  .markdown-content table thead th {
+    background: rgba(148, 163, 184, 0.10);
+  }
+  .prose .md-table tbody tr:nth-child(odd),
+  .markdown-content .md-table tbody tr:nth-child(odd),
+  .prose table tbody tr:nth-child(odd),
+  .markdown-content table tbody tr:nth-child(odd) {
+    background: rgba(148, 163, 184, 0.04);
+  }
+}

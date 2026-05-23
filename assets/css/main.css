@@ -1,0 +1,306 @@
+@import url('./prose.css');
+/* Minimal marquee utility classes to avoid vendor Tailwind layers */
+@keyframes marquee-left{from{transform:translateX(0)}to{transform:translateX(calc(-100% - var(--gap,1rem)))}}
+@keyframes marquee-up{from{transform:translateY(0)}to{transform:translateY(calc(-100% - var(--gap,1rem)))}}
+.animate-marquee-left{animation: marquee-left var(--duration,40s) linear infinite}
+.animate-marquee-up{animation: marquee-up var(--duration,40s) linear infinite}
+.direction-reverse{animation-direction: reverse}
+.marquee-flex-row{display:flex;flex-direction:row}
+.marquee-flex-column{display:flex;flex-direction:column}
+.group:hover .group-hover\:\[animation-play-state\:paused\]{animation-play-state: paused}
+.flex{display:flex}
+.justify-around{justify-content:space-around}
+.gap-\[1rem\]{gap:1rem}
+.gap-\[3rem\]{gap:3rem}
+.overflow-hidden{overflow:hidden}
+.shrink-0{flex-shrink:0}
+@font-face {
+    font-family: Zodiak;
+    src: url(//cdn.fontshare.com/wf/UDGW4K5KDO2WNP2256GU5CP7HQDVADLQ/LML445TYWQT7TRPDYZPCIVB3BJWX7NTD/2O5TXCJMYUDHI5FO6N4PXN6WNROSBHNU.woff2) format("woff2"),url(//cdn.fontshare.com/wf/UDGW4K5KDO2WNP2256GU5CP7HQDVADLQ/LML445TYWQT7TRPDYZPCIVB3BJWX7NTD/2O5TXCJMYUDHI5FO6N4PXN6WNROSBHNU.woff) format("woff"),url(//cdn.fontshare.com/wf/UDGW4K5KDO2WNP2256GU5CP7HQDVADLQ/LML445TYWQT7TRPDYZPCIVB3BJWX7NTD/2O5TXCJMYUDHI5FO6N4PXN6WNROSBHNU.ttf) format("truetype");
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "CabinetGrotesk";
+    src: url("./fonts/CabinetGrotesk-Variable.ttf") format("truetype-variations");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 1000;
+  }
+  @font-face {
+    font-family: "Satoshi";
+    src: url("./fonts/Satoshi-Variable.ttf") format("truetype-variations");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 1000;
+  }
+
+body {
+    margin: 0;
+    font-family: "Satoshi", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Cabinet Grotesk", sans-serif;
+  }
+  p {
+    font-family: "Satoshi", sans-serif;
+  }
+
+  b {
+    font-weight: 700 !important;
+  }
+
+  .font-serif{
+    font-family: "Zodiak", serif;
+  }
+
+.bg-darkslate-700 {
+    --un-bg-opacity: 1;
+    background-color: rgb(17 17 17 / var(--un-bg-opacity));
+}
+.bg-darkslate-500, .bg-gray-900, .bg-neutral-900 {
+    --un-bg-opacity: 1;
+    background-color: rgb(23 23 23 / var(--un-bg-opacity));
+}
+
+
+.border-darkslate-100 {
+    --un-border-opacity: 1;
+    border-color: rgb(44 44 44 / var(--un-border-opacity))
+}
+
+.border-primary-500,.hover\:border-primary-500:hover {
+    --un-border-opacity: 1;
+    border-color: rgb(230 57 70 / var(--un-border-opacity))
+}
+
+
+.shadow-custom {
+    --un-shadow: 2px 2px #E63946 !important;
+    box-shadow: 0 0 rgb(0 0 0 / 0),0 0 rgb(0 0 0 / 0),var(--un-shadow);
+}
+
+.vibrate {
+    animation: horizontalTic 2s linear infinite;
+  }
+  @keyframes horizontalTic {
+    0%, 100% { transform: translateX(0); }
+    10% { transform: translateX(-2px); }
+    20% { transform: translateX(2px); }
+    30% { transform: translateX(-2px); }
+    40% { transform: translateX(2px); }
+    50% { transform: translateX(0); }
+    60% { transform: translateX(-2px); }
+    70% { transform: translateX(2px); }
+    80% { transform: translateX(-2px); }
+    90% { transform: translateX(2px); }
+  }
+
+  #wave {
+    animation: waveAnimation 2s ease-in-out 2s infinite alternate;
+    display: inline-block;
+    transform: rotate(-15deg);
+    transform-origin: 70% 70%;
+    will-change: transform;
+}
+
+@keyframes waveAnimation {
+    0%, 100% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+}
+
+/* Portfolio Grid Responsive Utilities */
+.portfolio-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+@media (min-width: 640px) {
+  .portfolio-grid {
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-grid {
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .portfolio-grid {
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+/* Card consistency utilities */
+.portfolio-card {
+  min-height: 420px;
+}
+
+/* Apple Liquid Glass effect for timeline cards */
+.liquid-glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(200,200,255,0.10) 100%);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.18);
+  transition: box-shadow 0.3s, border 0.3s;
+}
+.liquid-glass-card:hover {
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.28);
+  border: 1.5px solid rgba(255,255,255,0.28);
+}
+
+@media (min-width: 640px) {
+  .portfolio-card {
+    min-height: 450px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-card {
+    min-height: 440px;
+  }
+}
+
+/* Enhanced hover and focus states */
+.portfolio-card:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.portfolio-card:focus-within {
+  outline: 2px solid #E63946;
+  outline-offset: 2px;
+}
+
+@keyframes waveAnimation {
+0% {
+    transform: rotate(-15deg);
+}
+50% {
+    transform: rotate(15deg);
+}
+100% {
+    transform: rotate(-15deg);
+}
+}
+
+.world-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+/* Meteor animation */
+@keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(215deg) translateX(-500px);
+    opacity: 0;
+  }
+}
+
+.animate-meteor {
+  animation: meteor linear infinite;
+}
+
+/* Aurora animation */
+@keyframes aurora {
+  0% {
+    background-position: 50% 50%, 50% 50%;
+  }
+  25% {
+    background-position: 100% 100%, 100% 50%;
+  }
+  50% {
+    background-position: 200% 50%, 200% 100%;
+  }
+  75% {
+    background-position: 300% 100%, 300% 50%;
+  }
+  100% {
+    background-position: 400% 50%, 400% 50%;
+  }
+}
+
+.animate-aurora {
+  animation: aurora 20s ease-in-out infinite;
+}
+
+/* Pause support: when the animating element has .paused, stop the keyframes */
+.animate-aurora.paused,
+.animate-aurora.paused::after {
+  animation-play-state: paused !important;
+}
+
+/* Respect reduced motion settings — force final visible state so content is never hidden */
+@media (prefers-reduced-motion: reduce) {
+  .animate-aurora,
+  .animate-aurora::after,
+  .animate-meteor,
+  .animate-pulse {
+    animation: none !important;
+  }
+
+  [data-motion],
+  .blur-fade-fallback {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 8s infinite !important;
+  }
+}
+
+/* Performance optimizations for low-end devices */
+@media (max-width: 768px), (pointer: coarse) {
+  .animate-aurora {
+    animation-duration: 30s; /* Slower animation */
+  }
+  
+  /* Preserve shimmer on all devices */
+  .animate-shimmer {
+    animation-duration: 8s !important;
+  }
+}
+
+/* Windows Chrome performance fixes */
+@supports (-webkit-appearance: none) {
+  .animate-aurora {
+    will-change: auto;
+  }
+  
+  /* Ensure shimmer works properly on Windows Chrome */
+  .animate-shimmer {
+    will-change: background-position;
+  }
+}
+
