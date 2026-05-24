@@ -27,7 +27,7 @@ This is a modern, quasi-minimal, and highly customizable portfolio template buil
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ```bash
 # Clone repo
@@ -50,7 +50,7 @@ $ npm run dev
 
 ---
 
-## 🛠️ Connect Your Own Sanity Headless CMS
+## Connect Your Own Sanity Headless CMS
 
 1. [Create a Sanity.io project](https://www.sanity.io/get-started) and set up your schemas for projects, case studies, and blog posts.
 2. In your Nuxt app, set the following environment variables (in a `.env` file or your deployment platform):
