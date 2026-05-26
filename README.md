@@ -100,7 +100,7 @@ Have feature requests or suggestions? Use the contact form button in the Bento-g
 
 ---
 
-**Check out the live project:** [![Visit www.taylorferguson.xyz](https://img.shields.io/badge/Visit-www.taylorferguson.xyz-1e90ff?style=for-the-badge&logo=google-chrome)](https://www.taylorferguson.xyz)
+**Check out the live project:** [![Visit www.taylorferguson.xyz](https://img.shields.io/badge/Visit-www.taylorferguson.xyz-1e90ff?style=for-the-badge&logo=google-chrome)](https://www.taylorjferguson.com)
 
 <br>
 
