@@ -1,17 +1,13 @@
 <template>
   <Card colSpan="md:col-span-1" rowSpan="md:row-span-2">
-    <AnimatedShinyText
-      class="transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400"
-    >
-      <span class="flex items-center gap-2">
-        <img 
-          src="/assets/css/rails-svgrepo-com.svg" 
-          alt="Ruby on Rails" 
-          class="rails-logo inline-block"
-        />
-        Backend powered by Ruby on Rails and PostgreSQL
-      </span>
-    </AnimatedShinyText>
+    <span class="flex items-center gap-2 text-gray-400 text-sm">
+      <img 
+        src="/assets/css/rails-svgrepo-com.svg" 
+        alt="Ruby on Rails" 
+        class="rails-logo inline-block grayscale opacity-60"
+      />
+      Backend powered by Ruby on Rails and PostgreSQL
+    </span>
     <div class="line-separator"></div>
   </Card>
 </template>

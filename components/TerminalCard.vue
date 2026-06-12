@@ -183,7 +183,7 @@ onBeforeUnmount(() => {
             <span 
               :class="[
                 'terminal-text',
-                line.type === 'command' ? 'text-green-400' : 'text-gray-300'
+                line.type === 'command' ? 'text-gray-400' : 'text-gray-500'
               ]"
             >
               {{ line.text }}
@@ -219,7 +219,7 @@ onBeforeUnmount(() => {
 }
 
 .cursor {
-  color: #10b981;
+  color: #9ca3af;
   display: inline-block;
   transition: opacity 100ms;
   animation: blink 1s infinite;
@@ -253,12 +253,12 @@ onBeforeUnmount(() => {
 }
 
 /* Terminal color scheme */
-.text-green-400 {
-  color: #10b981;
+.text-gray-400 {
+  color: #9ca3af;
 }
 
-.text-gray-300 {
-  color: #d1d5db;
+.text-gray-500 {
+  color: #6b7280;
 }
 
 /* Replay button */

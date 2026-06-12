@@ -1,6 +1,4 @@
 <script setup>
-
-import AnimatedShinyText from "./AnimatedShinyText.vue";
 </script>
 
 <template>

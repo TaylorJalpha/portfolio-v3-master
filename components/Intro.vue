@@ -4,7 +4,7 @@
       <div class="flex flex-col justify-between md:max-h-[300px] gap-4">
         <div class="flex flex-col h-full">
           <h6 class="text-sm font-light m-0 text-gray-100">
-            Good day <Sun :size="16" class="inline-block align-text-bottom animate-spin-slow text-amber-400" />
+            Good day <Sun :size="16" class="inline-block align-text-bottom text-amber-400" />
           </h6>
           <p class="m-0 font-light text-xl">
             I'm <b>Taylor J. Ferguson</b>, a Sr Technical Product & Program Manager with 7+ years driving product strategy, cross-functional delivery, and technical execution across fintech, consultancy, and emerging tech — turning ambiguous mandates into shipped outcomes that move business metrics.

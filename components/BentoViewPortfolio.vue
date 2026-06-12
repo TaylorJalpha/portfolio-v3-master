@@ -15,45 +15,23 @@ const { data, pending, error } = useHeroSpotlight()
           </AnimatedShinyText>
         </div>
         <div class="relative overflow-hidden rounded-md aspect-[16/9] mb-4"> 
-          <!-- Two-Row Skills Marquee with opposite directions -->
-          <div class="absolute inset-0 flex flex-col justify-center">
-            <!-- First row - left to right -->
-            <div class="marquee-row animate-marquee-scroll mb-2">
-              <div class="marquee-content">
-                <div class="skill-badge"><BarChart3 :size="14" class="flex-shrink-0" /><span>Product Strategy</span></div>
-                <div class="skill-badge"><Search :size="14" class="flex-shrink-0" /><span>Market Research</span></div>
-                <div class="skill-badge"><Zap :size="14" class="flex-shrink-0" /><span>Agile/Scrum</span></div>
-                <div class="skill-badge"><TrendingUp :size="14" class="flex-shrink-0" /><span>Data Analytics</span></div>
-                <div class="skill-badge"><Target :size="14" class="flex-shrink-0" /><span>KPI Optimization</span></div>
-                <div class="skill-badge"><Lightbulb :size="14" class="flex-shrink-0" /><span>Feature Innovation</span></div>
-              </div>
-              <div class="marquee-content" aria-hidden="true">
-                <div class="skill-badge"><BarChart3 :size="14" class="flex-shrink-0" /><span>Product Strategy</span></div>
-                <div class="skill-badge"><Search :size="14" class="flex-shrink-0" /><span>Market Research</span></div>
-                <div class="skill-badge"><Zap :size="14" class="flex-shrink-0" /><span>Agile/Scrum</span></div>
-                <div class="skill-badge"><TrendingUp :size="14" class="flex-shrink-0" /><span>Data Analytics</span></div>
-                <div class="skill-badge"><Target :size="14" class="flex-shrink-0" /><span>KPI Optimization</span></div>
-                <div class="skill-badge"><Lightbulb :size="14" class="flex-shrink-0" /><span>Feature Innovation</span></div>
-              </div>
+          <!-- Static Skills Marquee Rows -->
+          <div class="absolute inset-0 flex flex-col justify-center gap-2 overflow-hidden">
+            <div class="flex gap-3 whitespace-nowrap">
+              <div class="skill-badge"><BarChart3 :size="14" class="flex-shrink-0" /><span>Product Strategy</span></div>
+              <div class="skill-badge"><Search :size="14" class="flex-shrink-0" /><span>Market Research</span></div>
+              <div class="skill-badge"><Zap :size="14" class="flex-shrink-0" /><span>Agile/Scrum</span></div>
+              <div class="skill-badge"><TrendingUp :size="14" class="flex-shrink-0" /><span>Data Analytics</span></div>
+              <div class="skill-badge"><Target :size="14" class="flex-shrink-0" /><span>KPI Optimization</span></div>
+              <div class="skill-badge"><Lightbulb :size="14" class="flex-shrink-0" /><span>Feature Innovation</span></div>
             </div>
-            <!-- Second row - right to left -->
-            <div class="marquee-row animate-marquee-scroll-reverse">
-              <div class="marquee-content">
-                <div class="skill-badge"><Link :size="14" class="flex-shrink-0" /><span>API Design</span></div>
-                <div class="skill-badge"><Settings :size="14" class="flex-shrink-0" /><span>System Integration</span></div>
-                <div class="skill-badge"><Building2 :size="14" class="flex-shrink-0" /><span>Platform Architecture</span></div>
-                <div class="skill-badge"><Activity :size="14" class="flex-shrink-0" /><span>Performance Metrics</span></div>
-                <div class="skill-badge"><Shield :size="14" class="flex-shrink-0" /><span>Security & Compliance</span></div>
-                <div class="skill-badge"><Cloud :size="14" class="flex-shrink-0" /><span>Cloud Infrastructure</span></div>
-              </div>
-              <div class="marquee-content" aria-hidden="true">
-                <div class="skill-badge"><Link :size="14" class="flex-shrink-0" /><span>API Design</span></div>
-                <div class="skill-badge"><Settings :size="14" class="flex-shrink-0" /><span>System Integration</span></div>
-                <div class="skill-badge"><Building2 :size="14" class="flex-shrink-0" /><span>Platform Architecture</span></div>
-                <div class="skill-badge"><Activity :size="14" class="flex-shrink-0" /><span>Performance Metrics</span></div>
-                <div class="skill-badge"><Shield :size="14" class="flex-shrink-0" /><span>Security & Compliance</span></div>
-                <div class="skill-badge"><Cloud :size="14" class="flex-shrink-0" /><span>Cloud Infrastructure</span></div>
-              </div>
+            <div class="flex gap-3 whitespace-nowrap">
+              <div class="skill-badge"><Link :size="14" class="flex-shrink-0" /><span>API Design</span></div>
+              <div class="skill-badge"><Settings :size="14" class="flex-shrink-0" /><span>System Integration</span></div>
+              <div class="skill-badge"><Building2 :size="14" class="flex-shrink-0" /><span>Platform Architecture</span></div>
+              <div class="skill-badge"><Activity :size="14" class="flex-shrink-0" /><span>Performance Metrics</span></div>
+              <div class="skill-badge"><Shield :size="14" class="flex-shrink-0" /><span>Security & Compliance</span></div>
+              <div class="skill-badge"><Cloud :size="14" class="flex-shrink-0" /><span>Cloud Infrastructure</span></div>
             </div>
           </div>
           <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div>
@@ -189,47 +167,7 @@ const { data, pending, error } = useHeroSpotlight()
   flex-shrink: 0;
 }
 
-/* Marquee container and content styling */
-.marquee-row {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  width: max-content;
-}
 
-.marquee-content {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  min-width: 100%; /* Ensure each content section takes full width */
-}
-
-/* Marquee animations - simplified approach */
-@keyframes marquee-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%); /* Move by exactly half the total width */
-  }
-}
-
-@keyframes marquee-scroll-reverse {
-  0% {
-    transform: translateX(-50%); /* Start from half width away */
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.animate-marquee-scroll {
-  animation: marquee-scroll 38s linear infinite;
-}
-
-.animate-marquee-scroll-reverse {
-  animation: marquee-scroll-reverse 34s linear infinite;
-}
 
 /* Title hover tooltip */
 .title-tooltip {

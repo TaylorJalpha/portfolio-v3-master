@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRoute } from 'vue-router'
 import { useExperiences } from '@/composables/useExperiences'
 import { useTimelineAnimation } from '@/composables/useTimelineAnimation'
 import Meteors from '~/components/Meteors.vue'
@@ -9,6 +10,7 @@ import Footer from '~/components/Footer.vue'
 import BlurFade from '~/components/BlurFade.vue'
 import PixelBlast from '~/components/ui/PixelBlast.vue'
 
+const route = useRoute()
 const { experiences } = useExperiences()
 
 // New composable-driven animation (earlier reveal + smoother)
@@ -35,7 +37,7 @@ const { setItemRef: setTimelineItemRef, activeIndex, scrollProgress } = useTimel
       </div>
     </div>
 
-    <Meteors :number="30" />
+    <Meteors v-if="route.path !== '/'" :number="30" />
 
     <!-- Hero Bento Grid Section - Keep original constraints -->
     <main
